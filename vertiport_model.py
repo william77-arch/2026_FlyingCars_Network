@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # STEP 1: LOAD DATA
 # =========================
 
-INPUT_FILE = "sa2_master_with_hospital_distance 2.xlsx"
+INPUT_FILE = "sa2_master_with_hospital_distance.xlsx"
 
 
 def load_data(path: str) -> pd.DataFrame:
