@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 # STEP 1: LOAD DATA
 # =========================
 
-INPUT_FILE = "sa2_master_with_hospital_distance 2.xlsx"
+INPUT_FILE = "sa2_master_with_hospital_distance.xlsx"
 
 
 def load_data(path: str) -> pd.DataFrame:
@@ -450,13 +450,14 @@ def select_vertiports_network(df: pd.DataFrame) -> pd.DataFrame:
     covered_pct = covered_pop / total_pop * 100.0
     print(f"\nSTEP 4: Selected {len(selected)} vertiports.")
     print(f"STEP 4: Population covered within {COVERAGE_THRESHOLD_MIN:.0f} min to a port: {covered_pct:.1f}%")
-
+    
     codes = selected["abs_code"]
     for c in codes:
         name = df.loc[df["abs_code"] == c, "sa2_name"].values[0]
         print(name)
     
-    return selected
+    # Covered_pct has the population % as a decimal
+    return selected, covered_pct
 
 # =========================
 # STEP 5: NETWORK ACCESSIBILITY SIMULATION
@@ -563,7 +564,8 @@ def run_one_scenario(df_base: pd.DataFrame, scenario_name: str, i) -> dict:
     df_scored = compute_scores(df_base, SCORING_CONFIG)
 
     # Step 4: select ports (uses global K_PORTS, MIN_PORT_SEPARATION_KM, UAV_SPEED_KMH, UAV_RANGE_KM, COVERAGE_THRESHOLD_MIN, ALPHA_COVERAGE)
-    ports = select_vertiports_network(df_scored)
+    ports, pct_currentscenario = select_vertiports_network(df_scored)
+    
 
     #Plot the acquired port locations on map
     plot_vertiports_map(df_scored, ports, i)
@@ -637,6 +639,8 @@ def run_one_scenario(df_base: pd.DataFrame, scenario_name: str, i) -> dict:
         "cov45_uav_pop_pct": float(cov45_uav),
         "cov60_uav_pop_pct": float(cov60_uav),
         "equity_gap_time_saved_min": float(equity_gap),
+        
+        "pct_coverage" : pct_currentscenario,
     }
 
 
@@ -796,6 +800,21 @@ def plot_vertiports_map(df, selected_ports, i):
     #Name the file and save
     m.save(f"vertiports{i}_map.html")
     print(f"Saved: vertiports{i}_map.html")
+    
+# =========================
+# STEP 8: MAXING VERTIPORT % WIP
+# =========================
+def output_average_vp_coverage(sens):
+    # Convert to numpy to perform numeric stuff
+    pct_coverage_list = sens["pct_coverage"].to_numpy();
+    
+    average_pct_coverage = np.mean(pct_coverage_list);
+    
+    print(f"Current average coverage across scenario is {average_pct_coverage:.1f}%")
+          
+    return average_pct_coverage;
+
+
 
 # =========================
 # Add to MAIN (at the end)
@@ -809,6 +828,8 @@ if __name__ == "__main__":
 
     # Run sensitivity experiments
     sens = sensitivity_analysis(df)
+    
+    output_average_vp_coverage(sens);
 
     # Save results table
     sens.to_excel("sensitivity_results.xlsx", index=False)
