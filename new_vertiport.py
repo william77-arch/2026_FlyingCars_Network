@@ -786,7 +786,7 @@ import folium
 def plot_vertiports_map(df, selected_ports, i):
     center_lat = df["latitude"].mean()
     center_lon = df["longitude"].mean()
-    
+
     m = folium.Map(location=[center_lat, center_lon], zoom_start=6)
 
     # Plot selected vertiports
@@ -794,10 +794,42 @@ def plot_vertiports_map(df, selected_ports, i):
         folium.Marker(
             location=[row["latitude"], row["longitude"]],
             popup=f"{row['sa2_name']} (Rank {row['selected_rank']})",
-            tooltip=row["sa2_name"]
+            tooltip=row["sa2_name"],
+            tiles="CartoDB positron"
         ).add_to(m)
 
-    #Name the file and save
+    # Label the distance between every pair of vertiports
+    ports_list = selected_ports.reset_index(drop=True)
+    for p1 in range(len(ports_list)):
+        for p2 in range(p1 + 1, len(ports_list)):
+            lat1 = ports_list.loc[p1, "latitude"]
+            lon1 = ports_list.loc[p1, "longitude"]
+            lat2 = ports_list.loc[p2, "latitude"]
+            lon2 = ports_list.loc[p2, "longitude"]
+
+            dist = haversine_km(lat1, lon1, lat2, lon2)
+
+            folium.PolyLine(
+                locations=[[lat1, lon1], [lat2, lon2]],
+                color="red",
+                weight=3,
+                opacity=0.5,
+                tooltip=f"{ports_list.loc[p1, 'sa2_name']} ↔ {ports_list.loc[p2, 'sa2_name']}: {dist:.1f} km"
+            ).add_to(m)
+
+            # Put distance label at midpoint of the line
+            mid_lat = (lat1 + lat2) / 2
+            mid_lon = (lon1 + lon2) / 2
+            folium.Marker(
+                location=[mid_lat, mid_lon],
+                icon=folium.DivIcon(
+                    html=f'''<div style="font-size:9px; color:blue; background:white;
+                    padding:1px 3px; border-radius:3px; opacity:0.8">{dist:.0f} km</div>''',
+                    icon_size=(55, 18),
+                    icon_anchor=(27, 9),
+                )
+            ).add_to(m)
+
     m.save(f"vertiports{i}_map.html")
     print(f"Saved: vertiports{i}_map.html")
     
