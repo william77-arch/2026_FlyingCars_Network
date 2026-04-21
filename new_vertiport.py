@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 # =========================
 
 INPUT_FILE = "sa2_master_with_hospital_distance.xlsx"
+HOSPITAL_FILE = "Emergency_hospitals_with_lat_lon.xlsx"
 
 
 def load_data(path: str) -> pd.DataFrame:
@@ -80,6 +81,21 @@ def load_data(path: str) -> pd.DataFrame:
 
     return df.reset_index(drop=True)
 
+def load_hospitals(path):
+    h = pd.read_excel(path)
+    print("\nLoaded file:", path)
+    print("Rows:", len(h), "Cols:", len(h.columns))
+
+    required = ["latitude", "longitude"]
+    missing = [c for c in required if c not in h.columns]
+    if missing:
+        raise KeyError("Hospital file missing columns:\n" + "\n".join(missing))
+
+    #Drop row having missing latitute or longitude values
+    h = h.dropna(subset=["latitude", "longitude"])
+    h = h.reset_index(drop=True)
+
+    return h
 
 # =========================
 # STEP 2: FEATURE ENGINEERING
@@ -459,6 +475,40 @@ def select_vertiports_network(df: pd.DataFrame) -> pd.DataFrame:
     # Covered_pct has the population % as a decimal
     return selected, covered_pct
 
+def attach_nearest_hospital_to_ports(ports, hospitals):
+    names, lats, lons, dists = [], [], [], []
+
+    for _, row in ports.iterrows():
+
+        best_d = float("inf")
+        best_h = None
+
+        #Find the nearest hospital to the selected vertiport and its distance
+        for _, h in hospitals.iterrows():
+            d = haversine_km(
+                row["latitude"], row["longitude"],
+                h["latitude"], h["longitude"]
+            )
+
+            if d < best_d:
+                best_d = d
+                best_h = h
+ 
+        #Add the information of the hospitals to the respected lists
+        names.append(best_h.get("Name", "Hospital"))
+        lats.append(best_h["latitude"])
+        lons.append(best_h["longitude"])
+        dists.append(best_d)
+
+    #Add columns to selected ports data
+    ports = ports.copy()
+    ports["nearest_hospital_name"] = names
+    ports["nearest_hospital_lat"] = lats
+    ports["nearest_hospital_lon"] = lons
+    ports["nearest_hospital_dist"] = dists
+
+    return ports
+
 # =========================
 # STEP 5: NETWORK ACCESSIBILITY SIMULATION
 # =========================
@@ -565,11 +615,13 @@ def run_one_scenario(df_base: pd.DataFrame, scenario_name: str, i) -> dict:
 
     # Step 4: select ports (uses global K_PORTS, MIN_PORT_SEPARATION_KM, UAV_SPEED_KMH, UAV_RANGE_KM, COVERAGE_THRESHOLD_MIN, ALPHA_COVERAGE)
     ports, pct_currentscenario = select_vertiports_network(df_scored)
-    
+
+    #Find hospitals closest to selected locations
+    ports = attach_nearest_hospital_to_ports(ports, hospitals)
 
     #Plot the acquired port locations on map
     plot_vertiports_map(df_scored, ports, i)
-
+    
     # Step 5: accessibility (uses ROAD_SPEED_KMH, UAV_SPEED_KMH_NETWORK)
     results = compute_accessibility(df_scored, ports)
 
@@ -798,6 +850,37 @@ def plot_vertiports_map(df, selected_ports, i):
             tiles="CartoDB positron"
         ).add_to(m)
 
+        #Plot nearest hospital to each vertiport
+        folium.Marker(
+            location=[row["nearest_hospital_lat"], row["nearest_hospital_lon"]],
+            icon=folium.Icon(color="red", icon="h-square", prefix="fa"),
+            popup=row["nearest_hospital_name"]
+        ).add_to(m)
+
+        #Label distance to nearest hospital for each location
+        folium.PolyLine(
+            locations=[
+                [row["latitude"], row["longitude"]],
+                [row["nearest_hospital_lat"], row["nearest_hospital_lon"]]
+            ],
+            color="green",
+            weight=2,
+            opacity=0.7,
+            tooltip=f"{row['sa2_name']} → {row['nearest_hospital_name']}: {row['nearest_hospital_dist']:.1f} km"
+        ).add_to(m)
+
+        
+        mid_lat = (row["latitude"] + row["nearest_hospital_lat"]) / 2
+        mid_lon = (row["longitude"] + row["nearest_hospital_lon"]) / 2
+        folium.Marker(
+            location=[mid_lat, mid_lon],
+            icon=folium.DivIcon(
+                html=f'<div style="font-size:9px; color:green; background:white; padding:1px 3px; border-radius:3px; opacity:0.8">{row["nearest_hospital_dist"]:.0f} km</div>',
+                icon_size=(55, 18),
+                icon_anchor=(27, 9),
+            )
+        ).add_to(m)
+
     # Label the distance between every pair of vertiports
     ports_list = selected_ports.reset_index(drop=True)
     for p1 in range(len(ports_list)):
@@ -830,6 +913,7 @@ def plot_vertiports_map(df, selected_ports, i):
                 )
             ).add_to(m)
 
+
     m.save(f"vertiports{i}_map.html")
     print(f"Saved: vertiports{i}_map.html")
     
@@ -855,6 +939,7 @@ def output_average_vp_coverage(sens):
 # run sensitivity:
 
 if __name__ == "__main__":
+    hospitals = load_hospitals(HOSPITAL_FILE)
     df = load_data(INPUT_FILE)
     df = add_features(df)
 
