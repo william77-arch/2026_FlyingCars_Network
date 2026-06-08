@@ -827,6 +827,68 @@ def plot_sensitivity(df_sens: pd.DataFrame):
         plt.title("Sensitivity: time saved vs UAV speed")
         plt.tight_layout()
         plt.savefig("sensitivity_uav_speed.png", dpi=200)
+        
+    # Pie plot of criteria weightings
+    pieplot_labels = list(SCORING_CONFIG["criteria_weights"].keys())
+    pieplot_weights = list(SCORING_CONFIG["criteria_weights"].values())
+    plt.figure()
+    plt.pie(pieplot_weights, labels = pieplot_labels, autopct="%1.0f%%", wedgeprops={"edgecolor": "black"})
+    plt.title("Criteria weight contribution")
+    plt.tight_layout()
+    plt.savefig("criteria_weight_pie.png", dpi=200)
+    
+    # Pie plot of indicator weightings contribution to whole
+    cum_labels = []
+    cum_weights = []
+    for i in SCORING_CONFIG["criteria_weights"]:
+        # Goes through all the diff criterias
+        current_criteria_weight = SCORING_CONFIG["criteria_weights"][i]
+        # Goes through the indicators in each criteria
+        for j in SCORING_CONFIG["criteria_indicators"][i]:
+            # j[0] is col name, j[2] is weighting which multiplied to criteria weight
+            # Name way too long so it needs to be shortened
+            if j[0] == "seifa_index_of_relative_socio_economic_advantage_and_disadvantage_irsad_rank_within_australia_decile":
+                cum_labels.append("seifa_decile")
+            else:
+                cum_labels.append(j[0])
+            cum_weights.append(j[2] * current_criteria_weight)
+            
+    plt.figure(figsize = (9,7))
+    plt.pie(cum_weights, labels = cum_labels, autopct="%1.0f%%", wedgeprops={"edgecolor": "black"})
+    plt.title("Criteria weight contribution")
+    plt.savefig("indicator_pie.png", dpi=200)
+    
+    # Coverage boxplot
+    coverage_data = df_sens[df_sens["scenario"] == "base"].iloc[0]
+    coverage_time_cases = [30, 45, 60]
+    base_values = [coverage_data[f"cov{i}_base_pop_pct"] for i in coverage_time_cases]
+    uav_values = [coverage_data[f"cov{i}_uav_pop_pct"] for i in coverage_time_cases]
+    
+    # Setup for ticks
+    cov_x = np.arange(3)
+    
+    plt.figure()
+    plt.bar(cov_x - 0.15, base_values, width = 0.3, label = 'Base')
+    plt.bar(cov_x + 0.15, uav_values, width = 0.3, label = 'UAV')
+    plt.xticks(cov_x, [f"{i} mins" for i in coverage_time_cases])
+    plt.ylabel("Population covarage (%)")
+    plt.title("Base v UAV coverage")
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("Base_v_UAV.png", dpi = 200)
+    
+    # Pct coverage (%) for scenarios
+    plt.figure()
+    plt.bar(df_sens["scenario"], df_sens["pct_coverage"])
+    plt.xticks(rotation = 90)
+    plt.ylabel("Population covarage (%)")
+    plt.title("Coverage on diff scenarios")
+    plt.tight_layout()
+    plt.savefig("pct_coverage.png", dpi = 200)
+    
+    
+            
+    
 
 
 # =========================
