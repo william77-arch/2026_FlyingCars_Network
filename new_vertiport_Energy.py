@@ -107,6 +107,7 @@ def load_stations(path):
     
     # Lat, lon coords for distance calc later
     st["X"] = pd.to_numeric(st["X"], errors="coerce")  
+    st["Y"] = pd.to_numeric(st["Y"], errors="coerce")
     
     # Remove missing 
     st = st.dropna(subset=["X", "Y"]).reset_index(drop=True)
