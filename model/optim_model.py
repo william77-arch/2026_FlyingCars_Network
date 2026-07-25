@@ -30,6 +30,7 @@ hospital_coords  = dict(zip(dfh['Name'], zip(dfh['latitude'], dfh['longitude']))
 
 UAV_SPEED_KMH = 120
 TIME_THRESHOLD = 90
+COVERAGE_THRESHOLD = 0.85 # Minimum coverage percentage (0.0 to 1.0)
 
 #--------------------
 # D_IH MATRIX
@@ -160,7 +161,7 @@ m.obj = Objective(expr=sum(m.y[j] for j in J), sense=minimize)
 m.cov = Constraint(m.I, rule=lambda m, i:
     m.z[i] <= sum(a[i, j] * m.y[j] for j in J))
 
-m.demand = Constraint(expr= sum(m.z[i] for i in I) >= 0.85 * len(I))
+m.demand = Constraint(expr= sum(m.z[i] for i in I) >= COVERAGE_THRESHOLD * len(I))
 
 SolverFactory('cbc').solve(m)
 
