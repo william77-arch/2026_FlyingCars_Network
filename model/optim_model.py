@@ -3,9 +3,10 @@ import numpy as np
 from pyomo.environ import *
 from math import radians, sin, cos, sqrt, atan2, floor
 import requests
-import pickle
 import time
 import folium
+import matplotlib.pyplot as plt
+import numpy as np
 
 #--------------------
 # LOAD THE DATA SETS
@@ -28,17 +29,15 @@ hospital_coords  = dict(zip(dfh['Name'], zip(dfh['latitude'], dfh['longitude']))
 #   PARAMETERS
 #--------------------
 
-UAV_SPEED_KMH = 120
-TIME_THRESHOLD = 90
-COVERAGE_THRESHOLD = 0.85 # Minimum coverage percentage (0.0 to 1.0)
+UAV_SPEED_KMH = 250
+TIME_THRESHOLD = 120
 
 #--------------------
 # D_IH MATRIX
 #--------------------
 # Form a matrix describing distance between each candidate vertiport and hospital
-'''
 # Get the actual distance rather than the mathematical distance
- 
+'''
 def haversine_km(lat1, lon1, lat2, lon2) -> float:
     R = 6371.0
     lat1, lon1, lat2, lon2 = map(radians, [float(lat1), float(lon1), float(lat2), float(lon2)])
@@ -103,6 +102,7 @@ def get_osrm_table(demand_coords, candidate_coords, chunk_size=25):
             response = requests.get(url, timeout=60)
             data = response.json()
 
+            # Add the data to the list
             for i, i_name in enumerate(i_keys):
                 for j, j_name in enumerate(j_keys):
                     rows.append({
@@ -124,10 +124,12 @@ print(f"D_ij matrix saved")
 #------------------
 # COVERAGE MATRIX
 #------------------
+
 d_ih = pd.read_excel('vertiport_hospital_distances.xlsx')
 d_ih = d_ih.set_index('vertiport')
 d_ij = pd.read_excel('d_ij.xlsx')
 
+# Extract the road time from d_ij matrix and store it in a dictionary 
 road_time_lookup = {(row['sa2'], row['vertiport']): row['time_min'] 
                     for _, row in d_ij.iterrows()}
 
@@ -138,14 +140,13 @@ for i in demand_coords:
         road_time = road_time_lookup[i, j]
         air_time  = d_ih.loc[j].min() / UAV_SPEED_KMH * 60
         if road_time + air_time <= TIME_THRESHOLD:
-            a[i, j] = 1
+            a[i, j] = 1 # SA2 = 1 if covered within time
         else:
-            a[i,j] = 0
+            a[i,j] = 0 # SA2 = 0 if not covered within time
 
 #--------------------
 # PYOMO MODEL
 #--------------------
-
 I = list(demand_coords.keys())
 J = list(candidate_coords.keys())
 
@@ -158,13 +159,134 @@ m.z = Var(m.I, domain=Binary)   # 1 = this SA2 is covered
 
 m.obj = Objective(expr=sum(m.y[j] for j in J), sense=minimize)
 
+# Add coverage constraint
 m.cov = Constraint(m.I, rule=lambda m, i:
     m.z[i] <= sum(a[i, j] * m.y[j] for j in J))
 
-m.demand = Constraint(expr= sum(m.z[i] for i in I) >= COVERAGE_THRESHOLD * len(I))
+# Adjust coverage percentage criteria 
+m.demand = Constraint(expr= sum(m.z[i] for i in I) >= 0.9 * len(I))
 
 SolverFactory('cbc').solve(m)
 
+#--------------------
+# SENSITIVITY ANALYSIS
+#--------------------
+'''
+time_thresholds  = [30, 45, 60, 75, 90, 105, 120]
+coverage_targets = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]
+
+d_ih = pd.read_excel('vertiport_hospital_distances.xlsx')
+d_ih = d_ih.set_index('vertiport')
+d_ij = pd.read_excel('d_ij.xlsx')
+
+road_time_lookup = {(row['sa2'], row['vertiport']): row['time_min'] 
+                    for _, row in d_ij.iterrows()}
+
+results = {}
+
+for T in time_thresholds:
+    a = {}
+    for i in demand_coords:
+        for j in candidate_coords:
+            road_time = road_time_lookup[i, j]
+            air_time  = d_ih.loc[j].min() / UAV_SPEED_KMH * 60
+            if road_time + air_time <= T:
+                a[i, j] = 1
+            else:
+                a[i,j] = 0
+
+    for alpha in coverage_targets:
+        I = list(demand_coords.keys())
+        J = list(candidate_coords.keys())
+
+        m = ConcreteModel()
+        m.I = Set(initialize=I)
+        m.J = Set(initialize=J)
+        m.y = Var(m.J, domain=Binary)
+        m.z = Var(m.I, domain=Binary)
+
+        m.obj = Objective(expr=sum(m.y[j] for j in J), sense=minimize)
+
+        m.cov = Constraint(m.I, rule=lambda m, i:
+            m.z[i] <= sum(a[i, j] * m.y[j] for j in J))
+
+        m.demand = Constraint(expr=
+            sum(m.z[i] for i in I) >= alpha * len(I))
+
+        result = SolverFactory('cbc').solve(m)
+
+        if result.solver.termination_condition == TerminationCondition.optimal:
+            n = sum(1 for j in J if value(m.y[j]) > 0.5)
+            results[T, alpha] = n
+            print(f"T={T} min | coverage={alpha*100:.0f}% | vertiports={n}")
+        else:
+            results[T, alpha] = None
+            print(f"T={T} min | coverage={alpha*100:.0f}% | INFEASIBLE")
+
+
+fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+
+# Plot 1 — lines per coverage target, x = time threshold
+ax1 = axes[0]
+for alpha in coverage_targets:
+    y_vals = [results[T, alpha] for T in time_thresholds]
+    y_vals = [v if v is not None else np.nan for v in y_vals]
+    ax1.plot(time_thresholds, y_vals, marker='o', label=f'{alpha*100:.0f}%')
+    for T, v in zip(time_thresholds, y_vals):
+        if not np.isnan(v):
+            ax1.annotate(str(int(v)), (T, v), textcoords="offset points", xytext=(0, 6), ha='center', fontsize=8)
+
+ax1.set_xlabel('Time Threshold (minutes)')
+ax1.set_ylabel('Minimum Vertiports Required')
+ax1.set_title('Vertiports vs Time Threshold')
+ax1.legend(title='Coverage Target')
+ax1.grid(True, linestyle='--', alpha=0.5)
+
+# Plot 2 — lines per time threshold, x = coverage target
+ax2 = axes[1]
+for T in time_thresholds:
+    y_vals = [results[T, alpha] for alpha in coverage_targets]
+    y_vals = [v if v is not None else np.nan for v in y_vals]
+    ax2.plot([a*100 for a in coverage_targets], y_vals, marker='o', label=f'{T} min')
+    for alpha, v in zip(coverage_targets, y_vals):
+        if not np.isnan(v):
+            ax2.annotate(str(int(v)), (alpha*100, v), textcoords="offset points", xytext=(0, 6), ha='center', fontsize=8)
+
+ax2.set_xlabel('Coverage Target (%)')
+ax2.set_ylabel('Minimum Vertiports Required')
+ax2.set_title('Vertiports vs Coverage Target')
+ax2.legend(title='Time Threshold')
+ax2.grid(True, linestyle='--', alpha=0.5)
+
+plt.tight_layout()
+plt.savefig('sensitivity_analysis.png', dpi=150)
+plt.show()
+print("Plot saved to sensitivity_analysis.png")
+
+# for each coverage target, find the threshold where adding more time saves least vertiports
+for alpha in coverage_targets:
+    vals = [(T, results[T, alpha]) for T in time_thresholds if results[T, alpha] is not None]
+    
+    if len(vals) < 2:
+        continue
+    
+    # find biggest drop in vertiports per minute increase
+    best_efficiency = 0
+    best_T = None
+    for k in range(1, len(vals)):
+        T_prev, n_prev = vals[k-1]
+        T_curr, n_curr = vals[k]
+        if n_prev is not None and n_curr is not None:
+            drop = n_prev - n_curr          # vertiports saved
+            time_cost = T_curr - T_prev     # minutes added
+            efficiency = drop / time_cost   # vertiports saved per minute
+            if efficiency > best_efficiency:
+                best_efficiency = efficiency
+                best_T = T_curr
+    
+    print(f"Coverage {alpha*100:.0f}%: biggest gain at T={best_T} min "
+          f"({best_efficiency:.2f} vertiports saved per minute)")
+'''
 #--------------------
 # RESULTS
 #--------------------
@@ -192,16 +314,69 @@ print('\n')
 # MAP THE RESULTS
 #------------------
 
-map = folium.Map(location=[-33.0, 151.0], zoom_start=6)
+air_radius = (TIME_THRESHOLD / 60) * UAV_SPEED_KMH * 1000
 
+m_map = folium.Map(location=[-33.0, 151.0], zoom_start=7)
+
+# selected vertiports - blue
 for j in selected:
     lat, lon = candidate_coords[j]
-    folium.Marker(
+    folium.CircleMarker(
         location=[lat, lon],
-        popup=j,
-        tooltip=j,
-        icon=folium.Icon(color='blue', icon='plane', prefix='fa')
-    ).add_to(map)
+        radius=6,
+        color='blue',
+        fill=True,
+        fill_opacity=1,
+        popup=folium.Popup(j, max_width=200),
+        tooltip=j
+    ).add_to(m_map)
 
-map.save('vertiports_map.html')
+# covered SA2s - red
+for i in covered:
+    lat, lon = demand_coords[i]
+    folium.CircleMarker(
+        location=[lat, lon],
+        radius=4,
+        color='red',
+        fill=True,
+        fill_opacity=1,
+        popup=folium.Popup(i, max_width=200),
+        tooltip=i
+    ).add_to(m_map)
+
+#uncovered - orange
+for i in uncovered:
+    lat, lon = demand_coords[i]
+    folium.CircleMarker(
+        location=[lat, lon],
+        radius=4,
+        color='orange',
+        fill=True,
+        fill_opacity=1,
+        popup=folium.Popup(i, max_width=200),
+        tooltip=i
+    ).add_to(m_map)
+
+# reachable hospitals only - green
+for h, (h_lat, h_lon) in hospital_coords.items():
+    reachable = any(
+        d_ih.loc[j, h] / UAV_SPEED_KMH * 60 <= TIME_THRESHOLD
+        for j in selected
+    )
+    if reachable:
+        folium.CircleMarker(
+            location=[h_lat, h_lon],
+            radius=6,
+            color='green',
+            fill=True,
+            fill_opacity=1,
+            popup=folium.Popup(h, max_width=200),
+            tooltip=h
+        ).add_to(m_map)
+
+m_map.save('vertiports_map.html')
 print("Map saved to vertiports_map.html")
+
+
+#70-100
+#2 hours
