@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 import time
 
-INPUT_FILE = "names with coord.xlsx"
+INPUT_FILE = "model/sa2_names_with_coord.xlsx"
 OUTPUT_FILE = "weather.xlsx"
 
 USERNAME = "abc@gmail.com"
