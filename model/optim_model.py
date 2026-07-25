@@ -31,6 +31,7 @@ hospital_coords  = dict(zip(dfh['Name'], zip(dfh['latitude'], dfh['longitude']))
 
 UAV_SPEED_KMH = 250
 TIME_THRESHOLD = 120
+COVERAGE_THRESHOLD = 0.9
 
 #--------------------
 # D_IH MATRIX
@@ -164,14 +165,14 @@ m.cov = Constraint(m.I, rule=lambda m, i:
     m.z[i] <= sum(a[i, j] * m.y[j] for j in J))
 
 # Adjust coverage percentage criteria 
-m.demand = Constraint(expr= sum(m.z[i] for i in I) >= 0.9 * len(I))
+m.demand = Constraint(expr= sum(m.z[i] for i in I) >= COVERAGE_THRESHOLD * len(I))
 
 SolverFactory('cbc').solve(m)
-
+'''
 #--------------------
 # SENSITIVITY ANALYSIS
 #--------------------
-'''
+
 time_thresholds  = [30, 45, 60, 75, 90, 105, 120]
 coverage_targets = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]
 
@@ -286,6 +287,7 @@ for alpha in coverage_targets:
     
     print(f"Coverage {alpha*100:.0f}%: biggest gain at T={best_T} min "
           f"({best_efficiency:.2f} vertiports saved per minute)")
+
 '''
 #--------------------
 # RESULTS
@@ -296,7 +298,8 @@ covered   = [i for i in I if value(m.z[i]) > 0.5]
 uncovered = [i for i in I if value(m.z[i]) < 0.5]
 
 print('Time threshold =',TIME_THRESHOLD, 'min')
-print('Vehicle Speed =',UAV_SPEED_KMH, 'km/h\n')
+print('Vehicle Speed =',UAV_SPEED_KMH, 'km/h')
+print(f"Coverage threshold = {COVERAGE_THRESHOLD*100:.0f}%\n")
 
 print(f"Minimum vertiports : {len(selected)}")
 print("Selected sites     :")
@@ -373,6 +376,32 @@ for h, (h_lat, h_lon) in hospital_coords.items():
             popup=folium.Popup(h, max_width=200),
             tooltip=h
         ).add_to(m_map)
+
+# Create legend HTML
+legend_html = '''
+<div style="position: fixed; 
+     bottom: 50px; right: 50px; width: 220px; height: 160px; 
+     background-color: white; border:2px solid grey; z-index:9999; 
+     font-size:14px; padding: 10px; border-radius: 5px;">
+     
+<p style="margin: 0 0 10px 0; font-weight: bold;">Legend</p>
+
+<p style="margin: 5px 0;"><i style="background:blue; width: 12px; height: 12px; 
+display: inline-block; border-radius: 50%;"></i> Selected Vertiports</p>
+
+<p style="margin: 5px 0;"><i style="background:red; width: 12px; height: 12px; 
+display: inline-block; border-radius: 50%;"></i> Covered Regions (SA2)</p>
+
+<p style="margin: 5px 0;"><i style="background:orange; width: 12px; height: 12px; 
+display: inline-block; border-radius: 50%;"></i> Uncovered Regions (SA2)</p>
+
+<p style="margin: 5px 0;"><i style="background:green; width: 12px; height: 12px; 
+display: inline-block; border-radius: 50%;"></i> Reachable Hospitals</p>
+
+</div>
+'''
+
+m_map.get_root().html.add_child(folium.Element(legend_html))
 
 m_map.save('vertiports_map.html')
 print("Map saved to vertiports_map.html")
