@@ -12,6 +12,11 @@ a cost that gets added to the objective function alongside the usual
 lower-risk sites when it has a choice between candidates that cover similar 
 demand, but a high-risk site can still be selected if it's the only way to 
 reach the coverage target.
+
+Note: This assumes days with heavy rain are full closure days. This is aims to
+be a conservative estimate to account for medium rain events which also may
+cause temporary closure.
+
 """
 
 import pandas as pd
@@ -31,7 +36,7 @@ import numpy as np
 dfi = pd.read_excel('vertiport_name_with_coord.xlsx')
 dfj = pd.read_excel('sa2_names_with_coord.xlsx')
 dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
-dfw = pd.read_excel('../weather.xlsx')
+dfw = pd.read_csv('vertiport_weather.csv') # Vertiport-level weather (rain + wind), for each candidate
 
 # normalize and accept a few common column name variants coming from different weather exports (units may be present/absent)
 dfw.columns = dfw.columns.str.strip()
@@ -40,14 +45,11 @@ if 'Heavy_Rain_Days' in dfw.columns and 'Heavy_Rain_Days (>50 mm)' not in dfw.co
     rename_map['Heavy_Rain_Days'] = 'Heavy_Rain_Days (>50 mm)'
 if 'Avg_WindGust' in dfw.columns and 'Avg_WindGust (km/h)' not in dfw.columns:
     rename_map['Avg_WindGust'] = 'Avg_WindGust (km/h)'
-if 'name' in dfw.columns and 'SA2_Name' not in dfw.columns:
-    rename_map['name'] = 'SA2_Name'
 if rename_map:
     dfw = dfw.rename(columns=rename_map)
 
-dfw = dfw.dropna(subset=['latitude', 'longitude']).reset_index(drop=True)
-dfw['latitude']  = dfw['latitude'].astype(float)
-dfw['longitude'] = dfw['longitude'].astype(float)
+dfw = dfw.dropna(subset=['name']).drop_duplicates(subset=['name']).reset_index(drop=True)
+dfw = dfw.set_index('name')
 
 # Candidate vertiports
 candidate_coords = dict(zip(dfi['name'],  zip(dfi['latitude'], dfi['longitude'])))
@@ -75,10 +77,11 @@ WIND_PENALTY_WEIGHT  = 0.05    # cost added per km/h of average gust above the b
 WIND_BASELINE_KMH    = 20      # gust speed treated as "no added risk"
 
 #--------------------
-# NEAREST-SA2 WEATHER PROXY
+# OPERATIONAL RISK METRICS
 #--------------------
-# weather.xlsx is keyed to SA2 demand nodes, not vertiport candidates.
-# Until weather.py is rerun against vertiport coordinates, each vertiport inherits the weather stats of its closest SA2 weather point.
+# Weather is now keyed directly to each candidate vertiport by name (vertiport_weather.csv). 
+# For any vertiport with no direct name match, falls back to the nearest available weather 
+# point by distance, rather than treating it as zero risk.
 
 def haversine_km(lat1, lon1, lat2, lon2) -> float:
     R = 6371.0
@@ -89,38 +92,48 @@ def haversine_km(lat1, lon1, lat2, lon2) -> float:
     c = 2 * atan2(sqrt(a), sqrt(1 - a))
     return R * c
 
+# Weather rows that have usable coordinates, for the nearest-point fallback
+dfw_geo = dfw.dropna(subset=['latitude', 'longitude']).copy()
+dfw_geo['latitude']  = dfw_geo['latitude'].astype(float)
+dfw_geo['longitude'] = dfw_geo['longitude'].astype(float)
+
 def nearest_weather_row(lat, lon):
-    dists = np.sqrt((dfw['latitude'] - lat) ** 2 + (dfw['longitude'] - lon) ** 2)
-    # cheap planar pre-filter, then exact haversine on the closest few
+    dists = np.sqrt((dfw_geo['latitude'] - lat) ** 2 + (dfw_geo['longitude'] - lon) ** 2)
     nearest_idx = dists.nsmallest(5).index
     best_idx, best_dist = None, float('inf')
     for idx in nearest_idx:
-        d = haversine_km(lat, lon, dfw.loc[idx, 'latitude'], dfw.loc[idx, 'longitude'])
+        d = haversine_km(lat, lon, dfw_geo.loc[idx, 'latitude'], dfw_geo.loc[idx, 'longitude'])
         if d < best_dist:
             best_dist, best_idx = d, idx
-    return dfw.loc[best_idx]
+    return dfw_geo.loc[best_idx], best_dist
 
-weather_by_vertiport = {
-    name: nearest_weather_row(lat, lon)
-    for name, (lat, lon) in candidate_coords.items()
-}
-
-#--------------------
-# OPERATIONAL RISK METRICS
-#--------------------
+missing_weather = [j for j in candidate_coords if j not in dfw.index]
+if missing_weather:
+    print(f"\nNOTE: {len(missing_weather)} candidate vertiport(s) have no direct name match "
+          f"in vertiport_weather.csv. Falling back to nearest available weather point:")
+    for j in missing_weather:
+        lat, lon = candidate_coords[j]
+        _, dist_km = nearest_weather_row(lat, lon)
+        print(f"\t{j}  (nearest weather point is {dist_km:.1f} km away)")
 
 risk = {}
 for j in candidate_coords:
-    w = weather_by_vertiport[j]
-    heavy_rain_days = w['Heavy_Rain_Days (>50 mm)']
-    avg_gust        = w['Avg_WindGust (km/h)']
+    if j in dfw.index:
+        w = dfw.loc[j]
+        heavy_rain_days = w['Heavy_Rain_Days (>50 mm)']
+        avg_gust        = w['Avg_WindGust (km/h)']
+    else:
+        # no direct name match -- use the nearest available weather point
+        lat, lon = candidate_coords[j]
+        w, _ = nearest_weather_row(lat, lon)
+        heavy_rain_days = w['Heavy_Rain_Days (>50 mm)']
+        avg_gust        = w['Avg_WindGust (km/h)']
 
     rain_closure_pct = heavy_rain_days / (WEATHER_RECORD_YEARS * 365.25)
 
     risk[j] = {
         'rain_closure_pct': rain_closure_pct,
         'avg_gust': avg_gust,
-        'nearest_sa2': w['SA2_Name'],
     }
 
 def risk_cost(j):
@@ -418,7 +431,7 @@ if selected:
         })
 
     df_selected = pd.DataFrame(rows)
-    # pretty-print for console (human-friendly formats)
+    # print table
     df_display = df_selected.copy()
     df_display['rain_closure_pct'] = (df_display['rain_closure_pct'] * 100).map(lambda x: f"{x:.1f}%")
     df_display['avg_gust_kmh'] = df_display['avg_gust_kmh'].map(lambda x: f"{x:.1f}")
@@ -426,9 +439,9 @@ if selected:
 
     print(df_display.to_string(index=False))
 
-    # Save machine-friendly output for inspection/visualisation
+    # Save csv of results table
     df_selected.to_csv('selected_sites_operational_risk.csv', index=False)
-    print("Saved: selected_sites_operational_risk.csv")
+    print(f"\nSaved: selected_sites_operational_risk.csv")
 else:
     print('\tNo selected sites')
 print('\n')
