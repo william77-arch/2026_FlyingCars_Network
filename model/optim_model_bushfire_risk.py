@@ -300,12 +300,13 @@ print(f"Emergency value per 1,000 pop reached = {EMERGENCY_VALUE_PER_1000_POP}\n
 if status == 'optimal':
     print(f"Minimum vertiports : {len(selected)}")
     print("Selected sites     :")
+    header = f"    {'Site':<45} {'Bushfire':<22} {'Pop served':>14} {'Emergency reach':>18} {'Net cost':>11}"
+    print(header)
+    print('    ' + '-' * (len(header) - 4))
     for port in selected:
         label = dfb.loc[port, 'bfpl_category_label'] if port in dfb.index else 'unknown'
         reach_pop = emergency_reach_population(port, a, pop_served)
-        print('\t', port,
-              f"(bushfire={label}, pop_served={pop_served[port]:,.0f}, "
-              f"emergency_reach_pop={reach_pop:,.0f}, net_cost={cost[port]:.3f})")
+        print(f"    {port:<45} {label:<22} {pop_served[port]:>14,.0f} {reach_pop:>18,.0f} {cost[port]:>11.3f}")
     print(f"\nRegions covered    : {len(covered)} / {len(demand_coords)}")
     print("Uncovered regions  :")
     for reg in uncovered:
