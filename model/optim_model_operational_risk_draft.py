@@ -65,8 +65,8 @@ hospital_coords  = dict(zip(dfh['Name'], zip(dfh['latitude'], dfh['longitude']))
 #--------------------
 
 UAV_SPEED_KMH = 250
-TIME_THRESHOLD = 120
-COVERAGE_THRESHOLD = 0.9
+TIME_THRESHOLD = 90
+COVERAGE_THRESHOLD = 0.95
 
 # --- weather record length (matches weather.py START_DATE/END_DATE) ---
 WEATHER_RECORD_YEARS = 6      # 2020-01-01 to 2025-12-31
@@ -256,30 +256,45 @@ for i in demand_coords:
 #--------------------
 # PYOMO MODEL
 #--------------------
-I = list(demand_coords.keys())
-J = list(candidate_coords.keys())
 
-m = ConcreteModel()
-m.I = Set(initialize=I)
-m.J = Set(initialize=J)
 
-m.y = Var(m.J, domain=Binary)   # 1 = select this vertiport
-m.z = Var(m.I, domain=Binary)   # 1 = this SA2 is covered
+def run_operational_risk_model(a, demand_coords, candidate_coords, alpha):
+    I = list(demand_coords.keys())
+    J = list(candidate_coords.keys())
 
-# Objective now includes a soft weather-risk penalty alongside site count
-m.obj = Objective(
-    expr=sum(m.y[j] for j in J) + sum(risk_cost(j) * m.y[j] for j in J),
-    sense=minimize
-)
+    m = ConcreteModel()
+    m.I = Set(initialize=I)
+    m.J = Set(initialize=J)
 
-# Add coverage constraint
-m.cov = Constraint(m.I, rule=lambda m, i:
-    m.z[i] <= sum(a[i, j] * m.y[j] for j in J))
+    m.y = Var(m.J, domain=Binary)
+    m.z = Var(m.I, domain=Binary)
 
-# Adjust coverage percentage criteria
-m.demand = Constraint(expr= sum(m.z[i] for i in I) >= COVERAGE_THRESHOLD * len(I))
+    m.obj = Objective(
+        expr=sum(m.y[j] for j in J) + sum(risk_cost(j) * m.y[j] for j in J),
+        sense=minimize
+    )
 
-SolverFactory('cbc').solve(m)
+    m.cov = Constraint(m.I, rule=lambda m, i:
+        m.z[i] <= sum(a[i, j] * m.y[j] for j in J))
+
+    m.demand = Constraint(expr=
+        sum(m.z[i] for i in I) >= floor(alpha * len(I)))
+
+    result = SolverFactory('cbc').solve(m)
+
+    if result.solver.termination_condition == TerminationCondition.optimal:
+        selected = [j for j in J if value(m.y[j]) > 0.5]
+        covered = [i for i in I if value(m.z[i]) > 0.5]
+        uncovered = [i for i in I if value(m.z[i]) < 0.5]
+        return 'optimal', selected, covered, uncovered
+    else:
+        return 'infeasible', [], [], []
+
+coverable = [i for i in demand_coords if any(a[i, j] == 1 for j in candidate_coords)]
+print(f"\n Max achievable coverage: {len(coverable)}/{len(demand_coords)} = {len(coverable)/len(demand_coords)*100:.1f}%")
+print(f"\n Requested coverage: {COVERAGE_THRESHOLD*100}%")
+
+status, selected, covered, uncovered = run_operational_risk_model(a, demand_coords, candidate_coords, COVERAGE_THRESHOLD)
 '''
 #--------------------
 # SENSITIVITY ANALYSIS
@@ -405,10 +420,6 @@ for alpha in coverage_targets:
 # RESULTS
 #--------------------
 
-selected  = [j for j in J if value(m.y[j]) > 0.5]
-covered   = [i for i in I if value(m.z[i]) > 0.5]
-uncovered = [i for i in I if value(m.z[i]) < 0.5]
-
 print('\nPARAMETERS \n')
 print('Time threshold =',TIME_THRESHOLD, 'min')
 print('Vehicle Speed =',UAV_SPEED_KMH, 'km/h')
@@ -416,41 +427,45 @@ print(f"Coverage threshold = {COVERAGE_THRESHOLD*100:.0f}%")
 print('Rain penalty weight =', RAIN_PENALTY_WEIGHT)
 print('Wind penalty weight =', WIND_PENALTY_WEIGHT, '(baseline', WIND_BASELINE_KMH, 'km/h)\n')
 
-print('RESULTS\n')
-print(f"Minimum vertiports : {len(selected)}")
-print("Selected sites summary:")
-if selected:
-    rows = []
-    for port in selected:
-        r = risk[port]
-        rows.append({
-            'site': port,
-            'rain_closure_pct': r['rain_closure_pct'],
-            'avg_gust_kmh': r['avg_gust'],
-            'risk_cost': risk_cost(port)
-        })
+if status == 'optimal':
+    print('RESULTS\n')
+    print(f"Minimum vertiports : {len(selected)}")
+    print("Selected sites summary:")
+    if selected:
+        rows = []
+        for port in selected:
+            r = risk[port]
+            rows.append({
+                'site': port,
+                'rain_closure_pct': r['rain_closure_pct'],
+                'avg_gust_kmh': r['avg_gust'],
+                'risk_cost': risk_cost(port)
+            })
 
-    df_selected = pd.DataFrame(rows)
-    # print table
-    df_display = df_selected.copy()
-    df_display['rain_closure_pct'] = (df_display['rain_closure_pct'] * 100).map(lambda x: f"{x:.1f}%")
-    df_display['avg_gust_kmh'] = df_display['avg_gust_kmh'].map(lambda x: f"{x:.1f}")
-    df_display['risk_cost'] = df_display['risk_cost'].map(lambda x: f"{x:.3f}")
+        df_selected = pd.DataFrame(rows)
+        # print table
+        df_display = df_selected.copy()
+        df_display['rain_closure_pct'] = (df_display['rain_closure_pct'] * 100).map(lambda x: f"{x:.1f}%")
+        df_display['avg_gust_kmh'] = df_display['avg_gust_kmh'].map(lambda x: f"{x:.1f}")
+        df_display['risk_cost'] = df_display['risk_cost'].map(lambda x: f"{x:.3f}")
 
-    print(df_display.to_string(index=False))
+        print(df_display.to_string(index=False))
 
-    # Save csv of results table
-    df_selected.to_csv('selected_sites_operational_risk.csv', index=False)
-    print(f"\nSaved: selected_sites_operational_risk.csv")
+    else:
+        print('\tNo selected sites')
+    print('\n')
+
+    print(f"Regions covered    : {len(covered)} / {len(demand_coords)}")
+    print("Uncovered regions  :")
+    for reg in uncovered:
+        print('\t', reg)
+    print('\n')
 else:
-    print('\tNo selected sites')
-print('\n')
-
-print(f"Regions covered    : {len(covered)} / {len(I)}")
-print("Uncovered regions  :")
-for reg in uncovered:
-    print('\t', reg)
-print('\n')
+    print('RESULTS\n')
+    print('INFEASIBLE — lower COVERAGE_THRESHOLD or increase TIME_THRESHOLD')
+    selected = []
+    covered = []
+    uncovered = []
 
 #------------------
 # MAP THE RESULTS
