@@ -55,7 +55,7 @@ dfb = dfb.dropna(subset=['name']).drop_duplicates(subset=['name']).set_index('na
 
 UAV_SPEED_KMH      = 250
 TIME_THRESHOLD     = 90
-COVERAGE_THRESHOLD = 0.95
+COVERAGE_THRESHOLD = 0.85
 
 # --- bushfire risk settings ---
 BUSHFIRE_PENALTY_WEIGHT   = 3.0    # cost applied at Category 1 (scaled down for lower categories)
@@ -391,7 +391,12 @@ for alpha in coverage_targets:
 #--------------------
 # MAP
 #--------------------
-m_map = folium.Map(location=[-33.0, 151.0], zoom_start=7)
+m_map = folium.Map(
+    location=[-33.0, 151.0],
+    zoom_start=7,
+    tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+    attr='Esri, HERE, Garmin, FAO, NOAA, USGS'
+)
 
 m_map.get_root().html.add_child(folium.Element('''
     <style>.leaflet-interactive:focus { outline: none !important; }</style>

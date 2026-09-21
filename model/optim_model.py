@@ -25,7 +25,7 @@ hospital_coords  = dict(zip(dfh['Name'],     zip(dfh['latitude'], dfh['longitude
 
 UAV_SPEED_KMH      = 250
 TIME_THRESHOLD     = 90
-COVERAGE_THRESHOLD = 0.95
+COVERAGE_THRESHOLD = 0.85
 
 #--------------------
 # D_IH MATRIX
@@ -184,10 +184,11 @@ if status == 'optimal':
 else:
     print("INFEASIBLE — lower COVERAGE_THRESHOLD or increase TIME_THRESHOLD")
 
+'''
 #--------------------
 # SENSITIVITY ANALYSIS
 #--------------------
-'''
+
 time_thresholds  = [30, 45, 60, 75, 90, 105, 120]
 coverage_targets = [0.70, 0.75, 0.80, 0.85, 0.90, 0.95, 1]
 
@@ -229,7 +230,7 @@ for T in time_thresholds:
             ax2.annotate(str(int(v)), (alpha*100, v), textcoords="offset points", xytext=(0, 6), ha='center', fontsize=8)
 
 ax2.set_xlabel('Coverage Target (%)')
-ax2.set_ylabel('Minimum Vertiports Required')
+ax2.set_ylabel('Minimum Vertiports Required') 
 ax2.set_title('Vertiports vs Coverage Target')
 ax2.legend(title='Time Threshold')
 ax2.grid(True, linestyle='--', alpha=0.5)
@@ -259,7 +260,12 @@ for alpha in coverage_targets:
 #--------------------
 # MAP
 #--------------------
-m_map = folium.Map(location=[-33.0, 151.0], zoom_start=7)
+m_map = folium.Map(
+    location=[-33.0, 151.0],
+    zoom_start=7,
+    tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+    attr='Esri, HERE, Garmin, FAO, NOAA, USGS'
+)
 
 m_map.get_root().html.add_child(folium.Element('''
     <style>.leaflet-interactive:focus { outline: none !important; }</style>
