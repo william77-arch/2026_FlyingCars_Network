@@ -54,8 +54,8 @@ WEIGHT_RAIN     = 1.0
 
 # --- bushfire settings ---
 BUSHFIRE_PENALTY_WEIGHT      = 3.0
-EMERGENCY_TIME_THRESHOLD     = 60
-EMERGENCY_VALUE_PER_1000_POP = 0.4
+EMERGENCY_TIME_THRESHOLD     = 60 #threshold in minutes for a vertiport to reach a high-risk bushfire area during an emergency scenario
+EMERGENCY_VALUE_PER_1000_POP = 0.4 #weight for incentive for vertiports near high-risk bushfire areas, to aid during emergency scenarios
 
 BFPL_SEVERITY = {
     'Vegetation Category 1': 1.0,
@@ -164,8 +164,9 @@ def emergency_reach_population(j, a, pop_served):
 
 def bushfire_cost(j, a, pop_served):
     penalty = BUSHFIRE_PENALTY_WEIGHT * bfpl_severity(j)
-    value   = EMERGENCY_VALUE_PER_1000_POP * (emergency_reach_population(j, a, pop_served) / 1000) # reduces penalty if the port is near a high-risk area, for aid during emergency scenarios
-    return max(0.0, penalty - value)
+    incentive   = EMERGENCY_VALUE_PER_1000_POP * (emergency_reach_population(j, a, pop_served) / 1000) # reduces penalty if the port is near a high-risk area, for aid during emergency scenarios
+    return max(0.0, penalty - incentive)
+
 # --- wind ---
 def wind_severity_01(j):
     if j not in df_wind.index:
@@ -186,8 +187,8 @@ def alternate_reach_population(j, a, pop_served):
 
 def wind_cost(j, a, pop_served):
     penalty = WIND_PENALTY_WEIGHT * wind_severity_01(j)
-    value   = ALTERNATE_VALUE_PER_1000_POP * (alternate_reach_population(j, a, pop_served) / 1000)
-    return max(0.0, penalty - value)
+    incentive   = ALTERNATE_VALUE_PER_1000_POP * (alternate_reach_population(j, a, pop_served) / 1000)
+    return max(0.0, penalty - incentive)
 
 # --- rain ---
 df_rain = pd.read_excel(BASE_DIR / 'Parameter-Rain' / 'vertiport_rain.xlsx').copy()
