@@ -12,6 +12,7 @@ from math import radians, sin, cos, sqrt, atan2, floor
 import requests
 import time
 import folium
+from folium.plugins import MeasureControl
 import matplotlib.pyplot as plt
 from pathlib import Path
 
@@ -359,6 +360,14 @@ if status == 'optimal':
         attr='Esri, HERE, Garmin, FAO, NOAA, USGS'
     )
 
+    MeasureControl(
+    position='bottomleft',
+    primaryLengthUnit='kilometers',
+    secondaryLengthUnit='meters',
+    activeColor='orange',
+    completedColor='green'
+    ).add_to(m_map)
+
     m_map.get_root().html.add_child(folium.Element('''
         <style>.leaflet-interactive:focus { outline: none !important; }</style>
     '''))
@@ -397,6 +406,8 @@ if status == 'optimal':
          background-color: white; border:2px solid grey; z-index:9999;
          font-size:14px; padding: 10px; border-radius: 5px;">
     <p style="margin: 0 0 10px 0; font-weight: bold;">Legend</p>
+    <p style="margin: 5px 0;"><i style="background:blue; width: 12px; height: 12px; 
+       display:inline-block; border-radius: 50%;"></i> Selected Vertiports</p>
     <p style="margin: 5px 0;"><i style="background:red; width:12px; height:12px;
        display:inline-block; border-radius:50%;"></i> Covered Regions (SA2)</p>
     <p style="margin: 5px 0;"><i style="background:orange; width:12px; height:12px;
