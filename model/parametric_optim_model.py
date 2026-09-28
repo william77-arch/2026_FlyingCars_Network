@@ -13,17 +13,25 @@ import requests
 import time
 import folium
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # ─────────────────────────────────────────────────────────────
 # LOAD DATA SETS
 # ─────────────────────────────────────────────────────────────
+BASE_DIR = Path(__file__).resolve().parent
 
-dfi = pd.read_excel('vertiport_name_with_coord.xlsx')
-dfj = pd.read_excel('sa2_names_with_coord.xlsx')
-dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
-df_bushfire = pd.read_csv('vertiport_bushfire_risk.csv')
-df_rain = pd.read_excel('vertiport_rain.xlsx').set_index('name')
-df_wind = pd.read_csv('vertiport_wind_risk.csv').set_index('vertiport')
+dfi = pd.read_excel(BASE_DIR / 'vertiport_name_with_coord.xlsx')
+dfj = pd.read_excel(BASE_DIR / 'sa2_names_with_coord.xlsx')
+dfh = pd.read_excel(BASE_DIR / 'Emergency_hospitals_with_lat_lon.xlsx')
+
+df_bushfire = pd.read_csv(BASE_DIR / 'Parameter-Bushfire' / 'vertiport_bushfire_risk.csv')
+df_rain = pd.read_excel(BASE_DIR / 'Parameter-Rain' / 'vertiport_rain.xlsx').set_index('name')
+df_wind = pd.read_csv(BASE_DIR / 'Parameter-Wind' / 'vertiport_wind_risk.csv').set_index('vertiport')
+
+candidate_coords  = dict(zip(dfi['name'],     zip(dfi['latitude'], dfi['longitude'])))
+demand_coords     = dict(zip(dfj['SA2_Name'], zip(dfj['latitude'], dfj['longitude'])))
+hospital_coords   = dict(zip(dfh['Name'],     zip(dfh['latitude'], dfh['longitude'])))
+demand_population = dict(zip(dfj['SA2_Name'], dfj['population']))
 
 candidate_coords  = dict(zip(dfi['name'],     zip(dfi['latitude'], dfi['longitude'])))
 demand_coords     = dict(zip(dfj['SA2_Name'], zip(dfj['latitude'], dfj['longitude'])))
@@ -85,9 +93,9 @@ def haversine_km(lat1, lon1, lat2, lon2) -> float:
 # LOAD MATRICES
 # ─────────────────────────────────────────────────────────────
 
-d_ih = pd.read_excel('vertiport_hospital_distances.xlsx')
+d_ih = pd.read_excel(BASE_DIR / 'vertiport_hospital_distances.xlsx')
 d_ih = d_ih.set_index('vertiport')
-d_ij = pd.read_excel('d_ij.xlsx')
+d_ij = pd.read_excel(BASE_DIR / 'd_ij.xlsx')
 
 road_time_lookup = {(row['sa2'], row['vertiport']): row['time_min']
                     for _, row in d_ij.iterrows()}
@@ -155,9 +163,8 @@ def emergency_reach_population(j, a, pop_served):
 
 def bushfire_cost(j, a, pop_served):
     penalty = BUSHFIRE_PENALTY_WEIGHT * bfpl_severity(j)
-    value   = EMERGENCY_VALUE_PER_1000_POP * (emergency_reach_population(j, a, pop_served) / 1000)
+    value   = EMERGENCY_VALUE_PER_1000_POP * (emergency_reach_population(j, a, pop_served) / 1000) # reduces penalty if the port is near a high-risk area, for aid during emergency scenarios
     return max(0.0, penalty - value)
-
 # --- wind ---
 def wind_severity_01(j):
     if j not in df_wind.index:
@@ -182,14 +189,23 @@ def wind_cost(j, a, pop_served):
     return max(0.0, penalty - value)
 
 # --- rain ---
+df_rain = pd.read_excel(BASE_DIR / 'Parameter-Rain' / 'vertiport_rain.xlsx').copy()
+if 'name' in df_rain.columns:
+    df_rain = df_rain.rename(columns={'name': 'vertiport'})
+df_rain = df_rain.drop_duplicates(subset=['vertiport']).set_index('vertiport')
+
+
 def rain_severity_01(j):
     if j not in df_rain.index:
         return 0.0
-    avg_rain   = float(df_rain.loc[j, 'Avg_Rainfall'])
-    heavy_days = float(df_rain.loc[j, 'Heavy_Rain_Days'])
-    rain_norm  = min(avg_rain   / RAIN_MAX_AVG_MM_DAY, 1.0)
+    row = df_rain.loc[j]
+    avg_rain = float(row['Avg_Rainfall'])
+    heavy_days = float(row['Heavy_Rain_Days'])
+    rain_norm = min(avg_rain / RAIN_MAX_AVG_MM_DAY, 1.0)
     heavy_norm = min(heavy_days / RAIN_MAX_HEAVY_DAYS, 1.0)
     return (rain_norm + heavy_norm) / 2.0
+
+
 def rain_cost(j):
     return RAIN_PENALTY_WEIGHT * rain_severity_01(j)
 
@@ -390,5 +406,5 @@ if status == 'optimal':
     </div>
     '''
     m_map.get_root().html.add_child(folium.Element(legend_html))
-    m_map.save('vertiports_map.html')
-    print("Map saved to vertiports_map.html")
+    m_map.save(BASE_DIR / 'vertiports_map.html')
+print(f"Map saved to {BASE_DIR / 'vertiports_map.html'}")
