@@ -1,0 +1,25 @@
+name,longitude,latitude,role,centre,route,site_type,new_build,cost_index,dist_station_m,source,dist_WSI_km,dist_SYD_km,unity_x,unity_z
+Western Sydney International (Nancy Bird Walton) Airport,150.739722,-33.879444,airport,,endpoint,passenger airport,False,,,vertiport_name_with_coord.xlsx,0.0,41.0,0.0,0.0
+Sydney Kingsford Smith International Airport,151.177002,-33.946098,airport,,endpoint,passenger airport,False,,,vertiport_name_with_coord.xlsx,41.0,0.0,40367.7,-7411.6
+Cabramatta Station Car Park,150.93762361797715,-33.89465857205347,feeder,Cabramatta,"green (via Cabramatta, Bankstown)",station car park,True,1.5,113.0,NSW POI: Parking Area (unnamed),18.3,22.8,18269.4,-1691.8
+Cabravale Memorial Park,150.93848066375884,-33.89102380381996,feeder,Cabramatta,"green (via Cabramatta, Bankstown)",park / oval,True,1.0,434.0,NSW POI: CABRAVALE MEMORIAL PARK,18.4,22.8,18348.5,-1287.6
+Irelands Bridge Reserve,150.9454279718581,-33.903455051082176,feeder,Cabramatta,"green (via Cabramatta, Bankstown)",park / oval,True,1.0,1129.0,NSW POI: IRELANDS BRIDGE RESERVE (Sports Field),19.2,21.9,18989.8,-2669.9
+Bankstown Station North Car Park,151.03429728961646,-33.91228807603331,feeder,Bankstown,"green (via Cabramatta, Bankstown)",station car park,True,1.5,614.0,NSW POI: Parking Area (unnamed),27.4,13.7,27193.8,-3652.1
+Bankstown Central Rooftop,151.0384178339769,-33.91589415996877,feeder,Bankstown,"green (via Cabramatta, Bankstown)",shopping centre rooftop,True,2.0,434.0,NSW POI: BANKSTOWN SQUARE SHOPPING CENTRE,27.9,13.2,27574.2,-4053.1
+Bankstown Oval,151.032161683369,-33.92201284733174,feeder,Bankstown,"green (via Cabramatta, Bankstown)",park / oval,True,1.0,508.0,NSW POI: BANKSTOWN OVAL (Sports Field),27.4,13.6,26996.7,-4733.4
+Telowra Car Park,150.92493611743316,-33.9268822958831,feeder,Liverpool,"red (via Liverpool, Revesby, Hurstville)",station car park,True,1.5,318.0,NSW POI: TELOWRA CAR PARK,17.9,23.4,17098.1,-5274.9
+Westfield Liverpool Rooftop,150.9243234744942,-33.919371798380425,feeder,Liverpool,"red (via Liverpool, Revesby, Hurstville)",shopping centre rooftop,True,2.0,662.0,NSW POI: WESTFIELD SHOPPING COMPLEX,17.6,23.5,17041.6,-4439.8
+Bigge Park,150.92820575599697,-33.921689041411526,feeder,Liverpool,"red (via Liverpool, Revesby, Hurstville)",park / oval,True,1.0,355.0,NSW POI: BIGGE PARK,18.0,23.1,17400.0,-4697.4
+Hillier Oval,150.9168538975668,-33.92649297236584,feeder,Liverpool,"red (via Liverpool, Revesby, Hurstville)",park / oval,True,1.0,982.0,NSW POI: HILLIER OVAL (Sports Field),17.2,24.1,16352.0,-5231.6
+Revesby Station Car Park,151.01485472224053,-33.95329335398301,feeder,Revesby,"red (via Liverpool, Revesby, Hurstville)",station car park,True,1.5,91.0,NSW POI: Parking Area (unnamed),26.7,15.0,25399.0,-8211.7
+Johnstone Reserve,151.0097769861139,-33.94816349180392,feeder,Revesby,"red (via Liverpool, Revesby, Hurstville)",park / oval,True,1.0,692.0,NSW POI: JOHNSTONE RESERVE (Sports Field),26.1,15.4,24930.2,-7641.3
+Westfield Hurstville Rooftop,151.10412255062514,-33.966425530283075,feeder,Hurstville,"red (via Liverpool, Revesby, Hurstville)",shopping centre rooftop,True,2.0,190.0,NSW POI: WESTFIELD SHOPPING CENTRE,35.0,7.1,33639.8,-9671.9
+Hurstville Park Sports Field,151.09938535594128,-33.9612081980726,feeder,Hurstville,"red (via Liverpool, Revesby, Hurstville)",park / oval,True,1.0,737.0,NSW POI: Sports Field in HURSTVILLE PARK,34.4,7.4,33202.5,-9091.8
+Kempt Field,151.1126556762551,-33.968173793203114,feeder,Hurstville,"red (via Liverpool, Revesby, Hurstville)",park / oval,True,1.0,951.0,NSW POI: KEMPT FIELD,35.8,6.4,34427.5,-9866.3
+Parramatta Station Car Park,151.00547885649985,-33.816291741296766,feeder,Parramatta,other,station car park,True,1.5,142.0,NSW POI: Parking Area (unnamed),25.5,21.4,24533.5,7022.2
+Westfield Parramatta Rooftop,151.0020985392048,-33.8176839546982,feeder,Parramatta,other,shopping centre rooftop,True,2.0,293.0,NSW POI: WESTFIELD PARRAMATTA,25.2,21.6,24221.4,6867.4
+Robin Thomas Reserve,151.0126422327812,-33.81735464487034,feeder,Parramatta,other,park / oval,True,1.0,682.0,NSW POI: ROBIN THOMAS RESERVE (Sports Field),26.1,20.9,25194.7,6904.0
+Old Kings Oval (Parramatta Park),150.9976334019997,-33.808857213287276,feeder,Parramatta,other,park / oval,True,1.0,1197.0,NSW POI: OLD KINGS OVAL (Sports Field),25.1,22.5,23809.2,7848.9
+Campbelltown Mall Rooftop,150.81020584415407,-34.068804496617325,feeder,Campbelltown,other,shopping centre rooftop,True,2.0,683.0,NSW POI: CAMPBELLTOWN MALL,22.0,36.5,6506.7,-21055.9
+Mawson Park,150.81603466348636,-34.065803105847195,feeder,Campbelltown,other,park / oval,True,1.0,279.0,NSW POI: MAWSON PARK,21.9,35.8,7044.8,-20722.2
+Campbelltown Showground,150.8209748648481,-34.064294198458114,feeder,Campbelltown,other,park / oval,True,1.0,613.0,NSW POI: CAMPBELLTOWN SHOWGROUND,21.9,35.4,7500.9,-20554.4
