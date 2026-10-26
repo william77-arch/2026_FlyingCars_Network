@@ -15,13 +15,16 @@ from math import radians, sin, cos, sqrt, atan2, ceil
 import folium
 from folium.plugins import MeasureControl
 import matplotlib.pyplot as plt
+import geopandas as gpd
+from shapely.geometry import Point
+
 
 # ─────────────────────────────────────────────────────────────
 # LOAD DATA SETS
 # ─────────────────────────────────────────────────────────────
 dfi = pd.read_excel('vertiport_name_with_coord.xlsx')
 dfj = pd.read_excel('sa2_names_with_coord.xlsx')
-dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
+dfh = pd.read_excel('Emergency_only_hospitals_with_lat_lon.xlsx')
 
 df_bushfire = pd.read_csv('vertiport_bushfire_risk.csv')
 df_rain = pd.read_excel('vertiport_rain.xlsx')
@@ -37,8 +40,8 @@ demand_population = dict(zip(dfj['SA2_Name'], dfj['population']))
 # ─────────────────────────────────────────────────────────────
 
 UAV_SPEED_KMH      = 250
-TIME_THRESHOLD     = 90
-COVERAGE_THRESHOLD = 0.85
+TIME_THRESHOLD     = 60
+COVERAGE_THRESHOLD = 0.95
 
 # How strongly risk trades against vertiport count.
 # Higher = accept more vertiports to avoid risky sites.
@@ -94,7 +97,9 @@ def flight_min(j, k) -> float:
 # LOAD MATRICES
 # ─────────────────────────────────────────────────────────────
 
-d_ih = pd.read_excel('vertiport_hospital_distances.xlsx')
+dfh = pd.read_excel('Emergency_only_hospitals_with_lat_lon.xlsx')
+
+d_ih = pd.read_excel('vertiport_hospital_distances_emergency.xlsx')
 d_ih = d_ih.set_index('vertiport')
 d_ij = pd.read_excel('d_ij.xlsx')
 
@@ -104,7 +109,7 @@ road_time_lookup = {(row['sa2'], row['vertiport']): row['time_min']
 # ─────────────────────────────────────────────────────────────
 # SETUP
 # ─────────────────────────────────────────────────────────────
-# safe vertiport as backup if wind risk is below threshold and data is available
+# safe vertiport if wind risk is below threshold and data is available
 safe_vertiports = [
     j for j in candidate_coords
     if j in df_wind.index
@@ -136,7 +141,7 @@ df_rain = df_rain.drop_duplicates(subset=['vertiport']).set_index('vertiport')
 # ─────────────────────────────────────────────────────────────
 # COVERAGE MATRIX
 # ─────────────────────────────────────────────────────────────
-# flight time to the nearest hospital, computed once per vertiport
+# flight time in minutes to the nearest hospital per vertiport
 air_time = {j: d_ih.loc[j].min() / UAV_SPEED_KMH * 60 for j in candidate_coords}
 
 def build_coverage_matrix(demand_coords, candidate_coords, road_time_lookup, d_ih, UAV_SPEED_KMH, T):
@@ -286,7 +291,7 @@ else:
 # ─────────────────────────────────────────────────────────────
 # LAMBDA SENSITIVITY ANALYSIS
 # ─────────────────────────────────────────────────────────────
-lambda_analysis = True  # set to True to run lambda sensitivity analysis
+lambda_analysis = False  # set to True to run lambda sensitivity analysis
 if lambda_analysis:
     lambda_values = [0.0, 0.1, 0.25, 0.5, 0.75, 1.0, 2.0, 5.0, 10.0]
     lambda_results = []
@@ -401,6 +406,33 @@ if Run_analysis:
 # ─────────────────────────────────────────────────────────────
 # MAP
 # ─────────────────────────────────────────────────────────────
+SA2_SHAPEFILE = 'SA2_2021_AUST_GDA2020.shp'   # path to the ABS boundary file
+SA2_NAME_COL  = 'SA2_NAME21'                   # SA2 name column in that file
+
+def match_polygons(names):
+        """Return the boundary polygons that contain each SA2's centroid."""
+        if not names:
+            return None
+        pts = gpd.GeoDataFrame(
+            {'sa2': names},
+            geometry=[Point(demand_coords[i][1], demand_coords[i][0]) for i in names],  # (lon, lat)
+            crs='EPSG:4326'
+        )
+        joined = gpd.sjoin(pts, gdf[[SA2_NAME_COL, 'geometry']], how='left', predicate='within')
+        idx = set(joined['index_right'].dropna().astype(int))
+
+        missing = joined.loc[joined['index_right'].isna(), 'sa2'].tolist()
+        if missing:
+            near = gpd.sjoin_nearest(
+                pts[pts['sa2'].isin(missing)].to_crs(epsg=3577),
+                gdf[['geometry']].to_crs(epsg=3577),
+                how='left'
+            )
+            idx |= set(near['index_right'].astype(int))
+
+        out = gdf.loc[sorted(idx)].copy()
+        out['geometry'] = out.geometry.simplify(0.001, preserve_topology=True)
+        return out
 
 if status == 'optimal':
     m_map = folium.Map(
@@ -411,61 +443,83 @@ if status == 'optimal':
     )
 
     MeasureControl(
-    position='bottomleft',
-    primaryLengthUnit='kilometers',
-    secondaryLengthUnit='meters',
-    activeColor='orange',
-    completedColor='green'
+        position='bottomleft',
+        primaryLengthUnit='kilometers',
+        secondaryLengthUnit='meters',
+        activeColor='orange',
+        completedColor='green'
     ).add_to(m_map)
 
     m_map.get_root().html.add_child(folium.Element('''
         <style>.leaflet-interactive:focus { outline: none !important; }</style>
     '''))
 
-    for i in selected:
-        lat, lon = candidate_coords[i]
-        folium.CircleMarker(
-            location=[lat, lon], radius=6, color='blue', fill=True, fill_opacity=1,
-            popup=folium.Popup(i, max_width=200), tooltip=i
+    gdf = gpd.read_file(SA2_SHAPEFILE).to_crs(epsg=4326)
+
+    covered_gdf   = match_polygons(covered)
+    uncovered_gdf = match_polygons(uncovered)
+
+    # uncovered regions
+    if uncovered_gdf is not None:
+        folium.GeoJson(
+            uncovered_gdf[[SA2_NAME_COL, 'geometry']],
+            style_function=lambda f: {
+                'fillColor':   '#000000',
+                'color':       '#000000',
+                'weight':      1,
+                'fillOpacity': 0.6,
+            },
+            tooltip=folium.GeoJsonTooltip(fields=[SA2_NAME_COL], aliases=['Uncovered:'])
         ).add_to(m_map)
 
-    for i in covered:
-        lat, lon = demand_coords[i]
-        folium.CircleMarker(
-            location=[lat, lon], radius=4, color='red', fill=True, fill_opacity=1,
-            popup=folium.Popup(i, max_width=200), tooltip=i
+    # covered regions
+    if covered_gdf is not None:
+        folium.GeoJson(
+            covered_gdf[[SA2_NAME_COL, 'geometry']],
+            style_function=lambda f: {
+                'fillColor':   '#7fb8e0',
+                'color':       '#2b7bb9',
+                'weight':      1.5,
+                'fillOpacity': 0.6,
+            },
+            tooltip=folium.GeoJsonTooltip(fields=[SA2_NAME_COL], aliases=['Region:'])
         ).add_to(m_map)
 
-    for i in uncovered:
-        lat, lon = demand_coords[i]
-        folium.CircleMarker(
-            location=[lat, lon], radius=4, color='orange', fill=True, fill_opacity=1,
-            popup=folium.Popup(i, max_width=200), tooltip=i
+    # selected vertiports
+    for j in selected:
+        lat, lon = candidate_coords[j]
+        folium.Marker(
+            location=[lat, lon],
+            popup=folium.Popup(j, max_width=200),
+            tooltip=j,
+            icon=folium.Icon(color='red', icon='plane', prefix='fa')
         ).add_to(m_map)
 
+    # reachable hospitals
     for h, (h_lat, h_lon) in hospital_coords.items():
         reachable = any(d_ih.loc[j, h] / UAV_SPEED_KMH * 60 <= TIME_THRESHOLD for j in selected)
         if reachable:
             folium.CircleMarker(
-                location=[h_lat, h_lon], radius=6, color='green', fill=True, fill_opacity=1,
+                location=[h_lat, h_lon], radius=2, color='green', fill=True, fill_color='green', fill_opacity=0.2,
                 popup=folium.Popup(h, max_width=200), tooltip=h
             ).add_to(m_map)
 
+
     legend_html = '''
-    <div style="position: fixed; bottom: 50px; right: 50px; width: 260px;
+    <div style="position: fixed; bottom: 50px; right: 50px; width: 230px;
          background-color: white; border:2px solid grey; z-index:9999;
          font-size:14px; padding: 10px; border-radius: 5px;">
     <p style="margin: 0 0 10px 0; font-weight: bold;">Legend</p>
-    <p style="margin: 5px 0;"><i style="background:blue; width: 12px; height: 12px; 
-       display:inline-block; border-radius: 50%;"></i> Selected Vertiports</p>
-    <p style="margin: 5px 0;"><i style="background:red; width:12px; height:12px;
-       display:inline-block; border-radius:50%;"></i> Covered Regions (SA2)</p>
-    <p style="margin: 5px 0;"><i style="background:orange; width:12px; height:12px;
-       display:inline-block; border-radius:50%;"></i> Uncovered Regions (SA2)</p>
+    <p style="margin: 5px 0;"><i style="background:#7fb8e0; width:12px; height:12px;
+       display:inline-block; border:1px solid #2b7bb9;"></i> Covered Regions (SA2)</p>
+    <p style="margin: 5px 0;"><i style="background:black; width:12px; height:12px;
+       display:inline-block; border:1px solid black;"></i> Uncovered Regions (SA2)</p>
+    <p style="margin: 5px 0;"><i class="fa fa-map-marker" style="color:red; font-size:16px;
+       width:12px; text-align:center;"></i> Selected Vertiports</p>
     <p style="margin: 5px 0;"><i style="background:green; width:12px; height:12px;
        display:inline-block; border-radius:50%;"></i> Reachable Hospitals</p>
     </div>
     '''
     m_map.get_root().html.add_child(folium.Element(legend_html))
     m_map.save('vertiports_map.html')
-print(f"Map saved to vertiports_map.html")
+    print("Map saved to vertiports_map.html")
