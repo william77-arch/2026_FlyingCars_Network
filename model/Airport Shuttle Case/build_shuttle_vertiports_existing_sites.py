@@ -112,9 +112,7 @@ def classify(name):
         if re.search(pattern, n):
             return None, None, None, reason
     is_heli = re.search(HELI, n) is not None
-    if re.search(MEDICAL, n):
-        if re.search(PUBLIC_LAND, n):
-            return 'feeder', 'park / oval HLS', 'public land, designated medical HLS', None
+    if re.search(MEDICAL, n):                       # medical landing sites, even in public parks
         return None, None, None, 'medical centre pad'
     if is_heli and re.search(PUBLIC_LAND, n):
         return 'feeder', 'park / oval HLS', 'public land', None

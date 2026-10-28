@@ -1,0 +1,921 @@
+area,region,population,coverable,covered,vertiport,airport,door_to_airport_min,drive_to_airport_min
+Abbotsbury,Sydney - South West,4200,True,True,Lalich Reserve,SYD,19.9,59.4
+Abbotsford (NSW),Sydney - Inner West,5431,True,True,Charles Keenan Reserve,WSI,28.9,70.4
+Acacia Gardens,Sydney - Blacktown,3668,True,True,Mihkelson Reserve,WSI,14.0,44.5
+Agnes Banks,Sydney - Outer West and Blue Mountains,996,True,False,,,,
+Airds,Sydney - Outer South West,3265,True,True,NSW POI Helipad 24487,WSI,20.6,47.8
+Alexandria,Sydney - City and Inner South,9649,True,True,Charles Keenan Reserve,WSI,17.6,81.7
+Alfords Point,Sydney - Sutherland,3131,True,True,Bankstown - City Sports Complex HLS,WSI,23.6,56.2
+Alison (Central Coast - NSW),Central Coast,85,True,True,Warnervale Airport,SYD,31.9,152.1
+Allambie Heights,Sydney - Northern Beaches,7317,True,True,Starkey Reserve,SYD,13.8,40.3
+Allawah,Sydney - Inner South West,5351,True,True,Venetia Street Reserve,WSI,20.4,70.3
+Ambarvale,Sydney - Outer South West,7254,True,True,NSW POI Helipad 24487,WSI,16.3,46.7
+Angus,Sydney - Blacktown,384,True,True,Mihkelson Reserve,WSI,22.6,45.6
+Annandale (NSW),Sydney - Inner West,9487,True,True,Charles Keenan Reserve,WSI,18.9,77.8
+Annangrove,Sydney - Baulkham Hills and Hawkesbury,1472,True,False,,,,
+Appin (NSW),Sydney - Outer South West,3213,True,False,,,,
+Arcadia (NSW),Sydney - Baulkham Hills and Hawkesbury,1475,True,False,,,,
+Arncliffe,Sydney - Inner South West,12023,True,True,Charles Keenan Reserve,WSI,27.2,74.6
+Arndell Park,Sydney - Blacktown,6,True,False,,,,
+Artarmon,Sydney - North Sydney and Hornsby,9417,True,True,Starkey Reserve,SYD,18.5,29.1
+Ashbury,Sydney - Inner West,3353,True,True,Charles Keenan Reserve,WSI,28.0,68.2
+Ashcroft,Sydney - South West,3634,True,True,Lalich Reserve,WSI,11.0,29.8
+Ashfield (NSW),Sydney - Inner West,23012,True,True,Charles Keenan Reserve,WSI,26.7,69.3
+Asquith,Sydney - North Sydney and Hornsby,6160,True,False,,,,
+Auburn (NSW),Sydney - Parramatta,39333,True,True,Rosehill Heliport Airport,SYD,14.6,33.2
+Austral,Sydney - South West,6847,True,True,Lalich Reserve,SYD,25.1,66.0
+Avalon Beach,Sydney - Northern Beaches,10379,True,False,,,,
+Avoca Beach,Central Coast,4708,True,True,Erina Heliport,SYD,29.8,113.0
+Badgerys Creek,Sydney - South West,168,True,False,,,,
+Balgowlah,Sydney - Northern Beaches,8068,True,True,Starkey Reserve,SYD,16.6,36.3
+Balgowlah Heights,Sydney - Northern Beaches,3546,True,True,Starkey Reserve,SYD,18.9,34.0
+Balmain,Sydney - Inner West,10454,True,True,Charles Keenan Reserve,WSI,21.6,79.8
+Balmain East,Sydney - Inner West,1900,True,True,Charles Keenan Reserve,WSI,21.6,81.6
+Bangor (NSW),Sydney - Sutherland,5536,True,True,Venetia Street Reserve,SYD,18.3,30.2
+Banksia,Sydney - Inner South West,3277,True,True,Charles Keenan Reserve,WSI,28.8,74.6
+Banksmeadow,Sydney - City and Inner South,508,True,True,Charles Keenan Reserve,WSI,28.7,87.1
+Bankstown,Sydney - Inner South West,34933,True,True,Bankstown - City Sports Complex HLS,SYD,10.2,26.0
+Bankstown Aerodrome,Sydney - Inner South West,5,True,True,Bankstown - City Sports Complex HLS,SYD,14.1,34.7
+Bar Point,Central Coast,122,True,False,,,,
+Barangaroo,Sydney - City and Inner South,220,True,True,Charles Keenan Reserve,WSI,21.1,83.2
+Barden Ridge,Sydney - Sutherland,4129,True,False,,,,
+Bardia,Sydney - Outer South West,5747,True,False,,,,
+Bardwell Park,Sydney - Inner South West,2320,True,False,,,,
+Bardwell Valley,Sydney - Inner South West,2344,True,True,Charles Keenan Reserve,WSI,29.0,71.8
+Bargo,Sydney - Outer South West,4516,True,False,,,,
+Bass Hill,Sydney - Inner South West,10230,True,True,Bankstown - City Sports Complex HLS,SYD,14.8,33.8
+Bateau Bay,Central Coast,12516,False,False,,,,
+Baulkham Hills,Sydney - Baulkham Hills and Hawkesbury,37415,True,True,Chilworth Reserve,SYD,23.6,54.3
+Bayview (NSW),Sydney - Northern Beaches,3807,True,False,,,,
+Beacon Hill,Sydney - Northern Beaches,7814,True,True,Starkey Reserve,SYD,17.5,44.7
+Beaconsfield (NSW),Sydney - City and Inner South,1172,True,True,Charles Keenan Reserve,WSI,18.5,83.2
+Beaumont Hills,Sydney - Baulkham Hills and Hawkesbury,9041,True,True,Mihkelson Reserve,WSI,19.2,53.5
+Beecroft,Sydney - Ryde,10291,True,True,Chilworth Reserve,SYD,10.3,46.7
+Belfield,Sydney - Inner South West,6555,True,True,Bankstown - City Sports Complex HLS,WSI,22.7,62.5
+Belimbla Park,Sydney - Outer South West,576,True,False,,,,
+Bella Vista,Sydney - Baulkham Hills and Hawkesbury,8384,True,True,Mihkelson Reserve,WSI,21.4,49.3
+Bellevue Hill,Sydney - Eastern Suburbs,10590,True,True,Charles Keenan Reserve,WSI,25.3,92.8
+Belmore,Sydney - Inner South West,13781,True,True,Bankstown - City Sports Complex HLS,WSI,22.6,63.7
+Belrose,Sydney - Northern Beaches,8726,True,True,Starkey Reserve,SYD,21.0,49.0
+Bensville,Central Coast,2500,True,True,Erina Heliport,SYD,31.5,104.4
+Berala,Sydney - Parramatta,8757,True,True,Rosehill Heliport Airport,SYD,18.4,30.1
+Berambing,Sydney - Baulkham Hills and Hawkesbury,104,True,False,,,,
+Berkeley Vale,Central Coast,8951,False,False,,,,
+Berkshire Park,Sydney - Outer West and Blue Mountains,2149,True,False,,,,
+Berowra,Sydney - North Sydney and Hornsby,4762,True,False,,,,
+Berowra Heights,Sydney - North Sydney and Hornsby,5286,True,False,,,,
+Berowra Waters,Sydney - Baulkham Hills and Hawkesbury,169,True,False,,,,
+Berrilee,Sydney - Baulkham Hills and Hawkesbury,212,True,False,,,,
+Beverley Park,Sydney - Inner South West,2646,True,True,Venetia Street Reserve,WSI,21.3,73.5
+Beverly Hills,Sydney - Inner South West,10483,True,True,Bankstown - City Sports Complex HLS,WSI,22.1,63.6
+Bexley,Sydney - Inner South West,19646,True,True,Venetia Street Reserve,WSI,24.9,69.8
+Bexley North,Sydney - Inner South West,4281,True,True,Venetia Street Reserve,WSI,26.8,68.9
+Bidwill (NSW),Sydney - Blacktown,4202,True,True,Mihkelson Reserve,WSI,22.7,35.6
+Bilgola Beach,Sydney - Northern Beaches,251,True,False,,,,
+Bilgola Plateau,Sydney - Northern Beaches,3650,True,False,,,,
+Bilpin,Sydney - Baulkham Hills and Hawkesbury,653,True,False,,,,
+Birchgrove,Sydney - Inner West,3228,True,True,Charles Keenan Reserve,WSI,23.2,79.9
+Birrong,Sydney - Inner South West,3331,True,True,Bankstown - City Sports Complex HLS,SYD,15.1,30.4
+Blackett,Sydney - Blacktown,3586,True,True,Cedars Park,WSI,21.0,33.5
+Blackheath,Sydney - Outer West and Blue Mountains,4672,True,False,,,,
+Blacktown,Sydney - Blacktown,50961,True,True,Mihkelson Reserve,WSI,21.5,36.8
+Blackwall (NSW),Central Coast,1941,True,False,,,,
+Blair Athol (NSW),Sydney - Outer South West,2725,True,True,NSW POI Helipad 24487,WSI,13.7,41.2
+Blairmount,Sydney - Outer South West,409,True,True,NSW POI Helipad 24487,WSI,12.7,38.5
+Blakehurst,Sydney - Inner South West,6652,True,True,Venetia Street Reserve,WSI,16.8,70.7
+Blaxland (NSW),Sydney - Outer West and Blue Mountains,7434,True,False,,,,
+Blaxlands Ridge,Sydney - Baulkham Hills and Hawkesbury,589,True,False,,,,
+Bligh Park,Sydney - Outer West and Blue Mountains,6220,True,False,,,,
+Blue Bay,Central Coast,1060,False,False,,,,
+Blue Haven,Central Coast,6563,True,True,Warnervale Airport,SYD,38.7,170.0
+Blue Mountains National Park,Sydney - Outer West and Blue Mountains,0,False,False,,,,
+Bondi,Sydney - Eastern Suburbs,10411,True,True,Charles Keenan Reserve,WSI,26.6,94.4
+Bondi Beach,Sydney - Eastern Suburbs,11513,True,True,Charles Keenan Reserve,WSI,28.2,96.0
+Bondi Junction,Sydney - Eastern Suburbs,10361,True,True,Charles Keenan Reserve,WSI,24.1,91.9
+Bonnet Bay,Sydney - Sutherland,2238,True,True,Venetia Street Reserve,SYD,14.4,26.2
+Bonnyrigg,Sydney - South West,9785,True,True,Lalich Reserve,WSI,9.2,27.3
+Bonnyrigg Heights,Sydney - South West,7369,True,True,Lalich Reserve,WSI,11.6,23.7
+Booker Bay,Central Coast,1442,True,False,,,,
+Bossley Park,Sydney - South West,15492,True,True,Lalich Reserve,WSI,16.0,26.3
+Botany,Sydney - City and Inner South,12960,True,True,Charles Keenan Reserve,WSI,26.5,84.1
+Bouddi,Central Coast,5,True,False,,,,
+Bow Bowing,Sydney - Outer South West,1606,True,True,NSW POI Helipad 24487,WSI,23.5,34.9
+Bowen Mountain,Sydney - Baulkham Hills and Hawkesbury,1609,True,False,,,,
+Box Head,Central Coast,0,True,False,,,,
+Box Hill (NSW),Sydney - Baulkham Hills and Hawkesbury,6450,True,True,Mihkelson Reserve,WSI,24.2,56.4
+Bradbury (NSW),Sydney - Outer South West,9433,True,True,NSW POI Helipad 24487,WSI,17.9,46.5
+Breakfast Point,Sydney - Inner West,4678,True,False,,,,
+Brighton-Le-Sands,Sydney - Inner South West,8336,True,True,Venetia Street Reserve,WSI,27.0,76.4
+Bringelly,Sydney - South West,2433,True,False,,,,
+Bronte,Sydney - Eastern Suburbs,7166,True,True,Charles Keenan Reserve,WSI,26.7,94.3
+Brooklyn (NSW),Sydney - North Sydney and Hornsby,737,True,False,,,,
+Brookvale,Sydney - Northern Beaches,3389,True,True,Starkey Reserve,SYD,18.0,43.2
+Brownlow Hill,Sydney - Outer South West,384,True,False,,,,
+Budgewoi,Central Coast,3497,False,False,,,,
+Budgewoi Peninsula,Central Coast,0,False,False,,,,
+Buff Point,Central Coast,3559,False,False,,,,
+Bullaburra,Sydney - Outer West and Blue Mountains,1300,False,False,,,,
+Bundeena,Sydney - Sutherland,2103,True,False,,,,
+Bungarribee,Sydney - Blacktown,3177,True,True,Mihkelson Reserve,SYD,26.3,66.2
+Burraneer,Sydney - Sutherland,3719,True,True,Venetia Street Reserve,WSI,26.8,82.0
+Burwood (NSW),Sydney - Inner West,18224,True,False,,,,
+Burwood Heights,Sydney - Inner West,1134,True,False,,,,
+Busby,Sydney - South West,4446,True,True,Lalich Reserve,WSI,10.1,26.2
+Bushells Ridge,Central Coast,8,True,True,Warnervale Airport,SYD,35.3,170.0
+Buxton (NSW),Sydney - Outer South West,2071,True,False,,,,
+Cabarita (NSW),Sydney - Inner West,1933,True,False,,,,
+Cabramatta,Sydney - South West,21142,True,True,Lalich Reserve,WSI,15.4,35.3
+Cabramatta West,Sydney - South West,7822,True,True,Lalich Reserve,WSI,11.8,31.1
+Caddens,Sydney - Outer West and Blue Mountains,3487,True,True,Cedars Park,WSI,9.6,23.2
+Calga,Central Coast,134,True,False,,,,
+Cambridge Gardens,Sydney - Outer West and Blue Mountains,2030,True,True,Cedars Park,WSI,15.0,30.8
+Cambridge Park,Sydney - Outer West and Blue Mountains,7054,True,True,Cedars Park,WSI,12.3,28.2
+Camden,Sydney - Outer South West,3378,True,False,,,,
+Camden Park (NSW),Sydney - Outer South West,2233,True,True,NSW POI Helipad 24487,WSI,21.9,46.8
+Camden South,Sydney - Outer South West,4595,True,True,NSW POI Helipad 24487,WSI,23.3,44.5
+Camellia,Sydney - Parramatta,0,True,False,,,,
+Cammeray,Sydney - North Sydney and Hornsby,7088,True,True,Starkey Reserve,WSI,24.8,86.3
+Campbelltown (NSW),Sydney - Outer South West,16577,True,True,NSW POI Helipad 24487,WSI,17.1,42.8
+Camperdown (NSW),Sydney - City and Inner South,9381,True,True,Charles Keenan Reserve,WSI,16.4,79.6
+Campsie,Sydney - Inner South West,26132,True,True,Bankstown - City Sports Complex HLS,WSI,25.2,65.9
+Canada Bay,Sydney - Inner West,1308,True,False,,,,
+Canley Heights,Sydney - South West,12320,True,True,Lalich Reserve,WSI,15.0,33.3
+Canley Vale,Sydney - South West,10300,True,True,Lalich Reserve,WSI,18.3,37.3
+Canoelands,Sydney - Baulkham Hills and Hawkesbury,177,True,False,,,,
+Canterbury (NSW),Sydney - Inner South West,9430,True,True,Charles Keenan Reserve,WSI,28.9,68.1
+Canton Beach,Central Coast,1202,False,False,,,,
+Caringbah,Sydney - Sutherland,12575,True,True,Venetia Street Reserve,WSI,20.6,77.1
+Caringbah South,Sydney - Sutherland,13168,True,True,Venetia Street Reserve,WSI,23.7,78.3
+Carlingford,Sydney - Parramatta,28044,True,True,Chilworth Reserve,SYD,14.8,44.2
+Carlton (NSW),Sydney - Inner South West,10631,True,True,Venetia Street Reserve,WSI,21.6,72.2
+Carnes Hill,Sydney - South West,3332,True,True,Lalich Reserve,SYD,21.2,59.1
+Carramar (NSW),Sydney - Parramatta,3475,True,True,Lalich Reserve,WSI,21.1,40.2
+Carss Park,Sydney - Inner South West,1265,True,True,Venetia Street Reserve,WSI,18.0,71.7
+Cartwright,Sydney - South West,2616,True,True,Lalich Reserve,WSI,12.3,29.1
+Castle Cove,Sydney - North Sydney and Hornsby,2643,True,True,Starkey Reserve,SYD,11.1,35.3
+Castle Hill (NSW),Sydney - Baulkham Hills and Hawkesbury,40874,True,True,Chilworth Reserve,SYD,22.3,56.8
+Castlecrag,Sydney - North Sydney and Hornsby,2965,True,True,Starkey Reserve,SYD,13.4,32.6
+Castlereagh,Sydney - Outer West and Blue Mountains,1248,True,False,,,,
+Casula,Sydney - South West,16584,True,True,Lalich Reserve,WSI,18.3,32.3
+Catherine Field,Sydney - South West,2609,True,False,,,,
+Cattai,Sydney - Baulkham Hills and Hawkesbury,1077,True,False,,,,
+Cawdor (NSW),Sydney - Outer South West,430,True,False,,,,
+Cecil Hills,Sydney - South West,6906,True,True,Lalich Reserve,SYD,19.4,61.4
+Cecil Park,Sydney - South West,815,True,True,Lalich Reserve,SYD,23.9,65.9
+Cedar Brush Creek,Central Coast,125,False,False,,,,
+Centennial Park (NSW),Sydney - Eastern Suburbs,2225,True,True,Charles Keenan Reserve,WSI,21.4,89.1
+Central Colo,Sydney - Baulkham Hills and Hawkesbury,30,False,False,,,,
+Central Macdonald,Sydney - Baulkham Hills and Hawkesbury,49,True,False,,,,
+Central Mangrove,Central Coast,253,True,False,,,,
+Chain Valley Bay,Central Coast,2773,False,False,,,,
+Charmhaven,Central Coast,2501,True,True,Warnervale Airport,SYD,35.1,166.1
+Chatswood,Sydney - North Sydney and Hornsby,25553,True,True,Starkey Reserve,SYD,16.8,32.6
+Chatswood West,Sydney - North Sydney and Hornsby,1521,True,True,Starkey Reserve,SYD,20.6,32.7
+Cheero Point,Central Coast,100,True,False,,,,
+Cheltenham (NSW),Sydney - Ryde,2166,True,True,Chilworth Reserve,SYD,12.6,44.7
+Cherrybrook,Sydney - Baulkham Hills and Hawkesbury,19082,True,True,Chilworth Reserve,SYD,17.8,54.2
+Chester Hill,Sydney - Parramatta,14007,True,True,Bankstown - City Sports Complex HLS,SYD,18.4,34.8
+Chifley (NSW),Sydney - Eastern Suburbs,3490,True,False,,,,
+Chippendale,Sydney - City and Inner South,7803,True,True,Charles Keenan Reserve,WSI,15.7,82.9
+Chipping Norton,Sydney - South West,9412,True,True,Bankstown - City Sports Complex HLS,SYD,18.7,39.2
+Chiswick,Sydney - Inner West,2909,True,True,Charles Keenan Reserve,WSI,27.7,72.0
+Chittaway Bay,Central Coast,1987,False,False,,,,
+Chittaway Point,Central Coast,947,False,False,,,,
+Chullora,Sydney - Inner South West,14,True,False,,,,
+Church Point,Sydney - Northern Beaches,1066,True,False,,,,
+Claremont Meadows,Sydney - Outer West and Blue Mountains,5177,True,True,Cedars Park,WSI,8.5,22.9
+Clarendon (NSW),Sydney - Outer West and Blue Mountains,147,True,False,,,,
+Clareville,Sydney - Northern Beaches,822,True,False,,,,
+Claymore,Sydney - Outer South West,2579,True,True,NSW POI Helipad 24487,WSI,15.6,38.6
+Clemton Park,Sydney - Inner South West,1676,True,True,Bankstown - City Sports Complex HLS,WSI,25.1,66.5
+Clontarf (NSW),Sydney - Northern Beaches,1746,True,True,Starkey Reserve,SYD,17.5,33.1
+Clovelly,Sydney - Eastern Suburbs,4887,True,True,Charles Keenan Reserve,WSI,27.1,94.4
+Clyde (NSW),Sydney - Parramatta,9,True,True,Rosehill Heliport Airport,SYD,9.4,37.1
+Coasters Retreat,Sydney - Northern Beaches,30,True,False,,,,
+Cobbitty,Sydney - South West,4206,True,False,,,,
+Cogra Bay,Central Coast,13,True,False,,,,
+Colebee,Sydney - Blacktown,4914,True,True,Mihkelson Reserve,WSI,16.4,39.6
+Collaroy (NSW),Sydney - Northern Beaches,7944,True,False,,,,
+Collaroy Plateau,Sydney - Northern Beaches,4805,True,False,,,,
+Colo (Hawkesbury - NSW),Sydney - Baulkham Hills and Hawkesbury,62,False,False,,,,
+Colo Heights,Sydney - Baulkham Hills and Hawkesbury,336,False,False,,,,
+Colongra,Central Coast,0,False,False,,,,
+Colyton,Sydney - Outer West and Blue Mountains,8770,True,True,Cedars Park,SYD,24.1,77.3
+Como (NSW),Sydney - Sutherland,4053,True,True,Venetia Street Reserve,SYD,12.6,23.8
+Concord,Sydney - Inner West,14551,True,False,,,,
+Concord West,Sydney - Inner West,6178,True,True,Rosehill Heliport Airport,WSI,23.0,63.9
+Condell Park,Sydney - Inner South West,13066,True,True,Bankstown - City Sports Complex HLS,SYD,9.5,30.1
+Connells Point,Sydney - Inner South West,2884,True,True,Venetia Street Reserve,WSI,17.1,68.3
+Constitution Hill,Sydney - Parramatta,4030,True,True,Rosehill Heliport Airport,SYD,20.4,49.1
+Coogee (NSW),Sydney - Eastern Suburbs,14634,True,True,Charles Keenan Reserve,WSI,26.4,93.0
+Copacabana,Central Coast,2809,False,False,,,,
+Cornwallis,Sydney - Outer West and Blue Mountains,44,True,False,,,,
+Cottage Point,Sydney - Northern Beaches,96,True,False,,,,
+Couridjah,Sydney - Outer South West,282,True,False,,,,
+Cowan,Sydney - North Sydney and Hornsby,631,True,False,,,,
+Cranebrook,Sydney - Outer West and Blue Mountains,15779,True,True,Cedars Park,WSI,21.7,37.8
+Cremorne (NSW),Sydney - North Sydney and Hornsby,11263,True,True,Starkey Reserve,WSI,25.7,88.0
+Cremorne Point,Sydney - North Sydney and Hornsby,2270,True,True,Charles Keenan Reserve,WSI,26.4,88.4
+Cromer (NSW),Sydney - Northern Beaches,8030,True,True,Starkey Reserve,SYD,21.7,49.5
+Cronulla,Sydney - Sutherland,17899,True,True,Venetia Street Reserve,WSI,27.3,83.6
+Crows Nest (NSW),Sydney - North Sydney and Hornsby,4974,True,True,Starkey Reserve,WSI,25.9,84.2
+Croydon (NSW),Sydney - Inner West,10755,True,True,Charles Keenan Reserve,WSI,28.5,67.7
+Croydon Park (NSW),Sydney - Inner West,10929,True,False,,,,
+Cumberland Reach,Sydney - Baulkham Hills and Hawkesbury,208,True,False,,,,
+Curl Curl,Sydney - Northern Beaches,2364,True,True,Starkey Reserve,SYD,20.9,43.2
+Currans Hill,Sydney - Outer South West,5541,True,True,NSW POI Helipad 24487,WSI,11.8,36.7
+Daceyville,Sydney - City and Inner South,1146,True,True,Charles Keenan Reserve,WSI,24.0,88.2
+Daleys Point,Central Coast,705,True,True,Erina Heliport,SYD,32.2,100.9
+Dangar Island,Sydney - North Sydney and Hornsby,313,True,False,,,,
+Darling Point,Sydney - Eastern Suburbs,3977,True,True,Charles Keenan Reserve,WSI,22.9,89.7
+Darlinghurst,Sydney - City and Inner South,10615,True,True,Charles Keenan Reserve,WSI,19.2,86.3
+Darlington (Sydney - NSW),Sydney - City and Inner South,2597,True,True,Charles Keenan Reserve,WSI,14.5,81.6
+Davidson,Sydney - Northern Beaches,2725,True,True,Starkey Reserve,SYD,18.7,44.8
+Davistown,Central Coast,2602,True,True,Erina Heliport,SYD,27.8,105.4
+Dawes Point,Sydney - City and Inner South,385,True,True,Charles Keenan Reserve,WSI,22.1,84.3
+Dean Park,Sydney - Blacktown,3180,True,True,Mihkelson Reserve,WSI,16.4,38.0
+Dee Why,Sydney - Northern Beaches,23354,True,True,Starkey Reserve,SYD,22.1,46.8
+Denham Court,Sydney - Outer South West,9129,True,False,,,,
+Denistone,Sydney - Ryde,3726,True,True,Chilworth Reserve,SYD,20.1,35.7
+Denistone East,Sydney - Ryde,2292,True,True,Chilworth Reserve,SYD,20.7,35.3
+Denistone West,Sydney - Ryde,947,True,True,Chilworth Reserve,SYD,19.7,36.3
+Dharruk,Sydney - Blacktown,2806,True,True,Cedars Park,WSI,20.1,31.3
+Dolans Bay,Sydney - Sutherland,699,True,True,Venetia Street Reserve,WSI,25.9,79.9
+Dolls Point,Sydney - Inner South West,1633,True,True,Venetia Street Reserve,WSI,21.5,76.9
+Doonside,Sydney - Blacktown,13614,True,True,Mihkelson Reserve,WSI,19.9,34.0
+Dooralong,Central Coast,350,False,False,,,,
+Double Bay,Sydney - Eastern Suburbs,4709,True,True,Charles Keenan Reserve,WSI,23.3,90.7
+Douglas Park,Sydney - Outer South West,1386,True,False,,,,
+Dover Heights,Sydney - Eastern Suburbs,4044,True,False,,,,
+Doyalson,Central Coast,299,False,False,,,,
+Doyalson North,Central Coast,383,False,False,,,,
+Drummoyne,Sydney - Inner West,12011,True,True,Charles Keenan Reserve,WSI,25.5,74.6
+Duffys Forest,Sydney - Northern Beaches,509,True,False,,,,
+Dulwich Hill,Sydney - Inner West,14046,True,True,Charles Keenan Reserve,WSI,24.6,72.0
+Dundas (NSW),Sydney - Parramatta,4959,True,True,Rosehill Heliport Airport,SYD,15.0,39.7
+Dundas Valley,Sydney - Parramatta,5875,True,True,Chilworth Reserve,SYD,17.5,39.6
+Dural (Hornsby - NSW),Sydney - Baulkham Hills and Hawkesbury,7900,True,False,,,,
+Durren Durren,Central Coast,96,True,True,Warnervale Airport,SYD,37.9,170.0
+Eagle Vale,Sydney - Outer South West,5789,True,True,NSW POI Helipad 24487,WSI,16.8,36.7
+Earlwood,Sydney - Inner South West,18053,True,True,Charles Keenan Reserve,WSI,27.5,71.2
+East Gosford,Central Coast,4391,True,True,Erina Heliport,SYD,21.0,115.3
+East Hills,Sydney - Inner South West,3370,True,True,Bankstown - City Sports Complex HLS,SYD,17.1,34.1
+East Killara,Sydney - North Sydney and Hornsby,2895,True,True,Starkey Reserve,SYD,17.2,41.0
+East Kurrajong,Sydney - Baulkham Hills and Hawkesbury,2203,True,False,,,,
+East Lindfield,Sydney - North Sydney and Hornsby,3710,True,True,Starkey Reserve,SYD,15.2,38.8
+East Ryde,Sydney - Ryde,2522,True,False,,,,
+Eastern Creek,Sydney - Blacktown,874,True,False,,,,
+Eastgardens,Sydney - City and Inner South,4086,True,True,Charles Keenan Reserve,WSI,26.8,88.4
+Eastlakes,Sydney - City and Inner South,6347,True,True,Charles Keenan Reserve,WSI,23.2,85.8
+Eastwood (NSW),Sydney - Ryde,18695,True,True,Chilworth Reserve,SYD,17.8,38.0
+Ebenezer (NSW),Sydney - Baulkham Hills and Hawkesbury,1081,True,False,,,,
+Edensor Park,Sydney - South West,10279,True,True,Lalich Reserve,WSI,12.9,24.7
+Edgecliff,Sydney - Eastern Suburbs,2499,True,True,Charles Keenan Reserve,WSI,22.2,89.6
+Edmondson Park,Sydney - South West,12080,True,True,Lalich Reserve,SYD,25.0,57.2
+Elanora Heights,Sydney - Northern Beaches,4581,True,False,,,,
+Elderslie (Camden - NSW),Sydney - Outer South West,7878,True,True,NSW POI Helipad 24487,WSI,19.5,38.9
+Elizabeth Bay,Sydney - City and Inner South,4878,True,True,Charles Keenan Reserve,WSI,21.6,88.0
+Elizabeth Hills,Sydney - South West,3208,True,True,Lalich Reserve,SYD,17.8,59.9
+Ellis Lane,Sydney - Outer South West,852,True,False,,,,
+Elvina Bay,Sydney - Northern Beaches,80,True,False,,,,
+Emerton,Sydney - Blacktown,2295,True,True,Cedars Park,WSI,19.2,32.0
+Empire Bay,Central Coast,2522,True,True,Erina Heliport,SYD,31.7,101.9
+Emu Heights (NSW),Sydney - Outer West and Blue Mountains,3205,True,False,,,,
+Emu Plains,Sydney - Outer West and Blue Mountains,8126,True,True,Cedars Park,SYD,29.5,101.3
+Enfield (NSW),Sydney - Inner West,2992,True,False,,,,
+Engadine,Sydney - Sutherland,17736,True,False,,,,
+Englorie Park,Sydney - Outer South West,361,True,True,NSW POI Helipad 24487,WSI,14.6,44.7
+Enmore (Inner West - NSW),Sydney - City and Inner South,3871,True,True,Charles Keenan Reserve,WSI,18.8,77.6
+Epping (NSW),Sydney - Ryde,29551,True,True,Chilworth Reserve,SYD,14.2,41.6
+Erina,Central Coast,5205,True,True,Erina Heliport,SYD,21.8,116.7
+Erina Heights,Central Coast,454,True,True,Erina Heliport,SYD,26.6,120.3
+Ermington,Sydney - Parramatta,12686,True,True,Rosehill Heliport Airport,SYD,16.2,36.3
+Erskine Park,Sydney - Outer West and Blue Mountains,6486,True,True,Cedars Park,SYD,27.9,73.9
+Erskineville,Sydney - City and Inner South,9657,True,True,Charles Keenan Reserve,WSI,16.8,80.6
+Eschol Park,Sydney - Outer South West,2607,True,True,NSW POI Helipad 24487,WSI,16.0,35.3
+Ettalong Beach,Central Coast,5161,True,False,,,,
+Eveleigh,Sydney - City and Inner South,606,True,True,Charles Keenan Reserve,WSI,15.0,81.6
+Fairfield (NSW),Sydney - South West,18596,True,True,Lalich Reserve,WSI,21.2,38.9
+Fairfield East,Sydney - Parramatta,5198,True,True,Bankstown - City Sports Complex HLS,SYD,21.7,39.7
+Fairfield Heights,Sydney - South West,8269,True,True,Lalich Reserve,WSI,19.3,36.3
+Fairfield West,Sydney - South West,12981,True,True,Lalich Reserve,WSI,16.5,33.1
+Fairlight,Sydney - Northern Beaches,6141,True,True,Starkey Reserve,SYD,18.8,37.4
+Faulconbridge,Sydney - Outer West and Blue Mountains,4156,True,False,,,,
+Fernances,Sydney - Baulkham Hills and Hawkesbury,7,False,False,,,,
+Fiddletown,Sydney - Baulkham Hills and Hawkesbury,259,True,False,,,,
+Five Dock,Sydney - Inner West,9823,True,True,Charles Keenan Reserve,WSI,27.2,70.0
+Forest Glen (NSW),Sydney - Baulkham Hills and Hawkesbury,71,True,False,,,,
+Forest Lodge,Sydney - City and Inner South,4965,True,True,Charles Keenan Reserve,WSI,17.9,79.0
+Forestville (NSW),Sydney - Northern Beaches,8659,True,True,Starkey Reserve,SYD,12.5,40.5
+Forresters Beach,Central Coast,3354,False,False,,,,
+Fountaindale,Central Coast,726,False,False,,,,
+Frazer Park,Central Coast,0,False,False,,,,
+Freemans,Central Coast,0,False,False,,,,
+Freemans Reach,Sydney - Baulkham Hills and Hawkesbury,2049,True,False,,,,
+Frenchs Forest,Sydney - Northern Beaches,14267,True,True,Starkey Reserve,SYD,14.8,43.4
+Freshwater (NSW),Sydney - Northern Beaches,9186,True,True,Starkey Reserve,SYD,19.9,41.6
+Gables,Sydney - Baulkham Hills and Hawkesbury,3339,True,False,,,,
+Galston,Sydney - Baulkham Hills and Hawkesbury,3195,True,False,,,,
+Georges Hall,Sydney - Inner South West,9739,True,True,Bankstown - City Sports Complex HLS,SYD,14.8,34.7
+Gilead,Sydney - Outer South West,882,True,False,,,,
+Girraween (NSW),Sydney - Parramatta,6256,True,False,,,,
+Gladesville,Sydney - Ryde,12867,True,False,,,,
+Glebe (NSW),Sydney - City and Inner South,11680,True,True,Charles Keenan Reserve,WSI,17.4,80.6
+Gledswood Hills,Sydney - South West,6112,True,True,NSW POI Helipad 24487,WSI,18.9,29.9
+Glen Alpine,Sydney - Outer South West,4429,True,True,NSW POI Helipad 24487,WSI,15.2,45.3
+Glenbrook,Sydney - Outer West and Blue Mountains,5078,True,False,,,,
+Glendenning,Sydney - Blacktown,5196,True,True,Mihkelson Reserve,WSI,18.7,35.3
+Glenfield (NSW),Sydney - Outer South West,10536,True,True,Lalich Reserve,WSI,22.3,33.9
+Glenhaven,Sydney - Baulkham Hills and Hawkesbury,6619,True,False,,,,
+Glenmore (NSW),Sydney - Outer South West,108,True,False,,,,
+Glenmore Park,Sydney - Outer West and Blue Mountains,25021,True,True,Cedars Park,SYD,27.5,95.1
+Glenning Valley,Central Coast,2023,False,False,,,,
+Glenorie,Sydney - Baulkham Hills and Hawkesbury,3792,True,False,,,,
+Glenwood (NSW),Sydney - Blacktown,15829,True,True,Mihkelson Reserve,WSI,17.1,46.4
+Glenworth Valley,Central Coast,12,True,False,,,,
+Glossodia,Sydney - Baulkham Hills and Hawkesbury,2865,True,False,,,,
+Gordon (NSW),Sydney - North Sydney and Hornsby,8795,True,True,Starkey Reserve,SYD,22.0,41.2
+Gorokan,Central Coast,8624,True,True,Warnervale Airport,SYD,37.8,161.4
+Gosford,Central Coast,4873,True,True,Erina Heliport,SYD,23.8,117.2
+Grantham Farm,Sydney - Blacktown,3669,True,True,Mihkelson Reserve,WSI,22.3,52.9
+Granville (NSW),Sydney - Parramatta,16716,True,True,Rosehill Heliport Airport,SYD,11.8,38.7
+Grasmere,Sydney - Outer South West,2105,True,False,,,,
+Grays Point,Sydney - Sutherland,3034,True,True,Venetia Street Reserve,SYD,17.9,30.0
+Great Mackerel Beach,Sydney - Northern Beaches,50,True,False,,,,
+Green Point (Central Coast - NSW),Central Coast,6810,True,True,Erina Heliport,SYD,21.3,113.0
+Green Valley (NSW),Sydney - South West,12919,True,True,Lalich Reserve,WSI,10.9,24.0
+Greenacre,Sydney - Inner South West,26314,True,True,Bankstown - City Sports Complex HLS,WSI,19.3,57.6
+Greendale (Liverpool - NSW),Sydney - South West,314,True,False,,,,
+Greenfield Park,Sydney - South West,5394,True,True,Lalich Reserve,WSI,13.2,27.4
+Greengrove,Central Coast,14,False,False,,,,
+Greenhills Beach,Sydney - Sutherland,1375,True,True,Venetia Street Reserve,WSI,26.0,83.4
+Greenwich,Sydney - North Sydney and Hornsby,5469,True,True,Charles Keenan Reserve,WSI,27.6,81.2
+Gregory Hills,Sydney - South West,9142,True,True,NSW POI Helipad 24487,WSI,14.9,33.7
+Greystanes,Sydney - Parramatta,23511,True,True,Rosehill Heliport Airport,SYD,22.4,49.0
+Grose Vale,Sydney - Baulkham Hills and Hawkesbury,1272,True,False,,,,
+Grose Wold,Sydney - Baulkham Hills and Hawkesbury,668,True,False,,,,
+Guildford (NSW),Sydney - Parramatta,24091,True,True,Rosehill Heliport Airport,SYD,16.7,37.7
+Guildford West,Sydney - Parramatta,5762,True,True,Rosehill Heliport Airport,SYD,19.8,43.6
+Gunderman,Central Coast,189,True,False,,,,
+Gwandalan,Central Coast,3785,False,False,,,,
+Gymea,Sydney - Sutherland,8219,True,True,Venetia Street Reserve,SYD,13.2,25.5
+Gymea Bay,Sydney - Sutherland,6983,True,True,Venetia Street Reserve,SYD,16.0,27.9
+Haberfield,Sydney - Inner West,6480,True,True,Charles Keenan Reserve,WSI,24.4,71.9
+Halekulani,Central Coast,2677,False,False,,,,
+Halloran,Central Coast,34,True,False,,,,
+Hamlyn Terrace,Central Coast,8761,True,True,Warnervale Airport,SYD,32.0,159.4
+Hammondville,Sydney - South West,3691,True,True,Bankstown - City Sports Complex HLS,SYD,19.5,38.6
+Hardys Bay,Central Coast,233,True,False,,,,
+Harrington Park,Sydney - Outer South West,13332,True,True,NSW POI Helipad 24487,WSI,19.2,31.7
+Harris Park,Sydney - Parramatta,5043,True,True,Rosehill Heliport Airport,SYD,11.3,40.0
+Hassall Grove,Sydney - Blacktown,4401,True,True,Mihkelson Reserve,WSI,19.8,36.6
+Hawkesbury Heights,Sydney - Outer West and Blue Mountains,468,True,False,,,,
+Haymarket,Sydney - City and Inner South,8305,True,True,Charles Keenan Reserve,WSI,17.0,83.8
+Hazelbrook,Sydney - Outer West and Blue Mountains,5077,True,False,,,,
+Heathcote (NSW),Sydney - Sutherland,6148,True,False,,,,
+Hebersham,Sydney - Blacktown,5643,True,True,Cedars Park,WSI,21.9,32.9
+Heckenberg,Sydney - South West,3263,True,True,Lalich Reserve,WSI,8.7,28.0
+Henley,Sydney - Ryde,455,True,False,,,,
+Higher Macdonald,Sydney - Baulkham Hills and Hawkesbury,20,False,False,,,,
+Hillsdale,Sydney - City and Inner South,5647,True,True,Charles Keenan Reserve,WSI,28.6,89.2
+Hinchinbrook (NSW),Sydney - South West,11521,True,True,Lalich Reserve,WSI,12.9,24.1
+Hobartville,Sydney - Outer West and Blue Mountains,2712,True,False,,,,
+Holgate,Central Coast,1023,True,True,Erina Heliport,SYD,28.3,124.3
+Holroyd,Sydney - Parramatta,1248,True,True,Rosehill Heliport Airport,SYD,13.5,41.0
+Holsworthy,Sydney - Outer South West,5657,True,False,,,,
+Homebush (NSW),Sydney - Inner West,11660,True,True,Rosehill Heliport Airport,WSI,22.7,61.6
+Homebush West,Sydney - Inner West,9108,True,True,Rosehill Heliport Airport,WSI,21.2,59.4
+Horningsea Park,Sydney - South West,3673,True,True,Lalich Reserve,SYD,23.1,59.8
+Hornsby,Sydney - North Sydney and Hornsby,22462,True,True,Chilworth Reserve,SYD,24.2,55.7
+Hornsby Heights,Sydney - North Sydney and Hornsby,6354,True,False,,,,
+Horsfield Bay,Central Coast,501,True,False,,,,
+Horsley Park,Sydney - South West,1790,True,True,Lalich Reserve,SYD,25.3,63.3
+Hoxton Park,Sydney - South West,4572,True,True,Lalich Reserve,SYD,18.9,57.6
+Hunters Hill,Sydney - Ryde,9014,True,False,,,,
+Huntingwood,Sydney - Blacktown,3,True,False,,,,
+Huntleys Cove,Sydney - Ryde,740,True,False,,,,
+Huntleys Point,Sydney - Ryde,142,True,True,Charles Keenan Reserve,WSI,28.6,73.3
+Hurlstone Park,Sydney - Inner West,5001,True,True,Charles Keenan Reserve,WSI,26.5,70.3
+Hurstville,Sydney - Inner South West,31162,True,True,Venetia Street Reserve,WSI,22.1,67.7
+Hurstville Grove,Sydney - Inner South West,2606,True,True,Venetia Street Reserve,WSI,19.0,67.0
+Illawong,Sydney - Sutherland,7427,True,True,Venetia Street Reserve,SYD,17.0,27.2
+Ingleburn,Sydney - Outer South West,15264,True,False,,,,
+Ingleside,Sydney - Northern Beaches,1030,True,False,,,,
+Jamisontown,Sydney - Outer West and Blue Mountains,5321,True,True,Cedars Park,SYD,27.2,97.9
+Jannali,Sydney - Sutherland,6632,True,True,Venetia Street Reserve,SYD,12.1,24.8
+Jilliby,Central Coast,1694,True,True,Warnervale Airport,SYD,34.9,162.1
+Jordan Springs,Sydney - Outer West and Blue Mountains,11772,True,True,Cedars Park,WSI,15.9,33.0
+Kanangra,Sydney - Outer West and Blue Mountains,0,False,False,,,,
+Kangaroo Point (NSW),Sydney - Sutherland,602,True,True,Venetia Street Reserve,SYD,7.2,18.9
+Kangy Angy,Central Coast,331,False,False,,,,
+Kanwal,Central Coast,4194,True,True,Warnervale Airport,SYD,35.2,158.8
+Kareela,Sydney - Sutherland,3572,True,True,Venetia Street Reserve,SYD,10.3,23.2
+Kariong,Central Coast,6485,True,False,,,,
+Katoomba,Sydney - Outer West and Blue Mountains,8268,True,False,,,,
+Kearns,Sydney - Outer South West,2693,True,True,NSW POI Helipad 24487,WSI,18.7,32.4
+Kellyville,Sydney - Baulkham Hills and Hawkesbury,27011,True,True,Mihkelson Reserve,WSI,21.1,53.8
+Kellyville Ridge,Sydney - Blacktown,10890,True,True,Mihkelson Reserve,WSI,15.4,50.1
+Kemps Creek,Sydney - South West,2121,True,False,,,,
+Kensington (NSW),Sydney - Eastern Suburbs,11927,True,True,Charles Keenan Reserve,WSI,20.4,86.6
+Kenthurst,Sydney - Baulkham Hills and Hawkesbury,5313,True,False,,,,
+Kentlyn,Sydney - Outer South West,726,True,False,,,,
+Kiar,Central Coast,25,True,True,Warnervale Airport,SYD,31.5,167.5
+Killara (NSW),Sydney - North Sydney and Hornsby,10620,True,True,Starkey Reserve,SYD,20.4,38.6
+Killarney Heights,Sydney - Northern Beaches,4502,True,True,Starkey Reserve,SYD,9.8,38.5
+Killarney Vale,Central Coast,7491,False,False,,,,
+Killcare,Central Coast,517,True,False,,,,
+Killcare Heights,Central Coast,812,True,False,,,,
+Kincumber,Central Coast,7398,True,True,Erina Heliport,SYD,26.8,110.2
+Kincumber South,Central Coast,721,True,True,Erina Heliport,SYD,27.8,106.9
+Kingfisher Shores,Central Coast,160,False,False,,,,
+Kings Langley,Sydney - Blacktown,9354,True,True,Mihkelson Reserve,WSI,19.5,45.2
+Kings Park (NSW),Sydney - Blacktown,3476,True,True,Mihkelson Reserve,WSI,15.0,42.3
+Kingsford (NSW),Sydney - Eastern Suburbs,13492,True,True,Charles Keenan Reserve,WSI,24.4,89.5
+Kingsgrove,Sydney - Inner South West,12881,True,True,Bankstown - City Sports Complex HLS,WSI,24.3,65.9
+Kingswood (Penrith - NSW),Sydney - Outer West and Blue Mountains,10633,True,True,Cedars Park,WSI,11.4,25.7
+Kirkham,Sydney - Outer South West,690,True,True,NSW POI Helipad 24487,WSI,21.8,33.9
+Kirrawee,Sydney - Sutherland,11007,True,True,Venetia Street Reserve,SYD,13.8,26.6
+Kirribilli,Sydney - North Sydney and Hornsby,3629,True,True,Charles Keenan Reserve,WSI,24.5,86.1
+Kogarah,Sydney - Inner South West,16416,True,True,Venetia Street Reserve,WSI,23.3,73.9
+Kogarah Bay,Sydney - Inner South West,2102,True,True,Venetia Street Reserve,WSI,19.6,72.6
+Koolewong,Central Coast,920,True,True,Erina Heliport,SYD,29.2,106.5
+Ku-ring-gai Chase,Sydney - Northern Beaches,10,True,False,,,,
+Kulnura,Central Coast,589,False,False,,,,
+Kurmond,Sydney - Baulkham Hills and Hawkesbury,850,True,False,,,,
+Kurnell,Sydney - Sutherland,2528,True,False,,,,
+Kurraba Point,Sydney - North Sydney and Hornsby,1401,True,True,Charles Keenan Reserve,WSI,26.0,87.3
+Kurrajong,Sydney - Baulkham Hills and Hawkesbury,3113,True,False,,,,
+Kurrajong Heights,Sydney - Baulkham Hills and Hawkesbury,1255,True,False,,,,
+Kurrajong Hills,Sydney - Baulkham Hills and Hawkesbury,705,True,False,,,,
+Kyeemagh,Sydney - Inner South West,935,True,True,Charles Keenan Reserve,WSI,27.8,77.2
+Kyle Bay,Sydney - Inner South West,1039,True,True,Venetia Street Reserve,WSI,16.3,68.9
+La Perouse,Sydney - Eastern Suburbs,366,True,False,,,,
+Lake Haven,Central Coast,3529,True,True,Warnervale Airport,SYD,36.6,162.9
+Lake Munmorah,Central Coast,5084,False,False,,,,
+Lakemba,Sydney - Inner South West,17092,True,True,Bankstown - City Sports Complex HLS,WSI,20.0,61.0
+Lakesland,Sydney - Outer South West,499,True,False,,,,
+Lalor Park,Sydney - Blacktown,7834,True,True,Mihkelson Reserve,WSI,20.3,43.1
+Lane Cove,Sydney - North Sydney and Hornsby,12363,True,True,Starkey Reserve,WSI,28.4,77.7
+Lane Cove North,Sydney - North Sydney and Hornsby,11773,True,True,Starkey Reserve,WSI,27.4,77.6
+Lane Cove West,Sydney - North Sydney and Hornsby,3146,True,False,,,,
+Lansdowne (Canterbury-Bankstown - NSW),Sydney - Inner South West,16,True,False,,,,
+Lansvale,Sydney - South West,2595,True,True,Lalich Reserve,WSI,18.4,38.3
+Lapstone,Sydney - Outer West and Blue Mountains,948,True,False,,,,
+Laughtondale,Sydney - Baulkham Hills and Hawkesbury,102,True,False,,,,
+Lavender Bay,Sydney - North Sydney and Hornsby,870,True,True,Charles Keenan Reserve,WSI,24.7,84.5
+Lawson (NSW),Sydney - Outer West and Blue Mountains,2651,False,False,,,,
+Leets Vale,Sydney - Baulkham Hills and Hawkesbury,59,True,False,,,,
+Leichhardt (NSW),Sydney - Inner West,15158,True,True,Charles Keenan Reserve,WSI,21.4,74.9
+Lemon Tree,Central Coast,54,False,False,,,,
+Len Waters Estate,Sydney - South West,0,True,False,,,,
+Leonay,Sydney - Outer West and Blue Mountains,2582,True,False,,,,
+Leppington,Sydney - South West,9423,True,False,,,,
+Lethbridge Park,Sydney - Blacktown,4730,True,True,Cedars Park,WSI,18.5,32.4
+Leumeah,Sydney - Outer South West,9992,True,True,NSW POI Helipad 24487,WSI,19.8,41.6
+Leura,Sydney - Outer West and Blue Mountains,4503,True,False,,,,
+Lewisham (NSW),Sydney - Inner West,4060,True,True,Charles Keenan Reserve,WSI,22.7,73.3
+Liberty Grove,Sydney - Inner West,2055,True,True,Rosehill Heliport Airport,WSI,21.5,62.6
+Lidcombe,Sydney - Parramatta,23663,True,True,Rosehill Heliport Airport,SYD,16.8,30.0
+Lilli Pilli (Sutherland Shire - NSW),Sydney - Sutherland,1405,True,True,Venetia Street Reserve,WSI,26.2,79.0
+Lilyfield,Sydney - Inner West,7641,True,True,Charles Keenan Reserve,WSI,21.7,75.8
+Linden (NSW),Sydney - Outer West and Blue Mountains,471,True,False,,,,
+Lindfield,Sydney - North Sydney and Hornsby,10943,True,True,Starkey Reserve,SYD,19.7,36.0
+Linley Point,Sydney - North Sydney and Hornsby,382,True,False,,,,
+Lisarow,Central Coast,5299,True,True,Erina Heliport,SYD,30.5,127.3
+Little Bay,Sydney - Eastern Suburbs,4817,True,False,,,,
+Little Jilliby,Central Coast,102,True,True,Warnervale Airport,SYD,35.7,158.2
+Little Wobby,Central Coast,23,True,False,,,,
+Liverpool,Sydney - South West,31078,True,True,Lalich Reserve,WSI,14.1,33.4
+Llandilo,Sydney - Outer West and Blue Mountains,1618,True,True,Cedars Park,WSI,21.7,38.8
+Loftus,Sydney - Sutherland,4190,True,True,Venetia Street Reserve,SYD,19.0,31.9
+Londonderry (NSW),Sydney - Outer West and Blue Mountains,4024,True,False,,,,
+Long Jetty,Central Coast,6736,False,False,,,,
+Long Point (Campbelltown - NSW),Sydney - Outer South West,173,True,False,,,,
+Longueville,Sydney - North Sydney and Hornsby,2116,True,True,Charles Keenan Reserve,WSI,28.5,78.1
+Lovett Bay,Sydney - Northern Beaches,117,True,False,,,,
+Lower Macdonald,Sydney - Baulkham Hills and Hawkesbury,244,True,False,,,,
+Lower Mangrove,Central Coast,70,True,False,,,,
+Lower Portland,Sydney - Baulkham Hills and Hawkesbury,711,True,False,,,,
+Lucas Heights,Sydney - Sutherland,4,True,False,,,,
+Luddenham,Sydney - Outer West and Blue Mountains,1927,True,False,,,,
+Lugarno,Sydney - Inner South West,5869,True,True,Bankstown - City Sports Complex HLS,WSI,22.7,59.1
+Lurnea,Sydney - South West,10057,True,True,Lalich Reserve,WSI,14.9,30.9
+Macmasters Beach,Central Coast,1399,True,False,,,,
+Macquarie Fields,Sydney - Outer South West,14023,True,False,,,,
+Macquarie Links,Sydney - Outer South West,1455,True,False,,,,
+Macquarie Park,Sydney - Ryde,11071,True,True,Chilworth Reserve,SYD,22.0,37.5
+Magenta (NSW),Central Coast,332,False,False,,,,
+Maianbar,Sydney - Sutherland,539,True,False,,,,
+Malabar,Sydney - Eastern Suburbs,4714,True,False,,,,
+Maldon (NSW),Sydney - Outer South West,25,True,False,,,,
+Mangrove Creek,Central Coast,56,False,False,,,,
+Mangrove Mountain,Central Coast,736,True,False,,,,
+Manly (NSW),Sydney - Northern Beaches,16296,True,True,Starkey Reserve,SYD,22.8,37.4
+Manly Vale,Sydney - Northern Beaches,6389,True,True,Starkey Reserve,SYD,16.6,39.0
+Mannering Park,Central Coast,2554,False,False,,,,
+Maraylya,Sydney - Baulkham Hills and Hawkesbury,1281,True,False,,,,
+Marayong,Sydney - Blacktown,7834,True,True,Mihkelson Reserve,WSI,15.6,39.3
+Mardi,Central Coast,3598,True,True,Warnervale Airport,SYD,36.1,147.3
+Marlow,Central Coast,35,True,False,,,,
+Maroota,Sydney - Baulkham Hills and Hawkesbury,616,True,False,,,,
+Maroubra,Sydney - Eastern Suburbs,30722,True,True,Charles Keenan Reserve,WSI,28.6,91.6
+Marrickville,Sydney - City and Inner South,26570,True,True,Charles Keenan Reserve,WSI,22.5,75.1
+Marsden Park,Sydney - Blacktown,14610,True,True,Mihkelson Reserve,WSI,21.1,40.9
+Marsfield,Sydney - Ryde,12492,True,True,Chilworth Reserve,SYD,18.1,39.1
+Mascot,Sydney - City and Inner South,21591,True,True,Charles Keenan Reserve,WSI,26.4,79.7
+Matcham,Central Coast,1038,True,True,Erina Heliport,SYD,31.7,126.0
+Matraville,Sydney - Eastern Suburbs,9925,True,False,,,,
+Mays Hill,Sydney - Parramatta,1902,True,True,Rosehill Heliport Airport,SYD,15.1,43.3
+McGraths Hill,Sydney - Baulkham Hills and Hawkesbury,2537,True,False,,,,
+McMahons Point,Sydney - North Sydney and Hornsby,2315,True,True,Charles Keenan Reserve,WSI,24.2,83.7
+Meadowbank (NSW),Sydney - Ryde,5089,True,True,Rosehill Heliport Airport,SYD,20.4,32.5
+Medlow Bath,Sydney - Outer West and Blue Mountains,569,True,False,,,,
+Megalong Valley,Sydney - Outer West and Blue Mountains,148,True,False,,,,
+Mellong,Sydney - Baulkham Hills and Hawkesbury,7,False,False,,,,
+Melonba,Sydney - Blacktown,1439,True,False,,,,
+Melrose Park (NSW),Sydney - Parramatta,2059,True,True,Rosehill Heliport Airport,SYD,17.8,34.2
+Menai,Sydney - Sutherland,10419,True,False,,,,
+Menangle,Sydney - Outer South West,1252,True,False,,,,
+Menangle Park,Sydney - Outer South West,224,True,True,NSW POI Helipad 24487,WSI,18.2,47.9
+Merrylands,Sydney - Parramatta,32472,True,True,Rosehill Heliport Airport,SYD,15.3,41.8
+Merrylands West,Sydney - Parramatta,7054,True,True,Rosehill Heliport Airport,SYD,19.0,44.5
+Middle Cove,Sydney - North Sydney and Hornsby,1327,True,True,Starkey Reserve,SYD,12.2,33.9
+Middle Dural,Sydney - Baulkham Hills and Hawkesbury,1040,True,False,,,,
+Middleton Grange,Sydney - South West,7043,True,True,Lalich Reserve,SYD,19.3,60.7
+Miller,Sydney - South West,3374,True,True,Lalich Reserve,WSI,11.8,26.9
+Millers Point,Sydney - City and Inner South,1735,True,True,Charles Keenan Reserve,WSI,21.3,83.8
+Milperra,Sydney - Inner South West,4074,True,True,Bankstown - City Sports Complex HLS,SYD,15.3,34.9
+Milsons Passage,Sydney - North Sydney and Hornsby,32,True,False,,,,
+Milsons Point,Sydney - North Sydney and Hornsby,2529,True,True,Charles Keenan Reserve,WSI,24.2,85.2
+Minchinbury,Sydney - Blacktown,5778,True,False,,,,
+Minto,Sydney - Outer South West,13940,True,True,NSW POI Helipad 24487,WSI,22.9,38.2
+Minto Heights,Sydney - Outer South West,384,True,False,,,,
+Miranda (NSW),Sydney - Sutherland,17942,True,True,Venetia Street Reserve,SYD,12.2,22.9
+Mogo Creek,Sydney - Baulkham Hills and Hawkesbury,10,False,False,,,,
+Mona Vale,Sydney - Northern Beaches,10877,True,False,,,,
+Monterey,Sydney - Inner South West,4619,True,True,Venetia Street Reserve,WSI,24.2,76.1
+Mooney Mooney,Central Coast,350,True,False,,,,
+Mooney Mooney Creek,Central Coast,27,True,False,,,,
+Moore Park,Sydney - Eastern Suburbs,18,True,False,,,,
+Moorebank,Sydney - South West,11408,True,True,Bankstown - City Sports Complex HLS,SYD,19.8,39.5
+Morning Bay,Sydney - Northern Beaches,31,True,False,,,,
+Mortdale,Sydney - Inner South West,10745,True,True,Venetia Street Reserve,WSI,21.9,62.9
+Mortlake (NSW),Sydney - Inner West,1954,True,True,Rosehill Heliport Airport,WSI,25.4,66.5
+Mosman,Sydney - North Sydney and Hornsby,28329,True,True,Starkey Reserve,WSI,27.0,92.1
+Mount Annan,Sydney - Outer South West,11784,True,True,NSW POI Helipad 24487,WSI,11.5,40.3
+Mount Colah,Sydney - North Sydney and Hornsby,7816,True,False,,,,
+Mount Druitt,Sydney - Blacktown,16986,True,True,Cedars Park,SYD,27.0,75.8
+Mount Elliot (NSW),Central Coast,169,True,True,Erina Heliport,SYD,26.1,122.8
+Mount Hunter,Sydney - Outer South West,749,True,False,,,,
+Mount Irvine,Sydney - Baulkham Hills and Hawkesbury,22,True,False,,,,
+Mount Kuring-Gai,Sydney - North Sydney and Hornsby,1766,True,False,,,,
+Mount Lewis,Sydney - Inner South West,1234,True,True,Bankstown - City Sports Complex HLS,SYD,12.7,23.9
+Mount Pritchard,Sydney - South West,10426,True,True,Lalich Reserve,WSI,9.4,29.4
+Mount Riverview,Sydney - Outer West and Blue Mountains,3074,True,False,,,,
+Mount Tomah,Sydney - Baulkham Hills and Hawkesbury,68,True,False,,,,
+Mount Vernon,Sydney - South West,1235,True,False,,,,
+Mount Victoria,Sydney - Outer West and Blue Mountains,945,False,False,,,,
+Mount White,Central Coast,171,True,False,,,,
+Mount Wilson,Sydney - Baulkham Hills and Hawkesbury,81,True,False,,,,
+Mountain Lagoon,Sydney - Baulkham Hills and Hawkesbury,78,False,False,,,,
+Mowbray Park,Sydney - Outer South West,94,True,False,,,,
+Mulgoa,Sydney - Outer West and Blue Mountains,2044,True,False,,,,
+Mulgrave (NSW),Sydney - Baulkham Hills and Hawkesbury,78,True,False,,,,
+Narara,Central Coast,8471,True,True,Erina Heliport,SYD,29.7,122.8
+Narellan,Sydney - Outer South West,3358,True,True,NSW POI Helipad 24487,WSI,17.4,35.3
+Narellan Vale,Sydney - Outer South West,6931,True,True,NSW POI Helipad 24487,WSI,14.6,37.3
+Naremburn,Sydney - North Sydney and Hornsby,5924,True,True,Starkey Reserve,SYD,17.8,28.3
+Narrabeen,Sydney - Northern Beaches,8255,True,False,,,,
+Narraweena,Sydney - Northern Beaches,6971,True,True,Starkey Reserve,SYD,19.9,46.0
+Narwee,Sydney - Inner South West,5411,True,True,Bankstown - City Sports Complex HLS,WSI,19.8,61.1
+Nattai,Sydney - Outer South West,77,True,False,,,,
+Nelson (The Hills Shire - NSW),Sydney - Baulkham Hills and Hawkesbury,460,True,False,,,,
+Neutral Bay,Sydney - North Sydney and Hornsby,10090,True,True,Charles Keenan Reserve,WSI,27.1,86.6
+Newington (NSW),Sydney - Parramatta,5648,True,True,Rosehill Heliport Airport,SYD,14.6,31.9
+Newport (NSW),Sydney - Northern Beaches,9659,True,False,,,,
+Newtown (NSW),Sydney - City and Inner South,14690,True,True,Charles Keenan Reserve,WSI,17.5,79.0
+Niagara Park,Central Coast,2779,True,True,Erina Heliport,SYD,32.1,126.8
+Nirimba Fields,Sydney - Blacktown,1632,True,True,Mihkelson Reserve,WSI,13.5,42.2
+Norah Head,Central Coast,1149,False,False,,,,
+Noraville,Central Coast,3001,False,False,,,,
+Normanhurst,Sydney - North Sydney and Hornsby,5387,True,True,Chilworth Reserve,SYD,19.3,50.4
+North Avoca,Central Coast,2318,True,True,Erina Heliport,SYD,31.4,116.3
+North Balgowlah,Sydney - Northern Beaches,3816,True,True,Starkey Reserve,SYD,14.5,37.1
+North Bondi,Sydney - Eastern Suburbs,9290,True,False,,,,
+North Curl Curl,Sydney - Northern Beaches,4288,True,True,Starkey Reserve,SYD,21.1,44.4
+North Epping,Sydney - Ryde,4657,True,True,Chilworth Reserve,SYD,15.7,43.3
+North Gosford,Central Coast,3986,True,True,Erina Heliport,SYD,23.6,118.7
+North Kellyville,Sydney - Baulkham Hills and Hawkesbury,17401,True,True,Mihkelson Reserve,WSI,22.3,57.0
+North Manly,Sydney - Northern Beaches,3396,True,True,Starkey Reserve,SYD,18.0,40.7
+North Narrabeen,Sydney - Northern Beaches,6016,True,False,,,,
+North Parramatta,Sydney - Parramatta,12064,True,True,Rosehill Heliport Airport,SYD,16.9,44.8
+North Richmond,Sydney - Outer West and Blue Mountains,6358,True,False,,,,
+North Rocks,Sydney - Parramatta,9136,True,True,Chilworth Reserve,SYD,18.5,46.7
+North Ryde,Sydney - Ryde,14043,True,False,,,,
+North St Marys,Sydney - Outer West and Blue Mountains,4123,True,True,Cedars Park,WSI,14.6,28.5
+North Strathfield,Sydney - Inner West,4618,True,True,Rosehill Heliport Airport,WSI,23.5,62.9
+North Sydney,Sydney - North Sydney and Hornsby,8964,True,True,Charles Keenan Reserve,WSI,26.3,84.7
+North Turramurra,Sydney - North Sydney and Hornsby,4194,True,False,,,,
+North Wahroonga,Sydney - North Sydney and Hornsby,2100,True,False,,,,
+North Willoughby,Sydney - North Sydney and Hornsby,4161,True,True,Starkey Reserve,SYD,13.9,32.9
+Northbridge (NSW),Sydney - North Sydney and Hornsby,6493,True,True,Starkey Reserve,SYD,15.8,30.1
+Northmead,Sydney - Parramatta,11261,True,True,Rosehill Heliport Airport,SYD,19.6,47.6
+Northwood (NSW),Sydney - North Sydney and Hornsby,916,True,True,Charles Keenan Reserve,WSI,28.0,79.9
+Norwest,Sydney - Baulkham Hills and Hawkesbury,4688,True,True,Mihkelson Reserve,WSI,22.0,51.7
+Oakdale (NSW),Sydney - Outer South West,2028,True,False,,,,
+Oakhurst (NSW),Sydney - Blacktown,6947,True,True,Mihkelson Reserve,WSI,20.9,35.2
+Oakville,Sydney - Baulkham Hills and Hawkesbury,2027,True,False,,,,
+Oatlands (NSW),Sydney - Parramatta,5833,True,True,Rosehill Heliport Airport,SYD,16.2,42.6
+Oatley,Sydney - Inner South West,10664,True,True,Venetia Street Reserve,WSI,19.5,63.8
+Old Guildford,Sydney - Parramatta,2857,True,True,Rosehill Heliport Airport,SYD,18.8,38.9
+Old Toongabbie,Sydney - Parramatta,3276,True,True,Rosehill Heliport Airport,SYD,22.0,50.7
+Oran Park,Sydney - South West,17624,True,False,,,,
+Orangeville,Sydney - Outer South West,1354,True,False,,,,
+Orchard Hills,Sydney - Outer West and Blue Mountains,1798,True,True,Cedars Park,SYD,23.4,85.2
+Ourimbah,Central Coast,4019,False,False,,,,
+Oxford Falls,Sydney - Northern Beaches,265,True,True,Starkey Reserve,SYD,19.8,48.4
+Oxley Park,Sydney - Outer West and Blue Mountains,4197,True,True,Cedars Park,SYD,23.4,78.6
+Oyster Bay,Sydney - Sutherland,5689,True,True,Venetia Street Reserve,SYD,9.5,21.8
+Paddington (NSW),Sydney - Eastern Suburbs,12701,True,True,Charles Keenan Reserve,WSI,20.4,87.9
+Padstow,Sydney - Inner South West,14017,True,True,Bankstown - City Sports Complex HLS,SYD,12.8,25.8
+Padstow Heights,Sydney - Inner South West,3594,True,True,Bankstown - City Sports Complex HLS,WSI,20.0,56.5
+Pagewood,Sydney - City and Inner South,3885,True,True,Charles Keenan Reserve,WSI,25.2,88.0
+Palm Beach (NSW),Sydney - Northern Beaches,1652,True,False,,,,
+Palm Grove (NSW),Central Coast,87,False,False,,,,
+Palmdale (NSW),Central Coast,95,False,False,,,,
+Panania,Sydney - Inner South West,13507,True,True,Bankstown - City Sports Complex HLS,SYD,15.1,32.5
+Parklea,Sydney - Blacktown,3684,True,True,Mihkelson Reserve,WSI,13.4,46.1
+Parramatta,Sydney - Parramatta,30211,True,True,Rosehill Heliport Airport,SYD,12.9,41.6
+Patonga,Central Coast,235,True,False,,,,
+Peakhurst,Sydney - Inner South West,12079,True,True,Bankstown - City Sports Complex HLS,WSI,20.1,59.8
+Peakhurst Heights,Sydney - Inner South West,2524,True,True,Bankstown - City Sports Complex HLS,WSI,22.3,60.3
+Pearl Beach,Central Coast,510,True,False,,,,
+Peats Ridge,Central Coast,301,True,False,,,,
+Pemulwuy,Sydney - Blacktown,5532,True,False,,,,
+Pendle Hill,Sydney - Parramatta,7743,True,True,Rosehill Heliport Airport,SYD,22.2,50.4
+Pennant Hills,Sydney - Ryde,7588,True,True,Chilworth Reserve,SYD,14.4,49.4
+Penrith,Sydney - Outer West and Blue Mountains,17966,True,True,Cedars Park,WSI,16.8,30.0
+Penshurst (NSW),Sydney - Inner South West,12592,True,True,Venetia Street Reserve,WSI,21.8,65.3
+Perrys Crossing,Sydney - Baulkham Hills and Hawkesbury,4,False,False,,,,
+Petersham,Sydney - City and Inner South,8200,True,True,Charles Keenan Reserve,WSI,21.1,74.9
+Pheasants Nest,Sydney - Outer South West,716,True,False,,,,
+Phegans Bay,Central Coast,406,True,False,,,,
+Phillip Bay,Sydney - Eastern Suburbs,721,True,False,,,,
+Picketts Valley,Central Coast,221,True,False,,,,
+Picnic Point,Sydney - Inner South West,6413,True,True,Bankstown - City Sports Complex HLS,SYD,17.9,31.4
+Picton (NSW),Sydney - Outer South West,5282,True,False,,,,
+Pitt Town,Sydney - Baulkham Hills and Hawkesbury,3871,True,False,,,,
+Pitt Town Bottoms,Sydney - Baulkham Hills and Hawkesbury,85,True,False,,,,
+Pleasure Point,Sydney - South West,606,True,True,Bankstown - City Sports Complex HLS,SYD,19.3,34.6
+Plumpton (NSW),Sydney - Blacktown,10070,True,True,Mihkelson Reserve,WSI,21.9,32.6
+Point Clare,Central Coast,3974,True,True,Erina Heliport,SYD,27.2,112.6
+Point Frederick,Central Coast,2043,True,True,Erina Heliport,SYD,22.8,113.4
+Point Piper,Sydney - Eastern Suburbs,1334,True,True,Charles Keenan Reserve,WSI,25.5,92.1
+Point Wolstoncroft,Central Coast,0,False,False,,,,
+Port Botany,Sydney - City and Inner South,0,True,False,,,,
+Port Hacking,Sydney - Sutherland,1210,True,True,Venetia Street Reserve,WSI,26.6,80.1
+Potts Hill,Sydney - Inner South West,1454,True,True,Bankstown - City Sports Complex HLS,SYD,15.0,28.4
+Potts Point,Sydney - City and Inner South,7183,True,True,Charles Keenan Reserve,WSI,21.9,87.6
+Prairiewood,Sydney - South West,3457,True,True,Lalich Reserve,WSI,15.7,29.7
+Prestons,Sydney - South West,15694,True,True,Lalich Reserve,WSI,16.5,27.2
+Pretty Beach (Central Coast - NSW),Central Coast,314,True,False,,,,
+Prospect (NSW),Sydney - Blacktown,5187,True,False,,,,
+Punchbowl (Canterbury-Bankstown - NSW),Sydney - Inner South West,21384,True,True,Bankstown - City Sports Complex HLS,SYD,12.6,22.8
+Putney,Sydney - Ryde,4097,True,False,,,,
+Pymble,Sydney - North Sydney and Hornsby,11775,True,True,Chilworth Reserve,SYD,24.3,44.0
+Pyrmont,Sydney - City and Inner South,12658,True,True,Charles Keenan Reserve,WSI,19.0,81.6
+Quakers Hill,Sydney - Blacktown,27893,True,True,Mihkelson Reserve,WSI,11.2,43.3
+Queens Park (NSW),Sydney - Eastern Suburbs,3143,True,True,Charles Keenan Reserve,WSI,23.7,91.5
+Queenscliff (NSW),Sydney - Northern Beaches,3407,True,True,Starkey Reserve,SYD,20.0,40.4
+Raby,Sydney - Outer South West,5943,True,True,NSW POI Helipad 24487,WSI,20.2,33.6
+Ramsgate,Sydney - Inner South West,1151,True,True,Venetia Street Reserve,WSI,21.9,75.5
+Ramsgate Beach,Sydney - Inner South West,1734,True,True,Venetia Street Reserve,WSI,22.8,76.5
+Randwick,Sydney - Eastern Suburbs,28943,True,True,Charles Keenan Reserve,WSI,24.4,90.8
+Ravensdale,Central Coast,70,False,False,,,,
+Razorback,Sydney - Outer South West,1174,True,False,,,,
+Redfern,Sydney - City and Inner South,13072,True,True,Charles Keenan Reserve,WSI,16.4,84.2
+Regents Park (NSW),Sydney - Parramatta,4990,True,True,Bankstown - City Sports Complex HLS,SYD,17.1,30.5
+Regentville,Sydney - Outer West and Blue Mountains,829,True,False,,,,
+Revesby,Sydney - Inner South West,15268,True,True,Bankstown - City Sports Complex HLS,SYD,12.2,29.1
+Revesby Heights,Sydney - Inner South West,1916,True,True,Bankstown - City Sports Complex HLS,SYD,16.6,28.8
+Rhodes,Sydney - Inner West,11453,True,True,Rosehill Heliport Airport,SYD,19.8,30.0
+Richards,Sydney - Blacktown,37,True,False,,,,
+Richmond (NSW),Sydney - Outer West and Blue Mountains,5418,True,False,,,,
+Richmond Lowlands,Sydney - Outer West and Blue Mountains,55,True,False,,,,
+Riverstone,Sydney - Blacktown,8627,True,True,Mihkelson Reserve,WSI,20.1,50.1
+Riverview (NSW),Sydney - North Sydney and Hornsby,3148,True,True,Starkey Reserve,WSI,29.9,76.7
+Riverwood,Sydney - Inner South West,12793,True,True,Bankstown - City Sports Complex HLS,WSI,17.0,58.1
+Rockdale,Sydney - Inner South West,15475,True,True,Venetia Street Reserve,WSI,26.2,73.9
+Rocky Point (NSW),Central Coast,275,True,True,Warnervale Airport,SYD,37.2,151.0
+Rodd Point,Sydney - Inner West,1380,True,True,Charles Keenan Reserve,WSI,24.8,72.8
+Rookwood (NSW),Sydney - Parramatta,3,True,False,,,,
+Rooty Hill,Sydney - Blacktown,16176,True,True,Mihkelson Reserve,SYD,27.2,71.0
+Ropes Crossing,Sydney - Blacktown,7280,True,True,Cedars Park,WSI,17.5,33.6
+Rose Bay (NSW),Sydney - Eastern Suburbs,9911,True,True,Charles Keenan Reserve,WSI,27.7,94.9
+Rosebery (NSW),Sydney - City and Inner South,13533,True,True,Charles Keenan Reserve,WSI,20.2,84.2
+Rosehill (NSW),Sydney - Parramatta,4047,True,True,Rosehill Heliport Airport,SYD,10.0,37.0
+Roselands,Sydney - Inner South West,12356,True,True,Bankstown - City Sports Complex HLS,WSI,19.7,61.3
+Rosemeadow,Sydney - Outer South West,8007,True,True,NSW POI Helipad 24487,WSI,19.4,50.1
+Roseville,Sydney - North Sydney and Hornsby,10340,True,True,Starkey Reserve,SYD,15.2,35.5
+Roseville Chase,Sydney - North Sydney and Hornsby,1618,True,True,Starkey Reserve,SYD,12.5,37.4
+Rossmore (NSW),Sydney - South West,2241,True,False,,,,
+Rouse Hill,Sydney - Blacktown,11349,True,True,Mihkelson Reserve,WSI,19.2,53.2
+Royal National Park,Sydney - Sutherland,42,True,False,,,,
+Rozelle,Sydney - Inner West,8553,True,True,Charles Keenan Reserve,WSI,21.1,78.1
+Ruse,Sydney - Outer South West,5632,True,True,NSW POI Helipad 24487,WSI,21.0,45.2
+Rushcutters Bay,Sydney - City and Inner South,2335,True,True,Charles Keenan Reserve,WSI,21.3,88.0
+Russell Lea,Sydney - Inner West,4920,True,True,Charles Keenan Reserve,WSI,26.2,72.3
+Rydalmere,Sydney - Parramatta,7274,True,True,Rosehill Heliport Airport,SYD,12.9,38.1
+Ryde,Sydney - Ryde,31907,True,True,Chilworth Reserve,WSI,26.7,69.4
+Sackville,Sydney - Baulkham Hills and Hawkesbury,230,True,False,,,,
+Sackville North,Sydney - Baulkham Hills and Hawkesbury,388,True,False,,,,
+Sadleir,Sydney - South West,3243,True,True,Lalich Reserve,WSI,10.6,28.3
+San Remo (NSW),Central Coast,4434,False,False,,,,
+Sandringham (NSW),Sydney - Inner South West,1275,True,True,Venetia Street Reserve,WSI,20.2,76.3
+Sandy Point (NSW),Sydney - South West,597,True,True,Bankstown - City Sports Complex HLS,SYD,19.2,33.5
+Sans Souci,Sydney - Inner South West,10864,True,True,Venetia Street Reserve,WSI,19.2,74.8
+Saratoga,Central Coast,3982,True,True,Erina Heliport,SYD,26.4,106.7
+Scheyville,Sydney - Baulkham Hills and Hawkesbury,7,True,False,,,,
+Schofields,Sydney - Blacktown,15213,True,True,Mihkelson Reserve,WSI,15.3,45.0
+Scotland Island,Sydney - Northern Beaches,711,True,False,,,,
+Seaforth (NSW),Sydney - Northern Beaches,7384,True,True,Starkey Reserve,SYD,13.5,35.6
+Sefton,Sydney - Parramatta,6300,True,True,Bankstown - City Sports Complex HLS,SYD,16.3,32.5
+Seven Hills (NSW),Sydney - Blacktown,20095,True,True,Mihkelson Reserve,WSI,23.8,41.7
+Shalvey,Sydney - Blacktown,3455,True,True,Cedars Park,WSI,20.9,35.0
+Shanes Park,Sydney - Blacktown,384,True,False,,,,
+Shelly Beach (NSW),Central Coast,1313,False,False,,,,
+Silverdale (NSW),Sydney - Outer West and Blue Mountains,4543,True,False,,,,
+Silverwater (Parramatta - NSW),Sydney - Parramatta,3600,True,True,Rosehill Heliport Airport,SYD,12.1,34.2
+Singletons Mill,Sydney - Baulkham Hills and Hawkesbury,3,True,False,,,,
+Smeaton Grange,Sydney - Outer South West,16,True,True,NSW POI Helipad 24487,WSI,14.7,34.4
+Smithfield (NSW),Sydney - Parramatta,13160,True,True,Lalich Reserve,WSI,22.2,36.8
+Somersby,Central Coast,1087,False,False,,,,
+South Coogee,Sydney - Eastern Suburbs,5611,True,True,Charles Keenan Reserve,WSI,28.1,93.5
+South Granville,Sydney - Parramatta,5829,True,True,Rosehill Heliport Airport,SYD,15.3,35.5
+South Hurstville,Sydney - Inner South West,5221,True,True,Venetia Street Reserve,WSI,19.0,69.2
+South Maroota,Sydney - Baulkham Hills and Hawkesbury,613,True,False,,,,
+South Penrith,Sydney - Outer West and Blue Mountains,12005,True,True,Cedars Park,SYD,23.2,93.8
+South Turramurra,Sydney - North Sydney and Hornsby,3208,True,True,Chilworth Reserve,SYD,18.3,43.7
+South Wentworthville,Sydney - Parramatta,6913,True,True,Rosehill Heliport Airport,SYD,18.2,45.7
+South Windsor,Sydney - Outer West and Blue Mountains,5948,True,False,,,,
+Spencer,Central Coast,288,True,False,,,,
+Spring Farm (NSW),Sydney - Outer South West,9868,True,True,NSW POI Helipad 24487,WSI,18.0,41.1
+Springfield (Central Coast - NSW),Central Coast,4310,True,True,Erina Heliport,SYD,21.3,118.0
+Springwood (NSW),Sydney - Outer West and Blue Mountains,8423,True,False,,,,
+St Albans (NSW),Sydney - Baulkham Hills and Hawkesbury,161,False,False,,,,
+St Andrews (NSW),Sydney - Outer South West,5785,True,True,NSW POI Helipad 24487,WSI,21.0,35.3
+St Clair (Penrith - NSW),Sydney - Outer West and Blue Mountains,19942,True,True,Cedars Park,SYD,24.3,77.3
+St Helens Park,Sydney - Outer South West,6647,True,True,NSW POI Helipad 24487,WSI,20.9,50.8
+St Huberts Island,Central Coast,1080,True,True,Erina Heliport,SYD,30.6,102.4
+St Ives (NSW),Sydney - North Sydney and Hornsby,18384,True,True,Starkey Reserve,SYD,23.4,48.0
+St Ives Chase,Sydney - North Sydney and Hornsby,3283,True,False,,,,
+St Johns Park,Sydney - South West,6302,True,True,Lalich Reserve,WSI,12.1,29.3
+St Leonards (NSW),Sydney - North Sydney and Hornsby,7212,True,True,Starkey Reserve,WSI,25.9,82.6
+St Marys (NSW),Sydney - Outer West and Blue Mountains,13256,True,True,Cedars Park,WSI,11.7,26.6
+St Peters (NSW),Sydney - City and Inner South,3629,True,True,Charles Keenan Reserve,WSI,20.1,79.3
+Stanhope Gardens,Sydney - Blacktown,9349,True,True,Mihkelson Reserve,WSI,15.6,49.1
+Stanmore (NSW),Sydney - City and Inner South,7619,True,True,Charles Keenan Reserve,WSI,19.5,76.5
+Strathfield (NSW),Sydney - Inner West,25915,True,True,Rosehill Heliport Airport,WSI,25.1,61.4
+Strathfield South,Sydney - Inner West,3636,True,True,Bankstown - City Sports Complex HLS,WSI,21.7,60.3
+Summer Hill (Inner West - NSW),Sydney - Inner West,7288,True,True,Charles Keenan Reserve,WSI,24.3,71.7
+Summerland Point,Central Coast,2708,False,False,,,,
+Sun Valley (NSW),Sydney - Outer West and Blue Mountains,234,True,False,,,,
+Surry Hills,Sydney - City and Inner South,15828,True,True,Charles Keenan Reserve,WSI,17.7,85.2
+Sutherland (NSW),Sydney - Sutherland,11570,True,True,Venetia Street Reserve,SYD,16.0,28.9
+Sydenham (NSW),Sydney - City and Inner South,1100,True,True,Charles Keenan Reserve,WSI,21.2,77.5
+Sydney,Sydney - City and Inner South,16667,True,True,Charles Keenan Reserve,WSI,20.0,84.7
+Sydney Olympic Park,Sydney - Parramatta,4848,True,True,Rosehill Heliport Airport,SYD,17.0,30.2
+Sylvania,Sydney - Sutherland,10749,True,True,Venetia Street Reserve,SYD,8.2,20.7
+Sylvania Waters,Sydney - Sutherland,3200,True,True,Venetia Street Reserve,SYD,9.7,20.0
+Tacoma,Central Coast,615,True,True,Warnervale Airport,SYD,35.6,151.7
+Tacoma South,Central Coast,257,True,True,Warnervale Airport,SYD,36.1,150.2
+Tahmoor,Sydney - Outer South West,5777,True,False,,,,
+Tallawong,Sydney - Blacktown,6570,True,True,Mihkelson Reserve,WSI,15.6,48.9
+Tamarama,Sydney - Eastern Suburbs,1478,True,True,Charles Keenan Reserve,WSI,28.1,95.8
+Taren Point,Sydney - Sutherland,1879,True,True,Venetia Street Reserve,WSI,17.6,74.9
+Tascott,Central Coast,1675,True,True,Erina Heliport,SYD,28.6,109.9
+Telopea,Sydney - Parramatta,5356,True,True,Rosehill Heliport Airport,SYD,16.8,40.9
+Tempe,Sydney - City and Inner South,3550,True,True,Charles Keenan Reserve,WSI,23.0,77.2
+Ten Mile Hollow,Central Coast,6,False,False,,,,
+Tennyson (NSW),Sydney - Baulkham Hills and Hawkesbury,379,True,False,,,,
+Tennyson Point,Sydney - Ryde,1247,True,False,,,,
+Terrey Hills,Sydney - Northern Beaches,3142,True,False,,,,
+Terrigal,Central Coast,12730,True,True,Erina Heliport,SYD,28.8,117.5
+The Devils Wilderness,Sydney - Outer West and Blue Mountains,0,True,False,,,,
+The Entrance,Central Coast,4244,False,False,,,,
+The Entrance North,Central Coast,1619,False,False,,,,
+The Oaks,Sydney - Outer South West,2982,True,False,,,,
+The Ponds,Sydney - Blacktown,16315,True,True,Mihkelson Reserve,WSI,13.1,47.8
+The Rocks (Sydney - NSW),Sydney - City and Inner South,629,True,True,Charles Keenan Reserve,WSI,21.7,84.5
+The Slopes,Sydney - Baulkham Hills and Hawkesbury,327,True,False,,,,
+Theresa Park,Sydney - Outer South West,600,True,False,,,,
+Thirlmere,Sydney - Outer South West,4986,True,False,,,,
+Thornleigh,Sydney - North Sydney and Hornsby,8898,True,True,Chilworth Reserve,SYD,18.1,51.4
+Toongabbie (NSW),Sydney - Parramatta,16177,True,True,Rosehill Heliport Airport,SYD,23.0,51.6
+Toowoon Bay,Central Coast,543,False,False,,,,
+Toukley,Central Coast,4557,False,False,,,,
+Tregear,Sydney - Blacktown,3700,True,True,Cedars Park,WSI,16.7,30.6
+Tuggerah,Central Coast,925,True,True,Warnervale Airport,SYD,38.0,145.9
+Tuggerawong,Central Coast,1285,True,True,Warnervale Airport,SYD,35.6,152.8
+Tumbi Umbi,Central Coast,5369,False,False,,,,
+Turramurra,Sydney - North Sydney and Hornsby,12850,True,True,Chilworth Reserve,SYD,22.5,46.7
+Turrella,Sydney - Inner South West,2673,True,True,Charles Keenan Reserve,WSI,26.5,73.4
+Ultimo,Sydney - City and Inner South,7410,True,True,Charles Keenan Reserve,WSI,16.8,82.5
+Umina Beach,Central Coast,17372,True,False,,,,
+Upper Colo,Sydney - Baulkham Hills and Hawkesbury,48,False,False,,,,
+Upper Macdonald,Sydney - Baulkham Hills and Hawkesbury,42,False,False,,,,
+Upper Mangrove,Central Coast,0,False,False,,,,
+Valley Heights,Sydney - Outer West and Blue Mountains,1188,True,False,,,,
+Varroville,Sydney - Outer South West,134,True,True,NSW POI Helipad 24487,SYD,27.1,66.6
+Vaucluse,Sydney - Eastern Suburbs,9510,True,False,,,,
+Villawood,Sydney - Parramatta,7051,True,True,Bankstown - City Sports Complex HLS,SYD,19.5,37.9
+Vineyard,Sydney - Baulkham Hills and Hawkesbury,1143,True,False,,,,
+Voyager Point,Sydney - South West,1678,True,True,Bankstown - City Sports Complex HLS,SYD,18.6,36.6
+Wadalba,Central Coast,4204,True,True,Warnervale Airport,SYD,33.2,155.1
+Wagstaffe,Central Coast,240,True,False,,,,
+Wahroonga,Sydney - North Sydney and Hornsby,17853,True,True,Chilworth Reserve,SYD,21.4,49.7
+Waitara,Sydney - North Sydney and Hornsby,7837,True,False,,,,
+Wakeley,Sydney - South West,4893,True,True,Lalich Reserve,WSI,14.4,30.4
+Wallacia,Sydney - Outer West and Blue Mountains,1711,True,False,,,,
+Wallarah,Central Coast,344,True,True,Warnervale Airport,SYD,30.3,164.5
+Wamberal,Central Coast,6991,False,False,,,,
+Wareemba,Sydney - Inner West,1519,True,True,Charles Keenan Reserve,WSI,27.6,70.7
+Warnervale,Central Coast,701,True,True,Warnervale Airport,SYD,25.2,158.6
+Warragamba,Sydney - Outer West and Blue Mountains,1202,True,False,,,,
+Warrawee,Sydney - North Sydney and Hornsby,3170,True,True,Chilworth Reserve,SYD,22.1,48.2
+Warriewood,Sydney - Northern Beaches,8379,True,False,,,,
+Warrimoo,Sydney - Outer West and Blue Mountains,2452,True,False,,,,
+Warwick Farm,Sydney - South West,6135,True,True,Lalich Reserve,WSI,15.8,35.8
+Watanobbi,Central Coast,3980,True,True,Warnervale Airport,SYD,29.9,153.5
+Waterfall,Sydney - Sutherland,522,True,False,,,,
+Waterloo (NSW),Sydney - City and Inner South,16379,True,True,Charles Keenan Reserve,WSI,17.1,84.4
+Watsons Bay,Sydney - Eastern Suburbs,883,True,False,,,,
+Wattle Grove (NSW),Sydney - South West,8886,True,True,Lalich Reserve,WSI,21.8,39.6
+Waverley (NSW),Sydney - Eastern Suburbs,4216,True,True,Charles Keenan Reserve,WSI,25.3,93.0
+Waverton,Sydney - North Sydney and Hornsby,2981,True,True,Charles Keenan Reserve,WSI,25.2,82.8
+Webbs Creek,Sydney - Baulkham Hills and Hawkesbury,55,False,False,,,,
+Wedderburn (NSW),Sydney - Outer South West,665,True,False,,,,
+Wendoree Park,Central Coast,131,True,False,,,,
+Wentworth Falls,Sydney - Outer West and Blue Mountains,6428,False,False,,,,
+Wentworth Point,Sydney - Parramatta,12703,True,True,Rosehill Heliport Airport,SYD,18.0,31.3
+Wentworthville,Sydney - Parramatta,15098,True,True,Rosehill Heliport Airport,SYD,20.0,48.3
+Werombi,Sydney - Outer South West,941,True,False,,,,
+Werrington,Sydney - Outer West and Blue Mountains,5328,True,True,Cedars Park,WSI,9.3,26.3
+Werrington County,Sydney - Outer West and Blue Mountains,3698,True,True,Cedars Park,WSI,11.6,28.7
+Werrington Downs,Sydney - Outer West and Blue Mountains,3221,True,True,Cedars Park,WSI,13.4,30.0
+West Gosford,Central Coast,1602,True,True,Erina Heliport,SYD,27.6,116.9
+West Hoxton,Sydney - South West,10152,True,True,Lalich Reserve,SYD,22.4,61.8
+West Pennant Hills,Sydney - Baulkham Hills and Hawkesbury,16620,True,True,Chilworth Reserve,SYD,15.2,50.3
+West Pymble,Sydney - North Sydney and Hornsby,5441,True,True,Chilworth Reserve,SYD,22.2,40.4
+West Ryde,Sydney - Ryde,13171,True,True,Rosehill Heliport Airport,SYD,20.9,34.4
+Westleigh,Sydney - North Sydney and Hornsby,4501,True,True,Chilworth Reserve,SYD,20.1,54.7
+Westmead,Sydney - Parramatta,16555,True,True,Rosehill Heliport Airport,SYD,16.9,45.5
+Wetherill Park,Sydney - South West,6412,True,True,Lalich Reserve,SYD,23.6,54.9
+Whalan,Sydney - Blacktown,5929,True,True,Cedars Park,WSI,17.6,29.2
+Whale Beach,Sydney - Northern Beaches,315,True,False,,,,
+Wheeler Heights,Sydney - Northern Beaches,3232,True,False,,,,
+Wheeny Creek,Sydney - Baulkham Hills and Hawkesbury,74,True,False,,,,
+Wilberforce (NSW),Sydney - Baulkham Hills and Hawkesbury,2957,True,False,,,,
+Wiley Park,Sydney - Inner South West,10016,True,True,Bankstown - City Sports Complex HLS,WSI,18.3,59.6
+Willmot,Sydney - Blacktown,2382,True,True,Cedars Park,WSI,19.7,34.9
+Willoughby (NSW),Sydney - North Sydney and Hornsby,7124,True,True,Starkey Reserve,SYD,16.0,30.5
+Willoughby East,Sydney - North Sydney and Hornsby,1864,True,True,Starkey Reserve,SYD,13.9,32.4
+Windsor (NSW),Sydney - Outer West and Blue Mountains,1915,True,False,,,,
+Windsor Downs,Sydney - Outer West and Blue Mountains,1183,True,False,,,,
+Winmalee,Sydney - Outer West and Blue Mountains,6388,True,False,,,,
+Winston Hills,Sydney - Parramatta,12123,True,True,Rosehill Heliport Airport,SYD,22.4,50.8
+Wisemans Ferry,Sydney - Baulkham Hills and Hawkesbury,233,True,False,,,,
+Wolli Creek,Sydney - Inner South West,10654,True,True,Charles Keenan Reserve,WSI,25.5,75.2
+Wollstonecraft,Sydney - North Sydney and Hornsby,8115,True,True,Charles Keenan Reserve,WSI,26.8,82.9
+Womerah,Sydney - Baulkham Hills and Hawkesbury,0,False,False,,,,
+Wondabyne,Central Coast,3,True,False,,,,
+Woodbine (NSW),Sydney - Outer South West,2780,True,True,NSW POI Helipad 24487,WSI,18.2,39.1
+Woodcroft (NSW),Sydney - Blacktown,6597,True,True,Mihkelson Reserve,WSI,17.3,37.1
+Woodford (NSW),Sydney - Outer West and Blue Mountains,1953,True,False,,,,
+Woodpark,Sydney - Parramatta,1706,True,True,Rosehill Heliport Airport,SYD,20.4,45.1
+Woollahra,Sydney - Eastern Suburbs,7189,True,True,Charles Keenan Reserve,WSI,22.7,90.4
+Woolloomooloo,Sydney - City and Inner South,3792,True,True,Charles Keenan Reserve,WSI,20.7,86.5
+Woolooware,Sydney - Sutherland,5060,True,True,Venetia Street Reserve,WSI,23.8,80.3
+Woolwich,Sydney - Ryde,833,True,True,Charles Keenan Reserve,WSI,26.3,77.9
+Woongarrah,Central Coast,5962,True,True,Warnervale Airport,SYD,32.0,162.4
+Woronora,Sydney - Sutherland,2043,True,True,Venetia Street Reserve,SYD,15.4,28.0
+Woronora Heights,Sydney - Sutherland,2781,True,True,Venetia Street Reserve,SYD,19.9,32.5
+Woy Woy,Central Coast,11072,True,False,,,,
+Woy Woy Bay,Central Coast,423,True,True,Erina Heliport,SYD,32.5,105.3
+Wrights Creek (NSW),Sydney - Baulkham Hills and Hawkesbury,15,False,False,,,,
+Wybung,Central Coast,0,False,False,,,,
+Wyoming,Central Coast,10111,True,True,Erina Heliport,SYD,25.8,122.0
+Wyong,Central Coast,4530,True,True,Warnervale Airport,SYD,32.1,151.7
+Wyong Creek,Central Coast,476,False,False,,,,
+Wyongah,Central Coast,2020,True,True,Warnervale Airport,SYD,36.1,156.9
+Yagoona,Sydney - Inner South West,19651,True,True,Bankstown - City Sports Complex HLS,SYD,12.4,29.4
+Yanderra,Sydney - Outer South West,702,True,False,,,,
+Yarramalong,Central Coast,329,False,False,,,,
+Yarramundi,Sydney - Outer West and Blue Mountains,829,True,False,,,,
+Yarrawarrah,Sydney - Sutherland,2775,True,False,,,,
+Yattalunga (NSW),Central Coast,580,True,True,Erina Heliport,SYD,24.2,109.1
+Yellow Rock (Blue Mountains - NSW),Sydney - Outer West and Blue Mountains,1119,True,False,,,,
+Yennora,Sydney - Parramatta,1675,True,True,Rosehill Heliport Airport,SYD,20.6,41.6
+Yerranderie,Sydney - Outer West and Blue Mountains,4,False,False,,,,
+Yowie Bay,Sydney - Sutherland,3053,True,True,Venetia Street Reserve,SYD,15.9,26.1
+Zetland,Sydney - City and Inner South,12622,True,True,Charles Keenan Reserve,WSI,18.3,84.5

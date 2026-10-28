@@ -28,8 +28,16 @@ if Path(NEW_BUILD).exists():
     nb['nearest_airport'] = near_wsi.map({True: 'Western Sydney International', False: 'Sydney Kingsford Smith'})
     nb['dist_airport_km'] = nb[['dist_WSI_km', 'dist_SYD_km']].min(axis=1)
     nb['access'] = 'new build'
-    nb['notes'] = (nb['centre'] + ', ' + nb['route'] + ' route; cost index ' + nb['cost_index'].astype(str)
-                   + '; ' + nb['dist_station_m'].astype(int).astype(str) + ' m from station')
+    # blank cells come back from Excel as NaN (float), so build the popup text row by row
+    def nb_note(r):
+        txt = lambda c: '' if pd.isna(r.get(c)) else str(r.get(c))
+        parts = [txt('site_type') + (f" ({txt('keyword')})" if txt('keyword') else ''),
+                 f"{txt('route') or 'other'} route",
+                 f"cost index {txt('cost_index')}" if txt('cost_index') else '']
+        if txt('station') and not pd.isna(r.get('dist_station_m')):
+            parts.append(f"{int(r['dist_station_m'])} m from {txt('station')}")
+        return '; '.join(p for p in parts if p)
+    nb['notes'] = nb.apply(nb_note, axis=1)
     dfi = pd.concat([dfi, nb[dfi.columns.intersection(nb.columns)]], ignore_index=True)
     SOURCE += f' + {NEW_BUILD}'
 dfi['notes'] = dfi['notes'].fillna('')
@@ -49,6 +57,7 @@ TYPE_COLOURS = {
     'restricted site':            'black',
     'out of range (>150 km)':    'lightgray',
     'station car park':           'deeppink',
+    'car park':                   'deeppink',
     'shopping centre rooftop':    'saddlebrown',
     'park / oval':                'lime',
 }
@@ -76,6 +85,12 @@ m_map.get_root().html.add_child(folium.Element('''
     <style>.leaflet-interactive:focus { outline: none !important; }</style>
 '''))
 
+# the two shuttle endpoints are drawn as red crosses instead of dots
+SHUTTLE_AIRPORTS = ['Western Sydney International (Nancy Bird Walton) Airport',
+                    'Sydney Kingsford Smith International Airport']
+CROSS_HTML = ('<div style="color:red; font-size:30px; font-weight:bold; line-height:30px; '
+              'text-align:center; text-shadow:0 0 3px white, 0 0 3px white;">&#10006;</div>')
+
 # draw feeders first so airports sit on top
 dfi['_order'] = (dfi['role'] == 'airport').astype(int) + dfi['new_build'].astype(int)
 for _, row in dfi.sort_values('_order').iterrows():
@@ -86,6 +101,13 @@ for _, row in dfi.sort_values('_order').iterrows():
     if row['notes']:
         popup_html += f"<i>{row['notes']}</i><br>"
     popup_html += f"{row['latitude']:.5f}, {row['longitude']:.5f}"
+    if row['name'] in SHUTTLE_AIRPORTS:
+        folium.Marker(
+            location=[row['latitude'], row['longitude']],
+            icon=folium.DivIcon(html=CROSS_HTML, icon_size=(30, 30), icon_anchor=(15, 15)),
+            popup=folium.Popup(popup_html, max_width=300), tooltip=row['name']
+        ).add_to(m_map)
+        continue
     folium.CircleMarker(
         location=[row['latitude'], row['longitude']],
         radius=7 if row['new_build'] else TYPE_RADIUS.get(row['site_type'], 5),
@@ -97,8 +119,11 @@ for _, row in dfi.sort_values('_order').iterrows():
 # ─────────────────────────────────────────────────────────────
 # LEGEND
 # ─────────────────────────────────────────────────────────────
-counts = dfi['site_type'].value_counts()
-legend_rows = ''.join(
+is_cross = dfi['name'].isin(SHUTTLE_AIRPORTS)
+counts = dfi.loc[~is_cross, 'site_type'].value_counts()
+legend_rows = (f'''<p style="margin: 5px 0;"><span style="color:red; font-weight:bold; font-size:16px;
+       display:inline-block; width:12px; text-align:center;">&#10006;</span> shuttle airport ({is_cross.sum()})</p>''')
+legend_rows += ''.join(
     f'''<p style="margin: 5px 0;"><i style="background:{colour}; width:12px; height:12px;
        display:inline-block; border-radius:50%;"></i> {t} ({counts[t]})</p>'''
     for t, colour in TYPE_COLOURS.items() if t in counts
