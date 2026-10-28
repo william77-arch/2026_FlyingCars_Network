@@ -1,16 +1,16 @@
 region,areas,population,coverable_pop,covered_pop,covered_of_coverable,covered_of_total
-Central Coast,151,346659,228138,176280,0.773,0.509
-Sydney - Baulkham Hills and Hawkesbury,82,261820,260945,186966,0.716,0.714
-Sydney - Blacktown,52,405742,405742,386502,0.953,0.953
-Sydney - City and Inner South,44,331155,331155,331155,1.0,1.0
-Sydney - Eastern Suburbs,34,261417,261417,213639,0.817,0.817
-Sydney - Inner South West,69,605877,605877,603527,0.996,0.996
-Sydney - Inner West,39,300735,300735,244986,0.815,0.815
-Sydney - North Sydney and Hornsby,66,424456,424456,369657,0.871,0.871
-Sydney - Northern Beaches,53,263542,263542,172046,0.653,0.653
-Sydney - Outer South West,75,298217,298217,195573,0.656,0.656
-Sydney - Outer West and Blue Mountains,74,332048,320720,196808,0.614,0.593
-Sydney - Parramatta,52,509587,509587,503328,0.988,0.988
-Sydney - Ryde,24,199603,199603,154618,0.775,0.775
-Sydney - South West,63,456922,456922,414548,0.907,0.907
-Sydney - Sutherland,42,229585,229585,182640,0.796,0.796
+Central Coast,151,346659,189,189,1.0,0.001
+Sydney - Baulkham Hills and Hawkesbury,82,261820,260125,210231,0.808,0.803
+Sydney - Blacktown,52,405742,405742,398206,0.981,0.981
+Sydney - City and Inner South,44,331155,0,0,,0.0
+Sydney - Eastern Suburbs,34,261417,0,0,,0.0
+Sydney - Inner South West,69,605877,136973,78998,0.577,0.13
+Sydney - Inner West,39,300735,0,0,,0.0
+Sydney - North Sydney and Hornsby,66,424456,4501,4501,1.0,0.011
+Sydney - Northern Beaches,53,263542,0,0,,0.0
+Sydney - Outer South West,75,298217,298217,241057,0.808,0.808
+Sydney - Outer West and Blue Mountains,74,332048,315284,197781,0.627,0.596
+Sydney - Parramatta,52,509587,489974,466048,0.951,0.915
+Sydney - Ryde,24,199603,17879,17879,1.0,0.09
+Sydney - South West,63,456922,440748,398053,0.903,0.871
+Sydney - Sutherland,42,229585,10423,10419,1.0,0.045

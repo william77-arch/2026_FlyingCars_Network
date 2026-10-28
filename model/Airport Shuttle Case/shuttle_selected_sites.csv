@@ -1,13 +1,12 @@
-name,site_type,new_build,latitude,longitude,cost_index,hazard,bushfire,wind,rain,hazard_data,flight_WSI_min,flight_SYD_min,areas_served,population_served
-Charles Keenan Reserve,park / oval,True,-33.891818,151.19449,1.0,0.375,0.0,0.5,0.5,default,14.1,5.5,111,825232
-Rosehill Heliport Airport,heliport,False,-33.8300966368,151.024138927,0.5,0.375,0.0,0.5,0.5,default,10.4,8.6,49,497293
-Bankstown - City Sports Complex HLS,park / oval HLS,False,-33.926981,151.023045,0.6,0.375,0.0,0.5,0.5,default,10.4,7.4,46,424853
-Mihkelson Reserve,park / oval,True,-33.720938,150.894454,1.0,0.375,0.0,0.5,0.5,default,9.4,12.7,38,400685
-Lalich Reserve,park / oval,True,-33.901865,150.889694,1.0,0.375,0.0,0.5,0.5,default,7.4,10.5,47,399073
-Starkey Reserve,park / oval,True,-33.777901,151.221296,1.0,0.375,0.0,0.5,0.5,default,15.0,8.6,52,394493
-Chilworth Reserve,park / oval,True,-33.756282,151.061318,1.0,0.375,0.0,0.5,0.5,default,11.9,9.7,29,387974
-Venetia Street Reserve,park / oval,True,-34.006206,151.097768,1.0,0.375,0.0,0.5,0.5,default,12.6,6.4,55,370499
-Cedars Park,park / oval,True,-33.768425,150.746261,1.0,0.375,0.0,0.5,0.5,default,7.0,14.7,34,255600
-NSW POI Helipad 24487,NSW POI helipad,False,-34.05964279852653,150.7763106343115,0.6,0.375,0.0,0.5,0.5,default,8.9,13.4,36,200291
-Erina Heliport,heliport,False,-33.440688,151.368704,0.5,0.375,0.0,0.5,0.5,default,22.2,18.1,32,111402
-Warnervale Airport,GA aerodrome,False,-33.240278,151.429722,0.5,0.375,0.0,0.5,0.5,default,26.9,23.7,25,64878
+name,site_type,new_build,latitude,longitude,cost_index,hazard,bushfire,wind,rain,hazard_data,flight_WSI_min,areas_served,population_served
+Barcom Street Park,park / oval,True,-33.83879,150.972855,1.0,0.375,0.0,0.5,0.5,default,9.3,45,467471
+Britannia Road Reserve,park / oval,True,-33.726666,150.995482,1.0,0.375,0.0,0.5,0.5,default,11.0,21,304918
+NSW POI Helipad 24487,NSW POI helipad,False,-34.05964279852653,150.7763106343115,0.6,0.375,0.0,0.5,0.5,default,8.9,35,200157
+Pye Hill Reserve,park / oval,True,-33.889244,150.854507,1.0,0.375,0.0,0.5,0.5,default,6.6,23,184376
+Doreen Ross Reserve,park / oval,True,-33.676793,150.865261,1.0,0.375,0.0,0.5,0.5,default,10.1,24,154287
+Cameron Park,park / oval,True,-33.955535,150.946653,1.0,0.375,0.0,0.5,0.5,default,9.0,18,151942
+Shepherd Street Park,park / oval,True,-33.786328,150.789279,1.0,0.375,0.0,0.5,0.5,default,6.7,23,149504
+Eastern Creek Raceway HLS,helipad / HLS,False,-33.804126,150.867462,0.5,0.375,0.0,0.5,0.5,default,7.5,12,148618
+Ayshford Reserve,park / oval,True,-33.937914,150.840677,1.0,0.375,0.0,0.5,0.5,default,6.7,15,134914
+Robinson Park,park / oval,True,-33.773625,150.680083,1.0,0.375,0.0,0.5,0.5,default,7.1,17,126299
+Wisemans Ferry Helicopter Landing Site,helipad / HLS,False,-33.3835,150.988667,0.5,0.375,0.0,0.5,0.5,default,18.3,6,876

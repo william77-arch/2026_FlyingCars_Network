@@ -1,12 +1,12 @@
 """
 eVTOL AIRPORT-SHUTTLE vertiport location model (Greater Sydney), single direct journey
 
-Journey:  area i --(road)--> vertiport j --(direct flight)--> airport h  (WSI or SYD, either one)
+Journey:  area i --(road)--> vertiport j --(direct flight)--> Western Sydney International (WSI)
 
 Sets
     I  demand areas in Greater Sydney: suburbs (prepare_suburb_demand.py) or SA2 regions
     J  candidate vertiports (existing sites + new-build sites)
-    H  airports: WSI (Western Sydney International), SYD (Kingsford Smith)
+    H  destination airport(s): WSI only (Kingsford Smith can be switched back on in AIRPORTS)
 
 Coverage
     a_ij = 1 if, for some airport h ('any') or both airports ('both'):
@@ -64,11 +64,14 @@ WIND_FILE      = 'vertiport_wind_risk.csv'
 RAIN_FILE      = 'vertiport_rain.xlsx'
 ORIGINAL_SITES = 'vertiport_name_with_coord.xlsx'
 
-AIRPORTS = {   # key: (name, lat, lon)
+ALL_AIRPORTS = {   # key: (name, lat, lon)
     'WSI': ('Western Sydney International (Nancy Bird Walton) Airport', -33.879444, 150.739722),
     'SYD': ('Sydney Kingsford Smith International Airport',             -33.946098, 151.177002),
 }
-AIRPORT_RULE = 'any'          # 'any': at least one airport within the time limit; 'both': both
+DESTINATIONS = ['WSI']        # shuttle destination(s); ['WSI', 'SYD'] restores the two-airport model
+AIRPORTS = {h: ALL_AIRPORTS[h] for h in DESTINATIONS}
+DEST_LABEL = ' or '.join(DESTINATIONS)
+AIRPORT_RULE = 'any'          # with two destinations: 'any' = at least one within the limit, 'both' = both
 
 UAV_SPEED_KMH       = 250     # cruise speed
 TAKEOFF_LANDING_MIN = 4       # added to every flight (climb, descent, approach)
@@ -86,6 +89,7 @@ ROAD_DETOUR_FACTOR  = 1.3     # road distance / straight-line distance
 ROAD_SPEED_KMH      = 40      # average driving speed to the vertiport
 ROAD_MAX_MIN        = 15      # longest drive to a vertiport (catchment of a vertiport)
 ONE_SITE_PER_CENTRE = True    # new-build sites: keep only the best (cost + hazard) site per town centre
+DROP_CLOSER_TO_SYD  = True    # drop vertiports whose flight to Kingsford Smith is shorter than to WSI
 EXCLUDE_NAME_WORDS  = ['medical', 'hospital', 'health', 'careflight', 'ambulance',
                        'rescue', 'police', 'military', 'raaf', 'naval']   # never used as shuttle sites
 MIN_TIME_SAVING     = 10      # eVTOL trip must beat driving straight to that airport by this many minutes
@@ -169,7 +173,7 @@ if Path(ORIGINAL_SITES).exists():
     src = pd.read_excel(ORIGINAL_SITES)
     all_coords = {**dict(zip(src['name'], zip(src['latitude'], src['longitude']))), **all_coords}
 
-cand = cand[~cand['name'].isin([v[0] for v in AIRPORTS.values()])]          # airports are H, not J
+cand = cand[~cand['name'].isin([v[0] for v in ALL_AIRPORTS.values()])]      # airports are never vertiport sites
 _bad = cand['name'].str.lower().str.contains('|'.join(EXCLUDE_NAME_WORDS), na=False)
 if _bad.any():
     print(f'excluded {int(_bad.sum())} medical / emergency / defence sites: '
@@ -181,7 +185,14 @@ for h, (_, la, lo) in AIRPORTS.items():
     cand[f't_{h}'] = np.where(cand[f'd_{h}'] <= RANGE_KM, flight_min(cand[f'd_{h}']), np.inf)
 cand = cand[np.isfinite(cand[[f't_{h}' for h in AIRPORTS]]).any(axis=1)].reset_index(drop=True)
 
-print(f'{len(demand_coords)} demand areas ({NAME_COL}), {len(cand)} candidate vertiports within {RANGE_KM} km of an airport')
+if DROP_CLOSER_TO_SYD and 'WSI' in AIRPORTS:
+    _, s_la, s_lo = ALL_AIRPORTS['SYD']
+    t_syd = flight_min(hav_km(cand['latitude'], cand['longitude'], s_la, s_lo))
+    closer = t_syd < cand['t_WSI']
+    print(f'dropped {int(closer.sum())} vertiports that are quicker to fly to Kingsford Smith than to WSI')
+    cand = cand[~closer].reset_index(drop=True)
+
+print(f'{len(demand_coords)} demand areas ({NAME_COL}), {len(cand)} candidate vertiports within {RANGE_KM} km of {DEST_LABEL}')
 
 # ─────────────────────────────────────────────────────────────
 # COVERAGE MATRIX  a_ij  (road + direct flight <= T)
@@ -355,15 +366,15 @@ pop = demand_population
 coverable = [i for i in demand_coords if a[i]]
 cov_pop, all_pop = sum(pop[i] for i in coverable), sum(pop.values())
 print(f'Coverable: {len(coverable)}/{len(demand_coords)} areas, {cov_pop:,.0f}/{all_pop:,.0f} people '
-      f'({cov_pop / max(all_pop, 1) * 100:.1f}%) can reach an airport within {TIME_THRESHOLD} min '
+      f'({cov_pop / max(all_pop, 1) * 100:.1f}%) can reach {DEST_LABEL} within {TIME_THRESHOLD} min '
       f'and at least {MIN_TIME_SAVING} min faster than driving')
 
 status, selected, covered, solver_used = run_model(a, COVERAGE_THRESHOLD, REGION_COVERAGE)
 uncovered = [i for i in demand_coords if i not in covered]
 
 print(f'\nTime threshold  = {TIME_THRESHOLD} min (road + {UAV_SPEED_KMH} km/h flight + {TAKEOFF_LANDING_MIN} min)')
-print(f'Coverage target = {COVERAGE_THRESHOLD:.0%} of coverable {AREA_LABEL} population, '
-      f'{REGION_COVERAGE:.0%} per region' if REGION_COVERAGE else '')
+print(f'Coverage target = {COVERAGE_THRESHOLD:.0%} of coverable {AREA_LABEL} population'
+      + (f', {REGION_COVERAGE:.0%} per region' if REGION_COVERAGE else ''))
 print(f'Solver          = {solver_used}, status {status}')
 
 if status == 'infeasible':
@@ -382,7 +393,7 @@ sites = pd.DataFrame([{
     'cost_index': cj.at[j, 'cost_index'], 'hazard': round(hazard[j], 3),
     'bushfire': round(bush[j][0], 2), 'wind': round(wind[j][0], 2), 'rain': round(rain[j][0], 2),
     'hazard_data': '; '.join(sorted({bush[j][1], wind[j][1], rain[j][1]})),
-    'flight_WSI_min': round(cj.at[j, 't_WSI'], 1), 'flight_SYD_min': round(cj.at[j, 't_SYD'], 1),
+    **{f'flight_{h}_min': round(cj.at[j, f't_{h}'], 1) for h in AIRPORTS},
     'areas_served': sum(1 for i in use if use[i][0] == j),
     'population_served': sum(pop[i] for i in use if use[i][0] == j),
 } for j in selected]).sort_values('population_served', ascending=False)
@@ -413,7 +424,7 @@ print(f'\nMinimum vertiports : {len(selected)}  '
 print(f'Covered            : {len(covered)}/{len(demand_coords)} areas, {cov:,.0f} people '
       f'({cov / max(cov_pop, 1) * 100:.1f}% of coverable, {cov / max(all_pop, 1) * 100:.1f}% of {AREA_LABEL})')
 print('\nSelected sites:')
-print(sites[['name', 'site_type', 'cost_index', 'hazard', 'flight_WSI_min', 'flight_SYD_min',
+print(sites[['name', 'site_type', 'cost_index', 'hazard', *[f'flight_{h}_min' for h in AIRPORTS],
              'areas_served', 'population_served']].to_string(index=False))
 print(f'\nCoverage by region ({REGION_COL or "no region column: whole of Greater Sydney"}):')
 print(reg.to_string(index=False))
@@ -454,6 +465,7 @@ MeasureControl(position='bottomleft', primaryLengthUnit='kilometers', secondaryL
 m_map.get_root().html.add_child(folium.Element('<style>.leaflet-interactive:focus { outline: none !important; }</style>'))
 
 FLIGHT_COL = {'SYD': '#d62728', 'WSI': '#1f77b4'}
+AIRPORT_LABEL = {'SYD': 'Kingsford Smith', 'WSI': 'Western Sydney'}
 for _, s in sites.iterrows():                  # flight line from each vertiport to the airport it mostly serves
     hs = [use[i][2] for i in use if use[i][0] == s['name']]
     h = max(set(hs), key=hs.count) if hs else min(AIRPORTS, key=lambda k: cj.at[s['name'], f't_{k}'])
@@ -481,12 +493,11 @@ legend_html = f'''
 <div style="position: fixed; bottom: 50px; right: 50px; width: 260px; background-color: white;
      border:2px solid grey; z-index:9999; font-size:14px; padding: 10px; border-radius: 5px;">
 <p style="margin: 0 0 10px 0; font-weight: bold;">Legend</p>
-<p style="margin: 5px 0;"><span style="color:red; font-weight:bold;">&#10006;</span> Airports (WSI, SYD)</p>
+<p style="margin: 5px 0;"><span style="color:red; font-weight:bold;">&#10006;</span> Airport ({', '.join(AIRPORTS)})</p>
 <p style="margin: 5px 0;">{dot('blue')} Selected Vertiports ({len(selected)})</p>
 <p style="margin: 5px 0;">{dot('red')} Covered areas ({len(covered)})</p>
 <p style="margin: 5px 0;">{dot('orange')} Uncovered areas ({len(uncovered)})</p>
-<p style="margin: 5px 0;">{line(FLIGHT_COL['SYD'])} Flight to Kingsford Smith</p>
-<p style="margin: 5px 0;">{line(FLIGHT_COL['WSI'])} Flight to Western Sydney</p>
+{''.join(f'<p style="margin: 5px 0;">{line(FLIGHT_COL[h])} Flight to {AIRPORT_LABEL[h]}</p>' for h in AIRPORTS)}
 </div>'''
 m_map.get_root().html.add_child(folium.Element(legend_html))
 m_map.save('shuttle_solution_map.html')
