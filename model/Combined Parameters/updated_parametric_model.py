@@ -24,7 +24,7 @@ from shapely.geometry import Point
 # ─────────────────────────────────────────────────────────────
 dfi = pd.read_excel('vertiport_name_with_coord.xlsx')
 dfj = pd.read_excel('sa2_names_with_coord.xlsx')
-dfh = pd.read_excel('Emergency_only_hospitals_with_lat_lon.xlsx')
+dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
 
 df_bushfire = pd.read_csv('vertiport_bushfire_risk.csv')
 df_rain = pd.read_excel('vertiport_rain.xlsx')
@@ -97,7 +97,7 @@ def flight_min(j, k) -> float:
 # LOAD MATRICES
 # ─────────────────────────────────────────────────────────────
 
-dfh = pd.read_excel('Emergency_only_hospitals_with_lat_lon.xlsx')
+dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
 
 d_ih = pd.read_excel('vertiport_hospital_distances_emergency.xlsx')
 d_ih = d_ih.set_index('vertiport')
@@ -291,7 +291,7 @@ else:
 # ─────────────────────────────────────────────────────────────
 # LAMBDA SENSITIVITY ANALYSIS
 # ─────────────────────────────────────────────────────────────
-lambda_analysis = False  # set to True to run lambda sensitivity analysis
+lambda_analysis = True  # set to True to run lambda sensitivity analysis
 if lambda_analysis:
     lambda_values = [0.0, 0.1, 0.25, 0.5, 0.75, 1.0, 2.0, 5.0, 10.0]
     lambda_results = []
