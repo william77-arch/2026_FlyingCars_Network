@@ -146,9 +146,9 @@ air_time = {j: d_ih.loc[j].min() / UAV_SPEED_KMH * 60 for j in candidate_coords}
 
 def build_coverage_matrix(demand_coords, candidate_coords, road_time_lookup, d_ih, UAV_SPEED_KMH, T):
     a = {}
-    for i in demand_coords:
-        for j in candidate_coords:
-            a[i, j] = 1 if road_time_lookup[i, j] + air_time[j] <= T else 0
+    for i in candidate_coords:          # i = vertiport
+        for j in demand_coords:         # j = SA2
+            a[i, j] = 1 if road_time_lookup[j, i] + air_time[i] <= T else 0
     return a
 
 # ─────────────────────────────────────────────────────────────
@@ -212,35 +212,35 @@ def combined_cost(j):
 # ─────────────────────────────────────────────────────────────
 # PYOMO MODEL
 # ─────────────────────────────────────────────────────────────
-
 def run_model(a, demand_coords, candidate_coords, alpha, cost, lam=RISK_LAMBDA):
-    I = list(demand_coords.keys())
-    J = list(candidate_coords.keys())
-    n_req = ceil(alpha * len(I) - 1e-9)        
+    I = list(candidate_coords.keys())   # vertiports
+    J = list(demand_coords.keys())      # SA2s
+    n_req = ceil(alpha * len(J) - 1e-9)
 
     mod = ConcreteModel()
     mod.I = Set(initialize=I)
     mod.J = Set(initialize=J)
-    mod.y = Var(mod.J, domain=Binary)
-    mod.z = Var(mod.I, domain=Binary)
+    mod.y = Var(mod.I, domain=Binary)   # vertiport i is built
+    mod.z = Var(mod.J, domain=Binary)   # SA2 j is covered
 
     mod.obj = Objective(
-        expr=sum(mod.y[j] for j in J) + lam * sum(cost[j] * mod.y[j] for j in J),
+        expr=sum(mod.y[i] for i in I) + lam * sum(cost[i] * mod.y[i] for i in I),
         sense=minimize
     )
 
-    mod.cov = Constraint(mod.I, rule=lambda mod, i:
-        mod.z[i] <= sum(a[i, j] * mod.y[j] for j in J))
+    # SA2 j can only be covered if a selected vertiport reaches it in time
+    mod.cov = Constraint(mod.J, rule=lambda mod, j:
+        mod.z[j] <= sum(a[i, j] * mod.y[i] for i in I))
 
-    mod.demand = Constraint(expr=sum(mod.z[i] for i in I) >= n_req)
+    mod.demand = Constraint(expr=sum(mod.z[j] for j in J) >= n_req)
 
     result = SolverFactory('cbc').solve(mod)
 
     if result.solver.termination_condition == TerminationCondition.optimal:
-        selected  = [j for j in J if value(mod.y[j]) > 0.5]
-        covered   = [i for i in I if any(a[i, j] == 1 for j in selected)]
+        selected  = [i for i in I if value(mod.y[i]) > 0.5]
+        covered   = [j for j in J if any(a[i, j] == 1 for i in selected)]
         cov_set   = set(covered)
-        uncovered = [i for i in I if i not in cov_set]
+        uncovered = [j for j in J if j not in cov_set]
         return 'optimal', selected, covered, uncovered
     else:
         return 'infeasible', [], [], []
@@ -251,7 +251,7 @@ def run_model(a, demand_coords, candidate_coords, alpha, cost, lam=RISK_LAMBDA):
 a = build_coverage_matrix(demand_coords, candidate_coords, road_time_lookup, d_ih, UAV_SPEED_KMH, TIME_THRESHOLD)
 
 cost = {j: combined_cost(j) for j in candidate_coords}
-coverable = [i for i in demand_coords if any(a[i, j] == 1 for j in candidate_coords)]
+coverable = [j for j in demand_coords if any(a[i, j] == 1 for i in candidate_coords)]
 
 print(f"\nMax achievable coverage: {len(coverable)}/{len(demand_coords)} = {len(coverable)/len(demand_coords)*100:.1f}%")
 print(f"Requested coverage: {COVERAGE_THRESHOLD*100}%")
@@ -308,52 +308,85 @@ if lambda_analysis:
             total_risk = sum(cost[j] for j in sel)
             avg_risk   = total_risk / len(sel) if sel else 0
             lambda_results.append({
-                'lambda':      lam,
+                'lambda':       lam,
                 'n_vertiports': len(sel),
-                'total_risk':  round(total_risk, 3),
-                'avg_risk':    round(avg_risk, 3),
-                'status':      'optimal'
+                'total_risk':   round(total_risk, 3),
+                'avg_risk':     round(avg_risk, 3),
+                'status':       'optimal'
             })
             print(f"{lam:<10} {len(sel):>12} {total_risk:>12.3f} {avg_risk:>15.3f}")
         else:
             lambda_results.append({'lambda': lam, 'n_vertiports': None, 'total_risk': None, 'avg_risk': None, 'status': 'infeasible'})
             print(f"{lam:<10} {'INFEASIBLE':>12}")
 
-    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-
+    # collect feasible results
     feasible = [r for r in lambda_results if r['status'] == 'optimal']
-    lam_vals  = [r['lambda']       for r in feasible]
-    n_ports   = [r['n_vertiports'] for r in feasible]
-    t_risk    = [r['total_risk']   for r in feasible]
+    lam_vals = [r['lambda']       for r in feasible]
+    n_ports  = [r['n_vertiports'] for r in feasible]
+    t_risk   = [r['total_risk']   for r in feasible]
 
-    ax1 = axes[0]
-    ax1.plot(lam_vals, n_ports, marker='o', color='steelblue')
-    for x, y in zip(lam_vals, n_ports):
-        ax1.annotate(str(y), (x, y), textcoords="offset points", xytext=(0, 8), ha='center', fontsize=9)
-    ax1.set_xlabel('Lambda (λ)')
-    ax1.set_ylabel('Minimum Vertiports Required')
-    ax1.set_title('Vertiport Count vs Lambda')
-    ax1.grid(True, linestyle='--', alpha=0.5)
+    x      = np.arange(len(lam_vals))          # even spacing kills low-lambda crowding
+    labels = [f'{l:g}' for l in lam_vals]
 
-    ax2 = axes[1]
-    ax2.plot(lam_vals, t_risk, marker='o', color='firebrick')
-    for x, y in zip(lam_vals, t_risk):
-        ax2.annotate(f"{y:.2f}", (x, y), textcoords="offset points", xytext=(0, 8), ha='center', fontsize=9)
-    ax2.set_xlabel('Lambda (λ)')
-    ax2.set_ylabel('Total Risk of Selected Sites')
-    ax2.set_title('Total Network Risk vs Lambda')
-    ax2.grid(True, linestyle='--', alpha=0.5)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 5.5))
 
-    plt.suptitle(f'Lambda Sensitivity | T={TIME_THRESHOLD} min | Coverage={COVERAGE_THRESHOLD*100:.0f}%', fontsize=12)
+    # --- Panel 1: count + risk vs lambda on a categorical x-axis ---
+    ax1b = ax1.twinx()
+    l1, = ax1.plot(x, n_ports, 'o-',  color='steelblue', zorder=3, label='Vertiports')
+    l2, = ax1b.plot(x, t_risk, 's--', color='firebrick', zorder=3, label='Total risk')
+
+    ax1.set_xticks(x)
+    ax1.set_xticklabels(labels)
+    ax1.set_xlabel('Risk weight λ (0 = ignore risk)')
+    ax1.set_ylabel('Minimum vertiports', color='steelblue')
+    ax1b.set_ylabel('Total operational risk (0-1 per site, summed)', color='firebrick')
+    ax1.tick_params(axis='y', colors='steelblue')
+    ax1b.tick_params(axis='y', colors='firebrick')
+    ax1.set_ylim(min(n_ports) - 1, max(n_ports) + 1)   # pad so a flat line isn't glued to the frame
+
+    # label the count only when it changes -> no stacked duplicates
+    prev = None
+    for xi, p in zip(x, n_ports):
+        if p != prev:
+            ax1.annotate(str(p), (xi, p), textcoords='offset points',
+                         xytext=(0, 10), ha='center', color='steelblue', fontsize=9)
+        prev = p
+
+    ax1.set_title('Vertiport count and total risk vs λ')
+    ax1.grid(True, linestyle='--', alpha=0.4)
+    ax1.legend(handles=[l1, l2], loc='center left')
+
+    # --- Panel 2: trade-off, one label per distinct (count, risk) outcome ---
+    groups = {}
+    for l, p, rk in zip(lam_vals, n_ports, t_risk):
+        groups.setdefault((p, round(rk, 3)), []).append(l)
+
+    pts = sorted(groups.items(), key=lambda kv: (kv[0][0], -kv[0][1]))   # by count, then risk high->low
+    gx = [p  for (p, rk), _ in pts]
+    gy = [rk for (p, rk), _ in pts]
+    ax2.plot(gx, gy, 'o-', color='seagreen', zorder=3)
+
+    for (p, rk), ls in pts:
+        tag = f'λ={ls[0]:g}' if len(ls) == 1 else f'λ={min(ls):g}–{max(ls):g}'
+        ax2.annotate(tag, (p, rk), textcoords='offset points',
+                     xytext=(8, 8), ha='left', fontsize=9)
+
+    ax2.set_xlabel('Vertiports')
+    ax2.set_ylabel('Total operational risk')
+    ax2.set_title('Trade-off: risk vs vertiport count')
+    ax2.margins(x=0.25, y=0.25)                 # room for corner labels
+    ax2.grid(True, linestyle='--', alpha=0.4)
+
+    plt.suptitle(f'λ sensitivity | T={TIME_THRESHOLD} min | coverage={COVERAGE_THRESHOLD*100:.0f}%', fontsize=12)
     plt.tight_layout()
-    plt.savefig('lambda_sensitivity.png', dpi=150)
+    plt.savefig('lambda_sensitivity.png', dpi=150, bbox_inches='tight')
     plt.show()
     print("Plot saved to lambda_sensitivity.png")
 
 # ─────────────────────────────────────────────────────────────
 # SENSITIVITY ANALYSIS
 # ─────────────────────────────────────────────────────────────
-Run_analysis = False # set to True to run sensitivity analysis
+Run_analysis = True # set to True to run sensitivity analysis
 
 if Run_analysis:
     time_thresholds  = [30, 45, 60, 75, 90, 105, 120]
@@ -394,11 +427,11 @@ if Run_analysis:
     ax2.set_xlabel('Coverage Target (%)')
     ax2.set_ylabel('Minimum Vertiports Required')
     ax2.set_title('Vertiports vs Coverage Target')
-    ax2.legend(title='Time Threshold')
+    ax2.legend(title='Time Threshold', loc='center left', bbox_to_anchor=(1.02, 0.5))    
     ax2.grid(True, linestyle='--', alpha=0.5)
 
     plt.tight_layout()
-    plt.savefig('sensitivity_analysis_combined.png', dpi=150)
+    plt.savefig('sensitivity_analysis_combined.png', dpi=150, bbox_inches='tight')
     plt.show()
     print("Plot saved to sensitivity_analysis_combined.png")
 
