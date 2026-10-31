@@ -24,7 +24,7 @@ from shapely.geometry import Point
 # ─────────────────────────────────────────────────────────────
 dfi = pd.read_excel('vertiport_name_with_coord.xlsx')
 dfj = pd.read_excel('sa2_names_with_coord.xlsx')
-dfh = pd.read_excel('Emergency_only_hospitals_with_lat_lon.xlsx')
+dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
 
 df_bushfire = pd.read_csv('vertiport_bushfire_risk.csv')
 df_rain = pd.read_excel('vertiport_rain.xlsx')
@@ -97,9 +97,9 @@ def flight_min(j, k) -> float:
 # LOAD MATRICES
 # ─────────────────────────────────────────────────────────────
 
-dfh = pd.read_excel('Emergency_only_hospitals_with_lat_lon.xlsx')
+dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
 
-d_ih = pd.read_excel('vertiport_hospital_distances_emergency.xlsx')
+d_ih = pd.read_excel('vertiport_hospital_distances.xlsx')
 d_ih = d_ih.set_index('vertiport')
 d_ij = pd.read_excel('d_ij.xlsx')
 
