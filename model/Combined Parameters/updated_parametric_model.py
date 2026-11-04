@@ -40,8 +40,8 @@ demand_population = dict(zip(dfj['SA2_Name'], dfj['population']))
 # ─────────────────────────────────────────────────────────────
 
 UAV_SPEED_KMH      = 250
-TIME_THRESHOLD     = 60
-COVERAGE_THRESHOLD = 0.95
+TIME_THRESHOLD     = 75
+COVERAGE_THRESHOLD = 0.90
 
 # How strongly risk trades against vertiport count.
 # Higher = accept more vertiports to avoid risky sites.
@@ -99,7 +99,7 @@ def flight_min(j, k) -> float:
 
 dfh = pd.read_excel('Emergency_hospitals_with_lat_lon.xlsx')
 
-d_ih = pd.read_excel('vertiport_hospital_distances_emergency.xlsx')
+d_ih = pd.read_excel('vertiport_hospital_distances.xlsx')
 d_ih = d_ih.set_index('vertiport')
 d_ij = pd.read_excel('d_ij.xlsx')
 
@@ -291,7 +291,7 @@ else:
 # ─────────────────────────────────────────────────────────────
 # LAMBDA SENSITIVITY ANALYSIS
 # ─────────────────────────────────────────────────────────────
-lambda_analysis = True  # set to True to run lambda sensitivity analysis
+lambda_analysis = False  # set to True to run lambda sensitivity analysis
 if lambda_analysis:
     lambda_values = [0.0, 0.1, 0.25, 0.5, 0.75, 1.0, 2.0, 5.0, 10.0]
     lambda_results = []
@@ -386,7 +386,7 @@ if lambda_analysis:
 # ─────────────────────────────────────────────────────────────
 # SENSITIVITY ANALYSIS
 # ─────────────────────────────────────────────────────────────
-Run_analysis = True # set to True to run sensitivity analysis
+Run_analysis = False # set to True to run sensitivity analysis
 
 if Run_analysis:
     time_thresholds  = [30, 45, 60, 75, 90, 105, 120]
