@@ -1,0 +1,29 @@
+region,areas,population,coverable_pop,covered_pop,covered_of_coverable,covered_of_total
+Capital Region,472,238348,39339,39339,1.0,0.165
+Central Coast,151,346659,346394,346394,1.0,0.999
+Central West,428,213474,84461,84461,1.0,0.396
+Coffs Harbour - Grafton,211,146063,0,0,,0.0
+Far West and Orana,206,116000,0,0,,0.0
+Hunter Valley exc Newcastle,328,292219,214757,214757,1.0,0.735
+Illawarra,110,318836,318836,318836,1.0,1.0
+Mid North Coast,365,229086,0,0,,0.0
+Murray,170,123573,0,0,,0.0
+New England and North West,368,185723,0,0,,0.0
+Newcastle and Lake Macquarie,148,390160,390160,390160,1.0,1.0
+Richmond - Tweed,370,256516,0,0,,0.0
+Riverina,268,163551,0,0,,0.0
+Southern Highlands and Shoalhaven,178,159833,140721,140721,1.0,0.88
+Sydney - Baulkham Hills and Hawkesbury,82,261820,260784,260784,1.0,0.996
+Sydney - Blacktown,52,405742,405742,405742,1.0,1.0
+Sydney - City and Inner South,44,331155,331155,331155,1.0,1.0
+Sydney - Eastern Suburbs,34,261417,261417,261417,1.0,1.0
+Sydney - Inner South West,69,605877,605877,605877,1.0,1.0
+Sydney - Inner West,39,300735,300735,300735,1.0,1.0
+Sydney - North Sydney and Hornsby,66,424456,424456,424456,1.0,1.0
+Sydney - Northern Beaches,53,263542,263542,263542,1.0,1.0
+Sydney - Outer South West,75,298217,297718,297718,1.0,0.998
+Sydney - Outer West and Blue Mountains,74,332048,332044,332044,1.0,1.0
+Sydney - Parramatta,52,509587,509587,509587,1.0,1.0
+Sydney - Ryde,24,199603,199603,199603,1.0,1.0
+Sydney - South West,63,456922,456922,456922,1.0,1.0
+Sydney - Sutherland,42,229585,229585,229585,1.0,1.0

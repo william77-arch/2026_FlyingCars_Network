@@ -1,16 +1,16 @@
 region,areas,population,coverable_pop,covered_pop,covered_of_coverable,covered_of_total
 Central Coast,151,346659,189,189,1.0,0.001
-Sydney - Baulkham Hills and Hawkesbury,82,261820,260125,210231,0.808,0.803
-Sydney - Blacktown,52,405742,405742,398206,0.981,0.981
+Sydney - Baulkham Hills and Hawkesbury,82,261820,260125,204104,0.785,0.78
+Sydney - Blacktown,52,405742,405742,394290,0.972,0.972
 Sydney - City and Inner South,44,331155,0,0,,0.0
 Sydney - Eastern Suburbs,34,261417,0,0,,0.0
-Sydney - Inner South West,69,605877,136973,78998,0.577,0.13
+Sydney - Inner South West,69,605877,136973,80935,0.591,0.134
 Sydney - Inner West,39,300735,0,0,,0.0
 Sydney - North Sydney and Hornsby,66,424456,4501,4501,1.0,0.011
 Sydney - Northern Beaches,53,263542,0,0,,0.0
-Sydney - Outer South West,75,298217,298217,241057,0.808,0.808
-Sydney - Outer West and Blue Mountains,74,332048,315284,197781,0.627,0.596
-Sydney - Parramatta,52,509587,489974,466048,0.951,0.915
+Sydney - Outer South West,75,298217,298217,241230,0.809,0.809
+Sydney - Outer West and Blue Mountains,74,332048,315284,208802,0.662,0.629
+Sydney - Parramatta,52,509587,489974,466057,0.951,0.915
 Sydney - Ryde,24,199603,17879,17879,1.0,0.09
-Sydney - South West,63,456922,440748,398053,0.903,0.871
+Sydney - South West,63,456922,440748,394845,0.896,0.864
 Sydney - Sutherland,42,229585,10423,10419,1.0,0.045

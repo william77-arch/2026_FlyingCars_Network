@@ -1,12 +1,12 @@
 name,site_type,new_build,latitude,longitude,cost_index,hazard,bushfire,wind,rain,hazard_data,flight_WSI_min,areas_served,population_served
-Barcom Street Park,park / oval,True,-33.83879,150.972855,1.0,0.375,0.0,0.5,0.5,default,9.3,45,467471
-Britannia Road Reserve,park / oval,True,-33.726666,150.995482,1.0,0.375,0.0,0.5,0.5,default,11.0,21,304918
+Barcom Street Park,park / oval,True,-33.83879,150.972855,1.0,0.375,0.0,0.5,0.5,default,9.3,49,492778
+Ridgeline Park,park / oval,True,-33.710119,150.900722,1.0,0.375,0.0,0.5,0.5,default,9.8,33,313016
+Britannia Road Reserve,park / oval,True,-33.726666,150.995482,1.0,0.375,0.0,0.5,0.5,default,11.0,15,240276
 NSW POI Helipad 24487,NSW POI helipad,False,-34.05964279852653,150.7763106343115,0.6,0.375,0.0,0.5,0.5,default,8.9,35,200157
-Pye Hill Reserve,park / oval,True,-33.889244,150.854507,1.0,0.375,0.0,0.5,0.5,default,6.6,23,184376
-Doreen Ross Reserve,park / oval,True,-33.676793,150.865261,1.0,0.375,0.0,0.5,0.5,default,10.1,24,154287
-Cameron Park,park / oval,True,-33.955535,150.946653,1.0,0.375,0.0,0.5,0.5,default,9.0,18,151942
-Shepherd Street Park,park / oval,True,-33.786328,150.789279,1.0,0.375,0.0,0.5,0.5,default,6.7,23,149504
-Eastern Creek Raceway HLS,helipad / HLS,False,-33.804126,150.867462,0.5,0.375,0.0,0.5,0.5,default,7.5,12,148618
-Ayshford Reserve,park / oval,True,-33.937914,150.840677,1.0,0.375,0.0,0.5,0.5,default,6.7,15,134914
-Robinson Park,park / oval,True,-33.773625,150.680083,1.0,0.375,0.0,0.5,0.5,default,7.1,17,126299
+Pye Hill Reserve,park / oval,True,-33.889244,150.854507,1.0,0.375,0.0,0.5,0.5,default,6.6,24,190196
+Beddington Court Reserve,park / oval,True,-33.963005,150.945505,1.0,0.375,0.0,0.5,0.5,default,9.1,22,168059
+Dorothy Radford Reserve,park / oval,True,-33.789657,150.778878,1.0,0.375,0.0,0.5,0.5,default,6.5,22,155307
+Barnett Street Reserve,park / oval,True,-33.774672,150.688979,1.0,0.375,0.0,0.5,0.5,default,7.0,17,126299
+Horningsea Park Fire Station,park / oval,True,-33.943618,150.836924,1.0,0.375,0.0,0.5,0.5,default,6.8,13,118275
+Katoomba Airport,GA aerodrome,False,-33.668301,150.322998,0.5,0.375,0.0,0.5,0.5,default,14.8,4,18012
 Wisemans Ferry Helicopter Landing Site,helipad / HLS,False,-33.3835,150.988667,0.5,0.375,0.0,0.5,0.5,default,18.3,6,876

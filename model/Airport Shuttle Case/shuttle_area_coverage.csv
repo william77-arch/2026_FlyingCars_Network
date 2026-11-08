@@ -1,7 +1,7 @@
 area,region,population,coverable,covered,vertiport,airport,door_to_airport_min,drive_to_airport_min
 Abbotsbury,Sydney - South West,4200,True,True,Pye Hill Reserve,WSI,11.9,22.2
 Abbotsford (NSW),Sydney - Inner West,5431,False,False,,,,
-Acacia Gardens,Sydney - Blacktown,3668,True,True,Britannia Road Reserve,WSI,25.8,44.5
+Acacia Gardens,Sydney - Blacktown,3668,True,True,Ridgeline Park,WSI,15.5,44.5
 Agnes Banks,Sydney - Outer West and Blue Mountains,996,True,False,,,,
 Airds,Sydney - Outer South West,3265,True,True,NSW POI Helipad 24487,WSI,20.6,47.8
 Alexandria,Sydney - City and Inner South,9649,False,False,,,,
@@ -10,9 +10,9 @@ Alison (Central Coast - NSW),Central Coast,85,False,False,,,,
 Allambie Heights,Sydney - Northern Beaches,7317,False,False,,,,
 Allawah,Sydney - Inner South West,5351,False,False,,,,
 Ambarvale,Sydney - Outer South West,7254,True,True,NSW POI Helipad 24487,WSI,16.3,46.7
-Angus,Sydney - Blacktown,384,True,True,Doreen Ross Reserve,WSI,15.7,45.6
+Angus,Sydney - Blacktown,384,True,True,Ridgeline Park,WSI,22.7,45.6
 Annandale (NSW),Sydney - Inner West,9487,False,False,,,,
-Annangrove,Sydney - Baulkham Hills and Hawkesbury,1472,True,True,Doreen Ross Reserve,WSI,24.6,60.7
+Annangrove,Sydney - Baulkham Hills and Hawkesbury,1472,True,True,Ridgeline Park,WSI,23.7,60.7
 Appin (NSW),Sydney - Outer South West,3213,True,False,,,,
 Arcadia (NSW),Sydney - Baulkham Hills and Hawkesbury,1475,True,False,,,,
 Arncliffe,Sydney - Inner South West,12023,False,False,,,,
@@ -35,11 +35,11 @@ Bangor (NSW),Sydney - Sutherland,5536,False,False,,,,
 Banksia,Sydney - Inner South West,3277,False,False,,,,
 Banksmeadow,Sydney - City and Inner South,508,False,False,,,,
 Bankstown,Sydney - Inner South West,34933,True,False,,,,
-Bankstown Aerodrome,Sydney - Inner South West,5,True,False,,,,
+Bankstown Aerodrome,Sydney - Inner South West,5,True,True,Beddington Court Reserve,WSI,20.4,45.4
 Bar Point,Central Coast,122,False,False,,,,
 Barangaroo,Sydney - City and Inner South,220,False,False,,,,
 Barden Ridge,Sydney - Sutherland,4129,False,False,,,,
-Bardia,Sydney - Outer South West,5747,True,True,Ayshford Reserve,WSI,15.9,30.3
+Bardia,Sydney - Outer South West,5747,True,True,Horningsea Park Fire Station,WSI,15.2,30.3
 Bardwell Park,Sydney - Inner South West,2320,False,False,,,,
 Bardwell Valley,Sydney - Inner South West,2344,False,False,,,,
 Bargo,Sydney - Outer South West,4516,True,False,,,,
@@ -49,7 +49,7 @@ Baulkham Hills,Sydney - Baulkham Hills and Hawkesbury,37415,True,True,Britannia 
 Bayview (NSW),Sydney - Northern Beaches,3807,False,False,,,,
 Beacon Hill,Sydney - Northern Beaches,7814,False,False,,,,
 Beaconsfield (NSW),Sydney - City and Inner South,1172,False,False,,,,
-Beaumont Hills,Sydney - Baulkham Hills and Hawkesbury,9041,True,True,Britannia Road Reserve,WSI,22.7,53.5
+Beaumont Hills,Sydney - Baulkham Hills and Hawkesbury,9041,True,True,Ridgeline Park,WSI,17.5,53.5
 Beecroft,Sydney - Ryde,10291,True,True,Britannia Road Reserve,WSI,24.2,64.1
 Belfield,Sydney - Inner South West,6555,False,False,,,,
 Belimbla Park,Sydney - Outer South West,576,True,False,,,,
@@ -70,22 +70,22 @@ Beverley Park,Sydney - Inner South West,2646,False,False,,,,
 Beverly Hills,Sydney - Inner South West,10483,False,False,,,,
 Bexley,Sydney - Inner South West,19646,False,False,,,,
 Bexley North,Sydney - Inner South West,4281,False,False,,,,
-Bidwill (NSW),Sydney - Blacktown,4202,True,True,Shepherd Street Park,WSI,20.3,35.6
+Bidwill (NSW),Sydney - Blacktown,4202,True,True,Ridgeline Park,WSI,24.6,35.6
 Bilgola Beach,Sydney - Northern Beaches,251,False,False,,,,
 Bilgola Plateau,Sydney - Northern Beaches,3650,False,False,,,,
 Bilpin,Sydney - Baulkham Hills and Hawkesbury,653,True,False,,,,
 Birchgrove,Sydney - Inner West,3228,False,False,,,,
 Birrong,Sydney - Inner South West,3331,True,True,Barcom Street Park,WSI,23.7,50.7
-Blackett,Sydney - Blacktown,3586,True,True,Shepherd Street Park,WSI,18.1,33.5
-Blackheath,Sydney - Outer West and Blue Mountains,4672,True,False,,,,
-Blacktown,Sydney - Blacktown,50961,True,True,Eastern Creek Raceway HLS,WSI,16.2,36.8
+Blackett,Sydney - Blacktown,3586,True,True,Dorothy Radford Reserve,WSI,19.4,33.5
+Blackheath,Sydney - Outer West and Blue Mountains,4672,True,True,Katoomba Airport,WSI,24.4,97.4
+Blacktown,Sydney - Blacktown,50961,True,True,Ridgeline Park,WSI,24.1,36.8
 Blackwall (NSW),Central Coast,1941,False,False,,,,
 Blair Athol (NSW),Sydney - Outer South West,2725,True,True,NSW POI Helipad 24487,WSI,13.7,41.2
 Blairmount,Sydney - Outer South West,409,True,True,NSW POI Helipad 24487,WSI,12.7,38.5
 Blakehurst,Sydney - Inner South West,6652,False,False,,,,
-Blaxland (NSW),Sydney - Outer West and Blue Mountains,7434,True,True,Robinson Park,WSI,20.1,36.6
+Blaxland (NSW),Sydney - Outer West and Blue Mountains,7434,True,True,Barnett Street Reserve,WSI,21.5,36.6
 Blaxlands Ridge,Sydney - Baulkham Hills and Hawkesbury,589,True,False,,,,
-Bligh Park,Sydney - Outer West and Blue Mountains,6220,True,True,Doreen Ross Reserve,WSI,24.8,53.3
+Bligh Park,Sydney - Outer West and Blue Mountains,6220,True,False,,,,
 Blue Bay,Central Coast,1060,False,False,,,,
 Blue Haven,Central Coast,6563,False,False,,,,
 Blue Mountains National Park,Sydney - Outer West and Blue Mountains,0,False,False,,,,
@@ -102,7 +102,7 @@ Bouddi,Central Coast,5,False,False,,,,
 Bow Bowing,Sydney - Outer South West,1606,True,True,NSW POI Helipad 24487,WSI,23.5,34.9
 Bowen Mountain,Sydney - Baulkham Hills and Hawkesbury,1609,True,False,,,,
 Box Head,Central Coast,0,False,False,,,,
-Box Hill (NSW),Sydney - Baulkham Hills and Hawkesbury,6450,True,True,Doreen Ross Reserve,WSI,17.4,56.4
+Box Hill (NSW),Sydney - Baulkham Hills and Hawkesbury,6450,True,True,Ridgeline Park,WSI,22.2,56.4
 Bradbury (NSW),Sydney - Outer South West,9433,True,True,NSW POI Helipad 24487,WSI,17.9,46.5
 Breakfast Point,Sydney - Inner West,4678,False,False,,,,
 Brighton-Le-Sands,Sydney - Inner South West,8336,False,False,,,,
@@ -128,8 +128,8 @@ Cabramatta,Sydney - South West,21142,True,True,Pye Hill Reserve,WSI,21.1,35.3
 Cabramatta West,Sydney - South West,7822,True,True,Pye Hill Reserve,WSI,16.9,31.1
 Caddens,Sydney - Outer West and Blue Mountains,3487,True,False,,,,
 Calga,Central Coast,134,False,False,,,,
-Cambridge Gardens,Sydney - Outer West and Blue Mountains,2030,True,True,Robinson Park,WSI,17.8,30.8
-Cambridge Park,Sydney - Outer West and Blue Mountains,7054,True,True,Robinson Park,WSI,17.0,28.2
+Cambridge Gardens,Sydney - Outer West and Blue Mountains,2030,True,True,Barnett Street Reserve,WSI,16.8,30.8
+Cambridge Park,Sydney - Outer West and Blue Mountains,7054,True,True,Barnett Street Reserve,WSI,15.7,28.2
 Camden,Sydney - Outer South West,3378,True,False,,,,
 Camden Park (NSW),Sydney - Outer South West,2233,True,True,NSW POI Helipad 24487,WSI,21.9,46.8
 Camden South,Sydney - Outer South West,4595,True,True,NSW POI Helipad 24487,WSI,23.3,44.5
@@ -148,15 +148,15 @@ Caringbah,Sydney - Sutherland,12575,False,False,,,,
 Caringbah South,Sydney - Sutherland,13168,False,False,,,,
 Carlingford,Sydney - Parramatta,28044,True,True,Britannia Road Reserve,WSI,24.6,59.3
 Carlton (NSW),Sydney - Inner South West,10631,False,False,,,,
-Carnes Hill,Sydney - South West,3332,True,True,Ayshford Reserve,WSI,8.2,23.3
+Carnes Hill,Sydney - South West,3332,True,True,Horningsea Park Fire Station,WSI,9.2,23.3
 Carramar (NSW),Sydney - Parramatta,3475,True,True,Barcom Street Park,WSI,19.3,40.2
 Carss Park,Sydney - Inner South West,1265,False,False,,,,
-Cartwright,Sydney - South West,2616,True,True,Ayshford Reserve,WSI,16.4,29.1
+Cartwright,Sydney - South West,2616,True,True,Pye Hill Reserve,WSI,16.8,29.1
 Castle Cove,Sydney - North Sydney and Hornsby,2643,False,False,,,,
 Castle Hill (NSW),Sydney - Baulkham Hills and Hawkesbury,40874,True,True,Britannia Road Reserve,WSI,11.9,57.0
 Castlecrag,Sydney - North Sydney and Hornsby,2965,False,False,,,,
 Castlereagh,Sydney - Outer West and Blue Mountains,1248,True,False,,,,
-Casula,Sydney - South West,16584,True,True,Ayshford Reserve,WSI,17.2,32.3
+Casula,Sydney - South West,16584,True,True,Horningsea Park Fire Station,WSI,17.6,32.3
 Catherine Field,Sydney - South West,2609,True,False,,,,
 Cattai,Sydney - Baulkham Hills and Hawkesbury,1077,True,False,,,,
 Cawdor (NSW),Sydney - Outer South West,430,True,False,,,,
@@ -177,34 +177,34 @@ Cherrybrook,Sydney - Baulkham Hills and Hawkesbury,19082,True,True,Britannia Roa
 Chester Hill,Sydney - Parramatta,14007,True,True,Barcom Street Park,WSI,19.5,47.0
 Chifley (NSW),Sydney - Eastern Suburbs,3490,False,False,,,,
 Chippendale,Sydney - City and Inner South,7803,False,False,,,,
-Chipping Norton,Sydney - South West,9412,True,True,Cameron Park,WSI,18.2,40.8
+Chipping Norton,Sydney - South West,9412,True,True,Beddington Court Reserve,WSI,19.9,40.8
 Chiswick,Sydney - Inner West,2909,False,False,,,,
 Chittaway Bay,Central Coast,1987,False,False,,,,
 Chittaway Point,Central Coast,947,False,False,,,,
 Chullora,Sydney - Inner South West,14,False,False,,,,
 Church Point,Sydney - Northern Beaches,1066,False,False,,,,
-Claremont Meadows,Sydney - Outer West and Blue Mountains,5177,True,False,,,,
+Claremont Meadows,Sydney - Outer West and Blue Mountains,5177,True,True,Dorothy Radford Reserve,WSI,12.5,22.9
 Clarendon (NSW),Sydney - Outer West and Blue Mountains,147,True,False,,,,
 Clareville,Sydney - Northern Beaches,822,False,False,,,,
 Claymore,Sydney - Outer South West,2579,True,True,NSW POI Helipad 24487,WSI,15.6,38.6
 Clemton Park,Sydney - Inner South West,1676,False,False,,,,
 Clontarf (NSW),Sydney - Northern Beaches,1746,False,False,,,,
 Clovelly,Sydney - Eastern Suburbs,4887,False,False,,,,
-Clyde (NSW),Sydney - Parramatta,9,True,False,,,,
+Clyde (NSW),Sydney - Parramatta,9,True,True,Barcom Street Park,WSI,18.2,51.8
 Coasters Retreat,Sydney - Northern Beaches,30,False,False,,,,
 Cobbitty,Sydney - South West,4206,True,False,,,,
 Cogra Bay,Central Coast,13,False,False,,,,
-Colebee,Sydney - Blacktown,4914,True,True,Doreen Ross Reserve,WSI,20.5,39.6
+Colebee,Sydney - Blacktown,4914,True,True,Ridgeline Park,WSI,18.4,39.6
 Collaroy (NSW),Sydney - Northern Beaches,7944,False,False,,,,
 Collaroy Plateau,Sydney - Northern Beaches,4805,False,False,,,,
 Colo (Hawkesbury - NSW),Sydney - Baulkham Hills and Hawkesbury,62,False,False,,,,
 Colo Heights,Sydney - Baulkham Hills and Hawkesbury,336,False,False,,,,
 Colongra,Central Coast,0,False,False,,,,
-Colyton,Sydney - Outer West and Blue Mountains,8770,True,True,Shepherd Street Park,WSI,8.2,23.4
+Colyton,Sydney - Outer West and Blue Mountains,8770,True,True,Dorothy Radford Reserve,WSI,10.0,23.4
 Como (NSW),Sydney - Sutherland,4053,False,False,,,,
 Concord,Sydney - Inner West,14551,False,False,,,,
 Concord West,Sydney - Inner West,6178,False,False,,,,
-Condell Park,Sydney - Inner South West,13066,True,True,Cameron Park,WSI,22.3,49.9
+Condell Park,Sydney - Inner South West,13066,True,True,Beddington Court Reserve,WSI,23.4,49.9
 Connells Point,Sydney - Inner South West,2884,False,False,,,,
 Constitution Hill,Sydney - Parramatta,4030,True,True,Barcom Street Park,WSI,19.2,46.5
 Coogee (NSW),Sydney - Eastern Suburbs,14634,False,False,,,,
@@ -233,16 +233,16 @@ Darlington (Sydney - NSW),Sydney - City and Inner South,2597,False,False,,,,
 Davidson,Sydney - Northern Beaches,2725,False,False,,,,
 Davistown,Central Coast,2602,False,False,,,,
 Dawes Point,Sydney - City and Inner South,385,False,False,,,,
-Dean Park,Sydney - Blacktown,3180,True,True,Eastern Creek Raceway HLS,WSI,22.5,38.0
+Dean Park,Sydney - Blacktown,3180,True,True,Ridgeline Park,WSI,18.9,38.0
 Dee Why,Sydney - Northern Beaches,23354,False,False,,,,
-Denham Court,Sydney - Outer South West,9129,True,True,Ayshford Reserve,WSI,16.4,27.5
+Denham Court,Sydney - Outer South West,9129,True,True,Horningsea Park Fire Station,WSI,15.1,27.5
 Denistone,Sydney - Ryde,3726,False,False,,,,
 Denistone East,Sydney - Ryde,2292,False,False,,,,
 Denistone West,Sydney - Ryde,947,False,False,,,,
-Dharruk,Sydney - Blacktown,2806,True,True,Shepherd Street Park,WSI,16.0,31.3
+Dharruk,Sydney - Blacktown,2806,True,True,Dorothy Radford Reserve,WSI,17.4,31.3
 Dolans Bay,Sydney - Sutherland,699,False,False,,,,
 Dolls Point,Sydney - Inner South West,1633,False,False,,,,
-Doonside,Sydney - Blacktown,13614,True,True,Eastern Creek Raceway HLS,WSI,16.5,34.0
+Doonside,Sydney - Blacktown,13614,True,True,Ridgeline Park,WSI,22.8,34.0
 Dooralong,Central Coast,350,False,False,,,,
 Double Bay,Sydney - Eastern Suburbs,4709,False,False,,,,
 Douglas Park,Sydney - Outer South West,1386,True,False,,,,
@@ -259,7 +259,7 @@ Durren Durren,Central Coast,96,False,False,,,,
 Eagle Vale,Sydney - Outer South West,5789,True,True,NSW POI Helipad 24487,WSI,16.8,36.7
 Earlwood,Sydney - Inner South West,18053,False,False,,,,
 East Gosford,Central Coast,4391,False,False,,,,
-East Hills,Sydney - Inner South West,3370,True,True,Cameron Park,WSI,16.6,48.1
+East Hills,Sydney - Inner South West,3370,True,True,Beddington Court Reserve,WSI,16.8,48.1
 East Killara,Sydney - North Sydney and Hornsby,2895,False,False,,,,
 East Kurrajong,Sydney - Baulkham Hills and Hawkesbury,2203,True,False,,,,
 East Lindfield,Sydney - North Sydney and Hornsby,3710,False,False,,,,
@@ -271,17 +271,17 @@ Eastwood (NSW),Sydney - Ryde,18695,False,False,,,,
 Ebenezer (NSW),Sydney - Baulkham Hills and Hawkesbury,1081,True,False,,,,
 Edensor Park,Sydney - South West,10279,True,True,Pye Hill Reserve,WSI,11.2,24.7
 Edgecliff,Sydney - Eastern Suburbs,2499,False,False,,,,
-Edmondson Park,Sydney - South West,12080,True,True,Ayshford Reserve,WSI,13.4,28.4
+Edmondson Park,Sydney - South West,12080,True,True,Horningsea Park Fire Station,WSI,12.8,28.4
 Elanora Heights,Sydney - Northern Beaches,4581,False,False,,,,
 Elderslie (Camden - NSW),Sydney - Outer South West,7878,True,True,NSW POI Helipad 24487,WSI,19.5,38.9
 Elizabeth Bay,Sydney - City and Inner South,4878,False,False,,,,
-Elizabeth Hills,Sydney - South West,3208,True,True,Pye Hill Reserve,WSI,9.2,20.2
+Elizabeth Hills,Sydney - South West,3208,True,False,,,,
 Ellis Lane,Sydney - Outer South West,852,True,False,,,,
 Elvina Bay,Sydney - Northern Beaches,80,False,False,,,,
-Emerton,Sydney - Blacktown,2295,True,True,Shepherd Street Park,WSI,16.7,32.0
+Emerton,Sydney - Blacktown,2295,True,True,Dorothy Radford Reserve,WSI,17.9,32.0
 Empire Bay,Central Coast,2522,False,False,,,,
-Emu Heights (NSW),Sydney - Outer West and Blue Mountains,3205,True,True,Robinson Park,WSI,17.3,35.5
-Emu Plains,Sydney - Outer West and Blue Mountains,8126,True,True,Robinson Park,WSI,13.3,31.5
+Emu Heights (NSW),Sydney - Outer West and Blue Mountains,3205,True,True,Barnett Street Reserve,WSI,18.2,35.5
+Emu Plains,Sydney - Outer West and Blue Mountains,8126,True,True,Barnett Street Reserve,WSI,14.1,31.5
 Enfield (NSW),Sydney - Inner West,2992,False,False,,,,
 Engadine,Sydney - Sutherland,17736,False,False,,,,
 Englorie Park,Sydney - Outer South West,361,True,True,NSW POI Helipad 24487,WSI,14.6,44.7
@@ -314,30 +314,30 @@ Freemans,Central Coast,0,False,False,,,,
 Freemans Reach,Sydney - Baulkham Hills and Hawkesbury,2049,True,False,,,,
 Frenchs Forest,Sydney - Northern Beaches,14267,False,False,,,,
 Freshwater (NSW),Sydney - Northern Beaches,9186,False,False,,,,
-Gables,Sydney - Baulkham Hills and Hawkesbury,3339,True,True,Doreen Ross Reserve,WSI,23.0,62.3
+Gables,Sydney - Baulkham Hills and Hawkesbury,3339,True,False,,,,
 Galston,Sydney - Baulkham Hills and Hawkesbury,3195,True,False,,,,
-Georges Hall,Sydney - Inner South West,9739,True,True,Cameron Park,WSI,22.0,45.4
+Georges Hall,Sydney - Inner South West,9739,True,True,Beddington Court Reserve,WSI,23.5,45.4
 Gilead,Sydney - Outer South West,882,True,False,,,,
 Girraween (NSW),Sydney - Parramatta,6256,True,True,Barcom Street Park,WSI,19.1,40.8
 Gladesville,Sydney - Ryde,12867,False,False,,,,
 Glebe (NSW),Sydney - City and Inner South,11680,False,False,,,,
 Gledswood Hills,Sydney - South West,6112,True,True,NSW POI Helipad 24487,WSI,18.9,29.9
 Glen Alpine,Sydney - Outer South West,4429,True,True,NSW POI Helipad 24487,WSI,15.2,45.3
-Glenbrook,Sydney - Outer West and Blue Mountains,5078,True,True,Robinson Park,WSI,16.8,31.9
-Glendenning,Sydney - Blacktown,5196,True,True,Eastern Creek Raceway HLS,WSI,19.9,35.3
-Glenfield (NSW),Sydney - Outer South West,10536,True,True,Ayshford Reserve,WSI,18.5,33.9
+Glenbrook,Sydney - Outer West and Blue Mountains,5078,True,True,Barnett Street Reserve,WSI,18.3,31.9
+Glendenning,Sydney - Blacktown,5196,True,True,Ridgeline Park,WSI,21.4,35.3
+Glenfield (NSW),Sydney - Outer South West,10536,True,True,Horningsea Park Fire Station,WSI,18.4,33.9
 Glenhaven,Sydney - Baulkham Hills and Hawkesbury,6619,True,True,Britannia Road Reserve,WSI,16.2,60.3
 Glenmore (NSW),Sydney - Outer South West,108,True,False,,,,
-Glenmore Park,Sydney - Outer West and Blue Mountains,25021,True,True,Robinson Park,WSI,11.4,21.4
+Glenmore Park,Sydney - Outer West and Blue Mountains,25021,True,True,Barnett Street Reserve,WSI,11.2,21.4
 Glenning Valley,Central Coast,2023,False,False,,,,
 Glenorie,Sydney - Baulkham Hills and Hawkesbury,3792,True,False,,,,
-Glenwood (NSW),Sydney - Blacktown,15829,True,True,Britannia Road Reserve,WSI,22.7,46.4
+Glenwood (NSW),Sydney - Blacktown,15829,True,True,Ridgeline Park,WSI,17.9,46.4
 Glenworth Valley,Central Coast,12,False,False,,,,
 Glossodia,Sydney - Baulkham Hills and Hawkesbury,2865,True,False,,,,
 Gordon (NSW),Sydney - North Sydney and Hornsby,8795,False,False,,,,
 Gorokan,Central Coast,8624,False,False,,,,
 Gosford,Central Coast,4873,False,False,,,,
-Grantham Farm,Sydney - Blacktown,3669,True,True,Doreen Ross Reserve,WSI,13.6,52.9
+Grantham Farm,Sydney - Blacktown,3669,True,True,Ridgeline Park,WSI,20.8,52.9
 Granville (NSW),Sydney - Parramatta,16716,True,True,Barcom Street Park,WSI,15.6,49.2
 Grasmere,Sydney - Outer South West,2105,True,False,,,,
 Grays Point,Sydney - Sutherland,3034,False,False,,,,
@@ -364,16 +364,16 @@ Haberfield,Sydney - Inner West,6480,False,False,,,,
 Halekulani,Central Coast,2677,False,False,,,,
 Halloran,Central Coast,34,False,False,,,,
 Hamlyn Terrace,Central Coast,8761,False,False,,,,
-Hammondville,Sydney - South West,3691,True,True,Cameron Park,WSI,12.0,43.0
+Hammondville,Sydney - South West,3691,True,True,Beddington Court Reserve,WSI,13.1,43.0
 Hardys Bay,Central Coast,233,False,False,,,,
 Harrington Park,Sydney - Outer South West,13332,True,True,NSW POI Helipad 24487,WSI,19.2,31.7
 Harris Park,Sydney - Parramatta,5043,True,True,Barcom Street Park,WSI,17.2,50.6
-Hassall Grove,Sydney - Blacktown,4401,True,True,Shepherd Street Park,WSI,21.5,36.6
+Hassall Grove,Sydney - Blacktown,4401,True,True,Ridgeline Park,WSI,21.9,36.6
 Hawkesbury Heights,Sydney - Outer West and Blue Mountains,468,True,False,,,,
 Haymarket,Sydney - City and Inner South,8305,False,False,,,,
 Hazelbrook,Sydney - Outer West and Blue Mountains,5077,True,False,,,,
 Heathcote (NSW),Sydney - Sutherland,6148,False,False,,,,
-Hebersham,Sydney - Blacktown,5643,True,True,Shepherd Street Park,WSI,17.6,32.9
+Hebersham,Sydney - Blacktown,5643,True,True,Dorothy Radford Reserve,WSI,19.2,32.9
 Heckenberg,Sydney - South West,3263,True,True,Pye Hill Reserve,WSI,14.4,28.0
 Henley,Sydney - Ryde,455,False,False,,,,
 Higher Macdonald,Sydney - Baulkham Hills and Hawkesbury,20,False,False,,,,
@@ -385,12 +385,12 @@ Holroyd,Sydney - Parramatta,1248,True,True,Barcom Street Park,WSI,14.0,47.6
 Holsworthy,Sydney - Outer South West,5657,True,False,,,,
 Homebush (NSW),Sydney - Inner West,11660,False,False,,,,
 Homebush West,Sydney - Inner West,9108,False,False,,,,
-Horningsea Park,Sydney - South West,3673,True,True,Ayshford Reserve,WSI,8.6,23.7
+Horningsea Park,Sydney - South West,3673,True,True,Horningsea Park Fire Station,WSI,8.2,23.7
 Hornsby,Sydney - North Sydney and Hornsby,22462,False,False,,,,
 Hornsby Heights,Sydney - North Sydney and Hornsby,6354,False,False,,,,
 Horsfield Bay,Central Coast,501,False,False,,,,
 Horsley Park,Sydney - South West,1790,True,False,,,,
-Hoxton Park,Sydney - South West,4572,True,True,Ayshford Reserve,WSI,10.2,23.9
+Hoxton Park,Sydney - South West,4572,True,True,Horningsea Park Fire Station,WSI,11.5,23.9
 Hunters Hill,Sydney - Ryde,9014,False,False,,,,
 Huntingwood,Sydney - Blacktown,3,True,False,,,,
 Huntleys Cove,Sydney - Ryde,740,False,False,,,,
@@ -399,22 +399,22 @@ Hurlstone Park,Sydney - Inner West,5001,False,False,,,,
 Hurstville,Sydney - Inner South West,31162,False,False,,,,
 Hurstville Grove,Sydney - Inner South West,2606,False,False,,,,
 Illawong,Sydney - Sutherland,7427,False,False,,,,
-Ingleburn,Sydney - Outer South West,15264,True,True,Ayshford Reserve,WSI,21.6,34.9
+Ingleburn,Sydney - Outer South West,15264,True,True,Horningsea Park Fire Station,WSI,20.7,34.9
 Ingleside,Sydney - Northern Beaches,1030,False,False,,,,
-Jamisontown,Sydney - Outer West and Blue Mountains,5321,True,True,Robinson Park,WSI,8.3,26.5
+Jamisontown,Sydney - Outer West and Blue Mountains,5321,True,True,Barnett Street Reserve,WSI,9.5,26.5
 Jannali,Sydney - Sutherland,6632,False,False,,,,
 Jilliby,Central Coast,1694,False,False,,,,
-Jordan Springs,Sydney - Outer West and Blue Mountains,11772,True,True,Robinson Park,WSI,22.0,33.0
+Jordan Springs,Sydney - Outer West and Blue Mountains,11772,True,True,Barnett Street Reserve,WSI,21.0,33.0
 Kanangra,Sydney - Outer West and Blue Mountains,0,False,False,,,,
 Kangaroo Point (NSW),Sydney - Sutherland,602,False,False,,,,
 Kangy Angy,Central Coast,331,False,False,,,,
 Kanwal,Central Coast,4194,False,False,,,,
 Kareela,Sydney - Sutherland,3572,False,False,,,,
 Kariong,Central Coast,6485,False,False,,,,
-Katoomba,Sydney - Outer West and Blue Mountains,8268,True,False,,,,
+Katoomba,Sydney - Outer West and Blue Mountains,8268,True,True,Katoomba Airport,WSI,25.8,91.3
 Kearns,Sydney - Outer South West,2693,True,True,NSW POI Helipad 24487,WSI,18.7,32.4
 Kellyville,Sydney - Baulkham Hills and Hawkesbury,27011,True,True,Britannia Road Reserve,WSI,18.6,53.8
-Kellyville Ridge,Sydney - Blacktown,10890,True,True,Doreen Ross Reserve,WSI,21.6,50.1
+Kellyville Ridge,Sydney - Blacktown,10890,True,True,Ridgeline Park,WSI,13.5,50.1
 Kemps Creek,Sydney - South West,2121,False,False,,,,
 Kensington (NSW),Sydney - Eastern Suburbs,11927,False,False,,,,
 Kenthurst,Sydney - Baulkham Hills and Hawkesbury,5313,True,False,,,,
@@ -428,11 +428,11 @@ Killcare Heights,Central Coast,812,False,False,,,,
 Kincumber,Central Coast,7398,False,False,,,,
 Kincumber South,Central Coast,721,False,False,,,,
 Kingfisher Shores,Central Coast,160,False,False,,,,
-Kings Langley,Sydney - Blacktown,9354,True,True,Britannia Road Reserve,WSI,22.7,45.2
-Kings Park (NSW),Sydney - Blacktown,3476,True,False,,,,
+Kings Langley,Sydney - Blacktown,9354,True,True,Ridgeline Park,WSI,20.8,45.2
+Kings Park (NSW),Sydney - Blacktown,3476,True,True,Ridgeline Park,WSI,17.2,42.3
 Kingsford (NSW),Sydney - Eastern Suburbs,13492,False,False,,,,
 Kingsgrove,Sydney - Inner South West,12881,False,False,,,,
-Kingswood (Penrith - NSW),Sydney - Outer West and Blue Mountains,10633,True,True,Robinson Park,WSI,15.2,25.7
+Kingswood (Penrith - NSW),Sydney - Outer West and Blue Mountains,10633,True,True,Barnett Street Reserve,WSI,13.7,25.7
 Kirkham,Sydney - Outer South West,690,True,True,NSW POI Helipad 24487,WSI,21.8,33.9
 Kirrawee,Sydney - Sutherland,11007,False,False,,,,
 Kirribilli,Sydney - North Sydney and Hornsby,3629,False,False,,,,
@@ -454,13 +454,13 @@ Lake Haven,Central Coast,3529,False,False,,,,
 Lake Munmorah,Central Coast,5084,False,False,,,,
 Lakemba,Sydney - Inner South West,17092,False,False,,,,
 Lakesland,Sydney - Outer South West,499,True,False,,,,
-Lalor Park,Sydney - Blacktown,7834,True,True,Eastern Creek Raceway HLS,WSI,22.3,43.1
+Lalor Park,Sydney - Blacktown,7834,True,True,Ridgeline Park,WSI,22.0,43.1
 Lane Cove,Sydney - North Sydney and Hornsby,12363,False,False,,,,
 Lane Cove North,Sydney - North Sydney and Hornsby,11773,False,False,,,,
 Lane Cove West,Sydney - North Sydney and Hornsby,3146,False,False,,,,
-Lansdowne (Canterbury-Bankstown - NSW),Sydney - Inner South West,16,True,False,,,,
-Lansvale,Sydney - South West,2595,True,True,Cameron Park,WSI,21.0,38.3
-Lapstone,Sydney - Outer West and Blue Mountains,948,True,True,Robinson Park,WSI,15.0,29.4
+Lansdowne (Canterbury-Bankstown - NSW),Sydney - Inner South West,16,True,True,Barcom Street Park,WSI,21.8,42.4
+Lansvale,Sydney - South West,2595,True,True,Beddington Court Reserve,WSI,22.7,38.3
+Lapstone,Sydney - Outer West and Blue Mountains,948,True,True,Barnett Street Reserve,WSI,16.5,29.4
 Laughtondale,Sydney - Baulkham Hills and Hawkesbury,102,True,True,Wisemans Ferry Helicopter Landing Site,WSI,32.2,109.3
 Lavender Bay,Sydney - North Sydney and Hornsby,870,False,False,,,,
 Lawson (NSW),Sydney - Outer West and Blue Mountains,2651,False,False,,,,
@@ -468,11 +468,11 @@ Leets Vale,Sydney - Baulkham Hills and Hawkesbury,59,True,True,Wisemans Ferry He
 Leichhardt (NSW),Sydney - Inner West,15158,False,False,,,,
 Lemon Tree,Central Coast,54,False,False,,,,
 Len Waters Estate,Sydney - South West,0,True,False,,,,
-Leonay,Sydney - Outer West and Blue Mountains,2582,True,True,Robinson Park,WSI,12.8,29.1
+Leonay,Sydney - Outer West and Blue Mountains,2582,True,True,Barnett Street Reserve,WSI,14.4,29.1
 Leppington,Sydney - South West,9423,True,False,,,,
-Lethbridge Park,Sydney - Blacktown,4730,True,True,Shepherd Street Park,WSI,17.3,32.4
+Lethbridge Park,Sydney - Blacktown,4730,True,True,Dorothy Radford Reserve,WSI,18.3,32.4
 Leumeah,Sydney - Outer South West,9992,True,True,NSW POI Helipad 24487,WSI,19.8,41.6
-Leura,Sydney - Outer West and Blue Mountains,4503,True,False,,,,
+Leura,Sydney - Outer West and Blue Mountains,4503,True,True,Katoomba Airport,WSI,24.3,81.0
 Lewisham (NSW),Sydney - Inner West,4060,False,False,,,,
 Liberty Grove,Sydney - Inner West,2055,False,False,,,,
 Lidcombe,Sydney - Parramatta,23663,True,True,Barcom Street Park,WSI,23.0,54.5
@@ -485,12 +485,12 @@ Lisarow,Central Coast,5299,False,False,,,,
 Little Bay,Sydney - Eastern Suburbs,4817,False,False,,,,
 Little Jilliby,Central Coast,102,False,False,,,,
 Little Wobby,Central Coast,23,False,False,,,,
-Liverpool,Sydney - South West,31078,True,True,Cameron Park,WSI,18.0,33.4
+Liverpool,Sydney - South West,31078,True,True,Beddington Court Reserve,WSI,19.3,33.4
 Llandilo,Sydney - Outer West and Blue Mountains,1618,True,False,,,,
 Loftus,Sydney - Sutherland,4190,False,False,,,,
 Londonderry (NSW),Sydney - Outer West and Blue Mountains,4024,True,False,,,,
 Long Jetty,Central Coast,6736,False,False,,,,
-Long Point (Campbelltown - NSW),Sydney - Outer South West,173,True,False,,,,
+Long Point (Campbelltown - NSW),Sydney - Outer South West,173,True,True,Beddington Court Reserve,WSI,22.7,40.3
 Longueville,Sydney - North Sydney and Hornsby,2116,False,False,,,,
 Lovett Bay,Sydney - Northern Beaches,117,False,False,,,,
 Lower Macdonald,Sydney - Baulkham Hills and Hawkesbury,244,True,True,Wisemans Ferry Helicopter Landing Site,WSI,24.6,120.0
@@ -499,10 +499,10 @@ Lower Portland,Sydney - Baulkham Hills and Hawkesbury,711,True,False,,,,
 Lucas Heights,Sydney - Sutherland,4,True,False,,,,
 Luddenham,Sydney - Outer West and Blue Mountains,1927,False,False,,,,
 Lugarno,Sydney - Inner South West,5869,False,False,,,,
-Lurnea,Sydney - South West,10057,True,True,Ayshford Reserve,WSI,16.9,30.9
+Lurnea,Sydney - South West,10057,True,True,Horningsea Park Fire Station,WSI,17.7,30.9
 Macmasters Beach,Central Coast,1399,False,False,,,,
-Macquarie Fields,Sydney - Outer South West,14023,True,True,Ayshford Reserve,WSI,21.3,36.3
-Macquarie Links,Sydney - Outer South West,1455,True,True,Ayshford Reserve,WSI,17.3,32.2
+Macquarie Fields,Sydney - Outer South West,14023,True,True,Beddington Court Reserve,WSI,20.8,36.3
+Macquarie Links,Sydney - Outer South West,1455,True,True,Horningsea Park Fire Station,WSI,16.7,32.2
 Macquarie Park,Sydney - Ryde,11071,False,False,,,,
 Magenta (NSW),Central Coast,332,False,False,,,,
 Maianbar,Sydney - Sutherland,539,False,False,,,,
@@ -514,13 +514,13 @@ Manly (NSW),Sydney - Northern Beaches,16296,False,False,,,,
 Manly Vale,Sydney - Northern Beaches,6389,False,False,,,,
 Mannering Park,Central Coast,2554,False,False,,,,
 Maraylya,Sydney - Baulkham Hills and Hawkesbury,1281,True,False,,,,
-Marayong,Sydney - Blacktown,7834,True,True,Eastern Creek Raceway HLS,WSI,20.2,39.3
+Marayong,Sydney - Blacktown,7834,True,True,Ridgeline Park,WSI,18.4,39.3
 Mardi,Central Coast,3598,False,False,,,,
 Marlow,Central Coast,35,False,False,,,,
 Maroota,Sydney - Baulkham Hills and Hawkesbury,616,True,False,,,,
 Maroubra,Sydney - Eastern Suburbs,30722,False,False,,,,
 Marrickville,Sydney - City and Inner South,26570,False,False,,,,
-Marsden Park,Sydney - Blacktown,14610,True,True,Doreen Ross Reserve,WSI,19.0,40.9
+Marsden Park,Sydney - Blacktown,14610,True,True,Ridgeline Park,WSI,22.1,40.9
 Marsfield,Sydney - Ryde,12492,False,False,,,,
 Mascot,Sydney - City and Inner South,21591,False,False,,,,
 Matcham,Central Coast,1038,False,False,,,,
@@ -529,12 +529,12 @@ Mays Hill,Sydney - Parramatta,1902,True,True,Barcom Street Park,WSI,14.1,46.7
 McGraths Hill,Sydney - Baulkham Hills and Hawkesbury,2537,True,False,,,,
 McMahons Point,Sydney - North Sydney and Hornsby,2315,False,False,,,,
 Meadowbank (NSW),Sydney - Ryde,5089,False,False,,,,
-Medlow Bath,Sydney - Outer West and Blue Mountains,569,True,False,,,,
+Medlow Bath,Sydney - Outer West and Blue Mountains,569,True,True,Katoomba Airport,WSI,21.5,92.1
 Megalong Valley,Sydney - Outer West and Blue Mountains,148,True,False,,,,
 Mellong,Sydney - Baulkham Hills and Hawkesbury,7,False,False,,,,
-Melonba,Sydney - Blacktown,1439,True,True,Doreen Ross Reserve,WSI,22.7,42.3
+Melonba,Sydney - Blacktown,1439,True,False,,,,
 Melrose Park (NSW),Sydney - Parramatta,2059,False,False,,,,
-Menai,Sydney - Sutherland,10419,True,True,Cameron Park,WSI,23.9,55.0
+Menai,Sydney - Sutherland,10419,True,True,Beddington Court Reserve,WSI,23.1,55.0
 Menangle,Sydney - Outer South West,1252,True,False,,,,
 Menangle Park,Sydney - Outer South West,224,True,True,NSW POI Helipad 24487,WSI,18.2,47.9
 Merrylands,Sydney - Parramatta,32472,True,True,Barcom Street Park,WSI,12.0,45.6
@@ -544,10 +544,10 @@ Middle Dural,Sydney - Baulkham Hills and Hawkesbury,1040,True,False,,,,
 Middleton Grange,Sydney - South West,7043,True,False,,,,
 Miller,Sydney - South West,3374,True,True,Pye Hill Reserve,WSI,14.8,26.9
 Millers Point,Sydney - City and Inner South,1735,False,False,,,,
-Milperra,Sydney - Inner South West,4074,True,True,Cameron Park,WSI,16.3,45.8
+Milperra,Sydney - Inner South West,4074,True,True,Beddington Court Reserve,WSI,17.3,45.8
 Milsons Passage,Sydney - North Sydney and Hornsby,32,False,False,,,,
 Milsons Point,Sydney - North Sydney and Hornsby,2529,False,False,,,,
-Minchinbury,Sydney - Blacktown,5778,True,True,Shepherd Street Park,WSI,13.7,25.7
+Minchinbury,Sydney - Blacktown,5778,True,True,Dorothy Radford Reserve,WSI,15.4,25.7
 Minto,Sydney - Outer South West,13940,True,True,NSW POI Helipad 24487,WSI,22.9,38.2
 Minto Heights,Sydney - Outer South West,384,True,False,,,,
 Miranda (NSW),Sydney - Sutherland,17942,False,False,,,,
@@ -557,21 +557,21 @@ Monterey,Sydney - Inner South West,4619,False,False,,,,
 Mooney Mooney,Central Coast,350,False,False,,,,
 Mooney Mooney Creek,Central Coast,27,False,False,,,,
 Moore Park,Sydney - Eastern Suburbs,18,False,False,,,,
-Moorebank,Sydney - South West,11408,True,True,Cameron Park,WSI,12.1,41.6
+Moorebank,Sydney - South West,11408,True,True,Beddington Court Reserve,WSI,13.7,41.6
 Morning Bay,Sydney - Northern Beaches,31,False,False,,,,
 Mortdale,Sydney - Inner South West,10745,False,False,,,,
 Mortlake (NSW),Sydney - Inner West,1954,False,False,,,,
 Mosman,Sydney - North Sydney and Hornsby,28329,False,False,,,,
 Mount Annan,Sydney - Outer South West,11784,True,True,NSW POI Helipad 24487,WSI,11.5,40.3
 Mount Colah,Sydney - North Sydney and Hornsby,7816,False,False,,,,
-Mount Druitt,Sydney - Blacktown,16986,True,True,Shepherd Street Park,WSI,12.8,27.7
+Mount Druitt,Sydney - Blacktown,16986,True,True,Dorothy Radford Reserve,WSI,14.6,27.7
 Mount Elliot (NSW),Central Coast,169,False,False,,,,
 Mount Hunter,Sydney - Outer South West,749,True,False,,,,
 Mount Irvine,Sydney - Baulkham Hills and Hawkesbury,22,True,False,,,,
 Mount Kuring-Gai,Sydney - North Sydney and Hornsby,1766,False,False,,,,
 Mount Lewis,Sydney - Inner South West,1234,False,False,,,,
 Mount Pritchard,Sydney - South West,10426,True,True,Pye Hill Reserve,WSI,15.4,29.4
-Mount Riverview,Sydney - Outer West and Blue Mountains,3074,True,True,Robinson Park,WSI,19.8,37.8
+Mount Riverview,Sydney - Outer West and Blue Mountains,3074,True,True,Barnett Street Reserve,WSI,20.9,37.8
 Mount Tomah,Sydney - Baulkham Hills and Hawkesbury,68,True,False,,,,
 Mount Vernon,Sydney - South West,1235,False,False,,,,
 Mount Victoria,Sydney - Outer West and Blue Mountains,945,False,False,,,,
@@ -580,7 +580,7 @@ Mount Wilson,Sydney - Baulkham Hills and Hawkesbury,81,True,False,,,,
 Mountain Lagoon,Sydney - Baulkham Hills and Hawkesbury,78,False,False,,,,
 Mowbray Park,Sydney - Outer South West,94,True,False,,,,
 Mulgoa,Sydney - Outer West and Blue Mountains,2044,True,False,,,,
-Mulgrave (NSW),Sydney - Baulkham Hills and Hawkesbury,78,True,True,Doreen Ross Reserve,WSI,23.1,57.6
+Mulgrave (NSW),Sydney - Baulkham Hills and Hawkesbury,78,True,False,,,,
 Narara,Central Coast,8471,False,False,,,,
 Narellan,Sydney - Outer South West,3358,True,True,NSW POI Helipad 24487,WSI,17.4,35.3
 Narellan Vale,Sydney - Outer South West,6931,True,True,NSW POI Helipad 24487,WSI,14.6,37.3
@@ -589,13 +589,13 @@ Narrabeen,Sydney - Northern Beaches,8255,False,False,,,,
 Narraweena,Sydney - Northern Beaches,6971,False,False,,,,
 Narwee,Sydney - Inner South West,5411,False,False,,,,
 Nattai,Sydney - Outer South West,77,True,False,,,,
-Nelson (The Hills Shire - NSW),Sydney - Baulkham Hills and Hawkesbury,460,True,False,,,,
+Nelson (The Hills Shire - NSW),Sydney - Baulkham Hills and Hawkesbury,460,True,True,Ridgeline Park,WSI,24.5,60.8
 Neutral Bay,Sydney - North Sydney and Hornsby,10090,False,False,,,,
 Newington (NSW),Sydney - Parramatta,5648,True,True,Barcom Street Park,WSI,24.2,57.5
 Newport (NSW),Sydney - Northern Beaches,9659,False,False,,,,
 Newtown (NSW),Sydney - City and Inner South,14690,False,False,,,,
 Niagara Park,Central Coast,2779,False,False,,,,
-Nirimba Fields,Sydney - Blacktown,1632,True,True,Doreen Ross Reserve,WSI,19.3,42.2
+Nirimba Fields,Sydney - Blacktown,1632,True,True,Ridgeline Park,WSI,15.3,42.2
 Norah Head,Central Coast,1149,False,False,,,,
 Noraville,Central Coast,3001,False,False,,,,
 Normanhurst,Sydney - North Sydney and Hornsby,5387,False,False,,,,
@@ -605,14 +605,14 @@ North Bondi,Sydney - Eastern Suburbs,9290,False,False,,,,
 North Curl Curl,Sydney - Northern Beaches,4288,False,False,,,,
 North Epping,Sydney - Ryde,4657,False,False,,,,
 North Gosford,Central Coast,3986,False,False,,,,
-North Kellyville,Sydney - Baulkham Hills and Hawkesbury,17401,True,True,Britannia Road Reserve,WSI,24.4,57.0
+North Kellyville,Sydney - Baulkham Hills and Hawkesbury,17401,True,True,Ridgeline Park,WSI,20.2,57.0
 North Manly,Sydney - Northern Beaches,3396,False,False,,,,
 North Narrabeen,Sydney - Northern Beaches,6016,False,False,,,,
 North Parramatta,Sydney - Parramatta,12064,True,True,Barcom Street Park,WSI,20.9,51.9
 North Richmond,Sydney - Outer West and Blue Mountains,6358,True,False,,,,
 North Rocks,Sydney - Parramatta,9136,True,True,Britannia Road Reserve,WSI,22.4,54.9
 North Ryde,Sydney - Ryde,14043,False,False,,,,
-North St Marys,Sydney - Outer West and Blue Mountains,4123,True,True,Shepherd Street Park,WSI,13.9,28.5
+North St Marys,Sydney - Outer West and Blue Mountains,4123,True,True,Dorothy Radford Reserve,WSI,14.5,28.5
 North Strathfield,Sydney - Inner West,4618,False,False,,,,
 North Sydney,Sydney - North Sydney and Hornsby,8964,False,False,,,,
 North Turramurra,Sydney - North Sydney and Hornsby,4194,False,False,,,,
@@ -623,8 +623,8 @@ Northmead,Sydney - Parramatta,11261,True,True,Barcom Street Park,WSI,22.1,51.0
 Northwood (NSW),Sydney - North Sydney and Hornsby,916,False,False,,,,
 Norwest,Sydney - Baulkham Hills and Hawkesbury,4688,True,True,Britannia Road Reserve,WSI,16.8,51.7
 Oakdale (NSW),Sydney - Outer South West,2028,True,False,,,,
-Oakhurst (NSW),Sydney - Blacktown,6947,True,True,Shepherd Street Park,WSI,20.1,35.2
-Oakville,Sydney - Baulkham Hills and Hawkesbury,2027,True,True,Doreen Ross Reserve,WSI,21.7,60.4
+Oakhurst (NSW),Sydney - Blacktown,6947,True,True,Ridgeline Park,WSI,23.2,35.2
+Oakville,Sydney - Baulkham Hills and Hawkesbury,2027,True,False,,,,
 Oatlands (NSW),Sydney - Parramatta,5833,True,True,Barcom Street Park,WSI,22.8,54.7
 Oatley,Sydney - Inner South West,10664,False,False,,,,
 Old Guildford,Sydney - Parramatta,2857,True,True,Barcom Street Park,WSI,15.1,44.2
@@ -634,7 +634,7 @@ Orangeville,Sydney - Outer South West,1354,True,False,,,,
 Orchard Hills,Sydney - Outer West and Blue Mountains,1798,False,False,,,,
 Ourimbah,Central Coast,4019,False,False,,,,
 Oxford Falls,Sydney - Northern Beaches,265,False,False,,,,
-Oxley Park,Sydney - Outer West and Blue Mountains,4197,True,True,Shepherd Street Park,WSI,10.3,25.6
+Oxley Park,Sydney - Outer West and Blue Mountains,4197,True,True,Dorothy Radford Reserve,WSI,11.6,25.6
 Oyster Bay,Sydney - Sutherland,5689,False,False,,,,
 Paddington (NSW),Sydney - Eastern Suburbs,12701,False,False,,,,
 Padstow,Sydney - Inner South West,14017,False,False,,,,
@@ -643,18 +643,18 @@ Pagewood,Sydney - City and Inner South,3885,False,False,,,,
 Palm Beach (NSW),Sydney - Northern Beaches,1652,False,False,,,,
 Palm Grove (NSW),Central Coast,87,False,False,,,,
 Palmdale (NSW),Central Coast,95,False,False,,,,
-Panania,Sydney - Inner South West,13507,True,True,Cameron Park,WSI,18.0,49.0
-Parklea,Sydney - Blacktown,3684,True,True,Doreen Ross Reserve,WSI,24.0,46.1
+Panania,Sydney - Inner South West,13507,True,True,Beddington Court Reserve,WSI,18.4,49.0
+Parklea,Sydney - Blacktown,3684,True,True,Ridgeline Park,WSI,14.0,46.1
 Parramatta,Sydney - Parramatta,30211,True,True,Barcom Street Park,WSI,17.4,50.3
 Patonga,Central Coast,235,False,False,,,,
 Peakhurst,Sydney - Inner South West,12079,False,False,,,,
 Peakhurst Heights,Sydney - Inner South West,2524,False,False,,,,
 Pearl Beach,Central Coast,510,False,False,,,,
 Peats Ridge,Central Coast,301,False,False,,,,
-Pemulwuy,Sydney - Blacktown,5532,True,True,Eastern Creek Raceway HLS,WSI,14.5,32.2
+Pemulwuy,Sydney - Blacktown,5532,True,False,,,,
 Pendle Hill,Sydney - Parramatta,7743,True,True,Barcom Street Park,WSI,17.5,42.2
 Pennant Hills,Sydney - Ryde,7588,True,True,Britannia Road Reserve,WSI,24.8,67.3
-Penrith,Sydney - Outer West and Blue Mountains,17966,True,True,Robinson Park,WSI,14.1,30.0
+Penrith,Sydney - Outer West and Blue Mountains,17966,True,True,Barnett Street Reserve,WSI,13.6,30.0
 Penshurst (NSW),Sydney - Inner South West,12592,False,False,,,,
 Perrys Crossing,Sydney - Baulkham Hills and Hawkesbury,4,False,False,,,,
 Petersham,Sydney - City and Inner South,8200,False,False,,,,
@@ -662,12 +662,12 @@ Pheasants Nest,Sydney - Outer South West,716,True,False,,,,
 Phegans Bay,Central Coast,406,False,False,,,,
 Phillip Bay,Sydney - Eastern Suburbs,721,False,False,,,,
 Picketts Valley,Central Coast,221,False,False,,,,
-Picnic Point,Sydney - Inner South West,6413,True,True,Cameron Park,WSI,20.3,52.0
+Picnic Point,Sydney - Inner South West,6413,True,True,Beddington Court Reserve,WSI,20.1,52.0
 Picton (NSW),Sydney - Outer South West,5282,True,False,,,,
 Pitt Town,Sydney - Baulkham Hills and Hawkesbury,3871,True,False,,,,
 Pitt Town Bottoms,Sydney - Baulkham Hills and Hawkesbury,85,True,False,,,,
-Pleasure Point,Sydney - South West,606,True,True,Cameron Park,WSI,17.2,48.9
-Plumpton (NSW),Sydney - Blacktown,10070,True,True,Shepherd Street Park,WSI,18.0,32.6
+Pleasure Point,Sydney - South West,606,True,True,Beddington Court Reserve,WSI,16.9,48.9
+Plumpton (NSW),Sydney - Blacktown,10070,True,True,Dorothy Radford Reserve,WSI,19.7,32.6
 Point Clare,Central Coast,3974,False,False,,,,
 Point Frederick,Central Coast,2043,False,False,,,,
 Point Piper,Sydney - Eastern Suburbs,1334,False,False,,,,
@@ -677,14 +677,14 @@ Port Hacking,Sydney - Sutherland,1210,False,False,,,,
 Potts Hill,Sydney - Inner South West,1454,True,False,,,,
 Potts Point,Sydney - City and Inner South,7183,False,False,,,,
 Prairiewood,Sydney - South West,3457,True,True,Pye Hill Reserve,WSI,16.8,29.7
-Prestons,Sydney - South West,15694,True,True,Ayshford Reserve,WSI,12.3,27.2
+Prestons,Sydney - South West,15694,True,True,Horningsea Park Fire Station,WSI,13.0,27.2
 Pretty Beach (Central Coast - NSW),Central Coast,314,False,False,,,,
-Prospect (NSW),Sydney - Blacktown,5187,True,True,Eastern Creek Raceway HLS,WSI,16.2,36.1
+Prospect (NSW),Sydney - Blacktown,5187,True,True,Barcom Street Park,WSI,22.7,36.1
 Punchbowl (Canterbury-Bankstown - NSW),Sydney - Inner South West,21384,False,False,,,,
 Putney,Sydney - Ryde,4097,False,False,,,,
 Pymble,Sydney - North Sydney and Hornsby,11775,False,False,,,,
 Pyrmont,Sydney - City and Inner South,12658,False,False,,,,
-Quakers Hill,Sydney - Blacktown,27893,True,True,Doreen Ross Reserve,WSI,22.7,43.3
+Quakers Hill,Sydney - Blacktown,27893,True,True,Ridgeline Park,WSI,13.8,43.3
 Queens Park (NSW),Sydney - Eastern Suburbs,3143,False,False,,,,
 Queenscliff (NSW),Sydney - Northern Beaches,3407,False,False,,,,
 Raby,Sydney - Outer South West,5943,True,True,NSW POI Helipad 24487,WSI,20.2,33.6
@@ -695,22 +695,22 @@ Ravensdale,Central Coast,70,False,False,,,,
 Razorback,Sydney - Outer South West,1174,True,False,,,,
 Redfern,Sydney - City and Inner South,13072,False,False,,,,
 Regents Park (NSW),Sydney - Parramatta,4990,True,True,Barcom Street Park,WSI,22.7,51.5
-Regentville,Sydney - Outer West and Blue Mountains,829,True,True,Robinson Park,WSI,10.3,27.2
-Revesby,Sydney - Inner South West,15268,True,True,Cameron Park,WSI,21.4,51.7
-Revesby Heights,Sydney - Inner South West,1916,True,False,,,,
+Regentville,Sydney - Outer West and Blue Mountains,829,True,True,Barnett Street Reserve,WSI,11.8,27.2
+Revesby,Sydney - Inner South West,15268,True,True,Beddington Court Reserve,WSI,22.0,51.7
+Revesby Heights,Sydney - Inner South West,1916,True,True,Beddington Court Reserve,WSI,22.4,53.9
 Rhodes,Sydney - Inner West,11453,False,False,,,,
-Richards,Sydney - Blacktown,37,True,True,Doreen Ross Reserve,WSI,15.9,49.2
+Richards,Sydney - Blacktown,37,True,False,,,,
 Richmond (NSW),Sydney - Outer West and Blue Mountains,5418,True,False,,,,
 Richmond Lowlands,Sydney - Outer West and Blue Mountains,55,True,False,,,,
-Riverstone,Sydney - Blacktown,8627,True,True,Doreen Ross Reserve,WSI,11.1,50.1
+Riverstone,Sydney - Blacktown,8627,True,True,Ridgeline Park,WSI,18.9,50.1
 Riverview (NSW),Sydney - North Sydney and Hornsby,3148,False,False,,,,
 Riverwood,Sydney - Inner South West,12793,False,False,,,,
 Rockdale,Sydney - Inner South West,15475,False,False,,,,
 Rocky Point (NSW),Central Coast,275,False,False,,,,
 Rodd Point,Sydney - Inner West,1380,False,False,,,,
 Rookwood (NSW),Sydney - Parramatta,3,False,False,,,,
-Rooty Hill,Sydney - Blacktown,16176,True,True,Eastern Creek Raceway HLS,WSI,15.7,29.7
-Ropes Crossing,Sydney - Blacktown,7280,True,True,Shepherd Street Park,WSI,19.6,33.6
+Rooty Hill,Sydney - Blacktown,16176,True,True,Dorothy Radford Reserve,WSI,18.7,29.7
+Ropes Crossing,Sydney - Blacktown,7280,True,True,Dorothy Radford Reserve,WSI,20.0,33.6
 Rose Bay (NSW),Sydney - Eastern Suburbs,9911,False,False,,,,
 Rosebery (NSW),Sydney - City and Inner South,13533,False,False,,,,
 Rosehill (NSW),Sydney - Parramatta,4047,True,True,Barcom Street Park,WSI,20.0,53.6
@@ -719,7 +719,7 @@ Rosemeadow,Sydney - Outer South West,8007,True,True,NSW POI Helipad 24487,WSI,19
 Roseville,Sydney - North Sydney and Hornsby,10340,False,False,,,,
 Roseville Chase,Sydney - North Sydney and Hornsby,1618,False,False,,,,
 Rossmore (NSW),Sydney - South West,2241,False,False,,,,
-Rouse Hill,Sydney - Blacktown,11349,True,True,Doreen Ross Reserve,WSI,17.7,53.2
+Rouse Hill,Sydney - Blacktown,11349,True,True,Ridgeline Park,WSI,17.0,53.2
 Royal National Park,Sydney - Sutherland,42,False,False,,,,
 Rozelle,Sydney - Inner West,8553,False,False,,,,
 Ruse,Sydney - Outer South West,5632,True,True,NSW POI Helipad 24487,WSI,21.0,45.2
@@ -732,17 +732,17 @@ Sackville North,Sydney - Baulkham Hills and Hawkesbury,388,True,False,,,,
 Sadleir,Sydney - South West,3243,True,True,Pye Hill Reserve,WSI,15.3,28.3
 San Remo (NSW),Central Coast,4434,False,False,,,,
 Sandringham (NSW),Sydney - Inner South West,1275,False,False,,,,
-Sandy Point (NSW),Sydney - South West,597,True,True,Cameron Park,WSI,18.6,50.3
+Sandy Point (NSW),Sydney - South West,597,True,True,Beddington Court Reserve,WSI,18.2,50.3
 Sans Souci,Sydney - Inner South West,10864,False,False,,,,
 Saratoga,Central Coast,3982,False,False,,,,
 Scheyville,Sydney - Baulkham Hills and Hawkesbury,7,True,False,,,,
-Schofields,Sydney - Blacktown,15213,True,True,Doreen Ross Reserve,WSI,15.8,45.0
+Schofields,Sydney - Blacktown,15213,True,True,Ridgeline Park,WSI,15.5,45.0
 Scotland Island,Sydney - Northern Beaches,711,False,False,,,,
 Seaforth (NSW),Sydney - Northern Beaches,7384,False,False,,,,
 Sefton,Sydney - Parramatta,6300,True,True,Barcom Street Park,WSI,21.9,48.8
-Seven Hills (NSW),Sydney - Blacktown,20095,True,True,Eastern Creek Raceway HLS,WSI,21.1,41.7
-Shalvey,Sydney - Blacktown,3455,True,True,Shepherd Street Park,WSI,19.7,35.0
-Shanes Park,Sydney - Blacktown,384,True,True,Doreen Ross Reserve,WSI,25.0,38.5
+Seven Hills (NSW),Sydney - Blacktown,20095,True,True,Barcom Street Park,WSI,24.1,41.7
+Shalvey,Sydney - Blacktown,3455,True,True,Dorothy Radford Reserve,WSI,20.8,35.0
+Shanes Park,Sydney - Blacktown,384,True,False,,,,
 Shelly Beach (NSW),Central Coast,1313,False,False,,,,
 Silverdale (NSW),Sydney - Outer West and Blue Mountains,4543,True,False,,,,
 Silverwater (Parramatta - NSW),Sydney - Parramatta,3600,True,True,Barcom Street Park,WSI,21.9,55.5
@@ -754,26 +754,26 @@ South Coogee,Sydney - Eastern Suburbs,5611,False,False,,,,
 South Granville,Sydney - Parramatta,5829,True,True,Barcom Street Park,WSI,17.3,48.9
 South Hurstville,Sydney - Inner South West,5221,False,False,,,,
 South Maroota,Sydney - Baulkham Hills and Hawkesbury,613,True,False,,,,
-South Penrith,Sydney - Outer West and Blue Mountains,12005,True,True,Robinson Park,WSI,10.6,24.1
+South Penrith,Sydney - Outer West and Blue Mountains,12005,True,True,Barnett Street Reserve,WSI,8.9,24.1
 South Turramurra,Sydney - North Sydney and Hornsby,3208,False,False,,,,
 South Wentworthville,Sydney - Parramatta,6913,True,True,Barcom Street Park,WSI,13.0,43.6
-South Windsor,Sydney - Outer West and Blue Mountains,5948,True,True,Doreen Ross Reserve,WSI,25.0,55.3
+South Windsor,Sydney - Outer West and Blue Mountains,5948,True,False,,,,
 Spencer,Central Coast,288,False,False,,,,
 Spring Farm (NSW),Sydney - Outer South West,9868,True,True,NSW POI Helipad 24487,WSI,18.0,41.1
 Springfield (Central Coast - NSW),Central Coast,4310,False,False,,,,
 Springwood (NSW),Sydney - Outer West and Blue Mountains,8423,True,False,,,,
 St Albans (NSW),Sydney - Baulkham Hills and Hawkesbury,161,False,False,,,,
 St Andrews (NSW),Sydney - Outer South West,5785,True,True,NSW POI Helipad 24487,WSI,21.0,35.3
-St Clair (Penrith - NSW),Sydney - Outer West and Blue Mountains,19942,True,True,Shepherd Street Park,WSI,9.4,19.5
+St Clair (Penrith - NSW),Sydney - Outer West and Blue Mountains,19942,True,True,Dorothy Radford Reserve,WSI,8.8,19.5
 St Helens Park,Sydney - Outer South West,6647,True,True,NSW POI Helipad 24487,WSI,20.9,50.8
 St Huberts Island,Central Coast,1080,False,False,,,,
 St Ives (NSW),Sydney - North Sydney and Hornsby,18384,False,False,,,,
 St Ives Chase,Sydney - North Sydney and Hornsby,3283,False,False,,,,
 St Johns Park,Sydney - South West,6302,True,True,Pye Hill Reserve,WSI,15.3,29.3
 St Leonards (NSW),Sydney - North Sydney and Hornsby,7212,False,False,,,,
-St Marys (NSW),Sydney - Outer West and Blue Mountains,13256,True,True,Shepherd Street Park,WSI,13.5,26.6
+St Marys (NSW),Sydney - Outer West and Blue Mountains,13256,True,True,Dorothy Radford Reserve,WSI,13.3,26.6
 St Peters (NSW),Sydney - City and Inner South,3629,False,False,,,,
-Stanhope Gardens,Sydney - Blacktown,9349,True,True,Britannia Road Reserve,WSI,23.4,49.1
+Stanhope Gardens,Sydney - Blacktown,9349,True,True,Ridgeline Park,WSI,14.8,49.1
 Stanmore (NSW),Sydney - City and Inner South,7619,False,False,,,,
 Strathfield (NSW),Sydney - Inner West,25915,False,False,,,,
 Strathfield South,Sydney - Inner West,3636,False,False,,,,
@@ -790,7 +790,7 @@ Sylvania Waters,Sydney - Sutherland,3200,False,False,,,,
 Tacoma,Central Coast,615,False,False,,,,
 Tacoma South,Central Coast,257,False,False,,,,
 Tahmoor,Sydney - Outer South West,5777,True,False,,,,
-Tallawong,Sydney - Blacktown,6570,True,True,Doreen Ross Reserve,WSI,16.0,48.9
+Tallawong,Sydney - Blacktown,6570,True,True,Ridgeline Park,WSI,13.9,48.9
 Tamarama,Sydney - Eastern Suburbs,1478,False,False,,,,
 Taren Point,Sydney - Sutherland,1879,False,False,,,,
 Tascott,Central Coast,1675,False,False,,,,
@@ -805,7 +805,7 @@ The Devils Wilderness,Sydney - Outer West and Blue Mountains,0,True,False,,,,
 The Entrance,Central Coast,4244,False,False,,,,
 The Entrance North,Central Coast,1619,False,False,,,,
 The Oaks,Sydney - Outer South West,2982,True,False,,,,
-The Ponds,Sydney - Blacktown,16315,True,True,Doreen Ross Reserve,WSI,19.4,47.8
+The Ponds,Sydney - Blacktown,16315,True,True,Ridgeline Park,WSI,10.8,47.8
 The Rocks (Sydney - NSW),Sydney - City and Inner South,629,False,False,,,,
 The Slopes,Sydney - Baulkham Hills and Hawkesbury,327,True,False,,,,
 Theresa Park,Sydney - Outer South West,600,True,False,,,,
@@ -814,7 +814,7 @@ Thornleigh,Sydney - North Sydney and Hornsby,8898,False,False,,,,
 Toongabbie (NSW),Sydney - Parramatta,16177,True,True,Barcom Street Park,WSI,19.7,43.7
 Toowoon Bay,Central Coast,543,False,False,,,,
 Toukley,Central Coast,4557,False,False,,,,
-Tregear,Sydney - Blacktown,3700,True,True,Shepherd Street Park,WSI,15.7,30.6
+Tregear,Sydney - Blacktown,3700,True,True,Dorothy Radford Reserve,WSI,16.5,30.6
 Tuggerah,Central Coast,925,False,False,,,,
 Tuggerawong,Central Coast,1285,False,False,,,,
 Tumbi Umbi,Central Coast,5369,False,False,,,,
@@ -829,8 +829,8 @@ Valley Heights,Sydney - Outer West and Blue Mountains,1188,True,False,,,,
 Varroville,Sydney - Outer South West,134,True,False,,,,
 Vaucluse,Sydney - Eastern Suburbs,9510,False,False,,,,
 Villawood,Sydney - Parramatta,7051,True,True,Barcom Street Park,WSI,19.2,43.3
-Vineyard,Sydney - Baulkham Hills and Hawkesbury,1143,True,True,Doreen Ross Reserve,WSI,18.8,55.7
-Voyager Point,Sydney - South West,1678,True,True,Cameron Park,WSI,14.0,45.5
+Vineyard,Sydney - Baulkham Hills and Hawkesbury,1143,True,False,,,,
+Voyager Point,Sydney - South West,1678,True,True,Beddington Court Reserve,WSI,14.3,45.5
 Wadalba,Central Coast,4204,False,False,,,,
 Wagstaffe,Central Coast,240,False,False,,,,
 Wahroonga,Sydney - North Sydney and Hornsby,17853,False,False,,,,
@@ -845,12 +845,12 @@ Warragamba,Sydney - Outer West and Blue Mountains,1202,True,False,,,,
 Warrawee,Sydney - North Sydney and Hornsby,3170,False,False,,,,
 Warriewood,Sydney - Northern Beaches,8379,False,False,,,,
 Warrimoo,Sydney - Outer West and Blue Mountains,2452,True,False,,,,
-Warwick Farm,Sydney - South West,6135,True,True,Cameron Park,WSI,18.6,35.8
+Warwick Farm,Sydney - South West,6135,True,True,Beddington Court Reserve,WSI,20.2,35.8
 Watanobbi,Central Coast,3980,False,False,,,,
 Waterfall,Sydney - Sutherland,522,False,False,,,,
 Waterloo (NSW),Sydney - City and Inner South,16379,False,False,,,,
 Watsons Bay,Sydney - Eastern Suburbs,883,False,False,,,,
-Wattle Grove (NSW),Sydney - South West,8886,True,True,Cameron Park,WSI,10.1,39.6
+Wattle Grove (NSW),Sydney - South West,8886,True,True,Beddington Court Reserve,WSI,11.4,39.6
 Waverley (NSW),Sydney - Eastern Suburbs,4216,False,False,,,,
 Waverton,Sydney - North Sydney and Hornsby,2981,False,False,,,,
 Webbs Creek,Sydney - Baulkham Hills and Hawkesbury,55,False,False,,,,
@@ -860,24 +860,24 @@ Wentworth Falls,Sydney - Outer West and Blue Mountains,6428,False,False,,,,
 Wentworth Point,Sydney - Parramatta,12703,False,False,,,,
 Wentworthville,Sydney - Parramatta,15098,True,True,Barcom Street Park,WSI,16.4,44.1
 Werombi,Sydney - Outer South West,941,True,False,,,,
-Werrington,Sydney - Outer West and Blue Mountains,5328,True,True,Shepherd Street Park,WSI,15.9,26.3
-Werrington County,Sydney - Outer West and Blue Mountains,3698,True,True,Shepherd Street Park,WSI,18.0,28.7
-Werrington Downs,Sydney - Outer West and Blue Mountains,3221,True,True,Robinson Park,WSI,18.8,30.0
+Werrington,Sydney - Outer West and Blue Mountains,5328,True,True,Dorothy Radford Reserve,WSI,15.0,26.3
+Werrington County,Sydney - Outer West and Blue Mountains,3698,True,True,Dorothy Radford Reserve,WSI,17.3,28.7
+Werrington Downs,Sydney - Outer West and Blue Mountains,3221,True,True,Barnett Street Reserve,WSI,17.7,30.0
 West Gosford,Central Coast,1602,False,False,,,,
-West Hoxton,Sydney - South West,10152,True,True,Ayshford Reserve,WSI,8.6,20.3
+West Hoxton,Sydney - South West,10152,True,True,Horningsea Park Fire Station,WSI,9.5,20.3
 West Pennant Hills,Sydney - Baulkham Hills and Hawkesbury,16620,True,True,Britannia Road Reserve,WSI,19.1,60.0
 West Pymble,Sydney - North Sydney and Hornsby,5441,False,False,,,,
 West Ryde,Sydney - Ryde,13171,False,False,,,,
 Westleigh,Sydney - North Sydney and Hornsby,4501,True,True,Britannia Road Reserve,WSI,25.5,70.5
 Westmead,Sydney - Parramatta,16555,True,True,Barcom Street Park,WSI,16.1,46.8
-Wetherill Park,Sydney - South West,6412,True,True,Eastern Creek Raceway HLS,WSI,17.4,29.9
-Whalan,Sydney - Blacktown,5929,True,True,Shepherd Street Park,WSI,13.9,29.2
+Wetherill Park,Sydney - South West,6412,True,True,Pye Hill Reserve,WSI,19.6,29.9
+Whalan,Sydney - Blacktown,5929,True,True,Dorothy Radford Reserve,WSI,15.2,29.2
 Whale Beach,Sydney - Northern Beaches,315,False,False,,,,
 Wheeler Heights,Sydney - Northern Beaches,3232,False,False,,,,
 Wheeny Creek,Sydney - Baulkham Hills and Hawkesbury,74,True,False,,,,
 Wilberforce (NSW),Sydney - Baulkham Hills and Hawkesbury,2957,True,False,,,,
 Wiley Park,Sydney - Inner South West,10016,False,False,,,,
-Willmot,Sydney - Blacktown,2382,True,True,Shepherd Street Park,WSI,20.0,34.9
+Willmot,Sydney - Blacktown,2382,True,True,Dorothy Radford Reserve,WSI,20.8,34.9
 Willoughby (NSW),Sydney - North Sydney and Hornsby,7124,False,False,,,,
 Willoughby East,Sydney - North Sydney and Hornsby,1864,False,False,,,,
 Windsor (NSW),Sydney - Outer West and Blue Mountains,1915,True,False,,,,
@@ -890,7 +890,7 @@ Wollstonecraft,Sydney - North Sydney and Hornsby,8115,False,False,,,,
 Womerah,Sydney - Baulkham Hills and Hawkesbury,0,False,False,,,,
 Wondabyne,Central Coast,3,False,False,,,,
 Woodbine (NSW),Sydney - Outer South West,2780,True,True,NSW POI Helipad 24487,WSI,18.2,39.1
-Woodcroft (NSW),Sydney - Blacktown,6597,True,True,Eastern Creek Raceway HLS,WSI,18.3,37.1
+Woodcroft (NSW),Sydney - Blacktown,6597,True,True,Ridgeline Park,WSI,20.2,37.1
 Woodford (NSW),Sydney - Outer West and Blue Mountains,1953,True,False,,,,
 Woodpark,Sydney - Parramatta,1706,True,True,Barcom Street Park,WSI,11.6,40.5
 Woollahra,Sydney - Eastern Suburbs,7189,False,False,,,,

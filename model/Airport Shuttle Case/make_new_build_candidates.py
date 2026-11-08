@@ -37,7 +37,12 @@ import numpy as np
 import pandas as pd
 
 SOURCE = 'nsw'                       # 'nsw', 'google' or 'cache'
-BBOX   = (150.5, -34.25, 151.35, -33.5)   # Greater Sydney: lon_min, lat_min, lon_max, lat_max
+# search area: a box around Western Sydney International big enough for the eVTOL's range
+WSI_LAT, WSI_LON = -33.879444, 150.739722
+RANGE_KM = 150                       # same as RANGE_KM in shuttle_optim_model_V2.py
+_dlat = RANGE_KM / 111.0
+_dlon = RANGE_KM / (111.0 * np.cos(np.radians(WSI_LAT)))
+BBOX   = (WSI_LON - _dlon, WSI_LAT - _dlat, WSI_LON + _dlon, WSI_LAT + _dlat)   # lon_min, lat_min, lon_max, lat_max
 THIN_M = 500                         # per category, keep at most one site within this distance
 SHORT_TRIP_KM = 8                    # sites closer than this to an airport are flagged
 
@@ -75,7 +80,8 @@ AIRPORTS = [
 ]
 ROUTES = {'Cabramatta': 'green', 'Bankstown': 'green',
           'Liverpool': 'red', 'Revesby': 'red', 'Hurstville': 'red'}
-STATIONS_FILE = 'sydney_poi/stations.csv'   # optional: adds nearest station / centre
+STATIONS_FILE = 'sydney_poi/stations.csv'   # station list used when SOURCE is not 'nsw' (Sydney only)
+CENTRE_MAX_M  = 3000                        # a site belongs to a town centre only within this distance of its station
 
 HEADERS = {'User-Agent': 'vertiport-shuttle-study/1.0 (university research)'}
 
@@ -233,9 +239,24 @@ for stype, grp in cand.groupby('site_type'):
         klon.append(r['longitude'])
 cand = cand.loc[kept].copy()
 
-# nearest station (optional) for labels and routes
-if Path(STATIONS_FILE).exists():
-    st = pd.read_csv(STATIONS_FILE, keep_default_na=False)
+# nearest station for labels, town centres and routes
+def stations_nsw():
+    """Railway / metro stations in the search area, live from NSW Points of Interest."""
+    common = {'where': "poitype = 'Railway Station'", 'geometry': ','.join(map(str, BBOX)),
+              'geometryType': 'esriGeometryEnvelope', 'inSR': 4326, 'spatialRel': 'esriSpatialRelIntersects'}
+    ids = sorted(nsw_post({**common, 'returnIdsOnly': 'true'}).get('objectIds') or [])
+    rows = []
+    for k in range(0, len(ids), 500):
+        res = nsw_post({'objectIds': ','.join(map(str, ids[k:k + 500])), 'outFields': 'poiname',
+                        'returnGeometry': 'true', 'outSR': 4326, 'geometryPrecision': 6})
+        rows += [{'poiname': f['attributes']['poiname'] or '', 'x': f['geometry']['x'], 'y': f['geometry']['y']}
+                 for f in res['features'] if 'x' in (f.get('geometry') or {})]
+    print(f'{len(rows)} stations in the search area')
+    return pd.DataFrame(rows)
+
+st = stations_nsw() if SOURCE == 'nsw' else (
+    pd.read_csv(STATIONS_FILE, keep_default_na=False) if Path(STATIONS_FILE).exists() else None)
+if st is not None and len(st):
     st = st[~st['poiname'].str.contains('LIGHT RAIL|SLR STOP|MONORAIL|TRAMWAY')].reset_index(drop=True)
     D = haversine_m(cand['latitude'].values[:, None], cand['longitude'].values[:, None],
                     st['y'].values[None, :], st['x'].values[None, :])
@@ -245,6 +266,8 @@ if Path(STATIONS_FILE).exists():
         r' (RAILWAY|INTERCHANGE) STATION$', '', regex=True).map(nice).values
     cand['station'] = cand['station'].map(nice)
     cand['dist_station_m'] = D.min(axis=1).round()
+    far = cand['dist_station_m'] > CENTRE_MAX_M              # not in a town centre: keep the station for naming only
+    cand.loc[far, 'centre'] = ''
 else:
     cand['station'], cand['centre'], cand['dist_station_m'] = '', '', np.nan
 
@@ -255,7 +278,9 @@ def site_name(r):
         return f'{base} Rooftop' if r['site_type'] == 'shopping centre rooftop' else base
     label = {'car park': 'Car Park', 'shopping centre rooftop': 'Shopping Centre Rooftop',
              'park / oval': 'Sports Field'}[r['site_type']]
-    return f"{r['centre']} {label}".strip() if r['centre'] else label
+    if r['centre']:
+        return f"{r['centre']} {label}"
+    return f"{label} near {r['station']}" if r['station'] else label
 
 cand['name'] = cand.apply(site_name, axis=1)
 
