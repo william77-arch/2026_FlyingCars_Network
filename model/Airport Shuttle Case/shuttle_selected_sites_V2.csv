@@ -1,115 +1,44 @@
 name,site_type,new_build,latitude,longitude,cost_index,flight_WSI_min,areas_served,population_served
-Sibbick Street Reserve,park / oval,True,-33.859481,151.137908,1.0,12.8,74,566605
-High Cross Park,park / oval,True,-33.917724,151.241348,1.0,15.2,61,450575
-Sydney Bankstown Airport,GA aerodrome,False,-33.923618,150.990792,0.5,9.7,47,444272
-Harold West Reserve,park / oval,True,-33.77539,151.049354,1.0,11.4,42,408278
-Griffiths Reserve,park / oval,True,-33.994966,151.13391,1.0,13.3,57,396283
-Brighton Drive Reserve,park / oval,True,-33.729153,150.948068,1.0,10.1,33,369910
-Widemere Reserve,park / oval,True,-33.835121,150.936847,1.0,8.5,25,249758
-Forde Reserve,park / oval,True,-34.044937,150.772455,1.0,8.5,36,205793
-Wilson Park (),park / oval,True,-33.707186,150.747997,1.0,8.6,39,204246
-Bert Burrows Park,park / oval,True,-33.923924,150.854183,1.0,6.8,27,198228
-Buranda Park,park / oval,True,-33.87838,150.896178,1.0,7.5,20,193502
-Wollongong City Heliport,heliport,False,-34.43942,150.895838,0.5,19.3,47,176188
-Richard Healy Reserve,park / oval,True,-33.747448,151.199249,1.0,14.8,22,173273
-Allan Border Oval,park / oval,True,-33.826818,151.241882,1.0,15.2,32,172592
-Eastern Creek Raceway HLS,helipad / HLS,False,-33.804126,150.867462,0.5,7.5,17,169669
-Cardiff Oval,park / oval,True,-32.943254,151.65881,1.0,36.3,43,156449
-Ryan Reserve,park / oval,True,-33.761006,151.26739,1.0,16.1,20,136472
-Okanagan Close Reserve,park / oval,True,-33.41718,151.431983,1.0,23.7,24,108195
-Shellharbour Airport,GA aerodrome,False,-34.5611,150.789001,0.5,22.2,30,104935
-Veno Street Reserve,park / oval,True,-34.08646,151.008597,1.0,12.1,27,104268
-Thomas Park,park / oval,True,-33.743533,150.61775,1.0,8.5,23,97027
-Yaringa Parade Reserve,park / oval,True,-33.490939,151.357725,1.0,21.2,37,93793
-Corroba Reserve,park / oval,True,-32.896597,151.789438,1.0,39.1,35,92766
-Northlakes Oval,park / oval,True,-33.219193,151.513872,1.0,28.6,33,81931
-Fagan Park (),park / oval,True,-33.640719,151.044498,1.0,13.3,15,72487
-Katandra Bushland Sanctuary Reserve,park / oval,True,-33.671893,151.28264,1.0,17.3,15,69703
-Lenaghan Oval,park / oval,True,-33.022962,151.676679,1.0,34.9,18,68985
-King Edward Park,park / oval,True,-32.746153,151.584575,1.0,39.6,33,51347
-Old Maitland Road Reserve,park / oval,True,-32.832277,151.690101,1.0,39.1,22,49565
-Woodbury Park,park / oval,True,-33.305742,151.412813,1.0,25.4,26,47658
-Salisbury Reserve,park / oval,True,-34.887184,150.612818,1.0,31.0,33,44766
-Camden - Onslow Park HLS,park / oval HLS,False,-34.05324,150.691285,0.6,8.8,15,40394
-NSW POI Helipad 132328,NSW POI helipad,False,-33.57210126060764,150.8363332633443,0.6,12.5,22,39659
-Hinton Road Reserve,park / oval,True,-33.437269,149.553078,1.0,32.9,31,36426
-NSW POI Helipad 106286,NSW POI helipad,False,-34.25214366404242,150.5767456512013,0.6,14.6,16,35883
-Ingwe Park,park / oval,True,-34.572368,150.47141,1.0,23.4,18,34378
-Lemington Park,park / oval,True,-33.05134,151.570639,1.0,32.8,28,31504
-Bellbird Miners Memorial Park,park / oval,True,-32.860157,151.31981,1.0,34.1,21,31112
-Maitland Airport,GA aerodrome,False,-32.701265,151.492912,0.5,39.6,21,29572
-Birralee Reserve,park / oval,True,-32.811389,151.492793,1.0,37.1,20,27263
-Memorial Park Swimming Pool,park / oval,True,-33.634321,150.289508,1.0,15.9,9,26916
-Charmian Clift Reserve,park / oval,True,-34.661792,150.852641,1.0,25.0,21,26265
-Cole Park (),park / oval,True,-34.751456,149.676666,1.0,37.0,10,26233
-Wandandian Reserve,park / oval,True,-35.089265,150.510562,1.0,36.7,24,26155
-Howe Memorial Reserve,park / oval,True,-32.604801,151.201197,1.0,39.5,39,26147
-Stuart Chalmers Park,park / oval,True,-33.10983,151.646574,1.0,32.8,15,23680
-Lawson Park Farm,park / oval,True,-33.880523,150.758289,1.0,4.4,13,22552
-Sports Field near Richmond Railway Station (),park / oval,True,-33.517741,150.614914,1.0,14.0,14,16481
-Sports Field near Morisset Railway Station () 4,park / oval,True,-33.137382,151.425506,1.0,29.0,7,16154
-Eskbank Heliport,heliport,False,-33.476587,150.164732,0.5,20.7,20,12728
-Popran Park,park / oval,True,-33.401314,151.210695,1.0,20.5,12,9273
-Rotherwood Park,park / oval,True,-33.418178,149.29542,1.0,38.4,23,9066
-Gordon Ravell Oval,park / oval,True,-34.909927,150.728036,1.0,31.5,12,8578
-The Oaks Airport,GA aerodrome,False,-34.084097,150.559602,0.5,10.8,8,8160
-Brooklyn TMC - Olivers Garage Helipad,helipad / HLS,False,-33.5562,151.1936,0.5,17.3,8,7433
-Mccarrs Creek Foreshore Reserve,park / oval,True,-33.656702,151.27206,1.0,17.2,10,5812
-Wallerawang Sports Oval,park / oval,True,-33.408214,150.064172,1.0,23.6,6,5239
-Wedderburn Aerodrome,GA aerodrome,False,-34.181346,150.808854,0.5,12.2,3,4760
-Dyball Reserve,park / oval,True,-35.180506,150.571034,1.0,38.9,5,4710
-Penrose Oval,park / oval,True,-34.670379,150.21256,1.0,28.1,4,4693
-Sandown Park,park / oval,True,-34.4271,150.31476,1.0,21.4,9,4635
-Eccleston Park,park / oval,True,-34.580631,150.226654,1.0,25.9,7,4279
-Weldon Park,park / oval,True,-33.320718,149.550777,1.0,34.3,6,3970
-Oberon Heliport,heliport,False,-33.7007,149.856,0.5,24.2,9,3774
-Shannon Park,park / oval,True,-33.516478,150.955899,1.0,14.8,6,3582
-Mcalister Park,park / oval,True,-34.431109,149.542467,1.0,34.3,5,3278
-Car Park near Helensburgh Railway Station,car park,True,-34.169828,151.065916,1.5,14.6,4,2695
-Elenalen Park,park / oval,True,-34.745833,150.571372,1.0,27.4,16,2366
-Gracia Park,park / oval,True,-33.232429,151.237187,1.0,24.5,5,1772
-Warkworth Oval,park / oval,True,-32.574028,151.024407,1.0,39.4,11,1760
-Vestfold Park,park / oval,True,-34.811646,149.561567,1.0,40.0,7,1585
-Clandulla Sports Field,park / oval,True,-32.907593,149.951845,1.0,35.3,4,1544
-Sports Field near Tarana Railway Station () 3,park / oval,True,-33.436866,149.846942,1.0,27.1,10,1504
-Dairy Park,park / oval,True,-33.687942,149.14261,1.0,39.8,8,1490
-Rylstone Rotary Park,park / oval,True,-32.791712,149.971898,1.0,37.7,13,1482
-Deloraine Park,park / oval,True,-33.573667,150.201627,1.0,18.5,5,1444
-Colo River Park,park / oval,True,-33.432917,150.828859,1.0,16.1,5,1243
-Knowsley Park,park / oval,True,-33.55228,149.753705,1.0,27.6,6,1108
-Nattery Park,park / oval,True,-34.70532,149.886138,1.0,33.0,6,1032
-Remington Park,park / oval,True,-34.281825,149.834347,1.0,26.7,11,924
-Anzac Park () 2,park / oval,True,-33.818339,149.324911,1.0,35.4,11,886
-Sofala Pioneer Park,park / oval,True,-33.080577,149.691975,1.0,35.6,10,854
-Wakefield Park Raceway,park / oval,True,-34.840646,149.68478,1.0,38.6,4,767
-Coolabah Park,park / oval,True,-34.922602,149.852204,1.0,38.0,2,761
-Sports Field near Tarago Railway Station () 3,park / oval,True,-35.02293,149.87464,1.0,40.0,3,691
-Wisemans Ferry Helicopter Landing Site,helipad / HLS,False,-33.3835,150.988667,0.5,18.3,5,641
-Bloodwood Park (),park / oval,True,-33.016905,151.100972,1.0,28.4,2,611
-Melville Park,park / oval,True,-33.913872,149.744673,1.0,26.1,6,479
-Windra Park,park / oval,True,-33.373366,151.139679,1.0,20.2,4,428
-Morvan Park,park / oval,True,-33.02218,149.880196,1.0,33.8,4,426
-Bar Flora Reserve,park / oval,True,-33.063129,151.272348,1.0,28.8,3,426
-June Cooper Memorial Bush Reserve,park / oval,True,-33.110928,151.140325,1.0,26.4,6,401
-Sports Field near Crookwell Railway Station () 2,park / oval,True,-34.533897,149.395587,1.0,38.4,3,366
-Cudgegong Waters Park,park / oval,True,-32.81125,149.821213,1.0,39.1,5,346
-Hampton Park Wind Farm,park / oval,True,-33.638047,150.050072,1.0,20.6,5,330
-James Park () 2,park / oval,True,-34.410431,149.377789,1.0,37.3,1,291
-Shane Park (),park / oval,True,-32.859635,149.696059,1.0,39.8,4,286
-Bigga Oval,park / oval,True,-34.082761,149.153809,1.0,39.5,1,268
-Sports Field near Tarago Railway Station (),park / oval,True,-35.113292,150.089614,1.0,39.9,6,261
-Bushy Park,park / oval,True,-33.834164,149.569773,1.0,30.0,4,260
-Northholm Playing Fields,park / oval,True,-33.60272,151.054263,1.0,14.2,1,259
-Kings Park () 2,park / oval,True,-33.667975,149.726075,1.0,27.2,4,225
-Oakley Park,park / oval,True,-32.974154,150.107186,1.0,32.0,4,205
-Gorance Park,park / oval,True,-34.666846,149.812771,1.0,33.3,1,171
-Mealiffee Park,park / oval,True,-34.474081,149.338652,1.0,38.8,2,162
-NSW POI Helipad 139096,NSW POI helipad,False,-33.50025379702696,150.3687623875786,0.6,17.0,3,147
-Canaan Park,park / oval,True,-32.775687,150.175927,1.0,36.0,3,125
-Everton Park (),park / oval,True,-34.407209,149.241013,1.0,40.0,1,112
-Geoff Bennett Park,park / oval,True,-33.234552,149.380058,1.0,38.8,4,103
-Howes Valley Reserve,park / oval,True,-32.838456,150.845925,1.0,31.9,2,102
-Burraga Oval,park / oval,True,-33.94409,149.529278,1.0,30.9,3,99
-Bullio Airport,GA aerodrome,False,-34.357532,150.16644,0.5,22.0,1,79
-Alinda Park,park / oval,True,-34.21621,149.451209,1.0,33.9,1,33
-Meredith Park Gully,park / oval,True,-34.541505,150.224966,1.0,25.0,1,22
+Milsop Place Reserve,park / oval,True,-33.965754,151.080797,1.0,11.9,96,749875
+Rosehill Heliport Airport,heliport,False,-33.8300966368,151.024138927,0.5,10.4,50,475545
+Paine Reserve,park / oval,True,-33.924424,151.235675,1.0,15.1,62,466877
+Lysaght Park,park / oval,True,-33.852271,151.139762,1.0,12.9,60,442211
+Sir Douglas Mawson Reserve,park / oval,True,-33.740388,150.837622,1.0,8.3,54,403632
+Meryll Avenue Reserve,park / oval,True,-33.759572,150.987905,1.0,10.4,25,363682
+Turramurra Village Park,park / oval,True,-33.733165,151.128702,1.0,13.5,31,276160
+Beauty Point Park,park / oval,True,-33.814287,151.238949,1.0,15.2,41,269299
+Moore Park (),park / oval,True,-33.908977,150.880982,1.0,7.2,32,262012
+Charles Throsby Reserve,park / oval,True,-34.039168,150.771614,1.0,8.3,37,229962
+Dunstan Reserve,park / oval,True,-33.866775,150.91313,1.0,7.9,25,213995
+Robinson Park (),park / oval,True,-33.773625,150.680083,1.0,7.1,37,194597
+Newcastle Regional Heliport,heliport,False,-32.87909,151.72803,0.5,38.6,60,188312
+Shellharbour Airport,GA aerodrome,False,-34.5611,150.789001,0.5,22.2,58,172635
+NSW POI Helipad 106910,NSW POI helipad,False,-34.32421765598414,150.76894719064,0.6,15.9,37,143056
+Broadwater Park,park / oval,True,-33.470415,151.376864,1.0,21.9,44,140667
+Warner Reserve () 2,park / oval,True,-32.971347,151.639406,1.0,35.4,43,138287
+Wedgewood Reserve,park / oval,True,-33.758851,151.260904,1.0,16.0,19,129579
+Tom Foster Oval,park / oval,True,-33.197025,151.528884,1.0,29.3,43,98176
+Mingara Sportsground,park / oval,True,-33.360388,151.440066,1.0,24.8,32,92461
+Maitland Airport,GA aerodrome,False,-32.701265,151.492912,0.5,39.6,50,84553
+Katandra Bushland Sanctuary Reserve,park / oval,True,-33.671893,151.28264,1.0,17.3,23,74956
+Freemans Reach Reserve,park / oval,True,-33.559637,150.804743,1.0,12.7,34,61243
+Hayden Drexel Oval,park / oval,True,-34.888942,150.623574,1.0,31.1,48,57502
+Camden - Onslow Park HLS,park / oval HLS,False,-34.05324,150.691285,0.6,8.8,24,53784
+Cessnock Airport,GA aerodrome,False,-32.787498,151.341995,0.5,36.1,27,44252
+Bowral - Loseby Park Helicopter Landing Site,park / oval HLS,False,-34.4867,150.4228,0.6,21.7,26,43252
+Bathurst Airport,passenger airport,False,-33.406817,149.651161,0.5,31.3,35,40664
+Wandandian Reserve,park / oval,True,-35.089265,150.510562,1.0,36.7,28,30856
+Katoomba Airport,GA aerodrome,False,-33.668301,150.322998,0.5,14.8,8,29336
+Belmore Park (Goulburn),park / oval,True,-34.754988,149.719894,1.0,36.4,20,29106
+Eskbank Heliport,heliport,False,-33.476587,150.164732,0.5,20.7,31,19096
+Singleton Airport,GA aerodrome,False,-32.600832,151.193056,0.5,39.6,33,18978
+Glenorie Oval,park / oval,True,-33.592941,151.005952,1.0,13.7,15,18073
+Lake Macquarie Airport,GA aerodrome,False,-33.065975,151.646283,0.5,33.6,11,16402
+Rotherwood Park,park / oval,True,-33.418178,149.29542,1.0,38.4,32,9786
+Oberon Heliport,heliport,False,-33.7007,149.856,0.5,24.2,16,5058
+Rylstone Rotary Park,park / oval,True,-32.791712,149.971898,1.0,37.7,22,3461
+Sports Field near Crookwell Railway Station () 3,park / oval,True,-34.405746,149.532347,1.0,34.1,5,3349
+Sports Field near Crookwell Railway Station () 2,park / oval,True,-34.533897,149.395587,1.0,38.4,5,1315
+Sports Field near Tarago Railway Station () 3,park / oval,True,-35.02293,149.87464,1.0,40.0,5,1305
+Anzac Park () 2,park / oval,True,-33.818339,149.324911,1.0,35.4,13,1295
+Taralga Grathawa Airport,GA aerodrome,False,-34.2891998291015,149.781997680664,0.5,27.8,10,908

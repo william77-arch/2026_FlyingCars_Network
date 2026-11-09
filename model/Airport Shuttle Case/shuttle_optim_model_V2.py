@@ -20,6 +20,8 @@ Model
     s.t.  z_i <= sum_j a_ij * y_j                           area i covered only if a chosen vertiport serves it
           sum_i pop_i z_i        >= COVERAGE_THRESHOLD * coverable population
           sum_{i in r} pop_i z_i >= REGION_COVERAGE   * coverable population of region r  (each r)
+          sum_i z_i              >= AREA_COVERAGE        * number of coverable suburbs      (spread)
+          sum_{i in r} z_i       >= REGION_AREA_COVERAGE * coverable suburbs of region r   (each r)
           y_j, z_i binary
 
 Inputs (same folder)
@@ -63,8 +65,12 @@ RANGE_KM            = 150     # longest direct flight (typical eVTOL range with 
 
 # Coverage is limited only by the eVTOL's range (RANGE_KM) and each vertiport's catchment (ROAD_MAX_MIN).
 TIME_THRESHOLD      = None    # door-to-WSI time limit in minutes (None = off; e.g. 60 to switch on)
-COVERAGE_THRESHOLD  = 1    # share of the study area's coverable population that must be covered
+COVERAGE_THRESHOLD  = 0.95    # share of the study area's coverable population that must be covered
 REGION_COVERAGE     = 0.80    # share of each region's coverable population (None = off)
+# Spread: also require a share of coverable SUBURBS (each suburb counts once, whatever its population),
+# like the original model's SA2 count. Keeps small country towns in when the people target is below 100%.
+AREA_COVERAGE        = 0.80   # share of all coverable suburbs that must be covered (None = off)
+REGION_AREA_COVERAGE = 0.70   # share of each region's coverable suburbs (None = off)
 REGION_COL          = None    # demand-file column holding the region; None = auto-detect SA4 / SA3
 STUDY_AREA          = 'NSW'   # 'NSW' (all areas in the demand file) or 'Greater Sydney'
 GREATER_SYDNEY_BOX  = (149.97, -34.33, 151.63, -32.99)   # used for 'Greater Sydney' if there is no GCC_NAME21 column
@@ -436,6 +442,17 @@ def run_model(a, alpha, alpha_region):
             members.setdefault(greg[g], []).append(g)
         for r_, gs in sorted(members.items()):
             mod.reg.add(sum(gpop[g] * mod.z[g] for g in gs) >= alpha_region * sum(gpop[g] for g in gs))
+    # suburb-count targets (spread): each merged group counts as the number of suburbs in it
+    gn = {g: len(groups[g]) for g in G}
+    mod.area = ConstraintList()
+    if AREA_COVERAGE:
+        mod.area.add(sum(gn[g] * mod.z[g] for g in G) >= AREA_COVERAGE * sum(gn.values()))
+    if REGION_AREA_COVERAGE:
+        by_reg = {}
+        for g in G:
+            by_reg.setdefault(greg[g], []).append(g)
+        for r_, gs in sorted(by_reg.items()):
+            mod.area.add(sum(gn[g] * mod.z[g] for g in gs) >= REGION_AREA_COVERAGE * sum(gn[g] for g in gs))
 
     name = pick_solver()
     opt = make_solver(name)
@@ -486,11 +503,13 @@ uncovered = [i for i in demand_coords if i not in covered]
 print(f'\neVTOL range     = {RANGE_KM} km | catchment = {ROAD_MAX_MIN} min drive | '
       f'time limit = {TIME_THRESHOLD or "off"} | time saving rule = {MIN_TIME_SAVING or "off"}')
 print(f'Coverage target = {COVERAGE_THRESHOLD:.0%} of coverable {AREA_LABEL} population'
-      + (f', {REGION_COVERAGE:.0%} per region' if REGION_COVERAGE else ''))
+      + (f', {REGION_COVERAGE:.0%} per region' if REGION_COVERAGE else '')
+      + (f' | suburbs: {AREA_COVERAGE:.0%} overall' if AREA_COVERAGE else '')
+      + (f', {REGION_AREA_COVERAGE:.0%} per region' if REGION_AREA_COVERAGE else ''))
 print(f'Solver          = {solver_used}, status {status}')
 
 if status == 'infeasible':
-    raise SystemExit('INFEASIBLE: lower COVERAGE_THRESHOLD / REGION_COVERAGE, or relax the coverage rules.')
+    raise SystemExit('INFEASIBLE: lower COVERAGE_THRESHOLD / REGION_COVERAGE / AREA_COVERAGE / REGION_AREA_COVERAGE, or relax the coverage rules.')
 
 cj = cand.set_index('name')
 sel_set = set(selected)
@@ -539,7 +558,7 @@ print(reg.to_string(index=False))
 # ─────────────────────────────────────────────────────────────
 # SENSITIVITY ANALYSIS  (set RUN_SENSITIVITY = True; uses the cached drive times)
 # ─────────────────────────────────────────────────────────────
-RUN_SENSITIVITY = False
+RUN_SENSITIVITY = True
 if RUN_SENSITIVITY:
     import matplotlib.pyplot as plt
     ranges           = [50, 75, 100, 125, 150]          # eVTOL range (km); must not exceed RANGE_KM
