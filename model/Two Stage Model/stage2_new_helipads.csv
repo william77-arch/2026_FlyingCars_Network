@@ -1,0 +1,5 @@
+site,hospital,lat,lon,role,risk_cost_0_1,risk_data_missing,road_time_source,new_sa2_served,new_population_served
+Wentworth District Hospital,Wentworth District Hospital,-34.109983,141.922481,destination,0.722,True,estimate,3,27857
+Walgett Health Service,Walgett Health Service,-30.030646,148.115959,destination,0.722,True,estimate,2,9503
+Cobar District Hospital,Cobar District Hospital,-31.509026,145.825266,destination,0.722,True,estimate,2,7785
+Hay District Hospital,Hay District Hospital,-34.500349,144.851433,destination,0.722,True,estimate,1,2898

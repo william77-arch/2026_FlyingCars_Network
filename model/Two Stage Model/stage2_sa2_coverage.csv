@@ -1,0 +1,91 @@
+sa2,population,lat,lon,covered_stage2,reachable_from_existing_sites,served_by
+Goulburn,24690,-34.750578709985,149.719579014417,True,True,Braidwood Helicopter Landing Site
+Armidale,24170,-30.5031192492808,151.667800071109,True,True,Walcha Airport
+Cessnock,23740,-32.8319507715441,151.362081211156,True,True,Cessnock Hospital Heliport
+Nelson Bay Peninsula,21921,-32.7365060068273,152.126666631862,True,True,Cessnock Hospital Heliport
+Tamworth - East,21611,-31.1554223299306,150.955050393723,True,True,Quirindi Airport
+Gosford - Springfield,21359,-33.4252457327139,151.347894774686,True,True,Cessnock Hospital Heliport
+Taree,21285,-31.909305949515,152.46696310806,True,True,Gloucester Helicopter Landing Site; Taree Airport
+Port Macquarie - West,21189,-31.4378843440404,152.860435237928,True,True,Taree Airport
+Kurri Kurri - Abermain,20838,-32.8006649395006,151.461126589827,True,True,Cessnock Hospital Heliport
+Woonona - Bulli - Russell Vale,20782,-34.3406428609164,150.903819258755,True,True,Camden - Onslow Park HLS
+Griffith (NSW),20682,-34.2812219911425,146.048472990456,True,True,Leeton Showground Heliport
+Tweed Heads,20570,-28.2168234573211,153.449544374964,True,True,The Tweed Hospital Helipad
+Shellharbour - Flinders,19376,-34.6021171522007,150.831913283176,True,True,Camden - Onslow Park HLS
+Grafton,19335,-29.6772026402427,152.935453994051,True,True,Casino Airport; Coffs Harbour Airport
+Orange,19110,-33.3012869465119,149.112628952707,True,True,airlie private strip
+Ballina,18590,-28.8472383745907,153.554790576789,True,True,Casino Airport; The Tweed Hospital Helipad
+Coffs Harbour - North,18137,-30.2821346727693,153.104205830954,True,True,Coffs Harbour Airport
+Belmont - Bennetts Green,17850,-33.0189290068558,151.678381707,True,True,Cessnock Hospital Heliport
+Broken Hill,17662,-31.9440223032824,141.47927493656,True,False,Wentworth District Hospital
+Maclean - Yamba - Iluka,17487,-29.4205478575694,153.266255344522,True,True,Casino Airport
+Singleton,17139,-32.5752160143615,151.177289350943,True,True,Cessnock Hospital Heliport
+Wagga Wagga - East,16927,-35.1498652679761,147.401085686229,True,True,Gundagai Medical Helicopter Landing Site
+Wollongong - East,16039,-34.4251114262099,150.896074863043,True,True,Camden - Onslow Park HLS
+Kempsey,15816,-31.0814337763681,152.828575407825,True,True,Coffs Harbour Airport
+Lismore,15255,-28.819502018408,153.285990215108,True,True,Casino Airport; The Tweed Hospital Helipad
+Woy Woy - Blackwall,14406,-33.4851737577059,151.305659485934,True,True,Cessnock Hospital Heliport
+Newcastle - Cooks Hill,12847,-32.9310216029026,151.774227393444,True,True,Cessnock Hospital Heliport
+Wauchope,12810,-31.4676365462422,152.76837202875,True,True,Taree Airport
+Mudgee,12581,-32.6039325204712,149.601145029961,True,True,Wellington Airport
+Muswellbrook,12384,-32.3140692290372,150.90826058136,True,True,Cessnock Hospital Heliport
+Bathurst - East,12360,-33.4152546587011,149.629201838686,True,True,airlie private strip
+Casino,12335,-28.8440699596919,153.040422916548,True,True,Casino Airport
+Inverell,12104,-29.7625952322343,151.110039615961,True,True,Inverell Hospital Helipad
+Queanbeyan,11375,-35.3510299546976,149.225463195206,True,True,Braidwood Helicopter Landing Site
+Young,10991,-34.321125179894,148.353072469011,True,True,Grenfell Airport; Gundagai Medical Helicopter Landing Site
+Parkes (NSW),10985,-33.1729296348035,148.189857813963,True,True,Peak Hill Hospital Helipad
+Byron Bay,10951,-28.6810260664226,153.600160010467,True,True,Casino Airport; The Tweed Hospital Helipad
+Dubbo - East,10738,-32.2473159941109,148.670822990688,True,True,Gilgandra Multi Purpose Service Helipad; Peak Hill Hospital Helipad; Wellington Airport
+Shellharbour - Oak Flats,10570,-34.5647969229095,150.826504539384,True,True,Camden - Onslow Park HLS
+Leeton,10358,-34.5384578336884,146.410600734819,True,True,Leeton Showground Heliport
+Forbes,10090,-33.4615862522101,147.924850194387,True,True,Peak Hill Hospital Helipad
+Gunnedah,9883,-30.9844039972987,150.223034256379,True,True,Quirindi Airport
+Tocumwal - Finley - Jerilderie,9799,-35.4542217892836,145.74447302646,True,True,Urana Aerodrome
+Murwillumbah,9479,-28.3348861985958,153.398262682394,True,True,The Tweed Hospital Helipad
+Cowra,9323,-33.7910485546037,148.661040067439,True,True,Grenfell Airport
+Wyong,9196,-33.2765597384427,151.435221848533,True,True,Cessnock Hospital Heliport
+Glen Innes,8925,-29.6449737532796,151.903048338028,True,True,Inverell Hospital Helipad
+Bega - Tathra,8847,-36.7250255995823,149.902099356695,True,True,Bombala Medical Helicopter Landing Site
+Maitland,8661,-32.7600736203325,151.53881464928,True,True,Cessnock Hospital Heliport
+Batemans Bay,8589,-35.7011062558961,150.181717453305,True,True,Braidwood Helicopter Landing Site
+Moruya - Tuross Head,8559,-35.9471516808906,150.107212339949,True,True,Braidwood Helicopter Landing Site
+Moree,7996,-29.4610464662082,149.826545030023,True,True,Moree Hospital Helipad
+Coonabarabran,7948,-31.355121409742,149.407393820782,True,True,Gilgandra Multi Purpose Service Helipad
+Cootamundra,7691,-34.5995084480618,148.016529814599,True,True,Gundagai Medical Helicopter Landing Site
+Quirindi,7608,-31.5504865437513,150.438036368158,True,True,Quirindi Airport
+Kyogle,7603,-28.5132247103414,152.879535981306,True,True,Casino Airport
+Blayney,7531,-33.6078462883778,149.143903196376,True,True,airlie private strip
+Deniliquin,7015,-35.5290689837307,144.973188780605,True,True,Deniliquin Airport
+Narrabri,6966,-30.3531190659983,149.80283278284,True,True,Moree Hospital Helipad
+Tenterfield,6800,-28.9438106049097,152.086395692889,True,True,Tenterfield Airport
+Cooma,6761,-36.2501946729752,149.119401366976,True,True,Bombala Medical Helicopter Landing Site
+Yass,6759,-34.8228518435113,148.915963805581,True,True,Gundagai Medical Helicopter Landing Site
+Tumut,6683,-35.3174349664279,148.218297253442,True,True,Gundagai Medical Helicopter Landing Site
+Temora,6587,-34.3932307102794,147.379793610454,True,True,West Wyalong Airport
+Narromine,6550,-32.1810922514247,148.053240653649,True,True,Peak Hill Hospital Helipad
+Wentworth - Buronga,6543,-34.1141306471897,142.041235006539,True,False,Wentworth District Hospital
+Junee,6386,-34.8143030385002,147.67792889135,True,True,Gundagai Medical Helicopter Landing Site
+Bellingen,6148,-30.4479364937546,152.719878704248,True,True,Coffs Harbour Airport
+Scone,6056,-32.0501536921106,150.857996683151,True,True,Quirindi Airport
+Narrandera,5937,-34.7500615843477,146.510123214255,True,True,Leeton Showground Heliport; Urana Aerodrome
+Walgett - Lightning Ridge,5887,-29.7647091978923,148.066192680515,True,False,Walgett Health Service
+Corowa,5568,-35.9938319576793,146.358467889517,True,True,Urana Aerodrome
+West Wyalong,5517,-33.9001457667899,146.984369035645,True,True,West Wyalong Airport
+Wingham,5396,-31.8581162814977,152.355732733586,True,True,Gloucester Helicopter Landing Site; Taree Airport
+Gloucester,5279,-31.9055304983346,151.793194281982,True,True,Gloucester Helicopter Landing Site
+Macksville - Scotts Head,5178,-30.7209663214017,152.953574402068,True,True,Coffs Harbour Airport
+Oberon,4829,-33.8880124036237,149.775709242034,True,True,airlie private strip
+Nyngan - Warren,4632,-31.4504781641097,147.080688665859,True,True,Warren Airport
+Gilgandra,4423,-31.618490110594,148.642638365048,True,True,Gilgandra Multi Purpose Service Helipad
+Cobar,4169,-31.8760203822362,145.484682409142,True,False,Cobar District Hospital
+Coonamble,4038,-30.9796635793826,148.224013503665,True,True,Eulalia Airport
+Gundagai,3713,-35.0230052273066,148.144105474569,True,True,Gundagai Medical Helicopter Landing Site
+Wentworth-Balranald Region,3652,-33.7833288958775,142.904131569492,True,False,Wentworth District Hospital
+Bourke - Brewarrina,3616,-29.9123663063958,145.746512205927,True,False,Cobar District Hospital; Walgett Health Service
+Grenfell,3578,-33.879221656342,148.025991474277,True,True,Grenfell Airport
+Tumbarumba,3514,-36.0225226543419,148.125116900721,True,True,Khancoban Airport
+Dorrigo,3232,-30.2136013292797,152.62051397356,True,True,Coffs Harbour Airport
+Walcha,3146,-31.1663873711992,151.753206742548,True,True,Walcha Airport
+Hay,2898,-34.1525974378411,144.707401147563,True,False,Hay District Hospital
+Bombala,2449,-36.8779192728938,149.045328712081,True,True,Bombala Medical Helicopter Landing Site

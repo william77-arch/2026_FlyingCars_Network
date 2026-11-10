@@ -1,0 +1,552 @@
+name,latitude,longitude,bfpl_category,bfpl_category_label,bfpl_area,n_matches
+Sydney Kingsford Smith International Airport,-33.946098,151.177002,0,Not bush fire prone,,0
+Sydney Bankstown Airport,-33.923618,150.990792,0,Not bush fire prone,,0
+Newcastle Airport,-32.7949981689453,151.833999633789,0,Not bush fire prone,,0
+Ballina Byron Gateway Airport,-28.833236,153.561471,0,Not bush fire prone,,0
+Coffs Harbour Airport,-30.320601,153.115997,0,Not bush fire prone,,0
+Camden Airport,-34.038338,150.686406,0,Not bush fire prone,,0
+Tamworth Airport,-31.077898,150.845484,0,Not bush fire prone,,0
+Cessnock Airport,-32.787498,151.341995,0,Not bush fire prone,,0
+Shellharbour Airport,-34.5611,150.789001,0,Not bush fire prone,,0
+Broken Hill Airport,-32.0013999939,141.472000122,0,Not bush fire prone,,0
+Wagga Wagga Airport,-35.163484,147.46832,0,Not bush fire prone,,0
+Bathurst Airport,-33.406817,149.651161,0,Not bush fire prone,,0
+Merimbula Airport,-36.9085998535,149.901000977,0,Not bush fire prone,,0
+Mudgee Airport,-32.564794,149.609452,0,Not bush fire prone,,0
+Orange Airport,-33.382014,149.131262,0,Not bush fire prone,,0
+Lord Howe Island Airport,-31.538204,159.07546,0,Not bush fire prone,,0
+Armidale Airport,-30.5280990600999,151.617004395,0,Not bush fire prone,,0
+Albury Airport,-36.066758,146.959148,0,Not bush fire prone,,0
+Lismore Airport,-28.830689,153.258419,0,Not bush fire prone,,0
+Parkes Airport,-33.131401062,148.238998413,0,Not bush fire prone,,0
+Maitland Airport,-32.701265,151.492912,0,Not bush fire prone,,0
+Griffith Airport,-34.2508010864,146.067001343,0,Not bush fire prone,,0
+RAAF Base Richmond,-33.604652,150.783051,0,Not bush fire prone,,0
+Port Macquarie Airport,-31.4358005524,152.863006592,3,Vegetation Category 3,37483038.0,1
+Cowra Airport,-33.846894,148.648007,0,Not bush fire prone,,0
+Goulburn Airport,-34.8102989196777,149.725997924804,0,Not bush fire prone,,0
+Forbes Airport,-33.363602,147.934998,0,Not bush fire prone,,0
+Temora Airport,-34.421398,147.511993,0,Not bush fire prone,,0
+Dubbo City Regional Airport,-32.2167015076,148.574996948,0,Not bush fire prone,,0
+Moree Airport,-29.4988994597999,149.845001221,0,Not bush fire prone,,0
+Moruya Airport,-35.8978004456,150.143997192,0,Vegetation Buffer,10287643.0,1
+Narrabri Airport,-30.3192005157,149.82699585,0,Not bush fire prone,,0
+Gunnedah Airport,-30.957511,150.248981,0,Not bush fire prone,,0
+Narromine Airport,-32.214699,148.225006,0,Not bush fire prone,,0
+Scone Airport,-32.038012,150.831966,0,Not bush fire prone,,0
+Bourke Airport,-30.0391998291015,145.951995849609,0,Not bush fire prone,,0
+Cobar Airport,-31.5382995605468,145.794006347656,0,Not bush fire prone,,0
+Cooma Snowy Mountains Airport,-36.300445,148.972408,3,Vegetation Category 3,1.0,1
+Cootamundra Airport,-34.624283,148.036641,0,Not bush fire prone,,0
+Kempsey Airport,-31.07232,152.765313,0,Not bush fire prone,,0
+Tocumwal Airport,-35.8116989135742,145.608001708984,0,Not bush fire prone,,0
+Crookwell Airport,-34.499961,149.461377,0,Not bush fire prone,,0
+Warnervale Airport,-33.240278,151.429722,0,Not bush fire prone,,0
+Taree Airport,-31.888599,152.514008,0,Not bush fire prone,,0
+Hay Airport,-34.531399,144.830002,0,Not bush fire prone,,0
+Tibooburra Airport,-29.451099,142.057999,3,Vegetation Category 3,0.0,1
+Deniliquin Airport,-35.5593986511,144.945999146,0,Not bush fire prone,,0
+Clarence Valley Regional Airport,-29.754795,153.031234,0,Not bush fire prone,,0
+Inverell Airport,-29.888299942,151.143997192,0,Not bush fire prone,,0
+Casino Airport,-28.881304,153.060724,0,Not bush fire prone,,0
+Condobolin Airport,-33.06565,147.21316,0,Not bush fire prone,,0
+Nyngan Airport,-31.550645,147.202973,0, ,0.0,1
+Murwillumbah Airport,-28.3316993713378,153.412994384765,0,Not bush fire prone,,0
+South Grafton Airport,-29.7082996368408,152.927993774414,0,Not bush fire prone,,0
+Somersby Airstrip,-33.367681,151.299806,0,Vegetation Buffer,195548087.0,1
+Mittagong Airport,-34.450184,150.497411,0,Not bush fire prone,,0
+The Oaks Airport,-34.084097,150.559602,0,Not bush fire prone,,0
+Coonamble Airport,-30.980946,148.377833,0,Not bush fire prone,,0
+Lightning Ridge Airport,-29.452857,147.977146,0,Not bush fire prone,,0
+Walgett Airport,-30.032801,148.126007,0,Not bush fire prone,,0
+Coonabarabran Airport,-31.3325,149.266998,2,Vegetation Category 2,684069925.0,1
+Glen Innes Airport,-29.676029,151.691156,3,Vegetation Category 3,302248781.0,1
+Naval Air Station Nowra - HMAS Albatross,-34.9466,150.542451,0,Not bush fire prone,,0
+West Wyalong Airport,-33.9371986389,147.190994263,0,Vegetation Buffer,21513909.0,1
+Evans Head Aerodrome,-29.101786,153.419255,0,Not bush fire prone,,0
+Boomi Airport,-28.728373,149.595181,3,Vegetation Category 3,0.0,1
+Collarenebri Airport,-29.523239,148.578243,0,Not bush fire prone,,0
+Jerilderie Airport,-35.3699989318847,145.725006103515,0,Not bush fire prone,,0
+Lake Cargelligo Airport,-33.282822,146.375447,0,Not bush fire prone,,0
+Tyagarah Airport,-28.5946960394,153.551101685,0,Vegetation Buffer,14475168.0,1
+Warialda Airport,-29.5362,150.535955,0,Not bush fire prone,,0
+Holbrook Airport,-35.680142,147.322418,0,Not bush fire prone,,0
+Mangrove Mountain Airport,-33.285122,151.212738,0,Vegetation Buffer,195548087.0,1
+Tenterfield Airport,-28.99155,151.930103,0,Not bush fire prone,,0
+Narrandera Airport,-34.7022018433,146.511993408,0,Not bush fire prone,,0
+Balranald Airport,-34.624834,143.577114,2,Vegetation Category 2,44823010.0,1
+Young Airport,-34.2556,148.248001,0,Not bush fire prone,,0
+Tumut Aerodrome,-35.26832,148.240526,0,Not bush fire prone,,0
+Gundaroo Airport,-35.0505,149.2559,3,Vegetation Category 3,0.0,1
+Mungindi Airport,-28.966613,149.052978,3,Vegetation Category 3,0.0,1
+Quirindi Airport,-31.498177,150.521708,0,Not bush fire prone,,0
+Acacia Downs Airport,-31.4167003631591,141.899993896484,3,Vegetation Category 3,0.0,1
+Barraba Airport,-30.393709,150.597678,3,Vegetation Category 3,1734634369.0,1
+Biniguy Airport,-29.504999,150.192001,0,Not bush fire prone,,0
+Bingara Airport,-29.815165,150.534351,0,Not bush fire prone,,0
+Boggabri Airport,-30.7166996002197,150.050003051757,0,Not bush fire prone,,0
+Bombala Airport,-36.904999,149.182007,3,Vegetation Category 3,1.0,1
+Coleambally Airport,-34.802158,145.846664,0,Not bush fire prone,,0
+Camden Haven Airport,-31.6650009155273,152.742004394531,3,Vegetation Category 3,2353938.0,1
+Cudal Airport,-33.278026,148.768708,3,Vegetation Category 3,0.0,1
+Gloucester Airport,-32.053261,151.97613,0,Not bush fire prone,,0
+Harden Airport,-34.562798,148.392687,0,Not bush fire prone,,0
+Inverell North Airport,-29.773774,151.165974,0,Vegetation Buffer,245877.0,1
+Katoomba Airport,-33.668301,150.322998,1,Vegetation Category 1,2.0,1
+Peak Hill Airport,-32.731204,148.21098,0,Not bush fire prone,,0
+Tottenham Airport,-32.256163,147.369264,0,Not bush fire prone,,0
+Walcha Airport,-31.009492,151.547442,0,Vegetation Buffer,154761.0,1
+Clare Station Airport,-33.4068984985351,143.940002441406,0,Not bush fire prone,,0
+Old Bar Heritage Airport,-31.9653,152.591003,1,Vegetation Category 1,124.0,1
+Scotia Sanctuary Airport,-33.2071990966999,141.17300415,3,Vegetation Category 3,0.0,1
+Cooranga Airport,-29.095166,150.775822,0,Not bush fire prone,,0
+Koralta Station Airpirt,-31.624885,142.296143,3,Vegetation Category 3,0.0,1
+Baryulgil Airstrip,-29.21829,152.61611,0,Not bush fire prone,,0
+Berrigan Airstrip,-35.684209,145.814753,0,Not bush fire prone,,0
+Lake Macquarie Airport,-33.065975,151.646283,0,Vegetation Buffer,1261668.0,1
+Denman Farm Strip,-32.379816,150.695005,3,Vegetation Category 3,1052209781.0,1
+Jindabyne Airport,-36.429087,148.599722,0,Vegetation Buffer,70540.0,1
+Nambucca Heads Airport,-30.673058,152.984233,0,Not bush fire prone,,0
+Rylstone Aerodrome,-32.770903,149.993227,0,Not bush fire prone,,0
+Singleton Airport,-32.600832,151.193056,3,Vegetation Category 3,146878290.0,1
+Warkworth Airport,-32.548161,151.024274,3,Vegetation Category 3,34782489.0,1
+Wedderburn Aerodrome,-34.181346,150.808854,0,Vegetation Buffer,242560.0,1
+Wentworth Airport,-34.086196,141.891114,0,Not bush fire prone,,0
+Newcastle Westpac Base Heliport,-32.920528,151.729266,0,Not bush fire prone,,0
+Ballina - Kingsford Smith Park Helipad,-28.8692,153.5713,0,Not bush fire prone,,0
+St George Hospital Helipad,-33.96807,151.13368,0,Not bush fire prone,,0
+Moree Hospital Helipad,-29.47089,149.84054,0,Not bush fire prone,,0
+Rose Bay Seaplane Base,-33.869,151.262,0,Not bush fire prone,,0
+Brewarrina Airport,-29.975792,146.81438,2,Vegetation Category 2,46828147.0,1
+Corowa Airport,-35.994701,146.356995,0,Not bush fire prone,,0
+Warren Airport,-31.733299,147.802994,3,Vegetation Category 3,429556264.0,1
+Goodooga Airport,-29.074493,147.387021,0,Not bush fire prone,,0
+Hillston Airport,-33.4933013916015,145.522994995117,0,Not bush fire prone,,0
+Wilcannia Airport,-31.522082,143.378358,0,Not bush fire prone,,0
+Ardlethan Airport,-34.411265,146.85884,0,Not bush fire prone,,0
+Ashford Airport,-29.317096,151.056207,0,Not bush fire prone,,0
+Baradine Airport,-30.955246,149.091984,2,Vegetation Category 2,5959636.0,1
+Burren Junction Airport,-30.159024,148.974706,0,Not bush fire prone,,0
+Buttabone Airport,-31.376562,147.606774,0,Not bush fire prone,,0
+Coolah Airport,-31.773864,149.615322,2,Vegetation Category 2,197594709.0,1
+Carinda Airport,-30.4582996368408,147.70799255371,0,Not bush fire prone,,0
+Cuthero Airport,-32.959355,142.055554,3,Vegetation Category 3,0.0,1
+Dallas Airport,-34.5666999816894,146.182998657226,0,Not bush fire prone,,0
+Darnick Airport,-32.88330078125,143.58299255371,3,Vegetation Category 3,1549897197.0,1
+Euabalong Airport,-33.137268,146.424494,0,Not bush fire prone,,0
+Elengerah Airport,-31.865877,147.978008,0,Not bush fire prone,,0
+Eulalia Airport,-31.031573,148.175815,0,Not bush fire prone,,0
+Finley Airport,-35.658918,145.561214,0,Not bush fire prone,,0
+Forster (Wallis Is) Airport,-32.202489,152.481136,0,Vegetation Buffer,2074263.0,1
+Fairview Airport,-32.790693,148.723778,0,Not bush fire prone,,0
+Greenbah Airport,-30.1258277893066,149.4345703125,0,Not bush fire prone,,0
+Goolgowi Airport,-33.996397,145.716169,0,Not bush fire prone,,0
+Goonoo Goonoo Airport,-31.298701,150.920613,3,Vegetation Category 3,0.0,1
+Gilgandra Airport,-31.697099,148.636458,0,Not bush fire prone,,0
+Haddon Rig Airport,-31.465953,147.895525,3,Vegetation Category 3,429556264.0,1
+Jemalong Airport,-32.523151,147.579796,0,Not bush fire prone,,0
+Kayrunnera Airport,-30.679257,142.537136,3,Vegetation Category 3,0.0,1
+Lake Keepit Airport,-30.8911034242,150.526149273,0,Not bush fire prone,,0
+Khancoban Airport,-36.2159199703999,148.113742828,0,Not bush fire prone,,0
+Lambrook Airport,-31.1000003814697,149.932998657226,0,Not bush fire prone,,0
+Miralwyn Airport,-30.149,147.327,0,Not bush fire prone,,0
+Mount Sandon Airport,-31.3899993896484,151.410003662109,1,Vegetation Category 1,0.0,1
+Nymagee Airport,-32.053972,146.31227,0,Not bush fire prone,,0
+Pooncarie Airport,-33.373263,142.586439,0,Not bush fire prone,,0
+Cooma/Polo Flat Airport,-36.228277,149.149942,3,Vegetation Category 3,1258446034.0,1
+Pilliga Airport,-30.36669921875,148.882995605468,1,Vegetation Category 1,35521483.0,1
+Palmers Island/Yamba Airport,-29.445876,153.270628,0,Not bush fire prone,,0
+Questa Park Airport,-30.3917007446289,143.141998291015,3,Vegetation Category 3,959517260.0,1
+Rosehill Heliport Airport,-33.8300966368,151.024138927,0,Not bush fire prone,,0
+Ravensworth Airport,-34.649661,144.319775,0,Not bush fire prone,,0
+Talbingo Airport,-35.582902,148.292116,0,Vegetation Buffer,504193.0,1
+Trangie Airport,-31.97641,148.003929,0,Not bush fire prone,,0
+The Grove Airport,-34.6860008239746,148.10400390625,0,Not bush fire prone,,0
+Tullamore Airport,-32.610622,147.598239,0,Not bush fire prone,,0
+Tooraweenah Airport,-31.44306,148.897796,0,Not bush fire prone,,0
+Wanaaring Airport,-29.712125,144.170955,3,Vegetation Category 3,1724835682.0,1
+Wallabadah Airport,-31.57658,150.934081,3,Vegetation Category 3,296378448.0,1
+Wellington Airport,-32.462711,148.990896,0,Not bush fire prone,,0
+Weilmoringle Airport,-29.235668,146.922092,0,Not bush fire prone,,0
+Wee Waa Airport,-30.25830078125,149.408004760742,0,Not bush fire prone,,0
+Bakblok Airport,-34.8866996765136,149.014999389648,3,Vegetation Category 3,0.0,1
+Canowindra Airport,-33.5428009033203,148.662994384765,3,Vegetation Category 3,0.0,1
+Cassilis Rotherw Airport,-32.0022010803222,149.960998535156,3,Vegetation Category 3,161870101.0,1
+Corona Station Airport,-31.2908000946044,141.451995849609,3,Vegetation Category 3,0.0,1
+Delegate Airport,-37.0614013671875,148.942001342773,3,Vegetation Category 3,356719356.0,1
+Dunmore Manila Airport,-30.6581001281738,150.875,3,Vegetation Category 3,0.0,1
+Elderslie Airport,-32.5997009277343,151.33999633789,0,Vegetation Buffer,114152.0,1
+Federation Hsd Airport,-35.0116996765136,147.373992919921,3,Vegetation Category 3,1140709329.0,1
+Heathcote Emergency Airport,-31.2402992248535,151.432006835937,3,Vegetation Category 3,0.0,1
+Kelvin Station Airport,-30.6550006866455,151.638000488281,0,Not bush fire prone,,0
+Oxley Station Airport,-31.0132999420166,147.710998535156,3,Vegetation Category 3,429556264.0,1
+Premer Betoota Airport,-31.476900100708,149.902999877929,3,Vegetation Category 3,274936014.0,1
+Quambone Royona Airport,-30.8791999816894,147.841995239257,0,Not bush fire prone,,0
+Taralga Grathawa Airport,-34.2891998291015,149.781997680664,0,Not bush fire prone,,0
+Woodville Airport,-30.4160995483398,151.755004882812,0,Not bush fire prone,,0
+Wonnaminta Stat Airport,-30.6511001586914,142.341995239257,3,Vegetation Category 3,0.0,1
+Boolcarrol Station Airport,-30.035418,149.373278,0,Not bush fire prone,,0
+Beechworth Airstrip,-31.916678,144.645553,0,Not bush fire prone,,0
+Blackville Airport,-31.58649,150.174522,3,Vegetation Category 3,478445577.0,1
+Collymongle Airport,-29.478408,148.78649,3,Vegetation Category 3,0.0,1
+Collector Airport,-34.88330078125,149.417007446289,0,Not bush fire prone,,0
+Conargo Airport,-35.313771,145.106214,3,Vegetation Category 3,0.0,1
+Engonnia Airport,-29.311175,145.857475,0,Not bush fire prone,,0
+Langawirra Airport,-31.442361,142.137766,3,Vegetation Category 3,0.0,1
+Leeton Airport,-34.499788,146.446646,0,Not bush fire prone,,0
+Mullaley Airport,-31.1000003814697,149.917007446289,0,Not bush fire prone,,0
+Monolon Airport,-30.203041,143.217591,3,Vegetation Category 3,0.0,1
+Tandou Lake Airport,-32.665885,142.066773,0,Not bush fire prone,,0
+Tambar Springs Airport,-31.313893,149.839439,0,Not bush fire prone,,0
+Togo Station Airport,-30.08299,149.53684,0,Not bush fire prone,,0
+Wilandra Airport,-31.28689,142.651049,3,Vegetation Category 3,0.0,1
+Wollomombi Airport,-30.491214,152.083822,0,Not bush fire prone,,0
+Woolomin Airport,-31.3166999816894,151.132995605468,1,Vegetation Category 1,47350.0,1
+Yandama Airport,-29.664973,141.413891,3,Vegetation Category 3,0.0,1
+Yalda Downs Homestead Airport,-30.2614002227783,142.977005004882,3,Vegetation Category 3,0.0,1
+Binda,-34.30256,149.357668,0,Not bush fire prone,,0
+Bunyan Airfield,-36.1342008376,149.131979942,3,Vegetation Category 3,1258446034.0,1
+Pipers Airfield,-33.377547,149.519634,0,Not bush fire prone,,0
+bungebah airfield,-31.979077,149.794765,2,Vegetation Category 2,173390853.0,1
+Salt lake Airstrip,-30.191125,144.43202,3,Vegetation Category 3,1481532633.0,1
+Myall Airstrip,-30.708378,144.038143,3,Vegetation Category 3,236410.0,1
+Conlea,-30.073625,144.569907,3,Vegetation Category 3,266951.0,1
+Unknown airstrip,-30.135552,144.900709,3,Vegetation Category 3,266951.0,1
+Ardgour Airstrip,-31.652468,150.040476,3,Vegetation Category 3,274936014.0,1
+Moama Airstrip,-36.074459,144.764485,0,Not bush fire prone,,0
+Coolatai Airport,-29.14303,150.723093,0,Not bush fire prone,,0
+Rose Vale Airport,-34.849444,147.780278,0,Not bush fire prone,,0
+Sunnyside (Walla Walla) Airport,-35.764167,146.908889,0,Vegetation Buffer,750071.0,1
+The Lakes Aerodrome,-31.714851,152.724287,0,Not bush fire prone,,0
+Adaminaby Airport,-35.997799,148.796005,3,Vegetation Category 3,1034814716.0,1
+airlie private strip,-33.594282,149.544997,0,Not bush fire prone,,0
+Attunga Private airstrp,-30.92789,150.801727,3,Vegetation Category 3,0.0,1
+Ballycastle homestead airstrip,-30.186026,145.058815,3,Vegetation Category 3,241227.0,1
+Barraroo Airstrip,-32.117535,142.982026,3,Vegetation Category 3,1549897197.0,1
+Bendick Murrell Airstrip,-34.174167,148.471944,0,Not bush fire prone,,0
+Boomi airport,-28.588784,149.578506,3,Vegetation Category 3,0.0,1
+Bourke no.2,-30.014772,145.82678,0,Vegetation Buffer,139330.0,1
+Bowral Private Airfield,-34.511353,150.423915,0,Not bush fire prone,,0
+Braidwood Airport,-35.43799,149.844406,3,Vegetation Category 3,371564198.0,1
+Brewarrina airstrip,-30.180618,146.982093,0,Not bush fire prone,,0
+Westward Downs Airport,-30.71137,141.397648,3,Vegetation Category 3,0.0,1
+Nundooka Station Airport,-30.88683,141.70055,3,Vegetation Category 3,0.0,1
+Broughams Gate Airport,-30.91832,141.26877,3,Vegetation Category 3,0.0,1
+Bullio Airport,-34.357532,150.16644,2,Vegetation Category 2,19984491.0,1
+Burraga Airstrip no.1,-33.950427,149.564631,3,Vegetation Category 3,1219904668.0,1
+Burraga Airstrip no.2,-33.939693,149.495258,3,Vegetation Category 3,1219904668.0,1
+Butheroo Station Airport,-31.76451,149.424296,2,Vegetation Category 2,1205850746.0,1
+Byrock Airport,-30.658232,146.394689,3,Vegetation Category 3,1122135107.0,1
+Cabramurra Airport,-35.926887512207,148.392547607421,1,Vegetation Category 1,1462654590.0,1
+Cambewarra Airstrip,-34.830881,150.578555,3,Vegetation Category 3,142273695.0,1
+Campbelltown Hospital Heliport,-34.077985,150.804026,0,Not bush fire prone,,0
+Coombing Park Airport,-33.62859,149.125737,0,Not bush fire prone,,0
+Brewon Airport,-30.235407,147.516956,0,Not bush fire prone,,0
+Robertson Airstrip,-34.6449,150.6421,3,Vegetation Category 3,5405538.0,1
+Coleambally Airport No.2,-34.910226,145.892907,0,Not bush fire prone,,0
+Glencoe Airport,-31.620644,148.19885,3,Vegetation Category 3,429556264.0,1
+Bunyarra Airstrip,-30.90357,146.835571,3,Vegetation Category 3,0.0,1
+Cooplacurripa,-31.613134,151.908742,0,Not bush fire prone,,0
+2nd Crookwell Airfield,-34.493893,149.462128,0,Not bush fire prone,,0
+Croppa Creek airstrip,-29.114263,150.408883,0,Not bush fire prone,,0
+Currandooley Airport,-35.184331,149.485688,3,Vegetation Category 3,1064805589.0,1
+Enngonia,-29.034728,146.280899,3,Vegetation Category 3,1077825.0,1
+Enngonia station,-29.069393,145.998774,3,Vegetation Category 3,1077825.0,1
+Euabalong private airstrip,-33.073669,146.576225,0,Not bush fire prone,,0
+Fairholme airstrip,-33.290925,147.378384,3,Vegetation Category 3,1840995466.0,1
+Gingkin Airfield,-33.894607,149.93848,3,Vegetation Category 3,1219904668.0,1
+Boggabilla Airstrip,-28.649343,150.344505,3,Vegetation Category 3,0.0,1
+Gosford Hospital Helipad,-33.421626,151.339894,0,Not bush fire prone,,0
+Southern tablelands gliding club,-34.688468,149.892557,3,Vegetation Category 3,163009039.0,1
+Grenfell Airport,-34.0,148.132995605,0,Not bush fire prone,,0
+Gulgong Aero Park Airport,-32.298696,149.559567,0,Not bush fire prone,,0
+Dr Fox Airstrip,-33.425819,151.035901,0,Not bush fire prone,,0
+Gunnedah Airfield   SES Only,-31.04354,150.284623,0,Not bush fire prone,,0
+Henty Airport,-35.50682,146.997025,0,Not bush fire prone,,0
+HentyField Days Site Airport,-35.507083,147.109547,0,Not bush fire prone,,0
+Bald Hills Airport,-30.330653,152.458323,2,Vegetation Category 2,72729812.0,1
+Tucker Creek Airstrip,-34.10193,150.87736,1,Vegetation Category 1,157263439.0,1
+Ivanhoe Airport,-32.882381,144.310677,0,Not bush fire prone,,0
+Strowan,-32.460996,150.861705,0,Not bush fire prone,,0
+Limekilns airfield,-33.267613,149.725885,0,Not bush fire prone,,0
+Lockhart Airstrip,-35.205339,146.728742,0,Vegetation Buffer,72.0,1
+Louth Airport,-30.531414,145.128413,0,Not bush fire prone,,0
+St Mary's / Kennetts Airfield,-33.831866,150.745829,2,Vegetation Category 2,95115358.0,1
+Holsworthy (Military) Airport,-33.995575,150.951962,0,Not bush fire prone,,0
+Luskintyre Airfield,-32.666294,151.420226,3,Vegetation Category 3,0.0,1
+Manilla Paragliding,-30.678202,150.649547,3,Vegetation Category 3,1734634369.0,1
+Marthaguy airstrip private,-31.032911,147.889562,3,Vegetation Category 3,429556264.0,1
+Marulan (Tangryang) Airstrip,-34.734273,149.958315,3,Vegetation Category 3,163009039.0,1
+Grange View homestead airfield,-32.439399,148.884431,0,Not bush fire prone,,0
+Menindee Airport,-32.366699,142.404999,3,Vegetation Category 3,1549897197.0,1
+Menindee airfield,-32.726028,142.108141,3,Vegetation Category 3,0.0,1
+Karoola Airport,-32.944155,142.392727,3,Vegetation Category 3,1549897197.0,1
+Menindee Number 2 Airport,-32.847423,142.476044,3,Vegetation Category 3,1549897197.0,1
+Bindara Airstrip,-32.736805,142.355986,3,Vegetation Category 3,1549897197.0,1
+four mile lake airstrip,-32.087571,142.894764,3,Vegetation Category 3,1549897197.0,1
+Bono Station Airport,-32.565419,142.402085,3,Vegetation Category 3,1549897197.0,1
+Menindee Number 3 Airport,-32.624012,142.44113,3,Vegetation Category 3,1549897197.0,1
+Menindee airfield no 4,-32.467468,142.908508,3,Vegetation Category 3,1549897197.0,1
+Middlebrook Station Scone Airstrip,-31.9711685181,150.811477661,3,Vegetation Category 3,13118.0,1
+Hawker gate House airstrip (Milparinka),-29.785349,141.022353,3,Vegetation Category 3,0.0,1
+Ulladulla Medical Heliport,-35.32076,150.439306,0,Not bush fire prone,,0
+Beela Airstrip,-29.396309,149.869974,3,Vegetation Category 3,0.0,1
+Moulamein Airport,-35.0583856071,144.021320343,0,Not bush fire prone,,0
+Deltroit Station Airstrip,-35.16922,147.80606,0,Not bush fire prone,,0
+Mungo Lodge Airport,-33.7458244463,143.001308441,3,Vegetation Category 3,0.0,1
+Tirlta Station Airstrip,-31.251643,142.094821,3,Vegetation Category 3,0.0,1
+Grassmere Airfield,-31.419155,142.625027,3,Vegetation Category 3,0.0,1
+Mutawintji Historic Site airstrip,-31.244912,142.282516,3,Vegetation Category 3,0.0,1
+Narrandool Bush Strip,-29.252257,147.880182,0,Not bush fire prone,,0
+Ningaling homestead,-28.96129,144.637671,0,Not bush fire prone,,0
+Nobbys Creek private Strip,-28.29586,153.326306,3,Vegetation Category 3,463367681.0,1
+North Bourke airstrip,-29.621949,146.071258,3,Vegetation Category 3,238499.0,1
+North Talwood Airfield,-28.494205,149.45643,0,Not bush fire prone,,0
+Norwood Airport,-34.24877,144.351957,0,Not bush fire prone,,0
+Jaspers Brush Airfield,-34.815926,150.66173,3,Vegetation Category 3,142273695.0,1
+Oura Private Airstrip,-35.06493,147.68763,3,Vegetation Category 3,1140709329.0,1
+Allandy Airport,-30.38835,142.625198,3,Vegetation Category 3,0.0,1
+Packsaddle Airport,-30.29424,142.13758,3,Vegetation Category 3,0.0,1
+Pimpara Lake Station Airport,-30.42618,141.72401,3,Vegetation Category 3,0.0,1
+Shannon's Creek Emergency Airstrip,-30.246177,142.103173,3,Vegetation Category 3,0.0,1
+Parkes private strip,-32.984213,148.245259,0,Not bush fire prone,,0
+the airstrip,-31.084253,150.489049,0,Not bush fire prone,,0
+Pooncarie Airstrip,-33.377947,142.134113,3,Vegetation Category 3,0.0,1
+Whurlie Station Airport,-33.023682,142.347431,3,Vegetation Category 3,0.0,1
+Lelma Airstrip,-33.6727,142.41891,3,Vegetation Category 3,0.0,1
+Dochra Airfield,-32.650065,151.209003,3,Vegetation Category 3,146878290.0,1
+Singleton Military Area airstrip,-32.619272,151.180841,3,Vegetation Category 3,146878290.0,1
+South West Rocks Airport,-30.9246,153.0276,0,Not bush fire prone,,0
+frogs hollows airfield,-36.760549,149.804163,3,Vegetation Category 3,72161473.0,1
+Branglebar station airstrip,-30.64297,147.081399,0,Not bush fire prone,,0
+Tibooburra Homestead airstrip,-29.487704,142.070284,3,Vegetation Category 3,0.0,1
+clifton downs station airstrip,-29.619746,142.561212,3,Vegetation Category 3,0.0,1
+Tilpa Airport,-30.925497,144.419403,3,Vegetation Category 3,236410.0,1
+Keelameara Airport,-30.676785,144.299498,3,Vegetation Category 3,236410.0,1
+Napunyah Airport,-30.6123,144.22029,3,Vegetation Category 3,236410.0,1
+Trentham Cliffs airstrip,-34.234051,142.267845,0,Not bush fire prone,,0
+Tumbarumba Airport,-35.762604,147.886885,0,Not bush fire prone,,0
+Bondo Airstrip,-35.24817,148.46717,1,Vegetation Category 1,1462654590.0,1
+Upper Horton Wyl Airport,-30.1065,150.40428,0,Not bush fire prone,,0
+Uralla Private strip?,-30.671176,151.488333,0,Not bush fire prone,,0
+Wilson's Creek Farm Airstrip,-30.661522,151.42745,0,Not bush fire prone,,0
+Urana Aerodrome,-35.341242,146.285218,0,Not bush fire prone,,0
+Bullawa Airstrip,-35.2511,147.24152,3,Vegetation Category 3,1302933009.0,1
+Walcha Farm Airstrip,-31.002219,151.678906,3,Vegetation Category 3,0.0,1
+Hall Airport,-35.144284,149.042952,3,Vegetation Category 3,0.0,1
+Wallaroo Private Airstrip,-35.169086,148.96244,3,Vegetation Category 3,0.0,1
+Tilterweira Airfield,-30.00809,144.11175,3,Vegetation Category 3,0.0,1
+Nocoleche Airfield,-29.84436,144.11974,3,Vegetation Category 3,0.0,1
+Janina homestead,-29.984603,144.700027,3,Vegetation Category 3,268533.0,1
+Bimpero Airport,-30.29369,144.11918,3,Vegetation Category 3,0.0,1
+Rainbar Airstrip,-29.82646,144.640975,3,Vegetation Category 3,268533.0,1
+Dexfield Park,-31.42166667,152.75833333,3,Vegetation Category 3,5896720.0,1
+Aberfoyle Airstrip,-34.12065,150.82966,3,Vegetation Category 3,3627434.0,1
+Wee Jasper Airport,-35.130154,148.690053,3,Vegetation Category 3,350638429.0,1
+WeeWaa 2nd Airstrip,-30.252173,149.451141,0,Not bush fire prone,,0
+Rongold Station Airstrip,-33.88356,141.9894,3,Vegetation Category 3,0.0,1
+Westmead Hospital Helipad,-33.804742,150.988435,0,Not bush fire prone,,0
+White Cliffs Airport,-30.85181,143.071577,0,Vegetation Buffer,99590.0,1
+Polpah White Cliffs Airstrip,-30.846128,143.231077,3,Vegetation Category 3,265291.0,1
+Wilcannia airstrip,-31.40575,143.188323,3,Vegetation Category 3,263851.0,1
+Murtee Station,-31.576524,143.496093,3,Vegetation Category 3,262207.0,1
+Glendara Road Airstrip,-30.584612,143.347566,3,Vegetation Category 3,265291.0,1
+Tongo Woolshed Airport,-30.39828,143.7178,3,Vegetation Category 3,1240108408.0,1
+Momba Airport,-30.97887,143.50108,3,Vegetation Category 3,265390.0,1
+Wilcannia airstrip,-30.605709,143.67538,3,Vegetation Category 3,265390.0,1
+Wilton Airport,-34.21999,150.67076,3,Vegetation Category 3,16589933.0,1
+Tadji Park Airstrip,-34.23073,150.65913,3,Vegetation Category 3,16589933.0,1
+Wyaldra Airstrip,-32.295939,149.551542,0,Not bush fire prone,,0
+Yantabulla Arstrip,-29.351469,145.005734,3,Vegetation Category 3,1077825.0,1
+Yass Heliport,-34.822285,148.907844,0,Not bush fire prone,,0
+Yerranderie Airfield,-34.118399,150.218555,3,Vegetation Category 3,188300.0,1
+Wollongong City Heliport,-34.43942,150.895838,0,Not bush fire prone,,0
+RAAF Base Glenbrook,-33.761633,150.636255,0,Not bush fire prone,,0
+Tabulam Oval Helipad,-28.8903,152.5678,0,Not bush fire prone,,0
+Toonumbar Dam Helipad,-28.61835,152.79353,1,Vegetation Category 1,1167794959.0,1
+Halfway House HLS,-32.907167,150.7475,3,Vegetation Category 3,5143889.0,1
+Albury Base Hospital Helipad,-36.079212,146.938565,0,Vegetation Buffer,11969547.0,1
+Appin Colliery Helipad,-34.2098,150.7914,0,Vegetation Buffer,109056.0,1
+West Cliff Colliery Helipad,-34.234073,150.829822,0,Vegetation Buffer,708401.0,1
+Cataract Scout Park Heliport,-34.241539,150.821538,3,Vegetation Category 3,180225.0,1
+Armidale - Lambert Park HLS,-30.5113,151.6552,0,Not bush fire prone,,0
+Auburn Medical (Wyatt Park) Helicopter Landing Site,-33.858333,151.040833,0,Not bush fire prone,,0
+Bankstown - City Sports Complex HLS,-33.926981,151.023045,0,Not bush fire prone,,0
+"Baradine Oval Helicopter landing Site,",-30.951667,149.065167,0,Not bush fire prone,,0
+Batemans Bay Helipad,-35.71301,150.1872,0,Not bush fire prone,,0
+Batemans Bay ALT Hanging Rock HLS,-35.721,150.1955,0,Not bush fire prone,,0
+Batemans Bay Mackay Park HLS,-35.708333,150.1725,0,Not bush fire prone,,0
+Batemans Bay District Hospital Helipad,-35.7141,150.182194,0,Not bush fire prone,,0
+Bathurst Hospital Helipad,-33.40587,149.571884,0,Not bush fire prone,,0
+Bathurst Hospital Alternate (Victoria Park) Helipad,-33.407196,149.574115,0,Not bush fire prone,,0
+Batlow Showground Helicopter Landing Site,-35.520002,148.153639,0,Not bush fire prone,,0
+Baulkham Hills Private Hospital Helicopter Landing Site,-33.744812,150.990617,0,Not bush fire prone,,0
+Bega Hospital Heliport,-36.687887,149.858596,0,Not bush fire prone,,0
+Bellingen Medical - Connell Park HLS,-30.453613,152.901771,0,Not bush fire prone,,0
+Bermagui - Dickinson Oval HLS,-36.4265,150.076167,0,Not bush fire prone,,0
+Bingara Hospital Heliport,-29.86407,150.579563,0,Not bush fire prone,,0
+Blackheath - NPWS Helipad,-33.628062,150.306706,1,Vegetation Category 1,253229328.0,1
+Blayney Medical Helicopter Landing Site,-33.534833,149.249167,0,Not bush fire prone,,0
+Boggabri Hospital Heliport,-30.710741,150.039698,0,Not bush fire prone,,0
+Boggabri Coal Homestead Helipad,-30.631302,150.141199,0,Not bush fire prone,,0
+Maules Creek Mine Heliport,-30.562945,150.120417,1,Vegetation Category 1,114886133.0,1
+Bombala Medical Helicopter Landing Site,-36.913833,149.241333,0,Not bush fire prone,,0
+Bonalbo - Cricket oval HLS,-28.738,152.625167,0,Not bush fire prone,,0
+Boorowa Helicopter Landing Site,-34.4435,148.704667,0,Not bush fire prone,,0
+Bowral - Loseby Park Helicopter Landing Site,-34.4867,150.4228,0,Not bush fire prone,,0
+Bowraville Oval Helicopter Landing Site,-30.647667,152.848,0,Not bush fire prone,,0
+Braidwood Helicopter Landing Site,-35.448,149.8011,0,Not bush fire prone,,0
+Brooklyn Oval Helicopter Landing Site,-33.5473,151.215684,0,Not bush fire prone,,0
+Brooklyn TMC - Olivers Garage Helipad,-33.5562,151.1936,0,Vegetation Buffer,53105179.0,1
+Brooms Head Heliport,-29.6068,153.332,0,Not bush fire prone,,0
+Bulahdelah Helicopter Landing Site,-32.4,152.2,0,Not bush fire prone,,0
+Bulahdelah Showground Helicopter Landing Site,-32.4055,152.203333,0,Not bush fire prone,,0
+Bungendore Helicopter Landing Site,-35.254,149.444667,0,Not bush fire prone,,0
+Winters Helicopter Landing Paddock,-35.34682,149.50766,3,Vegetation Category 3,1064805589.0,1
+Bungonia NP Heliport,-34.808073,150.006799,1,Vegetation Category 1,156261235.0,1
+Burringbar Sports Club Helicopter Landing Site,-28.436563,153.467841,3,Vegetation Category 3,463367681.0,1
+Byron Central Hospital - Cavanbah Sporting Complex HLS,-28.635167,153.577167,0,Not bush fire prone,,0
+Cabramurra Helicopter Landing Site,-35.939833,148.377333,1,Vegetation Category 1,1462654590.0,1
+Cadia Mine(Ridgeway) Helicopter Landing Site,-33.44435,149.000842,3,Vegetation Category 3,0.0,1
+Camden - Onslow Park HLS,-34.05324,150.691285,0,Not bush fire prone,,0
+Canowindra Hospital Helipad,-33.556792,148.675227,3,Vegetation Category 3,0.0,1
+Cataract Dam Heliport,-34.255438,150.806252,1,Vegetation Category 1,289108689.0,1
+Cessnock Hospital Heliport,-32.826884,151.348053,0,Not bush fire prone,,0
+Charlotte Pass Medical Centre HLS,-36.434153,148.333417,1,Vegetation Category 1,0.0,1
+Wyong/Charmhaven Rural Fire Service Heliport,-33.235076,151.492862,0,Vegetation Buffer,195548087.0,1
+Coffs Harbour Health Campus Helipad,-30.316817,153.093125,0,Vegetation Buffer,38669433.0,1
+Long Reef Helipad,-33.73922,151.31033,0,Not bush fire prone,,0
+Concord Hospital Heliport,-33.83873,151.094364,0,Not bush fire prone,,0
+Condobolin Helicopter Landing Site,-33.081928,147.149602,0,Not bush fire prone,,0
+Coolah Hospital Heliport,-31.82182,149.710098,2,Vegetation Category 2,197594709.0,1
+Cooma Hospital Helipad,-36.242155,149.130147,0,Not bush fire prone,,0
+Coomba Park Helicopter Landing Site,-32.24113,152.47085,0,Not bush fire prone,,0
+Coonabarabran Hospital Helipad,-31.275241,149.284351,0,Not bush fire prone,,0
+Cootamundra Hospital Heliport,-34.633958,148.012673,0,Not bush fire prone,,0
+Copmanhurst Oval Helipad,-29.5892,152.77316,0,Not bush fire prone,,0
+Wanda Beach Helipad,-34.040487,151.1635,0,Not bush fire prone,,0
+Crookwell Medical Heliport,-34.449334,149.469085,0,Not bush fire prone,,0
+Denman Helicopter Landing Site,-32.3868,150.682,0,Not bush fire prone,,0
+Dorrigo Helipad,-30.3422,152.7092,0,Not bush fire prone,,0
+Appin West Colliery Heliport,-34.2185,150.717167,3,Vegetation Category 3,4469663.0,1
+Drake Oval Helicopter Landing Site,-28.9257,152.3762,2,Vegetation Category 2,4.0,1
+Dubbo Hospital Heliport,-32.238677,148.620483,0,Not bush fire prone,,0
+Dunedoo Hospital - Robinson Oval HLS,-32.013833,149.389833,2,Vegetation Category 2,413040973.0,1
+Dungog Hospital Helipad,-32.401167,151.745833,0,Not bush fire prone,,0
+Eden Sports Ground HLS,-37.05617,149.910679,0,Not bush fire prone,,0
+Erina Heliport,-33.440688,151.368704,0,Not bush fire prone,,0
+Eugowra Sports Oval Helicopter Landing Site.,-33.429459,148.369912,0,Not bush fire prone,,0
+Evans Head RAAF Bombing Range HLS,-29.196677,153.383796,1,Vegetation Category 1,18455.0,1
+Fairfield Hospital Helipad,-33.859012,150.905447,0,Not bush fire prone,,0
+Forbes Hospital Heliport,-33.395865,148.013767,0,Not bush fire prone,,0
+Forster Hospital Helipad,-32.188357,152.51321,0,Not bush fire prone,,0
+Gerroa Sand Mine HLS,-34.776253,150.788512,3,Vegetation Category 3,95676810.0,1
+Gibraltar House HLS,-29.519434,152.311133,1,Vegetation Category 1,2031150636.0,1
+Gilgandra Multi Purpose Service Helipad,-31.7039,148.665225,0,Not bush fire prone,,0
+Glen Innes - Rugby Park Heliport,-29.7302,151.7364,3,Vegetation Category 3,651087437.0,1
+Glenbrook NPWS Heliport,-33.7876,150.6085,1,Vegetation Category 1,499960214.0,1
+Gloucester Helicopter Landing Site,-32.014833,151.96,0,Not bush fire prone,,0
+Boggabilla Fuel Depot Landing Site,-28.6089,150.352,0,Not bush fire prone,,0
+Goulburn Hospital Helipad,-34.74803,149.71235,0,Not bush fire prone,,0
+Goulburn Police Academy Heliport,-34.736433,149.728401,0,Not bush fire prone,,0
+Grafton Hospital Helipad,-29.67357,152.94074,0,Not bush fire prone,,0
+Grenfell - Lawson Oval HLS,-33.906308,148.161567,0,Not bush fire prone,,0
+Billy Dunne Oval HLS,-32.35815,149.538431,0,Not bush fire prone,,0
+Gundagai Medical Helicopter Landing Site,-35.067923,148.102216,0,Not bush fire prone,,0
+Muskoka Helicopter Landing Site,-33.448833,151.073167,0,Not bush fire prone,,0
+Gunnedah Hospital Helipad,-30.98283,150.25223,0,Not bush fire prone,,0
+Guthega Helicopter Landing Site,-36.377333,148.375833,1,Vegetation Category 1,0.0,1
+McLean Oval Helicopter Landing Site,-34.556037,148.368001,0,Not bush fire prone,,0
+Aussies - Austral Bricks Helicopter landing Site,-33.829553,150.811172,2,Vegetation Category 2,95115358.0,1
+Iluka Sports Oval HLS,-29.406833,153.352833,0,Not bush fire prone,,0
+Inverell Hospital Helipad,-29.771656,151.131282,0,Not bush fire prone,,0
+Perisher Valley Medical Centre Helipad,-36.40515,148.41471,1,Vegetation Category 1,0.0,1
+Jindabyne Medical Helicopter Landing Site,-36.417993,148.615183,0,Not bush fire prone,,0
+Blue Mountains Hospital Helipad,-33.705262,150.322369,0,Vegetation Buffer,26442819.0,1
+Kurri Hospital Helipad,-32.82569,151.46279,0,Vegetation Buffer,79759.0,1
+Kyogle Hospital Helipad,-28.62822,153.00193,0,Not bush fire prone,,0
+Clarence Valley Correctional Centre Heliport,-29.740569,153.064098,0,Not bush fire prone,,0
+Leeton Showground Heliport,-34.56,146.405,0,Not bush fire prone,,0
+Angus Place Colliery Heliport,-33.352098,150.098981,3,Vegetation Category 3,895.0,1
+Garrawarra Farm Carpark HLS,-34.180333,151.038333,1,Vegetation Category 1,279374594.0,1
+Lismore - Mortimer Oval Helicopter Landing Site,-28.808344,153.284455,0,Not bush fire prone,,0
+Lismore Helibase,-28.801211,153.288242,0,Not bush fire prone,,0
+Lithgow Hospital Helipad,-33.49942,150.1287,0,Not bush fire prone,,0
+Baal Bone Colliery Helipad,-33.26958,150.05846,3,Vegetation Category 3,633.0,1
+Liverpool Hospital Helipad Alpha,-33.9204,150.9312,0,Not bush fire prone,,0
+Macksville Park Helicopter Landing Site,-30.71022,152.9213,0,Not bush fire prone,,0
+Maclean Hospital Helipad,-29.453639,153.201401,0,Not bush fire prone,,0
+Macquarie University Hospital HLS,-33.766167,151.116,0,Not bush fire prone,,0
+New Maitland Hospital Helipad,-32.759612,151.604328,0,Vegetation Buffer,0.0,1
+Mallanganee Oval Helicopter Landing Site,-28.90769,152.720668,0,Not bush fire prone,,0
+Wolgan Valley Heliport,-33.253611,150.187778,3,Vegetation Category 3,491.0,1
+Merriwa Hospital Helipad,-32.14338,150.3609,0,Not bush fire prone,,0
+Sutherland Hospital Helipad,-34.038783,151.1156,0,Not bush fire prone,,0
+Mona Vale Hospital Helipad,-33.68512,151.30824,0,Not bush fire prone,,0
+Moruya Hospital Helipad,-35.90397,150.06946,0,Vegetation Buffer,10287643.0,1
+Mount Druitt Hospital Heliport,-33.766232,150.830663,0,Not bush fire prone,,0
+Mudgee Hospital Helipad,-32.602546,149.588067,0,Not bush fire prone,,0
+Mullumbimby Hospital Helipad,-28.559347,153.49219,0,Vegetation Buffer,14475168.0,1
+Murrurundi Hospital Heliport,-31.770477,150.834062,0,Vegetation Buffer,404956.0,1
+Muswellbrook Hospital Heliport,-32.264171,150.898386,0,Not bush fire prone,,0
+Narrabri Mine Heliport.,-30.521049,149.900336,0,Not bush fire prone,,0
+Nelson Bay Heliport,-32.7167,152.1548,0,Not bush fire prone,,0
+John Hunter Hospital Helipad,-32.924048,151.693415,0,Vegetation Buffer,2465748.0,1
+Newcastle Regional Heliport,-32.87909,151.72803,0,Not bush fire prone,,0
+Nimbin Soccer Grounds HLS,-28.597465,153.225675,0,Vegetation Buffer,21441370.0,1
+Shoalhaven Hospital Helipad,-34.86978,150.59553,0,Not bush fire prone,,0
+Oberon Heliport,-33.7007,149.856,0,Not bush fire prone,,0
+Orange Hospital Helipad,-33.316724,149.092652,0,Not bush fire prone,,0
+Orange - Careflight Base Heliport,-33.30368,149.12098,0,Not bush fire prone,,0
+Orange East Heliport,-33.317222,149.148056,0,Not bush fire prone,,0
+Canobolas Training Area HLS,-33.386667,148.988833,1,Vegetation Category 1,127279090.0,1
+Parkes Hospital Helipad,-33.153234,148.171184,0,Not bush fire prone,,0
+Peak Hill Hospital Helipad,-32.7362,148.19978,0,Not bush fire prone,,0
+Nepean Hospital Helipad,-33.75855,150.7122,0,Not bush fire prone,,0
+Port Macquarie Hospital Helipad,-31.452683,152.88076,0,Vegetation Buffer,13559819.0,1
+Emu Creek Extreme Retreat HLS,-28.826667,152.481,0,Not bush fire prone,,0
+Quirindi Hospital Helipad,-31.50107,150.676606,3,Vegetation Category 3,1004192.0,1
+Quirindi Fire Station/Emergency Services Heliport,-31.501946,150.673563,0,Vegetation Buffer,535248.0,1
+Sydney Children's Hospital Heliport,-33.919522,151.239317,0,Not bush fire prone,,0
+Rylstone Hospital Helipad,-32.803975,149.975076,0,Not bush fire prone,,0
+Scone Hospital Helipad,-32.050268,150.877663,0,Not bush fire prone,,0
+Shellharbour Hospital Helipad,-34.55989,150.84173,0,Not bush fire prone,,0
+Singleton Hospital Helipad,-32.56708,151.186865,0,Not bush fire prone,,0
+Royal Prince Alfred Hospital Helipad,-33.889332,151.183685,0,Not bush fire prone,,0
+Royal North Shore Hospital Helipad,-33.821224,151.192023,0,Not bush fire prone,,0
+St Vincents - Victoria Barracks Helipad,-33.88525,151.22343,0,Not bush fire prone,,0
+Palm Beach Seaplane Base,-33.5871,151.3234,0,Not bush fire prone,,0
+Hornsby Ku-ring-gai Hospital Helipad,-33.703224,151.112727,0,Not bush fire prone,,0
+Chinaman's Pad Royal National Park HLS,-34.103368,151.057253,1,Vegetation Category 1,135993466.0,1
+Eastern Creek Raceway HLS,-33.804126,150.867462,0,Not bush fire prone,,0
+Western Sydney International (Nancy Bird Walton) Airport,-33.879444,150.739722,0,Not bush fire prone,,0
+Tamworth Hospital Helipad,-31.07457,150.92641,0,Not bush fire prone,,0
+Taree - Wrigley Park Helipad,-31.9064,152.4508,0,Not bush fire prone,,0
+Tenterfield - Federation Park Heliport,-29.048,152.0164,0,Not bush fire prone,,0
+Trundle Hospital Helicopter Landing Site,-32.9217,147.7067,0,Not bush fire prone,,0
+Tucabia Oval Helicopter Landing Site,-29.66,153.1056,0,Not bush fire prone,,0
+Tumut Hospital Helipad,-35.308,148.2191,0,Not bush fire prone,,0
+The Tweed Hospital Helipad,-28.17769,153.5466,0,Not bush fire prone,,0
+Urbenville Helipad,-28.46907,152.55133,3,Vegetation Category 3,65301621.0,1
+Clarence Wilderness Lodge HLS,-28.690818,152.375479,1,Vegetation Category 1,1167794959.0,1
+Wagga - Duke of Kent Oval Helipad,-35.11434,147.3541,0,Not bush fire prone,,0
+Wagga Wagga Base Hospital Heliport,-35.11899,147.35719,0,Not bush fire prone,,0
+Sydney Adventist Hospital Helipad,-33.733386,151.100006,0,Not bush fire prone,,0
+Watsons Bay Helipad,-33.835,151.280556,0,Not bush fire prone,,0
+Wee Waa Hospital Helipad,-30.225,149.4483,0,Not bush fire prone,,0
+Wellington-Rygate Park Heliport,-32.5487,148.9497,0,Not bush fire prone,,0
+Cowal Gold Mine Helipad,-33.6553,147.40036,0,Not bush fire prone,,0
+Westmead NETS Base Hospital Heliport,-33.802749,150.990223,0,Not bush fire prone,,0
+Westmead - Children's Hospital Helipad,-33.802339,150.993664,0,Not bush fire prone,,0
+Hawkesbury Hospital Helipad,-33.61058,150.8215,0,Not bush fire prone,,0
+Wisemans Ferry Helicopter Landing Site,-33.3835,150.988667,0,Not bush fire prone,,0
+Wollongong Hospital Helipad,-34.42419,150.8822,0,Not bush fire prone,,0
+Woodburn SES Helicopter Landing Site,-29.074,153.338333,0,Not bush fire prone,,0
+Woodenbong Oval Helicopter Landing Site,-28.389907,152.606333,3,Vegetation Category 3,65301621.0,1
+Wyong Hospital Helipad,-33.26025,151.48069,0,Not bush fire prone,,0
+Yamba Heliport,-29.444232,153.345312,0,Vegetation Buffer,3757102.0,1
+Yamba Oval Helicopter Landing Site,-29.438747,153.358337,0,Not bush fire prone,,0
+Yass Hospital Helicopter Landing Site,-34.854608,148.908316,0,Not bush fire prone,,0
+Rayner Place Heliport,-34.862795,148.933818,3,Vegetation Category 3,0.0,1
+Yeoval Oval Helicopter Landing Site,-32.750616,148.646634,0,Not bush fire prone,,0
+Young Hospital Helipad,-34.32094,148.28798,0,Not bush fire prone,,0
