@@ -127,6 +127,44 @@ POP_TIEBREAK = 0.05
 DEDUP_KM       = 0.3     # drop hospitals within this distance of an existing helipad hospital / candidate vertiport
 POOL_RADIUS_KM = None    # optional extra cap: only hospitals within this distance of an unreachable SA2
 
+# --- open-space candidate sites (parks, showgrounds, sports grounds, ovals) ---
+# Adds open public land as extra TAKE-OFF vertiport candidates alongside the hospitals.
+# They are pickup points only (dest_ok = False): a UAV lands at the park near an
+# unreachable SA2 and flies the patient to an EXISTING emergency hospital. They are
+# never flight destinations, so the rest of the stage-2 model is unchanged.
+#
+# Data source: OpenStreetMap, via the public Overpass API (openstreetmap.org data,
+# ODbL licensed). The query pulls parks/recreation grounds/sports grounds/showgrounds
+# within OPENSPACE_SEARCH_RADIUS_KM of each unreachable SA2 centroid, keeps polygons
+# at least OPENSPACE_MIN_AREA_M2 in size (big enough for a UAV landing pad), and caches
+# the result so later runs are instant and offline.
+INCLUDE_OPENSPACE        = True
+OPENSPACE_SOURCE         = 'file'                # 'overpass' = query live (needs internet) | 'file' = read OPENSPACE_FILE
+OPENSPACE_FILE           = 'nsw_openspace.csv'   # used when OPENSPACE_SOURCE='file'; columns name,lat,lon (overpass-turbo @lat/@lon ok)
+OPENSPACE_CACHE          = 'openspace_pool_cache.csv'  # Overpass results are cached here (delete to re-download)
+OPENSPACE_SEARCH_RADIUS_KM = 60                  # how far from an unreachable SA2 centroid to look for open space
+OPENSPACE_MIN_AREA_M2    = 5000                  # minimum polygon area to count as landable (5000 m2 ~= 70 m x 70 m)
+# Overpass mirrors, tried in order (the main endpoint is often overloaded and times out).
+OVERPASS_MIRRORS = [
+    'https://overpass-api.de/api/interpreter',
+    'https://overpass.kumi.systems/api/interpreter',
+    'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
+    'https://overpass.openstreetmap.ru/api/interpreter',
+]
+OVERPASS_CHUNK           = 1                     # SA2 centroids per request (1 = smallest, most reliable queries)
+OVERPASS_TIMEOUT_S       = 300                   # client read timeout per request
+OVERPASS_RETRIES         = 2                     # attempts per mirror before moving to the next
+# OSM tags treated as candidate open space. key -> list of accepted values ('*' = any value).
+OPENSPACE_OSM_TAGS = {
+    'leisure': ['park', 'recreation_ground', 'pitch', 'sports_centre', 'stadium', 'common', 'golf_course'],
+    'landuse': ['recreation_ground'],
+}
+OPENSPACE_NAME_REGEX = '[Ss]howground'           # also pull anything whose name looks like a showground
+# Open-space pads carry NO penalty of any kind: no build penalty and no risk cost, so in the objective a
+# selected park contributes just its count (1), nothing added. It competes purely on the coverage it adds.
+OPENSPACE_BUILD_PENALTY  = 0.0   # no build penalty for an open-space pad (hospitals still pay NEW_HELIPAD_PENALTY)
+OPENSPACE_DEFAULT_RISK   = 0.0   # no risk cost for an open-space site (set to None to use its real hazard data instead)
+
 # --- road times for new sites ---
 # With GOOGLE_MAPS_API_KEY set, new-site road times come from the Google Distance Matrix API (same method as d_ij.xlsx)
 # and are cached in STAGE2_ROAD_CACHE. Without a key, they are ESTIMATED from straight-line distance and flagged as such.
@@ -334,7 +372,6 @@ def load_hospital_pool():
     dfa = dfa.dropna(subset=[ALL_HOSP_NAME_COL, ALL_HOSP_LAT_COL, ALL_HOSP_LON_COL])
     dfa[ALL_HOSP_NAME_COL] = dfa[ALL_HOSP_NAME_COL].astype(str).str.strip()
     dfa = dfa.drop_duplicates(subset=[ALL_HOSP_NAME_COL, ALL_HOSP_LAT_COL, ALL_HOSP_LON_COL]).reset_index(drop=True)
-    print(f"  All-NSW hospital file: {n_raw} rows, {len(dfa)} with usable name + coordinates")
 
     if ALL_HOSP_EMERGENCY_COL:
         if ALL_HOSP_EMERGENCY_COL not in dfa.columns:
@@ -343,16 +380,15 @@ def load_hospital_pool():
     else:
         dest_ok = pd.Series(bool(TREAT_ALL_AS_EMERGENCY_CAPABLE), index=dfa.index)
         if not TREAT_ALL_AS_EMERGENCY_CAPABLE:
-            print("  NOTE: no emergency-department column set -> new helipads can be take-off sites only, "
+            print("\n  NOTE: no emergency-department column set -> new helipads can be take-off sites only, "
                   "not flight destinations (see ALL_HOSP_EMERGENCY_COL).")
         else:
-            print("  WARNING: every hospital in the file is treated as emergency-capable (TREAT_ALL_AS_EMERGENCY_CAPABLE).")
+            print("\n  WARNING: every hospital in the file is treated as emergency-capable (TREAT_ALL_AS_EMERGENCY_CAPABLE).")
 
     # drop hospitals that already are an existing helipad hospital or candidate vertiport
     ex = list(hospital_coords.values()) + list(candidate_coords.values())
     D = hav_matrix_km(dfa[ALL_HOSP_LAT_COL], dfa[ALL_HOSP_LON_COL], [c[0] for c in ex], [c[1] for c in ex])
     dup = D.min(axis=1) <= DEDUP_KM
-    print(f"  Removed {int(dup.sum())} hospitals within {DEDUP_KM} km of an existing helipad hospital / candidate vertiport")
     dfa, dest_ok = dfa[~dup].reset_index(drop=True), dest_ok[~dup].reset_index(drop=True)
 
     taken = set(candidate_coords) | set(hospital_coords)
@@ -371,6 +407,144 @@ def load_hospital_pool():
         'lat':      dfa[ALL_HOSP_LAT_COL].values,
         'lon':      dfa[ALL_HOSP_LON_COL].values,
         'dest_ok':  dest_ok.values.astype(bool),
+    })
+
+
+# ─────────────────────────────────────────────────────────────
+# STAGE 2: OPEN-SPACE CANDIDATE POOL  (parks, showgrounds, sports grounds)
+# ─────────────────────────────────────────────────────────────
+def _polygon_area_m2(geometry):
+    """Approx area (m^2) of an OSM way given as a list of {'lat','lon'} nodes (shoelace on a local equirectangular projection)."""
+    if not geometry or len(geometry) < 3:
+        return 0.0
+    lat0 = radians(sum(p['lat'] for p in geometry) / len(geometry))
+    R = 6371000.0
+    xy = [(R * radians(p['lon']) * cos(lat0), R * radians(p['lat'])) for p in geometry]
+    s = 0.0
+    for k in range(len(xy)):
+        x1, y1 = xy[k]
+        x2, y2 = xy[(k + 1) % len(xy)]
+        s += x1 * y2 - x2 * y1
+    return abs(s) / 2.0
+
+
+def _overpass_query(query):
+    """POST an Overpass QL query and return parsed JSON elements. Tries each mirror with retries (stdlib only)."""
+    import json, time
+    from urllib.request import Request, urlopen
+    from urllib.parse import urlencode
+    data = urlencode({'data': query}).encode()
+    last = None
+    for url in OVERPASS_MIRRORS:
+        for attempt in range(OVERPASS_RETRIES):
+            try:
+                req = Request(url, data=data, headers={'User-Agent': 'vertiport-siting/1.0'})
+                with urlopen(req, timeout=OVERPASS_TIMEOUT_S) as resp:
+                    return json.loads(resp.read().decode())['elements']
+            except Exception as e:
+                last = e
+                time.sleep(2 * (attempt + 1))   # brief back-off, then retry / next mirror
+    raise last
+
+
+def _overpass_fetch_openspace(target_coords):
+    """Query Overpass for open space near the given (lat, lon) centroids. Returns list of dicts: name, lat, lon, area_m2, osm."""
+    R = int(OPENSPACE_SEARCH_RADIUS_KM * 1000)
+    # tag selectors shared by every centroid in a chunk
+    sels = []
+    for key, vals in OPENSPACE_OSM_TAGS.items():
+        sels.append(f'["{key}"~"^({"|".join(vals)})$"]')
+    if OPENSPACE_NAME_REGEX:
+        sels.append(f'["name"~"{OPENSPACE_NAME_REGEX}"]')
+
+    found = {}
+    centroids = list(target_coords)
+    for c0 in range(0, len(centroids), OVERPASS_CHUNK):
+        chunk = centroids[c0:c0 + OVERPASS_CHUNK]
+        body = []
+        for lat, lon in chunk:
+            for sel in sels:
+                body.append(f'way(around:{R},{lat},{lon}){sel};')
+        q = f'[out:json][timeout:180];(\n' + '\n'.join(body) + '\n);out geom tags;'
+        try:
+            els = _overpass_query(q)
+        except Exception as e:
+            print(f"  WARNING: Overpass request failed for centroids {c0}-{c0 + len(chunk)}: {e}")
+            continue
+        for el in els:
+            if el.get('type') != 'way' or 'geometry' not in el:
+                continue
+            area = _polygon_area_m2(el['geometry'])
+            if area < OPENSPACE_MIN_AREA_M2:
+                continue
+            lats = [p['lat'] for p in el['geometry']]
+            lons = [p['lon'] for p in el['geometry']]
+            clat, clon = sum(lats) / len(lats), sum(lons) / len(lons)
+            tags = el.get('tags', {})
+            name = tags.get('name') or f"{tags.get('leisure') or tags.get('landuse') or 'open space'} (OSM {el['id']})"
+            found[el['id']] = {'name': name, 'lat': clat, 'lon': clon,
+                               'area_m2': round(area), 'osm': f"way/{el['id']}"}
+    return list(found.values())
+
+
+def load_openspace_pool(target_coords):
+    """
+    Open public land (parks, showgrounds, sports grounds) as extra TAKE-OFF candidate sites.
+    Same DataFrame schema as load_hospital_pool(), with dest_ok = False (pickup sites, never destinations).
+    Source: Overpass (cached) or a user CSV. Returns an empty frame on failure so stage 2 falls back to hospitals only.
+    """
+    raw = None
+
+    if OPENSPACE_SOURCE == 'file':
+        if not os.path.exists(OPENSPACE_FILE):
+            print(f"  Open space: OPENSPACE_FILE '{OPENSPACE_FILE}' not found -> skipping open-space sites.")
+            return pd.DataFrame(columns=['site', 'hospital', 'lat', 'lon', 'dest_ok'])
+        f = pd.read_csv(OPENSPACE_FILE) if OPENSPACE_FILE.lower().endswith('.csv') else pd.read_excel(OPENSPACE_FILE)
+        # accept overpass-turbo headers (@lat/@lon) and common variants, case-insensitively
+        f.columns = [str(c).strip().lstrip('@').lower() for c in f.columns]
+        f = f.rename(columns={'latitude': 'lat', 'longitude': 'lon', 'y': 'lat', 'x': 'lon'})
+        if 'name' not in f.columns:
+            f['name'] = ''
+        f['name'] = f['name'].fillna('').replace('', 'open space')
+        raw = f[['name', 'lat', 'lon']].copy()
+    else:
+        if os.path.exists(OPENSPACE_CACHE):
+            raw = pd.read_csv(OPENSPACE_CACHE)
+        else:
+            rows = _overpass_fetch_openspace(target_coords)
+            raw = pd.DataFrame(rows, columns=['name', 'lat', 'lon', 'area_m2', 'osm'])
+            if len(raw):
+                raw.to_csv(OPENSPACE_CACHE, index=False)
+            else:
+                print("  WARNING: Overpass returned no open space (no internet or no matches) -> hospitals only.")
+
+    raw = raw.dropna(subset=['lat', 'lon']).drop_duplicates(subset=['name', 'lat', 'lon']).reset_index(drop=True)
+    if not len(raw):
+        return pd.DataFrame(columns=['site', 'hospital', 'lat', 'lon', 'dest_ok'])
+
+    # drop any that sit on top of an existing helipad hospital or candidate vertiport
+    ex = list(hospital_coords.values()) + list(candidate_coords.values())
+    D = hav_matrix_km(raw['lat'], raw['lon'], [c[0] for c in ex], [c[1] for c in ex])
+    dup = D.min(axis=1) <= DEDUP_KM
+    raw = raw[~dup].reset_index(drop=True)
+
+    # unique site names, keeping clear of hospital-pool / existing names)
+    taken = set(candidate_coords) | set(hospital_coords)
+    sites, seen = [], set()
+    for nm in raw['name'].astype(str).str.strip():
+        base, cand, k = f"{nm}", f"{nm}", 1
+        while cand in taken or cand in seen:
+            k += 1
+            cand = f"{base} {k}"
+        seen.add(cand)
+        sites.append(cand)
+
+    return pd.DataFrame({
+        'site':     sites,
+        'hospital': raw['name'].astype(str).str.strip().values,   # descriptive label only; not an emergency dept
+        'lat':      raw['lat'].values,
+        'lon':      raw['lon'].values,
+        'dest_ok':  False,                                         # open space is a pickup site, never a destination
     })
 
 
@@ -401,7 +575,6 @@ def get_road_times(needed, coords_by_site, sa2_pts, client=None):
             import googlemaps                                   # pip install googlemaps
             client = googlemaps.Client(key=GOOGLE_API_KEY)
         if client is not None:
-            print(f"  Google Distance Matrix: requesting {n_el} SA2->site road times ...")
             rows = []
             for s, js in missing.items():
                 dest = [tuple(float(x) for x in coords_by_site[s])]
@@ -419,7 +592,6 @@ def get_road_times(needed, coords_by_site, sa2_pts, client=None):
             if rows:
                 old = pd.read_excel(STAGE2_ROAD_CACHE) if os.path.exists(STAGE2_ROAD_CACHE) else pd.DataFrame()
                 pd.concat([old, pd.DataFrame(rows)], ignore_index=True).to_excel(STAGE2_ROAD_CACHE, index=False)
-                print(f"  Cached to {STAGE2_ROAD_CACHE}")
         else:
             print(f"  WARNING: no GOOGLE_MAPS_API_KEY -> {n_el} road times ESTIMATED "
                   f"(straight line x {EST_ROAD_CIRCUITY} at {EST_ROAD_SPEED_KMH} km/h). Treat stage-2 results as indicative.")
@@ -493,9 +665,11 @@ def run_model_extended(J, I_all, P, base, pair_cov, cost_all, popshare, n_req, l
     mod.z = Var(mod.J,  domain=Binary)
     mod.x = Var(mod.PR, bounds=(0, 1))
 
+    # q_pen may be a single number (same penalty for every new site) or a dict {site: penalty}
+    pen = q_pen if isinstance(q_pen, dict) else {p: q_pen for p in P}
     mod.obj = Objective(
         expr=sum(mod.y[i] * (1 + lam * cost_all[i]) for i in I_all)
-             + q_pen * sum(mod.q[p] for p in P)
+             + sum(pen[p] * mod.q[p] for p in P)
              - pop_eps * sum(popshare[j] * mod.z[j] for j in J),
         sense=minimize)
 
@@ -525,25 +699,22 @@ def run_stage2(a, coverable, client=None):
     Look at the SA2s that existing sites cannot reach, build a candidate pool of new helipads from the
     all-NSW hospital list, and re-optimise over existing + new sites. Returns a results dict (or None).
     """
-    print("\n" + "=" * 60)
-    print("STAGE 2: EXTENDING INFRASTRUCTURE FROM ALL-NSW HOSPITALS")
-    print("=" * 60)
-
     J, I0, T = list(demand_coords), list(candidate_coords), TIME_THRESHOLD
     cov_set  = set(coverable)
     total_pop = float(sum(demand_population[j] for j in J))
     target = sorted((j for j in J if j not in cov_set), key=lambda j: -demand_population[j])
     S = target if STAGE2_SA2_SCOPE == 'unreachable' else list(J)
     S_idx = {j: m for m, j in enumerate(S)}
-    print(f"SA2s unreachable from existing sites: {len(target)} "
-          f"({sum(demand_population[j] for j in target):,.0f} people). Largest first:")
-    for j in target[:10]:
-        print(f"    {j:<45} pop {demand_population[j]:>9,.0f}")
-    if len(target) > 10:
-        print(f"    ... and {len(target) - 10} more")
 
     # ---- candidate pool -------------------------------------------------------------
+    os_sites = set()                                   # names of the open-space candidates (for penalty / risk)
     pool_all = load_hospital_pool()
+    if INCLUDE_OPENSPACE:
+        openspace = load_openspace_pool([demand_coords[j] for j in target])
+        if len(openspace):
+            os_sites = set(openspace['site'])
+            pool_all = pd.concat([pool_all, openspace], ignore_index=True)
+            pool_all = pool_all.drop_duplicates(subset=['site']).reset_index(drop=True)
     pool_all.to_csv('stage2_candidate_pool.csv', index=False)   # run your bushfire/wind/rain extraction on this list
 
     vmax = max(UAV_SPEED_KMH, MAX_ROAD_SPEED_KMH)
@@ -555,9 +726,8 @@ def run_stage2(a, coverable, client=None):
     pool = pool_all[keep].reset_index(drop=True)
     P = pool['site'].tolist()
     P_idx = {s: k for k, s in enumerate(P)}
-    print(f"Candidate helipad pool: {len(P)} hospitals ({int(pool.dest_ok.sum())} eligible as flight destinations)")
     if not P:
-        print("No usable candidate hospitals -> stage 2 cannot add anything.")
+        print("ERROR: no candidate sites in range -> stage 2 cannot add anything.")
         return None
     for s, la, lo in zip(pool.site, pool.lat, pool.lon):
         site_coords[s] = (la, lo)
@@ -573,10 +743,10 @@ def run_stage2(a, coverable, client=None):
         dm = np.array([d_ih.loc[i].min() for i in I0])
         ok = hv > 0.05
         ratio = np.median(dm[ok] / hv[ok]) if ok.any() else np.nan
-        print(f"Check: median (d_ih nearest-hospital distance / straight-line) = {ratio:.3f}"
-              f"{'' if abs(ratio - 1) < 0.05 else '  <-- d_ih is NOT straight-line; new-site flight times may be inconsistent'}")
+        if not (abs(ratio - 1) < 0.05):
+            print(f"WARNING: d_ih is NOT straight-line (median ratio {ratio:.3f}); new-site flight times may be inconsistent.")
     except Exception as e:
-        print(f"Check skipped ({e})")
+        print(f"WARNING: straight-line check skipped ({e})")
 
     Hd   = [k for k in range(len(P)) if pool.dest_ok[k]]            # destination-eligible pool sites
     Hn   = [P[k] for k in Hd]
@@ -592,8 +762,6 @@ def run_stage2(a, coverable, client=None):
         air_lb = np.minimum(air_lb, F_pp.min(axis=1))               # includes 0 for a site that is itself a destination
     in_range = (D_ps / MAX_ROAD_SPEED_KMH * 60 + air_lb[:, None]) <= T
     needed = {P[k]: [S[m] for m in np.nonzero(in_range[k])[0]] for k in range(len(P)) if in_range[k].any()}
-    print(f"Road-time pairs needed: {sum(len(v) for v in needed.values())} "
-          f"(of {len(P) * len(S)} possible; the rest are provably out of range)")
     road, road_src = get_road_times(needed, {s: site_coords[s] for s in needed}, {j: demand_coords[j] for j in S}, client)
 
     Rp = np.full((len(P), len(S)), np.inf)
@@ -613,7 +781,6 @@ def run_stage2(a, coverable, client=None):
         new_p = (Rp + F_pp[:, [m]] <= T) & ~A0p
         for r in np.nonzero(new_p.any(axis=1))[0]:
             pair_cov.setdefault((P[r], h), []).extend(S[c] for c in np.nonzero(new_p[r])[0])
-    print(f"Vertiport -> new-destination links that add coverage: {len(pair_cov)}")
 
     # ---- ceiling with new infrastructure ----------------------------------------------
     ext = set(cov_set)
@@ -622,14 +789,20 @@ def run_stage2(a, coverable, client=None):
         ext.update(js)
     n_target = ceil(max(COVERAGE_THRESHOLD, STAGE2_TARGET) * len(J) - 1e-9)
     n_req = min(n_target, len(ext))
-    print(f"Max achievable coverage with new helipads: {len(ext)}/{len(J)} = {len(ext) / len(J) * 100:.1f}%")
     if n_req < n_target:
-        print(f"  Target of {n_target} SA2s cannot be reached even with every candidate hospital; "
+        print(f"WARNING: target of {n_target} SA2s cannot be reached even with every candidate site; "
               f"solving for the achievable maximum ({n_req}).")
 
     # ---- costs and solve ----------------------------------------------------------------
-    cost_new = {s: new_site_cost(s) for s in P}
+    # open-space sites carry no risk cost (OPENSPACE_DEFAULT_RISK, default 0); set it to None to use real hazard data
+    def _new_cost(s):
+        if s in os_sites and OPENSPACE_DEFAULT_RISK is not None:
+            return OPENSPACE_DEFAULT_RISK
+        return new_site_cost(s)
+    cost_new = {s: _new_cost(s) for s in P}
     cost_all = {**cost, **cost_new}
+    # per-site build penalty: open space is cheap to stand up, a hospital helipad is not
+    q_pen = {s: (OPENSPACE_BUILD_PENALTY if s in os_sites else NEW_HELIPAD_PENALTY) for s in P}
     base = {j: [] for j in J}
     for i in I0:
         for j in J:
@@ -642,11 +815,16 @@ def run_stage2(a, coverable, client=None):
     popshare = {j: demand_population[j] / total_pop for j in J}
 
     out = run_model_extended(J, I0 + P, P, base, pair_cov, cost_all, popshare, n_req,
-                             RISK_LAMBDA, NEW_HELIPAD_PENALTY, POP_TIEBREAK)
+                             RISK_LAMBDA, q_pen, POP_TIEBREAK)
     if out is None:
         print("STAGE 2 INFEASIBLE / solver did not reach optimality.")
         return None
     sel, built, dest_used = out
+    # A zero build penalty (e.g. for open space) lets the solver switch on a site's "built" flag for free,
+    # even when it is never used. Keep only sites that are actually operated (take-off) or flown to (destination),
+    # so the report and map don't fill up with cost-free phantom builds.
+    used = set(sel) | set(dest_used)
+    built = [p for p in built if p in used]
     sel_set, built_set = set(sel), set(built)
 
     # ---- recompute coverage directly (independent of solver variables) ----------------
@@ -669,13 +847,6 @@ def run_stage2(a, coverable, client=None):
     newly_pop = sum(demand_population[j] for j in new_cov)
 
     # ---- report ----------------------------------------------------------------------
-    pop_cov = sum(demand_population[j] for j in covered)
-    print(f"\nStage-2 network: {len(sel)} vertiports ({len([s for s in sel if s in P_idx])} of them new) "
-          f"+ {len(built)} new helipads built")
-    print(f"Coverage: {len(covered)}/{len(J)} SA2s = {len(covered) / len(J) * 100:.1f}%   "
-          f"population {pop_cov / total_pop * 100:.1f}%")
-    print(f"SA2s reached only because of new helipads: {len(new_cov)} ({newly_pop:,.0f} people)")
-
     rows = []
     for p in built:
         role = ' + '.join(r for r, on in (('take-off vertiport', p in sel_set), ('destination', p in dest_used)) if on) or 'helipad'
@@ -683,7 +854,8 @@ def run_stage2(a, coverable, client=None):
         k = P_idx[p]
         srcs = {road_src[(j, p)] for j in S if (j, p) in road_src}
         rows.append({
-            'site': p, 'hospital': pool.hospital[k], 'lat': pool.lat[k], 'lon': pool.lon[k], 'role': role,
+            'site': p, 'type': 'park' if p in os_sites else 'helipad',
+            'hospital': pool.hospital[k], 'lat': pool.lat[k], 'lon': pool.lon[k], 'role': role,
             'risk_cost_0_1': round(cost_new[p], 3),
             'risk_data_missing': has_missing_risk_data(p),
             'road_time_source': ', '.join(sorted(srcs)) if srcs else 'n/a',
@@ -691,18 +863,41 @@ def run_stage2(a, coverable, client=None):
             'new_population_served': int(sum(demand_population[j] for j in mine)),
         })
     new_df = pd.DataFrame(rows)
+
+    def _print_table(headers, table_rows):
+        w = [max(len(str(h)), *(len(str(r[c])) for r in table_rows)) for c, h in enumerate(headers)]
+        line = lambda cells: '  ' + '  '.join(str(cells[c]).ljust(w[c]) for c in range(len(headers)))
+        print(line(headers))
+        print('  ' + '-' * (sum(w) + 2 * (len(headers) - 1)))
+        for r in table_rows:
+            print(line(r))
+
     if len(new_df):
-        new_df = new_df.sort_values('new_population_served', ascending=False)
-        print("\nNew helipads to build:")
-        print(new_df[['site', 'role', 'new_sa2_served', 'new_population_served', 'risk_cost_0_1',
-                      'risk_data_missing', 'road_time_source']].to_string(index=False))
+        new_df = new_df.sort_values('new_population_served', ascending=False).reset_index(drop=True)
         new_df.to_csv('stage2_new_helipads.csv', index=False)
+
+        # Table 1: new sites (helipads + parks) and their role
+        print(f"\nStage 2 added {len(built)} new sites -> coverage {len(covered)}/{len(J)} SA2s "
+              f"({sum(demand_population[j] for j in covered) / total_pop * 100:.1f}% of population)\n")
+        print("New sites to build:")
+        _print_table(['Site', 'Type', 'Role'],
+                     [[r['site'], r['type'], r['role']] for r in new_df.to_dict('records')])
+
+        # Table 2: SA2s newly covered by the stage-2 sites, with population and which new site serves them
+        print("\nSA2 regions newly covered:")
+        cov_rows = []
+        for j in sorted(new_cov, key=lambda j: -demand_population[j]):
+            by = ', '.join(sorted(s for s in served_by[j] if s in set(built))) or '-'
+            cov_rows.append([j, f"{demand_population[j]:,}", by])
+        _print_table(['SA2 region', 'Population', 'Covered by'], cov_rows)
+
         n_miss = int(new_df.risk_data_missing.sum())
         if n_miss:
-            print(f"\nNOTE: {n_miss} new site(s) have no bushfire/wind/rain data and were given the worst-case "
-                  f"default (severity {MISSING_DATA_SEVERITY}). Append them to the risk files by site name to fix.")
+            print(f"\nNOTE: {n_miss} new site(s) have no bushfire/wind/rain data (worst-case default applied; "
+                  f"append them to the risk files by site name to fix).")
         if (new_df.road_time_source == 'estimate').any():
             print("NOTE: some new-site road times are straight-line estimates, not Google routing.")
+
     pd.DataFrame([{'sa2': j, 'population': demand_population[j],
                    'lat': demand_coords[j][0], 'lon': demand_coords[j][1],
                    'covered_stage2': j in served_by,
@@ -710,17 +905,15 @@ def run_stage2(a, coverable, client=None):
                    'served_by': '; '.join(sorted(served_by.get(j, [])))}
                   for j in sorted(J, key=lambda j: -demand_population[j])]
                  ).to_csv('stage2_sa2_coverage.csv', index=False)
-    print("Saved: stage2_new_helipads.csv, stage2_sa2_coverage.csv, stage2_candidate_pool.csv")
+    print("\nSaved: stage2_new_helipads.csv, stage2_sa2_coverage.csv, stage2_candidate_pool.csv")
 
-    print(f"\nStill uncovered ({len(uncovered)}):")
-    for reg in sorted(uncovered, key=lambda j: -demand_population[j])[:15]:
-        print(f"\t{reg}  (pop {demand_population[reg]:,.0f})")
-    if len(uncovered) > 15:
-        print(f"\t... and {len(uncovered) - 15} more (see stage2_sa2_coverage.csv)")
+    if uncovered:
+        print(f"\nStill uncovered ({len(uncovered)}): "
+              + ', '.join(sorted(uncovered, key=lambda j: -demand_population[j])))
 
     roles = {r['site']: r['role'] for r in rows}
     return {'selected': sel, 'built': built, 'roles': roles, 'covered': covered, 'uncovered': uncovered,
-            'new_covered': new_cov, 'new_df': new_df}
+            'new_covered': new_cov, 'new_df': new_df, 'openspace': os_sites & set(built)}
 
 
 # ─────────────────────────────────────────────────────────────
@@ -796,7 +989,7 @@ if RUN_STAGE2:
 # ─────────────────────────────────────────────────────────────
 # LAMBDA SENSITIVITY ANALYSIS
 # ─────────────────────────────────────────────────────────────
-lambda_analysis = True  # set to True to run lambda sensitivity analysis
+lambda_analysis = False  # set to True to run lambda sensitivity analysis
 if lambda_analysis:
     lambda_values = [0.0, 0.1, 0.25, 0.5, 0.75, 1.0, 2.0, 5.0, 10.0]
     lambda_results = []
@@ -895,7 +1088,7 @@ if lambda_analysis:
 # ─────────────────────────────────────────────────────────────
 # SENSITIVITY ANALYSIS
 # ─────────────────────────────────────────────────────────────
-Run_analysis = True # set to True to run sensitivity analysis
+Run_analysis = False # set to True to run sensitivity analysis
 
 if Run_analysis:
     time_thresholds  = [30, 45, 60, 75, 90, 105, 120]
@@ -983,7 +1176,7 @@ def match_polygons(names, gdf):
     out['geometry'] = out.geometry.simplify(0.001, preserve_topology=True)
     return out
 
-def make_map(sel, cov, unc, outfile, new_helipads=None, new_roles=None, new_covered=None):
+def make_map(sel, cov, unc, outfile, new_helipads=None, new_roles=None, new_covered=None, openspace_sites=None):
     gdf = _load_sa2()
     m_map = folium.Map(
         location=[-33.0, 151.0],
@@ -1046,15 +1239,20 @@ def make_map(sel, cov, unc, outfile, new_helipads=None, new_roles=None, new_cove
             icon=folium.Icon(color='red', icon='plane', prefix='fa')
         ).add_to(m_map)
 
-    # new helipads (stage 2)
+    # new sites (stage 2): open-space pads get a park pin, hospital helipads keep the H pin
+    os_set = set(openspace_sites or [])
     for j in (new_helipads or []):
         lat, lon = site_coords[j]
         role = (new_roles or {}).get(j, 'new helipad')
+        if j in os_set:
+            label, icon = 'pad', folium.Icon(color='darkgreen', icon='tree', prefix='fa')
+        else:
+            label, icon = 'helipad', folium.Icon(color='green', icon='h-square', prefix='fa')
         folium.Marker(
             location=[lat, lon],
-            popup=folium.Popup(f"NEW: {j} ({role})", max_width=250),
-            tooltip=f"NEW: {j} ({role})",
-            icon=folium.Icon(color='green', icon='h-square', prefix='fa')
+            popup=folium.Popup(f"NEW {label}: {j} ({role})", max_width=250),
+            tooltip=f"NEW {label}: {j} ({role})",
+            icon=icon
         ).add_to(m_map)
 
     # reachable hospitals
@@ -1068,9 +1266,11 @@ def make_map(sel, cov, unc, outfile, new_helipads=None, new_roles=None, new_cove
 
     new_rows = '''
     <p style="margin: 5px 0;"><i style="background:#f4a261; width:12px; height:12px;
-       display:inline-block; border:1px solid #e76f51;"></i> Covered via new helipad</p>
+       display:inline-block; border:1px solid #e76f51;"></i> Covered via new site</p>
     <p style="margin: 5px 0;"><i class="fa fa-h-square" style="color:green; font-size:16px;
-       width:12px; text-align:center;"></i> New helipad (stage 2)</p>
+       width:12px; text-align:center;"></i> New helipad (hospital)</p>
+    <p style="margin: 5px 0;"><i class="fa fa-tree" style="color:darkgreen; font-size:16px;
+       width:12px; text-align:center;"></i> New pad (park)</p>
     ''' if new_helipads else ''
     legend_html = f'''
     <div style="position: fixed; bottom: 50px; right: 50px; width: 250px;
@@ -1096,6 +1296,7 @@ if os.path.exists(SA2_SHAPEFILE):
     make_map(selected, covered, uncovered, 'vertiports_map.html')
     if stage2 is not None:
         make_map(stage2['selected'], stage2['covered'], stage2['uncovered'], 'vertiports_map_stage2.html',
-                 new_helipads=stage2['built'], new_roles=stage2['roles'], new_covered=stage2['new_covered'])
+                 new_helipads=stage2['built'], new_roles=stage2['roles'], new_covered=stage2['new_covered'],
+                 openspace_sites=stage2['openspace'])
 else:
     print(f"Map skipped: shapefile '{SA2_SHAPEFILE}' not found.")
