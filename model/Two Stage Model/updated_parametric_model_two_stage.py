@@ -44,7 +44,7 @@ site_coords       = dict(candidate_coords)   # candidate vertiports + stage 2 ne
 # ─────────────────────────────────────────────────────────────
 
 UAV_SPEED_KMH      = 250
-TIME_THRESHOLD     = 90
+TIME_THRESHOLD     = 75
 COVERAGE_THRESHOLD = 1
 
 # How strongly risk trades against vertiport count.
@@ -120,12 +120,15 @@ POOL_RADIUS_KM = None    # optional extra cap: only hospitals within this distan
 
 # --- open-space candidate sites (parks, showgrounds, sports grounds, ovals) ---
 # Adds open public land as extra TAKE-OFF vertiport candidates alongside the hospitals.
-# They are pickup points only (dest_ok = False)
+# as a flight DESTINATION
 INCLUDE_OPENSPACE        = True
-OPENSPACE_FILE           = 'nsw_openspace.csv'   # downloaded open-space list (name, lat, lon)
+OPENSPACE_FILE           = 'nsw_openspace.csv'   
 # Open-space pads carry NO penalty of any kind: no build penalty and no risk cost.
 OPENSPACE_BUILD_PENALTY  = 0.0
 OPENSPACE_DEFAULT_RISK   = 0.0
+# An open space is allowed as a destination only if it is within this road distance
+# of an emergency hospital
+OPENSPACE_DEST_DIST_KM   = 0.5
 
 # --- road times for new sites ---
 # New-site road times come from OSRM
@@ -373,8 +376,9 @@ def load_hospital_pool():
 # ─────────────────────────────────────────────────────────────
 # STAGE 2 HELPERS FOR OPEN-SPACE CANDIDATE POOL
 # ─────────────────────────────────────────────────────────────
-# Read from the downloaded OPENSPACE_FILE
-def load_openspace_pool():
+# Read from the downloaded OPENSPACE_FILE.
+# dest_hosp_coords = list of (lat, lon) of hospitals an open space may count as a destination if near.
+def load_openspace_pool(dest_hosp_coords):
     if not os.path.exists(OPENSPACE_FILE):
         print(f"  WARNING: OPENSPACE_FILE '{OPENSPACE_FILE}' not found -> skipping open-space sites.")
         return pd.DataFrame(columns=['site', 'hospital', 'lat', 'lon', 'dest_ok'])
@@ -392,13 +396,13 @@ def load_openspace_pool():
     if not len(raw):
         return pd.DataFrame(columns=['site', 'hospital', 'lat', 'lon', 'dest_ok'])
 
-    # drop any that sit on top of an existing helipad hospital or candidate vertiport
-    ex = list(hospital_coords.values()) + list(candidate_coords.values())
+    # drop any that sit on top of an existing candidate vertiport (keep ones near hospitals)
+    ex = list(candidate_coords.values())
     D = hav_matrix_km(raw['lat'], raw['lon'], [c[0] for c in ex], [c[1] for c in ex])
     dup = D.min(axis=1) <= DEDUP_KM
     raw = raw[~dup].reset_index(drop=True)
 
-    # unique site names, keeping clear of hospital-pool / existing names)
+    # unique site names, keeping clear of hospital-pool / existing names
     taken = set(candidate_coords) | set(hospital_coords)
     sites, seen = [], set()
     for nm in raw['name'].astype(str).str.strip():
@@ -409,12 +413,36 @@ def load_openspace_pool():
         seen.add(cand)
         sites.append(cand)
 
+    # destination eligibility: an open space within OPENSPACE_DEST_DIST_KM road-km of a hospital that can
+    # act as a destination may also be a flight destination
+    dest_ok = np.zeros(len(raw), dtype=bool)
+    if dest_hosp_coords:
+        hmat = hav_matrix_km(raw['lat'], raw['lon'],
+                             [c[0] for c in dest_hosp_coords], [c[1] for c in dest_hosp_coords])
+        hav_near = hmat.min(axis=1)
+        cand = np.nonzero(np.asarray(hav_near) <= OPENSPACE_DEST_DIST_KM)[0]
+        if len(cand):
+            nearest = hmat[cand].argmin(axis=1)                       # nearest hospital per candidate
+            uniq = sorted({int(x) for x in nearest})
+            dst = [dest_hosp_coords[u] for u in uniq]                 # only the hospitals actually nearby
+            try:
+                osrm_km = _osrm_distance_km(list(cand),
+                                            [(raw['lat'].iloc[i], raw['lon'].iloc[i]) for i in cand], dst)
+                for i in cand:
+                    if osrm_km.get(i, np.inf) <= OPENSPACE_DEST_DIST_KM:
+                        dest_ok[i] = True
+                print(f"  Open space: {int(dest_ok.sum())} within {OPENSPACE_DEST_DIST_KM} km (road) of a "
+                      f"hospital -> usable as destinations.")
+            except Exception as e:
+                print(f"  WARNING: OSRM distance check for open-space destinations failed ({e}); "
+                      f"none enabled this run.")
+
     return pd.DataFrame({
         'site':     sites,
         'hospital': raw['name'].astype(str).str.strip().values,   # descriptive label only; not an emergency dept
         'lat':      raw['lat'].values,
         'lon':      raw['lon'].values,
-        'dest_ok':  False,                                         # open space is a pickup site, never a destination
+        'dest_ok':  dest_ok,                                       # True = near a hospital, can be a destination
     })
 
 # OSRM driving-time table (minutes) from each SA2 centroid to each new site
@@ -440,6 +468,30 @@ def _osrm_table(sa2_keys, sa2_vals, site_keys, site_vals, chunk_size=25):
                     out[(an, bn)] = np.inf if d is None else d / 60.0
             time.sleep(0.3)   # be gentle on the public OSRM server
     return out
+
+# OSRM driving DISTANCE (km): min road distance from each source to its nearest destination.
+def _osrm_distance_km(src_keys, src_vals, dst_vals, chunk_size=25):
+    best = {k: np.inf for k in src_keys}
+    for i0 in range(0, len(src_keys), chunk_size):
+        ik, iv = src_keys[i0:i0 + chunk_size], src_vals[i0:i0 + chunk_size]
+        for j0 in range(0, len(dst_vals), chunk_size):
+            jv = dst_vals[j0:j0 + chunk_size]
+            all_coords = list(iv) + list(jv)
+            coords_str = ';'.join(f"{lon},{lat}" for lat, lon in all_coords)
+            n_i = len(ik)
+            sources      = ';'.join(str(k) for k in range(n_i))
+            destinations = ';'.join(str(k) for k in range(n_i, n_i + len(jv)))
+            url = (f"{OSRM_URL}/table/v1/driving/{coords_str}"
+                   f"?sources={sources}&destinations={destinations}&annotations=distance")
+            resp = requests.get(url, timeout=60)
+            resp.raise_for_status()
+            dists = resp.json()['distances']   # metres
+            for a, k in enumerate(ik):
+                row = [d for d in dists[a] if d is not None]
+                if row:
+                    best[k] = min(best[k], min(row) / 1000.0)
+            time.sleep(0.3)
+    return best
 
 # Road time (min) from each SA2 centroid to each new site
 def get_road_times(needed, coords_by_site, sa2_pts, client=None):
@@ -486,7 +538,7 @@ def get_road_times(needed, coords_by_site, sa2_pts, client=None):
     return times, source
 
 
-# --- risk cost of a NEW site: same formulas as stage 1, normalised with the stage-1 bounds -----------------
+# risk cost of a NEW site: same formulas as stage 1, normalised with the stage-1 bounds
 _raw_bf   = {j: bfpl_severity(j) for j in candidate_coords}
 _raw_wind = {j: wind_severity(j) for j in candidate_coords}
 _raw_rain = {j: rain_severity(j) for j in candidate_coords}
@@ -603,11 +655,15 @@ def run_stage2(a, coverable, client=None):
     S = target if STAGE2_SA2_SCOPE == 'unreachable' else list(J)
     S_idx = {j: m for m, j in enumerate(S)}
 
-    # ---- candidate pool -------------------------------------------------------------
-    os_sites = set()                                   
+    # candidate pool 
+    os_sites = set()
     pool_all = load_hospital_pool()
     if INCLUDE_OPENSPACE:
-        openspace = load_openspace_pool()
+        # hospitals an open space may count as a destination if nearby
+        # plus the all-NSW hospital pool (the hospitals the model can build as new destinations)
+        dest_hosp = list(hospital_coords.values()) + list(zip(
+            pool_all.loc[pool_all.dest_ok, 'lat'], pool_all.loc[pool_all.dest_ok, 'lon']))
+        openspace = load_openspace_pool(dest_hosp)
         if len(openspace):
             os_sites = set(openspace['site'])
             pool_all = pd.concat([pool_all, openspace], ignore_index=True)
@@ -629,7 +685,7 @@ def run_stage2(a, coverable, client=None):
     for s, la, lo in zip(pool.site, pool.lat, pool.lon):
         site_coords[s] = (la, lo)
 
-    # ---- flight times ---------------------------------------------------------------
+    # flight times 
     h_xy   = list(hospital_coords.values())
     air0_p = hav_matrix_km(pool.lat, pool.lon, [c[0] for c in h_xy], [c[1] for c in h_xy]).min(axis=1) / UAV_SPEED_KMH * 60
 
@@ -640,7 +696,7 @@ def run_stage2(a, coverable, client=None):
     F_0  = hav_matrix_km([candidate_coords[i][0] for i in I0], [candidate_coords[i][1] for i in I0],
                          [pool.lat[k] for k in Hd], [pool.lon[k] for k in Hd]) / UAV_SPEED_KMH * 60
 
-    # ---- road times for new sites ------
+    # road times for new sites
     D_ps   = hav_matrix_km(pool.lat, pool.lon, [demand_coords[j][0] for j in S], [demand_coords[j][1] for j in S])
     air_lb = air0_p.copy()
     if Hd:
@@ -657,7 +713,7 @@ def run_stage2(a, coverable, client=None):
     R0  = np.array([[road_time_lookup[(j, i)] for j in S] for i in I0], dtype=float)
     A0e = np.array([[a[i, j] for j in S] for i in I0], dtype=bool)
 
-    # ---- coverage via NEW destination helipads ---------------------------------------
+    # coverage via NEW destination helipads 
     pair_cov = {}
     for m, h in enumerate(Hn):
         new_e = (R0 + F_0[:, [m]] <= T) & ~A0e
@@ -667,7 +723,7 @@ def run_stage2(a, coverable, client=None):
         for r in np.nonzero(new_p.any(axis=1))[0]:
             pair_cov.setdefault((P[r], h), []).extend(S[c] for c in np.nonzero(new_p[r])[0])
 
-    # ---- ceiling with new infrastructure ----------------------------------------------
+    # ceiling with new infrastructure
     ext = set(cov_set)
     ext.update(S[m] for m in range(len(S)) if A0p[:, m].any())
     for js in pair_cov.values():
@@ -678,7 +734,7 @@ def run_stage2(a, coverable, client=None):
         print(f"WARNING: target of {n_target} SA2s cannot be reached even with every candidate site; "
               f"solving for the achievable maximum ({n_req}).")
 
-    # ---- costs and solve ----------------------------------------------------------------
+    # costs and solve 
     # open-space sites carry no risk cost 
     def _new_cost(s):
         if s in os_sites and OPENSPACE_DEFAULT_RISK is not None:
@@ -709,7 +765,7 @@ def run_stage2(a, coverable, client=None):
     built = [p for p in built if p in used]
     sel_set, built_set = set(sel), set(built)
 
-    # ---- recompute coverage directly ----------------
+    # recompute coverage directly
     pairs_for = {j: [] for j in J}
     for pr, js in pair_cov.items():
         for j in js:
@@ -728,7 +784,7 @@ def run_stage2(a, coverable, client=None):
     new_cov = [j for j in covered if j not in cov_set]              # SA2s that only the new infrastructure reaches
     newly_pop = sum(demand_population[j] for j in new_cov)
 
-    # ---- report ----------------------------------------------------------------------
+    # report 
     rows = []
     for p in built:
         role = ' + '.join(r for r, on in (('take-off vertiport', p in sel_set), ('destination', p in dest_used)) if on) or 'helipad'
@@ -746,9 +802,10 @@ def run_stage2(a, coverable, client=None):
         })
     new_df = pd.DataFrame(rows)
 
-    def _print_table(headers, table_rows):
-        w = [max(len(str(h)), *(len(str(r[c])) for r in table_rows)) for c, h in enumerate(headers)]
-        line = lambda cells: '  ' + '  '.join(str(cells[c]).ljust(w[c]) for c in range(len(headers)))
+    def _print_table(headers, table_rows, aligns=None):
+        aligns = aligns or ['<'] * len(headers)   # '<' left, '>' right (per column)
+        w = [max([len(str(h))] + [len(str(r[c])) for r in table_rows]) for c, h in enumerate(headers)]
+        line = lambda cells: '  ' + '  '.join(f"{str(cells[c]):{aligns[c]}{w[c]}}" for c in range(len(headers)))
         print(line(headers))
         print('  ' + '-' * (sum(w) + 2 * (len(headers) - 1)))
         for r in table_rows:
@@ -771,14 +828,14 @@ def run_stage2(a, coverable, client=None):
         for j in sorted(new_cov, key=lambda j: -demand_population[j]):
             by = ', '.join(sorted(s for s in served_by[j] if s in set(built))) or '-'
             cov_rows.append([j, f"{demand_population[j]:,}", by])
-        _print_table(['SA2 region', 'Population', 'Covered by'], cov_rows)
+        _print_table(['SA2 region', 'Population', 'Covered by'], cov_rows, aligns=['<', '>', '<'])
 
         n_miss = int(new_df.risk_data_missing.sum())
         if n_miss:
             print(f"\nNOTE: {n_miss} new site(s) have no bushfire/wind/rain data (worst-case default applied; "
                   f"append them to the risk files by site name to fix).")
         if (new_df.road_time_source == 'estimate').any():
-            print("NOTE: some new-site road times are straight-line estimates, not Google routing.")
+            print("NOTE: some new-site road times are straight-line estimates, not OSRM routing.")
 
     pd.DataFrame([{'sa2': j, 'population': demand_population[j],
                    'lat': demand_coords[j][0], 'lon': demand_coords[j][1],
